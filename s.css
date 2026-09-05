@@ -153,6 +153,17 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 .hero .slogan{ font-size:1.18rem; color:#EAF3EC; max-width:52ch; }
 .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
 
+/* ---------- hero background image (avec repli placeholder) ---------- */
+.hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.hero-bg img{ width:100%; height:100%; object-fit:cover; display:block; }
+.hero-bg.is-empty{
+  background:var(--deep-green);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  color:#DCEAE1;
+}
+.hero-bg.is-empty .placeholder-icon{ width:48px; height:48px; margin-bottom:10px; opacity:.7; }
+.hero-bg.is-empty .placeholder-label{ font-size:.85rem; opacity:.8; position:static; background:none; }
+
 /* ---------- generic page hero (inner pages) ---------- */
 .page-hero{
   background:linear-gradient(120deg,var(--deep-green),var(--deep-green-2));
@@ -338,9 +349,16 @@ textarea.field{ resize:vertical; min-height:120px; }
 }
 .wa-float:hover{ background:#175f3e; }
 
-/* reveal-on-scroll (single, restrained effect) */
-.reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
-.reveal.in{ opacity:1; transform:none; }
+/* ---------- reveal-on-scroll ----------
+   Visible par défaut (sécurité si JS absent, en erreur, ou désactivé).
+   L'effet d'apparition ne s'active que lorsque main.js confirme son
+   exécution en ajoutant la classe "js-ready" sur <html>. */
+.reveal{ opacity:1; transform:none; }
+.js-ready .reveal{
+  opacity:0; transform:translateY(14px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.js-ready .reveal.in{ opacity:1; transform:none; }
 
 /* misc */
 .split{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
