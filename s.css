@@ -5,8 +5,8 @@
    ========================================================= */
 
 :root{
-  --deep-green:  #0B3B2C;
-  --deep-green-2:#092E22;
+  --deep-green:  #0C8B3C
+  --deep-green-2:#0B3B2C;
   --emerald:     #1F7A50;
   --emerald-l:   #E7F1EB;
   --gold:        #B8903E;
@@ -181,7 +181,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
   display:flex; align-items:center; justify-content:center; text-align:center;
   background:
     linear-gradient(rgba(10,55,30,.78), rgba(10,55,30,.78)),
-    url("li.jpeg");
+    url("public/images/institut.jpg");
   background-size:cover;
   background-position:center;
   color:#fff;
