@@ -4,6 +4,11 @@
 (function () {
   "use strict";
 
+  // Confirme le plus tôt possible que le JS s'exécute correctement,
+  // afin que le CSS n'active l'effet "reveal" (opacity:0 -> 1) que
+  // lorsque cette classe est présente. Voir s.css / .reveal.
+  document.documentElement.classList.add("js-ready");
+
   const WHATSAPP_NUMBERS = ["221774036424", "221775722937"];
   const WHATSAPP_DEFAULT_MSG = "Assalamu alaikum, je souhaite avoir des informations sur l'Institut Al Maarifa.";
   window.waLink = function (msg) {
