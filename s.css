@@ -1,12 +1,7 @@
-/* =========================================================
-   INSTITUT AL MAARIFA — Design system
-   Palette: deep green / emerald / gold, warm off-white base
-   Type: Fraunces (display serif) + Karla (text sans)
-   ========================================================= */
 
 :root{
   --deep-green:  #0C8B3C;
-  --deep-green-2:#092E22;
+  --deep-green-2:#0B3B2C;
   --emerald:     #1F7A50;
   --emerald-l:   #E7F1EB;
   --gold:        #B8903E;
@@ -172,23 +167,6 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 .page-hero h1{ color:#fff; margin-bottom:10px; }
 .page-hero p{ color:#DCEAE1; max-width:60ch; }
 .crumb{ font-size:.85rem; color:var(--gold-l); font-weight:700; margin-bottom:10px; }
-
-/* ---------- page banner (bannière photo pour pages internes) ----------
-   Le dégradé vert est une couche indépendante de l'image : si la photo
-   ne charge pas, le fond reste un vert uni lisible (pas de trou blanc). */
-.page-banner{
-  min-height:520px;
-  display:flex; align-items:center; justify-content:center; text-align:center;
-  background:
-    linear-gradient(rgba(10,55,30,.78), rgba(10,55,30,.78)),
-    url("public/images/institut.jpg");
-  background-size:cover;
-  background-position:center;
-  color:#fff;
-}
-.page-banner h1{ color:#fff; margin-bottom:10px; }
-.page-banner p{ color:#DCEAE1; max-width:60ch; margin:0 auto; }
-@media(max-width:720px){ .page-banner{ min-height:360px; } }
 
 /* ---------- section headers ---------- */
 .section-head{ max-width:640px; margin-bottom:44px; }
@@ -393,4 +371,20 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
   position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999;
   background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
 }
-.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
+.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
+  "alternateName": "Institut Al Maarifa",
+  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bambilor - Darou Salam",
+    "addressCountry": "SN"
+  },
+  "telephone": ["+221774036424", "+221775722937"],
+  "url": "https://www.institut-almaarifa.sn/"
+}
