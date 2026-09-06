@@ -237,6 +237,43 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
   }
 }
 
+/* Eyebrow (petit texte au-dessus du titre) */
+.page-banner .eyebrow{
+  display:block;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1.1rem;
+  color:var(--gold-l);
+  margin-bottom:16px;
+}
+.page-banner .eyebrow strong{
+  color:#8FE0B8; /* vert clair, accent lisible sur fond sombre */
+  font-style:normal;
+  font-weight:700;
+}
+
+/* Séparateur avec losange central (accent vert) */
+.page-banner .divider{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:0 auto 22px; width:180px;
+}
+.page-banner .divider::before,
+.page-banner .divider::after{
+  content:""; flex:1; height:1px; background:rgba(143,224,184,.55);
+}
+.page-banner .divider span{
+  width:8px; height:8px; background:#8FE0B8; transform:rotate(45deg); flex:0 0 auto;
+}
+
+/* Fil d'Ariane */
+.page-banner .crumb{
+  font-size:.9rem; font-weight:600; margin:18px 0 0; color:#CFE3D8;
+}
+.page-banner .crumb a{ color:#8FE0B8; font-weight:700; }
+.page-banner .crumb a:hover{ text-decoration:underline; }
+.page-banner .crumb .sep{ margin:0 8px; color:rgba(255,255,255,.5); }
+.page-banner .crumb .current{ color:#fff; font-weight:700; }
+
 /* ---------- section headers ---------- */
 .section-head{ max-width:640px; margin-bottom:44px; }
 .section-head .kicker{ color:var(--emerald); font-weight:700; font-size:.9rem; margin-bottom:8px; display:block; }
