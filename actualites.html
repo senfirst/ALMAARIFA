@@ -41,6 +41,16 @@
   "url": "https://www.institut-almaarifa.sn/"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.institut-almaarifa.sn/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "Actualités", "item": "https://www.institut-almaarifa.sn/actualites.html" }
+  ]
+}
+</script>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
@@ -94,11 +104,17 @@
 </header>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-banner">
   <div class="container">
-    <div class="crumb">Actualités</div>
+    <span class="eyebrow">L'<strong>Institut</strong> Al Maarifa</span>
+    <div class="divider"><span></span></div>
     <h1>Les dernières actualités de l'Institut</h1>
     <p>Annonces, événements et vie scolaire de l'Institut Al Maarifa.</p>
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span class="sep">»</span>
+      <span class="current">Actualités</span>
+    </nav>
   </div>
 </section>
 
@@ -167,15 +183,61 @@
 <script src="assets/js/main.js"></script>
 
 <script>
+(function () {
   const newsGrid = document.getElementById('news-grid');
-  const fmtNews = d => new Date(d).toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' });
+  const fmtNews = d => {
+    try { return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }); }
+    catch (e) { return ''; }
+  };
+
+  // Places réservées : utilisées uniquement si data.js n'a pas encore
+  // d'actualités réelles (SITE_DATA.news vide ou absent). À remplacer
+  // dès que les vraies actualités sont ajoutées dans data.js.
+  const PLACEHOLDER_NEWS = [
+    {
+      id: "placeholder-1",
+      image: "public/images/actualites/actualite-1.jpg",
+      category: "Catégorie à définir",
+      date: null,
+      title: "Titre de l'actualité — à compléter",
+      summary: "Résumé court de l'actualité. Remplacez ce texte par le contenu réel une fois l'information disponible.",
+      content: "Contenu complet de l'actualité à rédiger."
+    },
+    {
+      id: "placeholder-2",
+      image: "public/images/actualites/actualite-2.jpg",
+      category: "Catégorie à définir",
+      date: null,
+      title: "Titre de l'actualité — à compléter",
+      summary: "Résumé court de l'actualité. Remplacez ce texte par le contenu réel une fois l'information disponible.",
+      content: "Contenu complet de l'actualité à rédiger."
+    },
+    {
+      id: "placeholder-3",
+      image: "public/images/actualites/actualite-3.jpg",
+      category: "Catégorie à définir",
+      date: null,
+      title: "Titre de l'actualité — à compléter",
+      summary: "Résumé court de l'actualité. Remplacez ce texte par le contenu réel une fois l'information disponible.",
+      content: "Contenu complet de l'actualité à rédiger."
+    }
+  ];
+
+  function getNewsList() {
+    const real = (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.news)) ? SITE_DATA.news : [];
+    return real.length > 0 ? { list: real, isPlaceholder: false } : { list: PLACEHOLDER_NEWS, isPlaceholder: true };
+  }
 
   function renderNewsList() {
-    newsGrid.innerHTML = SITE_DATA.news.map(n => `
-      <a href="actualites.html?id=${n.id}" class="card reveal in" style="display:block;">
-        ${renderImage(n.image, n.title, 'landscape')}
+    const { list, isPlaceholder } = getNewsList();
+    newsGrid.innerHTML = list.map(n => `
+      <a href="${isPlaceholder ? '#' : `actualites.html?id=${n.id}`}" class="card reveal in" style="display:block;" ${isPlaceholder ? 'aria-disabled="true" tabindex="-1"' : ''}>
+        ${typeof renderImage === 'function' ? renderImage(n.image, n.title, 'landscape') : ''}
         <div class="card-body">
-          <div class="meta-row"><span class="badge">${n.category}</span><span>${fmtNews(n.date)}</span></div>
+          <div class="meta-row">
+            <span class="badge">${n.category}</span>
+            <span>${n.date ? fmtNews(n.date) : 'Date à venir'}</span>
+          </div>
           <h3>${n.title}</h3>
           <p>${n.summary}</p>
         </div>
@@ -184,14 +246,16 @@
   }
 
   function renderNewsDetail(id) {
-    const item = SITE_DATA.news.find(n => n.id === id);
+    const { list, isPlaceholder } = getNewsList();
+    if (isPlaceholder) return false; // pas de fiche détail pour les placeholders
+    const item = list.find(n => n.id === id);
     if (!item) return false;
     document.getElementById('news-grid').closest('section').style.display = 'none';
     const detail = document.getElementById('news-detail');
     detail.style.display = 'block';
     document.getElementById('news-detail-content').innerHTML = `
-      ${renderImage(item.image, item.title, 'landscape')}
-      <div class="meta-row" style="margin-top:22px;"><span class="badge">${item.category}</span><span>${fmtNews(item.date)}</span></div>
+      ${typeof renderImage === 'function' ? renderImage(item.image, item.title, 'landscape') : ''}
+      <div class="meta-row" style="margin-top:22px;"><span class="badge">${item.category}</span><span>${item.date ? fmtNews(item.date) : ''}</span></div>
       <h1>${item.title}</h1>
       <p style="max-width:70ch;">${item.content}</p>
     `;
@@ -202,6 +266,7 @@
   const id = params.get('id');
   renderNewsList();
   if (id) renderNewsDetail(id);
+})();
 </script>
 
 </body>
