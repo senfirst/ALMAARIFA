@@ -425,6 +425,25 @@ const SITE_DATA = {
 };
 </script>
 
+<!-- Menu mobile (bouton burger) -->
+<script>
+(function () {
+  const burger = document.querySelector('.burger');
+  if (!burger) return;
+  burger.addEventListener('click', () => {
+    const isOpen = document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  // Ferme le menu si on clique sur un lien du menu mobile
+  document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
 <!-- Fonctions utilitaires attendues par le rendu (image + filtres) -->
 <script>
 function renderImage(src, alt, sizeClass) {
