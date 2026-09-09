@@ -1,708 +1,1100 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Activités — Pédagogiques, islamiques, sportives et culturelles | Institut Al Maarifa</title>
-<meta name="description" content="Activités pédagogiques, islamiques, sportives et culturelles organisées par l'Institut Al Maarifa tout au long de l'année scolaire.">
-<meta name="theme-color" content="#0B3B2C">
-<link rel="canonical" href="https://www.institut-almaarifa.sn/activites.html">
+<title>Nos Activités — Institut Al Maarifa</title>
+<meta name="description" content="Découvrez les activités pédagogiques, religieuses, sportives, culturelles, numériques et citoyennes de l'Institut Al Maarifa.">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Activités — Pédagogiques, islamiques, sportives et culturelles | Institut Al Maarifa">
-<meta property="og:description" content="Activités pédagogiques, islamiques, sportives et culturelles organisées par l'Institut Al Maarifa tout au long de l'année scolaire.">
-<meta property="og:image" content="public/images/og-cover.jpg">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
-
-<link rel="icon" type="image/png" href="public/icons/favicon.png">
-<link rel="apple-touch-icon" href="public/icons/favicon.png">
-
+<!-- Polices : Lora (titres FR), Amiri (accent arabe, prêt pour version RTL), Work Sans (texte courant) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Work+Sans:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-  /* =========================================================
-   INSTITUT AL MAARIFA — Design system
-   Palette: deep green / emerald / gold, warm off-white base
-   Type: Fraunces (display serif) + Karla (text sans)
+/* =========================================================
+   INSTITUT AL MAARIFA — PAGE "ACTIVITÉS"
+   Feuille de style organisée par sections.
+   Les propriétés logiques CSS (margin-inline, text-align:start...)
+   sont utilisées pour préparer la future version arabe / RTL.
    ========================================================= */
 
 :root{
-  --deep-green:  #0B3B2C;
-  --deep-green-2:#092E22;
-  --emerald:     #1F7A50;
-  --emerald-l:   #E7F1EB;
-  --gold:        #B8903E;
-  --gold-l:      #F4E7CB;
-  --cloth:       #F7F7F2;
-  --white:       #FFFFFF;
-  --ink:         #16211C;
-  --ink-soft:    #4B5751;
-  --line:        #E1E4DE;
+  /* --- Palette --- */
+  --forest:      #1B4332;   /* vert profond — couleur principale */
+  --forest-2:    #2D6A4F;   /* vert moyen — accents, survols */
+  --forest-soft: #EAF2ED;   /* vert très clair — fonds de section */
+  --gold:        #C9992F;   /* doré — accent premium */
+  --gold-soft:   #F3E7C9;
+  --navy:        #1E3A5F;   /* touche de bleu */
+  --cream:       #FBF8F2;   /* fond général */
+  --paper:       #FFFFFF;
+  --ink:         #21261E;   /* texte principal (vert-noir chaud) */
+  --ink-soft:    #565D53;   /* texte secondaire */
+  --line:        #E3DDCC;
 
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --radius-card: 18px;
+  --radius-sm:   10px;
+  --shadow-card: 0 12px 30px -18px rgba(27,67,50,0.35);
+  --shadow-lift: 0 20px 40px -16px rgba(27,67,50,0.45);
 
-  --radius-s: 6px;
-  --radius-m: 14px;
-  --shadow-1: 0 1px 2px rgba(11,59,44,.06), 0 8px 24px -12px rgba(11,59,44,.18);
-  --shadow-2: 0 20px 48px -20px rgba(11,59,44,.35);
+  --font-display: 'Lora', 'Georgia', serif;
+  --font-arabic:  'Amiri', serif;
+  --font-body:    'Work Sans', -apple-system, sans-serif;
 
-  --wrap: 1180px;
+  --container: 1180px;
 }
 
-*,*::before,*::after{ box-sizing:border-box; }
+*{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 body{
   margin:0;
-  font-family:var(--font-text);
+  background:var(--cream);
   color:var(--ink);
-  background:var(--cloth);
+  font-family:var(--font-body);
+  font-size:16px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
 ul{ margin:0; padding:0; list-style:none; }
-h1,h2,h3,h4{
-  font-family:var(--font-display);
-  color:var(--deep-green);
-  line-height:1.14;
-  margin:0 0 .5em;
-  font-weight:600;
-  letter-spacing:-.01em;
-}
-h1{ font-size:clamp(2.3rem,4.4vw,3.6rem); font-weight:560; }
-h2{ font-size:clamp(1.7rem,3vw,2.4rem); }
-h3{ font-size:1.28rem; }
-p{ margin:0 0 1em; max-width:64ch; color:var(--ink-soft); }
-.container{ max-width:var(--wrap); margin:0 auto; padding:0 24px; }
-section{ padding:88px 0; }
-@media(max-width:720px){ section{ padding:56px 0; } }
-
-/* focus visibility */
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
-  outline:2px solid var(--gold); outline-offset:3px;
-}
+h1,h2,h3,h4{ font-family:var(--font-display); margin:0; color:var(--forest); font-weight:600; }
+p{ margin:0; }
+.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:24px; }
+section{ padding-block:96px; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
 }
 
-/* ---------- buttons ---------- */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:.5em;
-  padding:14px 26px; border-radius:var(--radius-s);
-  font-family:var(--font-text); font-weight:700; font-size:.98rem;
-  border:1px solid transparent; cursor:pointer; white-space:nowrap;
-  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
-.btn:active{ transform:translateY(1px); }
-.btn-gold{ background:var(--gold); color:var(--white); }
-.btn-gold:hover{ background:#a37f36; box-shadow:var(--shadow-1); }
-.btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
-.btn-outline:hover{ background:rgba(255,255,255,.12); }
-.btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
-.btn-line:hover{ background:var(--emerald-l); }
-.btn-whatsapp{ background:#1F7A50; color:#fff; }
-.btn-whatsapp:hover{ background:#175f3e; }
-.btn-block{ width:100%; }
-
-/* ---------- header / nav ---------- */
-.site-header{
-  position:sticky; top:0; z-index:60;
-  background:rgba(247,247,242,.92); backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:46px; width:46px; object-fit:contain; border-radius:8px; }
-.brand-text{ display:flex; flex-direction:column; line-height:1.2; }
-.brand-text strong{ font-family:var(--font-display); color:var(--deep-green); font-size:1.05rem; }
-.brand-text span{ font-size:.72rem; color:var(--ink-soft); letter-spacing:.03em; }
-
-.main-nav{ display:flex; align-items:center; gap:2px; }
-.main-nav a{
-  padding:10px 14px; font-size:.94rem; font-weight:600; color:var(--ink);
-  border-radius:var(--radius-s); position:relative;
-}
-.main-nav a:hover{ color:var(--emerald); }
-.main-nav a.active{ color:var(--deep-green); }
-.main-nav a.active::after{
-  content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--gold);
-}
-.header-actions{ display:flex; align-items:center; gap:10px; }
-.header-actions .btn{ padding:10px 18px; font-size:.88rem; }
-
-.burger{
-  display:none; width:44px; height:44px; border-radius:var(--radius-s);
-  border:1px solid var(--line); background:var(--white); cursor:pointer;
-  align-items:center; justify-content:center; flex-direction:column; gap:4px;
-}
-.burger span{ width:20px; height:2px; background:var(--deep-green); display:block; transition:transform .2s, opacity .2s; }
-.mobile-nav{
-  display:none; flex-direction:column; gap:2px; padding:8px 24px 18px;
-  background:var(--cloth); border-bottom:1px solid var(--line);
-}
-.mobile-nav a{ padding:12px 6px; font-weight:600; border-bottom:1px solid var(--line); }
-.mobile-nav .header-actions{ margin-top:10px; flex-direction:column; }
-.mobile-nav .header-actions .btn{ width:100%; }
-
-body.nav-open .mobile-nav{ display:flex; }
-body.nav-open .burger span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
-body.nav-open .burger span:nth-child(2){ opacity:0; }
-body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
-
-@media(max-width:960px){
-  .main-nav, .header-actions{ display:none; }
-  .burger{ display:flex; }
-}
-
-/* ---------- hero ---------- */
-.hero{
-  position:relative; min-height:min(86vh,760px); display:flex; align-items:flex-end;
-  background:linear-gradient(180deg, rgba(9,46,34,.35), rgba(9,46,34,.86)), var(--deep-green);
-  background-size:cover; background-position:center;
-  color:#fff; overflow:hidden;
-}
-.hero-inner{ position:relative; z-index:2; padding:64px 0 68px; max-width:760px; }
-.hero-eyebrow-line{
-  display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.3); padding:8px 16px; border-radius:100px;
-  font-weight:700; font-size:.85rem; margin-bottom:22px; color:var(--gold-l);
-}
-.hero h1{ color:#fff; }
-.hero .partner{ font-weight:700; color:var(--gold-l); font-size:1.05rem; margin-bottom:14px; }
-.hero .slogan{ font-size:1.18rem; color:#EAF3EC; max-width:52ch; }
-.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-
-/* ---------- hero background image (avec repli placeholder) ---------- */
-.hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
-.hero-bg img{ width:100%; height:100%; object-fit:cover; display:block; }
-.hero-bg.is-empty{
-  background:var(--deep-green);
-  display:flex; align-items:center; justify-content:center; flex-direction:column;
-  color:#DCEAE1;
-}
-.hero-bg.is-empty .placeholder-icon{ width:48px; height:48px; margin-bottom:10px; opacity:.7; }
-.hero-bg.is-empty .placeholder-label{ font-size:.85rem; opacity:.8; position:static; background:none; }
-
-/* ---------- generic page hero (inner pages) ---------- */
-.page-hero{
-  background:linear-gradient(120deg,var(--deep-green),var(--deep-green-2));
-  color:#fff; padding:74px 0 56px;
-}
-.page-hero h1{ color:#fff; margin-bottom:10px; }
-.page-hero p{ color:#DCEAE1; max-width:60ch; }
-.crumb{ font-size:.85rem; color:var(--gold-l); font-weight:700; margin-bottom:10px; }
-
-/* ---------- page banner avec photo ---------- */
-.page-banner{
-  position:relative;
-  min-height:520px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background-image:
-    linear-gradient(
-      rgba(7, 45, 28, 0.72),
-      rgba(7, 45, 28, 0.82)
-    ),
-    url("/images/institut.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  color:#fff;
-  overflow:hidden;
-}
-.page-banner h1{
-  color:#fff;
-  margin-bottom:10px;
-  font-size:clamp(2.5rem,5vw,4rem);
-}
-.page-banner p{
-  color:#DCEAE1;
-  max-width:60ch;
-  margin:0 auto;
-}
-@media(max-width:720px){
-  .page-banner{
-    min-height:380px;
-    background-position:center;
-  }
-}
-
-/* Eyebrow (petit texte au-dessus du titre) */
-.page-banner .eyebrow{
+.eyebrow-ar{
   display:block;
-  font-family:var(--font-display);
-  font-style:italic;
-  font-size:1.1rem;
-  color:var(--gold-l);
-  margin-bottom:16px;
+  font-family:var(--font-arabic);
+  font-size:1.05rem;
+  color:var(--gold);
+  margin-block-end:6px;
+  letter-spacing:0.5px;
 }
-.page-banner .eyebrow strong{
-  color:#8FE0B8; /* vert clair, accent lisible sur fond sombre */
-  font-style:normal;
-  font-weight:700;
+.section-head{ max-width:640px; margin-block-end:48px; }
+.section-head p{ color:var(--ink-soft); margin-block-start:14px; font-size:1.05rem; }
+.section-head.center{ margin-inline:auto; text-align:center; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 30px;
+  border-radius:999px;
+  border:1.5px solid transparent;
+  font-weight:600; font-size:0.98rem;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+.btn-primary{ background:var(--forest); color:#fff; box-shadow:var(--shadow-card); }
+.btn-primary:hover{ background:var(--forest-2); transform:translateY(-2px); box-shadow:var(--shadow-lift); }
+.btn-gold{ background:var(--gold); color:var(--forest); box-shadow:0 12px 26px -14px rgba(201,153,47,.6); }
+.btn-gold:hover{ transform:translateY(-2px); background:#DBA93D; }
+.btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:#fff; }
+.btn-outline:hover{ background:rgba(255,255,255,.12); }
+.btn-outline-dark{ background:transparent; border-color:var(--forest); color:var(--forest); }
+.btn-outline-dark:hover{ background:var(--forest); color:#fff; }
+.btn-ghost{ background:var(--forest-soft); color:var(--forest); }
+.btn-ghost:hover{ background:var(--gold-soft); }
+
+/* =================== HEADER =================== */
+header.site-header{
+  position:sticky; top:0; z-index:500;
+  background:rgba(251,248,242,0.92);
+  backdrop-filter:blur(10px);
+  border-block-end:1px solid var(--line);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-block:14px;
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{
+  width:46px; height:46px; border-radius:12px;
+  background:linear-gradient(155deg,var(--forest),var(--forest-2));
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-family:var(--font-arabic); font-size:1.35rem;
+  box-shadow:var(--shadow-card);
+  flex-shrink:0;
+}
+.brand-text{ line-height:1.15; }
+.brand-text .name{ font-family:var(--font-display); font-weight:700; font-size:1.15rem; color:var(--forest); display:block; }
+.brand-text .tag{ font-size:.72rem; letter-spacing:.4px; color:var(--ink-soft); }
+
+nav.main-nav{ display:flex; align-items:center; gap:6px; }
+nav.main-nav a{
+  padding:10px 14px; border-radius:999px; font-size:.95rem; font-weight:500; color:var(--ink);
+  transition:background .2s ease, color .2s ease;
+  position:relative;
+}
+nav.main-nav a:hover{ background:var(--forest-soft); color:var(--forest); }
+nav.main-nav a.active{ color:var(--forest); font-weight:700; }
+nav.main-nav a.active::after{
+  content:""; position:absolute; inset-inline:14px; block-size:2px; background:var(--gold);
+  bottom:4px;
+}
+.header-actions{ display:flex; align-items:center; gap:12px; }
+.header-actions .btn{ padding:11px 22px; font-size:.9rem; }
+
+.hamburger{
+  display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px;
+}
+.hamburger span{ width:24px; height:2px; background:var(--forest); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
+.hamburger.is-open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity:0; }
+.hamburger.is-open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+@media (max-width:960px){
+  nav.main-nav{
+    position:fixed; inset-block-start:73px; inset-inline:0;
+    background:var(--paper); flex-direction:column; align-items:stretch;
+    padding:14px; gap:2px; border-block-end:1px solid var(--line);
+    transform:translateY(-12px); opacity:0; visibility:hidden;
+    transition:transform .25s ease, opacity .25s ease, visibility .25s ease;
+  }
+  nav.main-nav.is-open{ transform:translateY(0); opacity:1; visibility:visible; }
+  nav.main-nav a{ padding:14px 16px; }
+  .header-actions .btn span{ display:none; }
+  .hamburger{ display:flex; }
 }
 
-/* Séparateur avec losange central (accent vert) */
-.page-banner .divider{
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  margin:0 auto 22px; width:180px;
+/* =================== HERO =================== */
+.hero{
+  position:relative; overflow:hidden;
+  padding-block:110px 90px;
+  background:var(--forest);
+  color:#fff;
 }
-.page-banner .divider::before,
-.page-banner .divider::after{
-  content:""; flex:1; height:1px; background:rgba(143,224,184,.55);
+.hero::before{
+  /* motif géométrique inspiré des entrelacs arabo-andalous, dessiné en CSS */
+  content:"";
+  position:absolute; inset-block-start:-120px; inset-inline-end:-160px;
+  width:560px; height:560px;
+  background:
+    repeating-conic-gradient(from 45deg, rgba(201,153,47,.14) 0deg 20deg, transparent 20deg 40deg);
+  border-radius:38% 62% 60% 40% / 45% 40% 60% 55%;
+  filter:blur(1px);
 }
-.page-banner .divider span{
-  width:8px; height:8px; background:#8FE0B8; transform:rotate(45deg); flex:0 0 auto;
+.hero::after{
+  content:"";
+  position:absolute; inset-block-end:-180px; inset-inline-start:-140px;
+  width:420px; height:420px;
+  border:2px solid rgba(255,255,255,.08);
+  border-radius:50%;
+}
+.hero-grid{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center;
+}
+.hero-text .eyebrow-ar{ color:var(--gold); font-size:1.3rem; }
+.hero-text h1{ color:#fff; font-size:clamp(2.4rem,4.2vw,3.5rem); line-height:1.08; }
+.hero-text .subtitle{
+  font-family:var(--font-display); font-style:italic; color:var(--gold-soft);
+  font-size:1.25rem; margin-block-start:18px;
+}
+.hero-text p.lead{
+  color:rgba(255,255,255,.82); margin-block-start:22px; max-width:52ch; font-size:1.05rem;
+}
+.hero-actions{ display:flex; gap:16px; margin-block-start:36px; flex-wrap:wrap; }
+
+.hero-panel{
+  position:relative;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  padding:32px;
+  backdrop-filter:blur(6px);
+}
+.hero-panel-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.hero-chip{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px; padding:18px 16px;
+  transition:transform .3s ease, background .3s ease;
+}
+.hero-chip:hover{ transform:translateY(-4px); background:rgba(255,255,255,.12); }
+.hero-chip i{ color:var(--gold); font-size:1.3rem; margin-block-end:10px; display:block; }
+.hero-chip span{ font-size:.88rem; color:rgba(255,255,255,.85); display:block; line-height:1.35; }
+
+@media (max-width:960px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero{ padding-block:80px 60px; }
 }
 
-/* Fil d'Ariane */
-.page-banner .crumb{
-  font-size:.9rem; font-weight:600; margin:18px 0 0; color:#CFE3D8;
+/* =================== CATEGORIES =================== */
+.categories{ background:var(--cream); }
+.cat-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
 }
-.page-banner .crumb a{ color:#8FE0B8; font-weight:700; }
-.page-banner .crumb a:hover{ text-decoration:underline; }
-.page-banner .crumb .sep{ margin:0 8px; color:rgba(255,255,255,.5); }
-.page-banner .crumb .current{ color:#fff; font-weight:700; }
+.cat-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  padding:32px 28px;
+  box-shadow:var(--shadow-card);
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.cat-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); border-color:var(--gold); }
+.cat-icon{
+  width:54px; height:54px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--forest-soft); color:var(--forest);
+  font-size:1.4rem; margin-block-end:18px;
+}
+.cat-card h3{ font-size:1.28rem; margin-block-end:6px; }
+.cat-card .cat-desc{ color:var(--ink-soft); font-size:.94rem; margin-block-end:16px; }
+.cat-list{ display:flex; flex-wrap:wrap; gap:8px; }
+.cat-list li{
+  font-size:.82rem; color:var(--forest-2);
+  background:var(--forest-soft);
+  padding:6px 12px; border-radius:999px;
+  border:1px solid transparent;
+}
+.cat-card:nth-child(2) .cat-icon{ background:var(--gold-soft); color:#8a6b1c; }
+.cat-card:nth-child(3) .cat-icon{ background:#E7EEF5; color:var(--navy); }
+.cat-card:nth-child(5) .cat-icon{ background:#E7EEF5; color:var(--navy); }
+.cat-card:nth-child(2) .cat-list li{ background:var(--gold-soft); color:#8a6b1c; }
+.cat-card:nth-child(3) .cat-list li, .cat-card:nth-child(5) .cat-list li{ background:#E7EEF5; color:var(--navy); }
 
-/* ---------- section headers ---------- */
-.section-head{ max-width:640px; margin-bottom:44px; }
-.section-head .kicker{ color:var(--emerald); font-weight:700; font-size:.9rem; margin-bottom:8px; display:block; }
+@media (max-width:960px){ .cat-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .cat-grid{ grid-template-columns:1fr; } }
 
-/* ---------- cards ---------- */
-.grid{ display:grid; gap:26px; }
-.grid-3{ grid-template-columns:repeat(3,1fr); }
-.grid-4{ grid-template-columns:repeat(4,1fr); }
-.grid-2{ grid-template-columns:repeat(2,1fr); }
-@media(max-width:920px){ .grid-3,.grid-4{ grid-template-columns:repeat(2,1fr); } }
-@media(max-width:600px){ .grid-3,.grid-4,.grid-2{ grid-template-columns:1fr; } }
-
-.card{
-  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
-  overflow:hidden; box-shadow:var(--shadow-1);
+/* =================== FILTER BAR =================== */
+.filter-bar{
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:18px; margin-block-end:40px;
 }
-.card-body{ padding:22px; }
-.card h3{ margin-bottom:8px; }
-
-/* image placeholder (used only until real photos are added) */
-.img-slot{
-  position:relative; width:100%; aspect-ratio:4/3; background:
-    linear-gradient(135deg,var(--emerald-l),var(--cloth));
-  display:flex; align-items:center; justify-content:center; overflow:hidden;
-  border-bottom:1px solid var(--line);
+.filter-chips{ display:flex; flex-wrap:wrap; gap:10px; }
+.chip{
+  padding:9px 18px; border-radius:999px; border:1.5px solid var(--line);
+  background:var(--paper); font-size:.9rem; font-weight:500; color:var(--ink-soft);
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
 }
-.img-slot img{ width:100%; height:100%; object-fit:cover; }
-.img-slot .placeholder-icon{ color:var(--emerald); opacity:.55; width:42px; height:42px; }
-.img-slot .placeholder-label{
-  position:absolute; bottom:10px; left:10px; right:10px; font-size:.72rem; font-weight:700;
-  color:var(--deep-green); background:rgba(255,255,255,.85); padding:6px 8px; border-radius:6px;
-  text-align:center;
+.chip:hover{ border-color:var(--forest-2); }
+.chip.active{ background:var(--forest); border-color:var(--forest); color:#fff; }
+.search-box{
+  display:flex; align-items:center; gap:10px;
+  background:var(--paper); border:1.5px solid var(--line); border-radius:999px;
+  padding:10px 18px; min-width:240px;
 }
-.img-slot.landscape{ aspect-ratio:16/9; }
-.img-slot.square{ aspect-ratio:1/1; }
-.img-slot.tall{ aspect-ratio:3/4; }
-
-/* ---------- values / stats ---------- */
-.value-item{ display:flex; gap:16px; align-items:flex-start; }
-.value-icon{
-  flex:0 0 auto; width:48px; height:48px; border-radius:12px; background:var(--emerald-l);
-  display:flex; align-items:center; justify-content:center; color:var(--emerald);
-}
-.stat-strip{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-  background:var(--deep-green); color:#fff; border-radius:var(--radius-m); padding:36px 28px;
-}
-.stat-strip .n{ font-family:var(--font-display); font-size:2.1rem; color:var(--gold-l); }
-.stat-strip .l{ font-size:.85rem; color:#CFE3D8; }
-@media(max-width:720px){ .stat-strip{ grid-template-columns:repeat(2,1fr); } }
-
-/* ---------- program levels ---------- */
-.level-card{
-  border:1px solid var(--line); border-radius:var(--radius-m); background:#fff; padding:24px;
-  transition:box-shadow .18s ease, border-color .18s ease;
-}
-.level-card:hover{ box-shadow:var(--shadow-1); border-color:var(--emerald); }
-.level-card .tag{
-  display:inline-block; font-size:.72rem; font-weight:700; color:var(--emerald);
-  background:var(--emerald-l); padding:4px 10px; border-radius:100px; margin-bottom:12px;
-}
-.subject-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-.subject-pill{
-  display:flex; align-items:center; gap:8px; padding:10px 16px; border-radius:100px;
-  background:#fff; border:1px solid var(--line); font-weight:700; font-size:.9rem;
+.search-box i{ color:var(--ink-soft); }
+.search-box input{
+  border:none; outline:none; background:none; font-family:inherit; font-size:.95rem;
+  width:100%; color:var(--ink);
 }
 
-/* ---------- news / activities ---------- */
-.activities-status{
-  grid-column:1/-1; text-align:center; color:var(--ink-soft);
-  padding:32px 16px; font-weight:600;
+/* =================== CALENDAR =================== */
+.calendar{ background:var(--forest-soft); }
+.cal-list{ display:flex; flex-direction:column; gap:16px; }
+.cal-item{
+  display:grid; grid-template-columns:110px 1fr auto; gap:24px; align-items:center;
+  background:var(--paper); border-radius:var(--radius-card);
+  padding:22px 26px; border:1px solid var(--line);
+  box-shadow:var(--shadow-card);
+  transition:transform .25s ease, box-shadow .25s ease;
 }
-.tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
-.filter-btn{
-  padding:9px 16px; border-radius:100px; border:1px solid var(--line); background:#fff;
-  font-weight:700; font-size:.85rem; cursor:pointer; color:var(--ink-soft);
+.cal-item:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lift); }
+.cal-date{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:var(--forest); color:#fff; border-radius:14px; padding:12px 8px;
 }
-.filter-btn.active{ background:var(--deep-green); color:#fff; border-color:var(--deep-green); }
-.meta-row{ display:flex; gap:14px; font-size:.82rem; color:var(--ink-soft); margin-bottom:6px; flex-wrap:wrap; }
-.badge{ background:var(--gold-l); color:#8a6a24; font-weight:700; padding:3px 10px; border-radius:100px; font-size:.72rem; }
+.cal-date .day{ font-family:var(--font-display); font-size:1.7rem; font-weight:700; line-height:1; }
+.cal-date .month{ font-size:.72rem; text-transform:uppercase; letter-spacing:1px; color:var(--gold-soft); margin-block-start:4px; }
+.cal-info h4{ font-size:1.12rem; margin-block-end:6px; }
+.cal-meta{ display:flex; flex-wrap:wrap; gap:14px; color:var(--ink-soft); font-size:.86rem; margin-block-end:8px; }
+.cal-meta span{ display:inline-flex; align-items:center; gap:6px; }
+.cal-meta i{ color:var(--forest-2); }
+.cal-desc{ color:var(--ink-soft); font-size:.92rem; max-width:56ch; }
 
-/* ---------- library ---------- */
-.lib-toolbar{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px; }
-.lib-toolbar input[type=text]{ flex:1; min-width:220px; }
-.field{
-  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
-  font-family:var(--font-text); font-size:.96rem; background:#fff;
+@media (max-width:760px){
+  .cal-item{ grid-template-columns:80px 1fr; }
+  .cal-item .btn{ grid-column:1 / -1; justify-self:start; }
 }
-.book-card{ display:flex; flex-direction:column; height:100%; }
-.book-card .card-body{ display:flex; flex-direction:column; gap:10px; flex:1; }
-.book-actions{ display:flex; gap:10px; margin-top:auto; }
-.book-actions .btn{ padding:9px 14px; font-size:.82rem; }
 
-/* ---------- gallery ---------- */
-.gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-@media(max-width:920px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
-@media(max-width:600px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
-.gallery-item{ cursor:zoom-in; border-radius:var(--radius-s); overflow:hidden; }
-.gallery-item .img-slot{ aspect-ratio:1/1; transition:transform .25s ease; }
-.gallery-item:hover .img-slot{ transform:scale(1.03); }
+/* =================== ACTIVITY CARDS (dernières activités) =================== */
+.activities-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+}
+.activity-card{
+  background:var(--paper); border-radius:var(--radius-card); overflow:hidden;
+  border:1px solid var(--line); box-shadow:var(--shadow-card);
+  transition:transform .3s ease, box-shadow .3s ease;
+  display:flex; flex-direction:column;
+}
+.activity-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); }
+.activity-thumb{
+  height:170px; position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:2.4rem;
+}
+.activity-thumb i{ position:relative; z-index:2; opacity:.92; }
+.activity-thumb::after{
+  content:""; position:absolute; inset:0;
+  background:repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 10px, transparent 10px 20px);
+}
+.t-pedagogique{ background:linear-gradient(145deg,var(--forest),var(--forest-2)); }
+.t-religieuse{ background:linear-gradient(145deg,#8a6b1c,var(--gold)); }
+.t-sportive{ background:linear-gradient(145deg,var(--navy),#2f5c8f); }
+.t-culturelle{ background:linear-gradient(145deg,#7a3b3b,#b5615f); }
+.t-numerique{ background:linear-gradient(145deg,#2b3a55,#4a6fa5); }
+.t-citoyenne{ background:linear-gradient(145deg,#2f6b46,#5fae7b); }
 
+.activity-body{ padding:22px 24px 24px; display:flex; flex-direction:column; gap:10px; flex:1; }
+.activity-cat-tag{ font-size:.75rem; font-weight:600; color:var(--forest-2); }
+.activity-card h3{ font-size:1.14rem; line-height:1.32; }
+.activity-date{ font-size:.82rem; color:var(--ink-soft); display:flex; align-items:center; gap:6px; }
+.activity-date i{ color:var(--gold); }
+.activity-desc{ color:var(--ink-soft); font-size:.92rem; flex:1; }
+.activity-body .btn{ align-self:flex-start; margin-block-start:6px; padding:9px 20px; font-size:.86rem; }
+
+.activity-card.is-hidden{ display:none; }
+
+@media (max-width:960px){ .activities-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .activities-grid{ grid-template-columns:1fr; } }
+
+.load-more-wrap{ text-align:center; margin-block-start:44px; }
+.no-results{ text-align:center; color:var(--ink-soft); padding-block:40px; display:none; }
+.no-results.show{ display:block; }
+
+/* =================== GALLERY =================== */
+.gallery{ background:var(--forest-soft); }
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:150px; gap:16px;
+}
+.gallery-grid .g-item:nth-child(3n+1){ grid-row:span 2; }
+.g-item{
+  border-radius:14px; position:relative; overflow:hidden; cursor:zoom-in;
+  display:flex; align-items:center; justify-content:center; color:#fff;
+}
+.g-item i{ font-size:1.8rem; transition:transform .4s ease; z-index:2; }
+.g-item::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,0); transition:background .3s ease; z-index:1; }
+.g-item:hover::before{ background:rgba(0,0,0,.18); }
+.g-item:hover i{ transform:scale(1.15); }
+.g-item span.g-label{
+  position:absolute; inset-block-end:12px; inset-inline-start:14px; z-index:2;
+  font-size:.82rem; font-weight:600; background:rgba(0,0,0,.32); padding:5px 10px; border-radius:999px;
+}
+
+@media (max-width:900px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } .gallery-grid .g-item:nth-child(3n+1){ grid-row:span 1; } }
+
+/* Lightbox */
 .lightbox{
-  position:fixed; inset:0; background:rgba(9,20,16,.94); z-index:200;
-  display:none; align-items:center; justify-content:center; padding:24px;
+  position:fixed; inset:0; z-index:1000; background:rgba(15,25,20,.92);
+  display:none; align-items:center; justify-content:center; padding:32px;
 }
 .lightbox.open{ display:flex; }
-.lightbox-inner{ position:relative; max-width:920px; width:100%; }
-.lightbox .img-slot{ aspect-ratio:16/10; border-radius:var(--radius-m); }
-.lightbox-close, .lightbox-prev, .lightbox-next{
-  position:absolute; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4);
-  color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
+.lightbox-box{
+  width:min(640px,92vw); aspect-ratio:4/3; border-radius:20px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; color:#fff;
+  position:relative;
 }
-.lightbox-close{ top:-56px; right:0; }
-.lightbox-prev{ left:-56px; top:50%; transform:translateY(-50%); }
-.lightbox-next{ right:-56px; top:50%; transform:translateY(-50%); }
-@media(max-width:760px){ .lightbox-prev{ left:8px; } .lightbox-next{ right:8px; } .lightbox-close{ top:8px; right:8px; } }
+.lightbox-box i.lb-icon{ font-size:3.6rem; }
+.lightbox-box .lb-caption{ font-family:var(--font-display); font-size:1.2rem; }
+.lightbox-close{
+  position:absolute; inset-block-start:-46px; inset-inline-end:0;
+  background:none; border:none; color:#fff; font-size:1.6rem;
+}
 
-/* ---------- pricing ---------- */
-.price-card{
-  background:#fff; border:1px solid var(--line); border-radius:var(--radius-m); padding:36px 30px;
-  box-shadow:var(--shadow-1);
-}
-.price-line{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line); }
-.price-line:last-of-type{ border-bottom:none; }
-.price-line .amount{ font-weight:700; color:var(--deep-green); }
-.price-total{
-  display:flex; justify-content:space-between; align-items:baseline; margin-top:18px;
-  padding-top:18px; border-top:2px solid var(--deep-green);
-}
-.price-total .amount{ font-family:var(--font-display); font-size:1.9rem; color:var(--deep-green); }
+/* =================== STATS =================== */
+.stats{ background:var(--forest); color:#fff; }
+.stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center; }
+.stat-num{ font-family:var(--font-display); font-size:clamp(2.2rem,4vw,3.2rem); color:var(--gold); font-weight:700; }
+.stat-label{ color:rgba(255,255,255,.78); font-size:.95rem; margin-block-start:6px; }
+@media (max-width:760px){ .stats-grid{ grid-template-columns:1fr 1fr; row-gap:40px; } }
 
-/* ---------- countdown ---------- */
-.countdown{ display:flex; gap:14px; flex-wrap:wrap; }
-.countdown .cd-box{
-  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); border-radius:var(--radius-m);
-  padding:16px 20px; min-width:84px; text-align:center;
+/* =================== PARENTS =================== */
+.parents-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+.benefit-list{ display:grid; grid-template-columns:1fr 1fr; gap:20px 28px; }
+.benefit{ display:flex; gap:14px; align-items:flex-start; }
+.benefit i{
+  width:38px; height:38px; border-radius:10px; flex-shrink:0;
+  background:var(--forest-soft); color:var(--forest); display:flex; align-items:center; justify-content:center;
 }
-.countdown .cd-box .num{ font-family:var(--font-display); font-size:1.9rem; color:var(--gold-l); }
-.countdown .cd-box .lab{ font-size:.72rem; color:#CFE3D8; letter-spacing:.03em; }
-
-/* ---------- forms ---------- */
-.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-@media(max-width:640px){ .form-grid{ grid-template-columns:1fr; } }
-.form-group{ display:flex; flex-direction:column; gap:6px; }
-.form-group label{ font-weight:700; font-size:.88rem; color:var(--deep-green); }
-.form-group.full{ grid-column:1/-1; }
-textarea.field{ resize:vertical; min-height:120px; }
-.form-note{ font-size:.82rem; color:var(--ink-soft); margin-top:10px; }
-.form-success{
-  display:none; background:var(--emerald-l); border:1px solid var(--emerald); color:var(--deep-green);
-  padding:14px 18px; border-radius:var(--radius-s); font-weight:700; margin-bottom:18px;
+.benefit h4{ font-size:1rem; margin-block-end:4px; }
+.benefit p{ color:var(--ink-soft); font-size:.88rem; }
+.parents-visual{
+  background:var(--paper); border:1px solid var(--line); border-radius:24px; padding:40px;
+  box-shadow:var(--shadow-card); position:relative;
 }
-.form-success.show{ display:block; }
+.parents-visual .eyebrow-ar{ font-size:1.5rem; }
+.parents-visual blockquote{ font-family:var(--font-display); font-style:italic; font-size:1.2rem; color:var(--forest); line-height:1.5; }
+.parents-visual cite{ display:block; margin-block-start:16px; color:var(--ink-soft); font-size:.9rem; font-style:normal; }
 
-/* ---------- contact ---------- */
-.contact-block{ display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line); }
-.contact-block:last-child{ border-bottom:none; }
-.map-slot{ border-radius:var(--radius-m); overflow:hidden; border:1px solid var(--line); }
+@media (max-width:900px){ .parents-grid{ grid-template-columns:1fr; } .benefit-list{ grid-template-columns:1fr; } }
 
-/* ---------- footer ---------- */
-.site-footer{ background:var(--deep-green-2); color:#CFE3D8; padding:60px 0 26px; }
-.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; }
-@media(max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
-@media(max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
-.site-footer h4{ color:#fff; font-size:.95rem; margin-bottom:14px; }
-.site-footer a{ color:#CFE3D8; display:block; padding:6px 0; font-size:.92rem; }
-.site-footer a:hover{ color:var(--gold-l); }
-.footer-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:40px; padding-top:22px; font-size:.82rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#9DB6A9; }
-.footer-brand{ display:flex; gap:12px; align-items:center; margin-bottom:14px; }
-.footer-brand img{ height:40px; }
-.footer-brand strong{ color:#fff; font-family:var(--font-display); }
-
-/* ---------- floating whatsapp ---------- */
-.wa-float{
-  position:fixed; bottom:22px; right:22px; z-index:80; width:58px; height:58px; border-radius:50%;
-  background:#1F7A50; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-2);
-  color:#fff;
+/* =================== CTA =================== */
+.cta{
+  background:linear-gradient(155deg,var(--forest),#123526);
+  color:#fff; text-align:center; border-radius:32px;
+  margin-inline:24px; padding:70px 40px;
+  position:relative; overflow:hidden;
 }
-.wa-float:hover{ background:#175f3e; }
+.cta::before{
+  content:""; position:absolute; inset-block-start:-100px; inset-inline-start:50%; transform:translateX(-50%);
+  width:480px; height:480px; border-radius:50%;
+  background:radial-gradient(circle,rgba(201,153,47,.18),transparent 70%);
+}
+.cta-inner{ position:relative; z-index:2; max-width:640px; margin-inline:auto; }
+.cta h2{ color:#fff; font-size:clamp(1.8rem,3.4vw,2.4rem); }
+.cta p{ color:rgba(255,255,255,.82); margin-block-start:16px; font-size:1.05rem; }
+.cta-actions{ display:flex; gap:16px; justify-content:center; margin-block-start:32px; flex-wrap:wrap; }
 
-/* ---------- reveal-on-scroll ----------
-   Visible par défaut (sécurité si JS absent, en erreur, ou désactivé).
-   L'effet d'apparition ne s'active que lorsque main.js confirme son
-   exécution en ajoutant la classe "js-ready" sur <html>. */
-.reveal{ opacity:1; transform:none; }
-.js-ready .reveal{
-  opacity:0; transform:translateY(14px);
-  transition:opacity .5s ease, transform .5s ease;
+/* =================== FOOTER =================== */
+footer{ background:#132A20; color:rgba(255,255,255,.78); padding-block:70px 30px; margin-block-start:96px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; }
+.footer-brand .brand-mark{ margin-block-end:14px; }
+.footer-brand p{ font-size:.9rem; line-height:1.6; max-width:34ch; }
+.footer-col h4{ color:#fff; font-size:.98rem; margin-block-end:16px; }
+.footer-col ul li{ margin-block-end:10px; }
+.footer-col a{ font-size:.9rem; transition:color .2s ease; }
+.footer-col a:hover{ color:var(--gold); }
+.footer-contact li{ display:flex; gap:10px; align-items:flex-start; font-size:.9rem; margin-block-end:12px; }
+.footer-contact i{ color:var(--gold); margin-block-start:3px; }
+.footer-social{ display:flex; gap:10px; margin-block-start:16px; }
+.footer-social a{
+  width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center; transition:background .2s ease, transform .2s ease;
 }
-.js-ready .reveal.in{ opacity:1; transform:none; }
+.footer-social a:hover{ background:var(--gold); color:var(--forest); transform:translateY(-3px); }
+.footer-bottom{
+  border-block-start:1px solid rgba(255,255,255,.12); margin-block-start:50px; padding-block-start:26px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.82rem; color:rgba(255,255,255,.55);
+}
+@media (max-width:900px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .footer-grid{ grid-template-columns:1fr; } }
 
-/* misc */
-.split{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-@media(max-width:860px){ .split{ grid-template-columns:1fr; gap:32px; } }
-.chip-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
-.chip{ padding:7px 14px; border-radius:100px; background:var(--emerald-l); color:var(--emerald); font-weight:700; font-size:.82rem; }
-hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
-.center{ text-align:center; margin-left:auto; margin-right:auto; }
-.small{ font-size:.85rem; }
-.text-white p{ color:#DCEAE1; }
-.visually-hidden{
-  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+/* =================== ACTIVITY DETAIL MODAL =================== */
+.modal-overlay{
+  position:fixed; inset:0; z-index:900; background:rgba(15,25,20,.55);
+  display:none; align-items:center; justify-content:center; padding:20px;
 }
-.visually-hidden:focus{
-  position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999;
-  background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
+.modal-overlay.open{ display:flex; }
+.modal-box{
+  background:var(--paper); border-radius:22px; max-width:560px; width:100%;
+  max-height:88vh; overflow-y:auto; box-shadow:var(--shadow-lift); position:relative;
 }
-.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
+.modal-head{ height:130px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:2.4rem; border-radius:22px 22px 0 0; }
+.modal-close{
+  position:absolute; inset-block-start:16px; inset-inline-end:16px; z-index:3;
+  width:36px; height:36px; border-radius:50%; border:none; background:rgba(255,255,255,.25); color:#fff; font-size:1.1rem;
+}
+.modal-body{ padding:28px 30px 32px; }
+.modal-body .activity-cat-tag{ display:inline-block; margin-block-end:10px; }
+.modal-body h3{ font-size:1.4rem; margin-block-end:12px; }
+.modal-meta{ display:flex; flex-wrap:wrap; gap:16px; color:var(--ink-soft); font-size:.88rem; margin-block-end:16px; }
+.modal-meta span{ display:inline-flex; align-items:center; gap:6px; }
+.modal-meta i{ color:var(--forest-2); }
+.modal-body p.modal-desc{ color:var(--ink-soft); line-height:1.7; }
+
+/* Scroll reveal (une seule cascade orchestrée au chargement de section) */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+/* Skip link accessibilité */
+.skip-link{
+  position:absolute; inset-inline-start:-999px; inset-block-start:0; background:var(--forest); color:#fff;
+  padding:12px 20px; z-index:2000; border-radius:0 0 10px 0;
+}
+.skip-link:focus{ inset-inline-start:0; }
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
-  "alternateName": "Institut Al Maarifa",
-  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bambilor - Darou Salam",
-    "addressCountry": "SN"
-  },
-  "telephone": ["+221774036424", "+221775722937"],
-  "url": "https://www.institut-almaarifa.sn/"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.institut-almaarifa.sn/index.html" },
-    { "@type": "ListItem", "position": 2, "name": "Activités", "item": "https://www.institut-almaarifa.sn/activites.html" }
-  ]
-}
-</script>
 </head>
 <body>
-<a href="#main" class="visually-hidden">Aller au contenu</a>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- ============ HEADER ============ -->
 <header class="site-header">
-  <div class="nav-row">
-    <a href="index.html" class="brand">
-      <img src="logo.png" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
-      <span class="brand-text">
-        <strong>Institut Al Maarifa</strong>
-        <span>Thierno Djibril Ousmane Ba</span>
-      </span>
-    </a>
-    <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="active">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">م</div>
+      <div class="brand-text">
+        <span class="name">Institut Al Maarifa</span>
+        <span class="tag">École franco-arabe</span>
+      </div>
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#">Accueil</a>
+      <a href="#">À propos</a>
+      <a href="#">Programmes</a>
+      <a href="#" class="active">Activités</a>
+      <a href="#">Actualités</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#footer">Contact</a>
     </nav>
+
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
+      <a href="#" class="btn btn-gold"><span>Inscription</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="active">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
-  </nav>
 </header>
+
 <main id="main">
 
-<section class="page-banner">
-  <div class="container">
-    <span class="eyebrow">L'<strong>Institut</strong> Al Maarifa</span>
-    <div class="divider"><span></span></div>
-    <h1>La vie de l'Institut en dehors des cours</h1>
-    <p>Activités pédagogiques, islamiques, sportives et culturelles rythment l'année scolaire de nos élèves.</p>
-    <nav class="crumb" aria-label="Fil d'Ariane">
-      <a href="index.html">Accueil</a>
-      <span class="sep">»</span>
-      <span class="current">Activités</span>
-    </nav>
-  </div>
-</section>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow-ar">الأنشطة</span>
+        <h1>Nos Activités</h1>
+        <p class="subtitle">Apprendre, découvrir, partager et grandir ensemble</p>
+        <p class="lead">
+          À l'Institut Al Maarifa, chaque élève est accompagné bien au-delà des cours : nous cultivons
+          son développement intellectuel, physique, culturel, moral et spirituel à travers un
+          programme d'activités riche et varié, pensé pour révéler les talents de chacun.
+        </p>
+        <div class="hero-actions">
+          <a href="#calendrier" class="btn btn-gold">Voir le calendrier</a>
+          <a href="#activites" class="btn btn-outline">Explorer les activités</a>
+        </div>
+      </div>
 
-<section>
-  <div class="container">
-    <div class="tag-row" data-filter-root role="group" aria-label="Filtrer les activités par catégorie">
-      <button class="filter-btn active" data-filter="all" aria-pressed="true">Toutes</button>
-      <button class="filter-btn" data-filter="pedagogique" aria-pressed="false">Pédagogiques</button>
-      <button class="filter-btn" data-filter="islamique" aria-pressed="false">Islamiques</button>
-      <button class="filter-btn" data-filter="sportive" aria-pressed="false">Sportives</button>
-      <button class="filter-btn" data-filter="culturelle" aria-pressed="false">Culturelles</button>
-      <button class="filter-btn" data-filter="evenement" aria-pressed="false">Événements</button>
+      <div class="hero-panel">
+        <div class="hero-panel-grid">
+          <div class="hero-chip"><i class="fa-solid fa-book-open"></i><span>Ateliers pédagogiques quotidiens</span></div>
+          <div class="hero-chip"><i class="fa-solid fa-mosque"></i><span>Enseignement religieux et Coran</span></div>
+          <div class="hero-chip"><i class="fa-solid fa-futbol"></i><span>Tournois et journées sportives</span></div>
+          <div class="hero-chip"><i class="fa-solid fa-palette"></i><span>Théâtre, calligraphie et arts</span></div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div id="activities-grid" class="grid grid-3" aria-live="polite" aria-busy="true">
-      <p class="activities-status">Chargement des activités…</p>
+  <!-- ============ CATEGORIES ============ -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Six univers, un même objectif</h2>
+        <p>Chaque famille d'activités contribue à l'épanouissement global de l'élève, à l'école comme dans sa vie de futur citoyen.</p>
+      </div>
+
+      <div class="cat-grid">
+        <article class="cat-card reveal">
+          <div class="cat-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+          <h3>Activités pédagogiques</h3>
+          <p class="cat-desc">Renforcer les apprentissages fondamentaux dans un cadre stimulant.</p>
+          <ul class="cat-list">
+            <li>Ateliers de lecture</li><li>Concours de mathématiques</li><li>Clubs scientifiques</li>
+            <li>Langue française</li><li>Langue arabe</li><li>Soutien scolaire</li><li>Exposés</li>
+          </ul>
+        </article>
+
+        <article class="cat-card reveal">
+          <div class="cat-icon"><i class="fa-solid fa-mosque"></i></div>
+          <h3>Activités religieuses</h3>
+          <p class="cat-desc">Transmettre les valeurs et les enseignements de l'islam avec douceur.</p>
+          <ul class="cat-list">
+            <li>Apprentissage du Coran</li><li>Mémorisation de sourates</li><li>Enseignement islamique</li>
+            <li>Concours de récitation</li><li>Causeries</li><li>Valeurs et morale</li>
+          </ul>
+        </article>
+
+        <article class="cat-card reveal">
+          <div class="cat-icon"><i class="fa-solid fa-futbol"></i></div>
+          <h3>Activités sportives</h3>
+          <p class="cat-desc">Développer la santé, l'esprit d'équipe et le dépassement de soi.</p>
+          <ul class="cat-list">
+            <li>Football</li><li>Basketball</li><li>Athlétisme</li><li>Jeux collectifs</li>
+            <li>Tournois interclasses</li><li>Journées sportives</li>
+          </ul>
+        </article>
+
+        <article class="cat-card reveal">
+          <div class="cat-icon"><i class="fa-solid fa-palette"></i></div>
+          <h3>Activités culturelles et artistiques</h3>
+          <p class="cat-desc">Éveiller la sensibilité artistique et la fierté du patrimoine.</p>
+          <ul class="cat-list">
+            <li>Théâtre</li><li>Poésie</li><li>Dessin & peinture</li><li>Calligraphie arabe</li>
+            <li>Contes et récits</li><li>Journées culturelles</li>
+          </ul>
+        </article>
+
+        <article class="cat-card reveal">
+          <div class="cat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Activités numériques et technologiques</h3>
+          <p class="cat-desc">Préparer les élèves aux compétences numériques de demain.</p>
+          <ul class="cat-list">
+            <li>Initiation à l'informatique</li><li>Programmation</li><li>Création de sites web</li>
+            <li>Robotique</li><li>Sécurité numérique</li>
+          </ul>
+        </article>
+
+        <article class="cat-card reveal">
+          <div class="cat-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Activités citoyennes et environnementales</h3>
+          <p class="cat-desc">Former des citoyens responsables et engagés pour leur environnement.</p>
+          <ul class="cat-list">
+            <li>Journées de nettoyage</li><li>Plantation d'arbres</li><li>Éducation civique</li>
+            <li>Actions de solidarité</li><li>Collectes</li>
+          </ul>
+        </article>
+      </div>
     </div>
-    <p id="activities-empty" class="activities-status" hidden>Aucune activité ne correspond à ce filtre pour le moment.</p>
-  </div>
-</section>
+  </section>
+
+  <!-- ============ CALENDAR ============ -->
+  <section class="calendar" id="calendrier">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Calendrier des activités</h2>
+        <p>Les prochains rendez-vous de la vie scolaire, classe par classe.</p>
+      </div>
+      <div class="cal-list" id="calendarList"><!-- rempli par JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ DERNIÈRES ACTIVITÉS ============ -->
+  <section id="activites">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Dernières activités</h2>
+        <p>Un aperçu de ce que vivent nos élèves, semaine après semaine.</p>
+      </div>
+
+      <div class="filter-bar reveal">
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="tous">Toutes</button>
+          <button class="chip" data-filter="pedagogique">Pédagogique</button>
+          <button class="chip" data-filter="religieuse">Religieuse</button>
+          <button class="chip" data-filter="sportive">Sportive</button>
+          <button class="chip" data-filter="culturelle">Culturelle</button>
+          <button class="chip" data-filter="numerique">Numérique</button>
+          <button class="chip" data-filter="citoyenne">Citoyenne</button>
+        </div>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Rechercher une activité…">
+        </div>
+      </div>
+
+      <div class="activities-grid" id="activitiesGrid"><!-- rempli par JS --></div>
+      <p class="no-results" id="noResults">Aucune activité ne correspond à votre recherche.</p>
+
+      <div class="load-more-wrap">
+        <button class="btn btn-outline-dark" id="loadMoreBtn">Voir plus d'activités</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>La vie de notre établissement en images</h2>
+        <p>Sport, spiritualité, sorties et concours : un aperçu du quotidien de nos élèves.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"><!-- rempli par JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-num" data-target="20">0</div><div class="stat-label">activités par année</div></div>
+        <div class="stat"><div class="stat-num" data-target="500">0</div><div class="stat-label">élèves participants</div></div>
+        <div class="stat"><div class="stat-num" data-target="10">0</div><div class="stat-label">clubs scolaires</div></div>
+        <div class="stat"><div class="stat-num" data-target="15">0</div><div class="stat-label">événements organisés</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARENTS ============ -->
+  <section>
+    <div class="container parents-grid">
+      <div class="reveal">
+        <div class="section-head" style="margin-block-end:32px;">
+          <h2>Pour les parents</h2>
+          <p>Des bénéfices concrets, visibles dans le comportement et la confiance de votre enfant.</p>
+        </div>
+        <div class="benefit-list">
+          <div class="benefit"><i class="fa-solid fa-face-smile-beam"></i><div><h4>Confiance en soi</h4><p>Chaque réussite, petite ou grande, est valorisée.</p></div></div>
+          <div class="benefit"><i class="fa-solid fa-people-group"></i><div><h4>Esprit d'équipe</h4><p>Coopérer, écouter et partager un objectif commun.</p></div></div>
+          <div class="benefit"><i class="fa-solid fa-clock"></i><div><h4>Discipline</h4><p>Assiduité, rigueur et sens de l'engagement.</p></div></div>
+          <div class="benefit"><i class="fa-solid fa-lightbulb"></i><div><h4>Créativité</h4><p>Imaginer, oser et exprimer sa propre sensibilité.</p></div></div>
+          <div class="benefit"><i class="fa-solid fa-hand-holding-heart"></i><div><h4>Responsabilité</h4><p>Prendre soin des autres et de son environnement.</p></div></div>
+          <div class="benefit"><i class="fa-solid fa-earth-africa"></i><div><h4>Ouverture culturelle</h4><p>Grandir entre deux langues et deux cultures.</p></div></div>
+        </div>
+      </div>
+
+      <div class="parents-visual reveal">
+        <span class="eyebrow-ar">التربية أمانة</span>
+        <blockquote>« L'école n'est pleinement elle-même que lorsqu'elle apprend aussi à vivre ensemble. »</blockquote>
+        <cite>— Équipe pédagogique de l'Institut Al Maarifa</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section style="padding-block:0 96px;">
+    <div class="cta">
+      <div class="cta-inner">
+        <h2>Participez à la vie de l'Institut Al Maarifa</h2>
+        <p>Nos activités permettent à chaque élève de développer ses talents, découvrir de nouvelles passions et construire des souvenirs inoubliables.</p>
+        <div class="cta-actions">
+          <a href="#calendrier" class="btn btn-gold">Voir le calendrier</a>
+          <a href="#footer" class="btn btn-outline">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
-<footer class="site-footer">
+
+<!-- ============ FOOTER ============ -->
+<footer id="footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
-          <strong>Institut Al Maarifa</strong>
+      <div class="footer-brand">
+        <div class="brand-mark" aria-hidden="true">م</div>
+        <h4 style="margin-block-end:8px;">Institut Al Maarifa</h4>
+        <p>École franco-arabe dédiée à l'excellence académique et à l'épanouissement de chaque élève, dans le respect des valeurs et des deux cultures.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
-        <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="index.html">Accueil</a>
-        <a href="institut.html">L'Institut</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="actualites.html">Actualités</a>
-        <a href="contact.html">Contact</a>
+
+      <div class="footer-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="#">Programmes</a></li>
+          <li><a href="#activites">Activités</a></li>
+          <li><a href="#">Actualités</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+        </ul>
       </div>
-      <div>
-        <h4>Ressources</h4>
-        <a href="bibliotheque.html">Bibliothèque numérique</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="inscriptions.html">Inscriptions 2026–2027</a>
-        <a href="centre.html">Le Centre</a>
+
+      <div class="footer-col">
+        <h4>Établissement</h4>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#calendrier">Calendrier</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Espace parents</a></li>
+        </ul>
       </div>
-      <div>
+
+      <div class="footer-col">
         <h4>Contact</h4>
-        <a href="tel:+221774036424">77 403 64 24</a>
-        <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <a href="contact.html">Formulaire de contact</a>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i><span>Rue de l'Éducation, Dakar, Sénégal</span></li>
+          <li><i class="fa-solid fa-phone"></i><span>+221 33 000 00 00</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span>contact@almaarifa.edu</span></li>
+        </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span>
-      <span>Partenaire officiel : Institut Al-Azhar</span>
+      <span>© <span id="year"></span> Institut Al Maarifa — Tous droits réservés.</span>
+      <span>Conçu pour l'excellence franco-arabe.</span>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" data-wa-link href="#" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
-</a>
+<!-- ============ LIGHTBOX GALERIE ============ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-box" id="lightboxBox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+    <i class="lb-icon fa-solid fa-image"></i>
+    <span class="lb-caption"></span>
+  </div>
+</div>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/main.js"></script>
+<!-- ============ MODAL DÉTAIL ACTIVITÉ / ÉVÉNEMENT ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-head" id="modalHead">
+      <button class="modal-close" id="modalClose" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+      <i class="fa-solid fa-image"></i>
+    </div>
+    <div class="modal-body">
+      <span class="activity-cat-tag" id="modalTag"></span>
+      <h3 id="modalTitle"></h3>
+      <div class="modal-meta" id="modalMeta"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+    </div>
+  </div>
+</div>
 
 <script>
-(function () {
-  const actGrid = document.getElementById('activities-grid');
-  const emptyMsg = document.getElementById('activities-empty');
-  if (!actGrid) return;
+/* =========================================================
+   INSTITUT AL MAARIFA — LOGIQUE JAVASCRIPT (vanilla JS)
+   Sections : données, rendu, filtres/recherche, modal,
+   galerie/lightbox, compteurs animés, menu mobile, reveal.
+   ========================================================= */
+(function(){
+  "use strict";
 
-  const fmt = d => {
-    try { return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }); }
-    catch (e) { return ''; }
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Données des activités ---------- */
+  const CATEGORY_LABELS = {
+    pedagogique: "Activité pédagogique",
+    religieuse:  "Activité religieuse",
+    sportive:    "Activité sportive",
+    culturelle:  "Activité culturelle",
+    numerique:   "Activité numérique",
+    citoyenne:   "Activité citoyenne"
+  };
+  const CATEGORY_ICONS = {
+    pedagogique: "fa-book-open-reader",
+    religieuse:  "fa-mosque",
+    sportive:    "fa-futbol",
+    culturelle:  "fa-palette",
+    numerique:   "fa-laptop-code",
+    citoyenne:   "fa-seedling"
   };
 
-  // Protection : si data.js n'a pas chargé ou si le tableau est vide/absent
-  const list = (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.activities)) ? SITE_DATA.activities : [];
+  const ACTIVITIES = [
+    { cat:"sportive", title:"Journée sportive inter-classes", date:"15 octobre 2025", desc:"Une journée entière consacrée aux tournois de football, basketball et athlétisme entre toutes les classes.", full:"L'ensemble des classes s'affrontent amicalement lors d'olympiades sportives organisées dans la cour et le stade de l'établissement. L'occasion de valoriser l'effort, l'esprit d'équipe et le fair-play, avec remise de médailles en fin de journée." },
+    { cat:"religieuse", title:"Concours de récitation du Coran", date:"22 octobre 2025", desc:"Les élèves présentent leur mémorisation devant un jury de professeurs, dans une ambiance recueillie.", full:"Ouvert à toutes les classes du primaire au collège, ce concours valorise la mémorisation et la belle récitation. Un jury de professeurs évalue la justesse, la fluidité et le respect des règles de tajwid. Des prix sont remis aux trois premières places de chaque niveau." },
+    { cat:"culturelle", title:"Journée culturelle franco-arabe", date:"5 novembre 2025", desc:"Expositions, chants, calligraphie et saynètes mettent à l'honneur les deux cultures de notre école.", full:"Stands d'exposition, ateliers de calligraphie arabe, chants traditionnels et petites pièces de théâtre bilingues rythment cette journée conçue avec les élèves et les professeurs. Les familles sont invitées à découvrir les réalisations en fin d'après-midi." },
+    { cat:"numerique", title:"Atelier informatique et robotique", date:"12 novembre 2025", desc:"Premiers pas en programmation par blocs et découverte de petits robots pédagogiques.", full:"Encadrés par le club numérique, les élèves apprennent les bases de la logique de programmation à l'aide d'un langage visuel par blocs, puis manipulent de petits robots éducatifs pour mettre en pratique leurs algorithmes." },
+    { cat:"pedagogique", title:"Concours de mathématiques", date:"19 novembre 2025", desc:"Un défi ludique par équipes pour stimuler le raisonnement logique des élèves.", full:"Organisé par niveau, ce concours propose des énigmes et des problèmes progressifs. Les équipes gagnantes représenteront l'école lors d'une compétition inter-établissements en fin d'année." },
+    { cat:"citoyenne", title:"Journée de plantation d'arbres", date:"26 novembre 2025", desc:"Élèves et enseignants plantent des arbres dans l'enceinte de l'école pour sensibiliser à l'environnement.", full:"En partenariat avec une association locale, chaque classe plante et entretient un arbre tout au long de l'année. L'activité s'accompagne d'un atelier de sensibilisation à la protection de l'environnement." },
+    { cat:"pedagogique", title:"Club de lecture", date:"3 décembre 2025", desc:"Un moment hebdomadaire de partage autour des livres préférés des élèves.", full:"Chaque semaine, les élèves se retrouvent à la bibliothèque pour échanger sur leurs lectures, présenter un livre à leurs camarades et participer à des jeux autour de la littérature jeunesse." },
+    { cat:"sportive", title:"Tournoi de basketball", date:"10 décembre 2025", desc:"Les équipes du collège s'affrontent dans une ambiance conviviale et sportive.", full:"Organisé sur plusieurs semaines, ce tournoi permet aux élèves de progresser en basketball tout en apprenant l'esprit de compétition saine. La finale se joue devant l'ensemble des classes." },
+    { cat:"culturelle", title:"Atelier de calligraphie arabe", date:"17 décembre 2025", desc:"Initiation aux tracés et à l'art du qalam pour les élèves passionnés d'écriture.", full:"Guidés par un professeur spécialisé, les élèves apprennent les bases de la calligraphie arabe (style naskh), du geste à la composition, et repartent avec leur première œuvre encadrée." }
+  ];
 
-  if (list.length === 0) {
-    actGrid.innerHTML = '<p class="activities-status">Les activités seront publiées prochainement. Revenez bientôt !</p>';
-    actGrid.removeAttribute('aria-busy');
-    return;
-  }
+  const VISIBLE_STEP = 6;
+  let visibleCount = VISIBLE_STEP;
+  let activeFilter = "tous";
+  let searchTerm = "";
 
-  // Tri du plus récent au plus ancien (protège contre un ordre incohérent dans data.js)
-  const sorted = [...list].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const grid = document.getElementById('activitiesGrid');
+  const noResults = document.getElementById('noResults');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-  actGrid.innerHTML = sorted.map(a => `
-    <div class="card reveal in" data-activity-type="${a.type}">
-      ${typeof renderImage === 'function' ? renderImage(a.image, a.title, 'landscape') : ''}
-      <div class="card-body">
-        <div class="meta-row"><span class="badge">${a.type}</span><span>${fmt(a.date)}</span></div>
-        <h3>${a.title}</h3>
-        <p>${a.description}</p>
-      </div>
-    </div>
-  `).join('');
-  actGrid.removeAttribute('aria-busy');
+  function thumbClass(cat){ return "t-" + cat; }
 
-  // Filtres : bascule aria-pressed + affichage d'un message si aucun résultat
-  const filterRoot = document.querySelector('[data-filter-root]');
-  if (filterRoot && typeof initFilters === 'function') {
-    initFilters('[data-filter-root]', '[data-activity-type]', 'data-activity-type');
-
-    filterRoot.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterRoot.querySelectorAll('.filter-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
-        btn.setAttribute('aria-pressed', 'true');
-
-        const val = btn.dataset.filter;
-        const cards = actGrid.querySelectorAll('[data-activity-type]');
-        let visibleCount = 0;
-        cards.forEach(card => {
-          const show = val === 'all' || card.getAttribute('data-activity-type') === val;
-          if (show) visibleCount++;
-        });
-        if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
-      });
+  function renderActivities(){
+    const filtered = ACTIVITIES.filter(a => {
+      const matchCat = activeFilter === "tous" || a.cat === activeFilter;
+      const matchSearch = a.title.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchCat && matchSearch;
     });
+
+    grid.innerHTML = "";
+    filtered.slice(0, visibleCount).forEach((a, idx) => {
+      const card = document.createElement('article');
+      card.className = "activity-card";
+      card.innerHTML = `
+        <div class="activity-thumb ${thumbClass(a.cat)}"><i class="fa-solid ${CATEGORY_ICONS[a.cat]}"></i></div>
+        <div class="activity-body">
+          <span class="activity-cat-tag">${CATEGORY_LABELS[a.cat]}</span>
+          <h3>${a.title}</h3>
+          <span class="activity-date"><i class="fa-regular fa-calendar"></i>${a.date}</span>
+          <p class="activity-desc">${a.desc}</p>
+          <button class="btn btn-ghost" data-index="${ACTIVITIES.indexOf(a)}">Lire la suite</button>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    noResults.classList.toggle('show', filtered.length === 0);
+    loadMoreBtn.style.display = (visibleCount >= filtered.length) ? "none" : "inline-flex";
   }
+
+  document.getElementById('filterChips').addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if(!chip) return;
+    document.querySelectorAll('#filterChips .chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeFilter = chip.dataset.filter;
+    visibleCount = VISIBLE_STEP;
+    renderActivities();
+  });
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    searchTerm = e.target.value;
+    visibleCount = VISIBLE_STEP;
+    renderActivities();
+  });
+
+  loadMoreBtn.addEventListener('click', () => {
+    visibleCount += VISIBLE_STEP;
+    renderActivities();
+  });
+
+  /* ---------- Modal détail activité ---------- */
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalHead = document.getElementById('modalHead');
+  const modalTag = document.getElementById('modalTag');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalMeta = document.getElementById('modalMeta');
+  const modalDesc = document.getElementById('modalDesc');
+
+  function openActivityModal(activity){
+    modalHead.className = "modal-head " + thumbClass(activity.cat);
+    modalHead.querySelector('i').className = "fa-solid " + CATEGORY_ICONS[activity.cat];
+    modalTag.textContent = CATEGORY_LABELS[activity.cat];
+    modalTitle.textContent = activity.title;
+    modalMeta.innerHTML = `<span><i class="fa-regular fa-calendar"></i>${activity.date}</span><span><i class="fa-solid fa-school"></i>Toutes classes</span>`;
+    modalDesc.textContent = activity.full;
+    modalOverlay.classList.add('open');
+  }
+
+  function openEventModal(ev){
+    modalHead.className = "modal-head " + thumbClass(ev.cat);
+    modalHead.querySelector('i').className = "fa-solid " + CATEGORY_ICONS[ev.cat];
+    modalTag.textContent = "Événement à venir";
+    modalTitle.textContent = ev.title;
+    modalMeta.innerHTML = `
+      <span><i class="fa-regular fa-calendar"></i>${ev.date}</span>
+      <span><i class="fa-regular fa-clock"></i>${ev.time}</span>
+      <span><i class="fa-solid fa-school"></i>${ev.level}</span>
+      <span><i class="fa-solid fa-location-dot"></i>${ev.place}</span>`;
+    modalDesc.textContent = ev.desc;
+    modalOverlay.classList.add('open');
+  }
+
+  grid.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-index]');
+    if(!btn) return;
+    openActivityModal(ACTIVITIES[Number(btn.dataset.index)]);
+  });
+
+  document.getElementById('modalClose').addEventListener('click', () => modalOverlay.classList.remove('open'));
+  modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) modalOverlay.classList.remove('open'); });
+
+  /* ---------- Calendrier ---------- */
+  const EVENTS = [
+    { day:"15", month:"OCT", cat:"sportive", title:"Journée sportive", date:"15 octobre 2025", time:"08h00 – 17h00", level:"Toutes classes", place:"Stade de l'école", desc:"Tournois de football, basketball et athlétisme entre toutes les classes de l'établissement, dans une ambiance festive et sportive." },
+    { day:"22", month:"OCT", cat:"religieuse", title:"Concours de récitation du Coran", date:"22 octobre 2025", time:"09h00 – 12h00", level:"Primaire & Collège", place:"Grande salle", desc:"Les élèves présentent leur mémorisation devant un jury de professeurs. Prix remis aux trois premières places de chaque niveau." },
+    { day:"05", month:"NOV", cat:"culturelle", title:"Journée culturelle franco-arabe", date:"5 novembre 2025", time:"10h00 – 16h00", level:"Toutes classes", place:"Cour principale", desc:"Expositions, chants, calligraphie et saynètes mettant à l'honneur les deux cultures de notre école, ouvertes aux familles en fin de journée." },
+    { day:"12", month:"NOV", cat:"numerique", title:"Atelier informatique", date:"12 novembre 2025", time:"14h00 – 16h00", level:"Collège", place:"Salle informatique", desc:"Initiation à la programmation par blocs et découverte de petits robots pédagogiques encadrée par le club numérique." }
+  ];
+
+  const calendarList = document.getElementById('calendarList');
+  EVENTS.forEach((ev, i) => {
+    const item = document.createElement('div');
+    item.className = "cal-item";
+    item.innerHTML = `
+      <div class="cal-date"><span class="day">${ev.day}</span><span class="month">${ev.month}</span></div>
+      <div class="cal-info">
+        <h4>${ev.title}</h4>
+        <div class="cal-meta">
+          <span><i class="fa-regular fa-clock"></i>${ev.time}</span>
+          <span><i class="fa-solid fa-school"></i>${ev.level}</span>
+          <span><i class="fa-solid fa-location-dot"></i>${ev.place}</span>
+        </div>
+        <p class="cal-desc">${ev.desc}</p>
+      </div>
+      <button class="btn btn-outline-dark" data-ev="${i}">Voir les détails</button>`;
+    calendarList.appendChild(item);
+  });
+  calendarList.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-ev]');
+    if(!btn) return;
+    openEventModal(EVENTS[Number(btn.dataset.ev)]);
+  });
+
+  /* ---------- Galerie + lightbox ---------- */
+  const GALLERY_ITEMS = [
+    { icon:"fa-futbol", label:"Journée sportive", cat:"sportive" },
+    { icon:"fa-mosque", label:"Récitation du Coran", cat:"religieuse" },
+    { icon:"fa-bus", label:"Sortie scolaire", cat:"citoyenne" },
+    { icon:"fa-flask", label:"Cours pratique", cat:"pedagogique" },
+    { icon:"fa-masks-theater", label:"Journée culturelle", cat:"culturelle" },
+    { icon:"fa-graduation-cap", label:"Cérémonie de fin d'année", cat:"pedagogique" },
+    { icon:"fa-trophy", label:"Concours de mathématiques", cat:"pedagogique" },
+    { icon:"fa-pen-nib", label:"Calligraphie arabe", cat:"culturelle" }
+  ];
+  const galleryGrid = document.getElementById('galleryGrid');
+  GALLERY_ITEMS.forEach((g) => {
+    const el = document.createElement('div');
+    el.className = "g-item " + thumbClass(g.cat);
+    el.innerHTML = `<i class="fa-solid ${g.icon}"></i><span class="g-label">${g.label}</span>`;
+    el.addEventListener('click', () => openLightbox(g));
+    galleryGrid.appendChild(el);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxBox = document.getElementById('lightboxBox');
+  function openLightbox(g){
+    lightboxBox.className = "lightbox-box " + thumbClass(g.cat);
+    lightboxBox.querySelector('.lb-icon').className = "lb-icon fa-solid " + g.icon;
+    lightboxBox.querySelector('.lb-caption').textContent = g.label;
+    lightbox.classList.add('open');
+  }
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('open'); });
+
+  /* ---------- Fermeture au clavier (Échap) ---------- */
+  document.addEventListener('keydown', (e) => {
+    if(e.key === "Escape"){
+      modalOverlay.classList.remove('open');
+      lightbox.classList.remove('open');
+    }
+  });
+
+  /* ---------- Compteurs animés ---------- */
+  const statNums = document.querySelectorAll('.stat-num');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        animateCount(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.4 });
+  statNums.forEach(el => statObserver.observe(el));
+
+  function animateCount(el){
+    const target = Number(el.dataset.target);
+    const duration = 1200;
+    const start = performance.now();
+    function step(now){
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = "+" + Math.floor(progress * target);
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = "+" + target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------- Reveal au défilement ---------- */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ---------- Menu mobile ---------- */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mainNav = document.getElementById('mainNav');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('is-open');
+    hamburgerBtn.classList.toggle('is-open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mainNav.classList.remove('is-open');
+    hamburgerBtn.classList.remove('is-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  /* ---------- Rendu initial ---------- */
+  renderActivities();
+
 })();
 </script>
-
 </body>
 </html>
