@@ -385,6 +385,67 @@
   </nav>
 </header>
 
+<script>
+/* =========================================================================
+   Filet de sécurité pour le menu mobile (les "trois traits").
+   Ce script est autonome et ne dépend pas de assets/js/main.js : si celui-ci
+   ne fonctionne pas correctement sur cette page, le menu reste utilisable.
+   Il n'entre pas en conflit avec main.js : il utilise le style inline
+   (priorité maximale) et se contente de basculer l'affichage.
+   ========================================================================= */
+(function () {
+  function init() {
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('.mobile-nav');
+    if (!burger || !nav) return;
+
+    function closeMenu() {
+      nav.style.display = '';
+      burger.setAttribute('aria-expanded', 'false');
+      burger.classList.remove('is-open');
+      document.body.classList.remove('prog-nav-locked');
+    }
+    function openMenu() {
+      nav.style.display = 'flex';
+      nav.style.flexDirection = 'column';
+      burger.setAttribute('aria-expanded', 'true');
+      burger.classList.add('is-open');
+      document.body.classList.add('prog-nav-locked');
+    }
+
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = burger.getAttribute('aria-expanded') === 'true';
+      if (isOpen) { closeMenu(); } else { openMenu(); }
+    });
+
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (nav.style.display === 'flex' && !nav.contains(e.target) && e.target !== burger && !burger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 880) closeMenu();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<style>
+  body.prog-nav-locked{ overflow:hidden; }
+  .mobile-nav{ z-index:60; }
+</style>
+
 <main id="main">
 
 <section class="page-hero">
