@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galerie photos | Institut Al Maarifa</title>
-<meta name="description" content="Galerie photos de l'Institut Al Maarifa : bâtiment, salles de classe, vie scolaire et activités à Bambilor.">
+<title>Galerie photos &amp; vidéos | Institut Al Maarifa</title>
+<meta name="description" content="Galerie photos et vidéos de l'Institut Al Maarifa : bâtiment, salles de classe, élèves, enseignants, activités pédagogiques, islamiques, sportives et événements à Bambilor.">
 <meta name="theme-color" content="#0B3B2C">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/galerie.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Galerie photos | Institut Al Maarifa">
-<meta property="og:description" content="Galerie photos de l'Institut Al Maarifa : bâtiment, salles de classe, vie scolaire et activités à Bambilor.">
+<meta property="og:title" content="Galerie photos &amp; vidéos | Institut Al Maarifa">
+<meta property="og:description" content="Découvrez en images et en vidéos la vie de l'Institut Al Maarifa : infrastructures, classes, élèves, enseignants et événements.">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
@@ -41,6 +41,188 @@
   "url": "https://www.institut-almaarifa.sn/"
 }
 </script>
+
+<!--
+  Styles propres à la page Galerie uniquement (ne modifie pas s.css).
+  Préfixe "gp-" pour éviter tout conflit avec les classes existantes du site.
+-->
+<style>
+  :root{
+    --gp-green:#0B3B2C;
+    --gp-green-dark:#082A20;
+    --gp-gold:#B8903E;
+    --gp-cream:#FBF8F1;
+    --gp-cream-2:#F3EEE1;
+  }
+
+  .gp-hero{
+    background: linear-gradient(160deg, var(--gp-green) 0%, var(--gp-green-dark) 100%);
+    color:#fff;
+    padding:64px 0 72px;
+  }
+  .gp-hero .crumb{ color: var(--gp-gold); }
+  .gp-hero h1{ color:#fff; margin-bottom:10px; }
+  .gp-hero .gp-lead{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.3rem, 2.4vw, 1.7rem);
+    font-weight:400;
+    color: var(--gp-gold);
+    margin:0 0 14px;
+  }
+  .gp-hero p{ max-width:680px; color:rgba(255,255,255,.85); line-height:1.7; }
+  .gp-hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:28px; }
+  .gp-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:999px;
+    font-family:'Karla',sans-serif; font-weight:600; font-size:.95rem;
+    text-decoration:none; cursor:pointer; border:1px solid transparent;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .gp-btn:hover{ transform:translateY(-2px); }
+  .gp-btn-gold{ background:var(--gp-gold); color:#1c1608; }
+  .gp-btn-gold:hover{ background:#c99f4c; }
+  .gp-btn-outline{ background:transparent; color:#fff; border-color:rgba(255,255,255,.5); }
+  .gp-btn-outline:hover{ border-color:#fff; }
+
+  .gp-section{ padding:72px 0; }
+  .gp-section-alt{ background:var(--gp-cream); }
+  .gp-section-head{ max-width:640px; margin-bottom:36px; }
+  .gp-eyebrow{
+    font-family:'Karla',sans-serif; font-weight:700; font-size:.8rem;
+    letter-spacing:.03em; color:var(--gp-gold); margin:0 0 8px;
+  }
+  .gp-section h2{
+    font-family:'Fraunces', serif; color:var(--gp-green); margin:0 0 12px;
+    font-size:clamp(1.6rem, 3vw, 2.1rem);
+  }
+  .gp-section-head p{ color:#4b4b46; line-height:1.7; margin:0; }
+
+  .gp-tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px; }
+  .gp-tag-btn{
+    padding:9px 18px; border-radius:999px; border:1px solid #d9d2bf;
+    background:#fff; color:var(--gp-green); font-family:'Karla',sans-serif;
+    font-size:.88rem; font-weight:600; cursor:pointer; transition:.2s ease;
+  }
+  .gp-tag-btn:hover{ border-color:var(--gp-gold); }
+  .gp-tag-btn.active{ background:var(--gp-green); border-color:var(--gp-green); color:#fff; }
+
+  /* --- Grille photos --- */
+  .gp-photo-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;
+  }
+  .gp-photo-card{
+    position:relative; border-radius:16px; overflow:hidden;
+    background:#fff; box-shadow:0 6px 20px rgba(11,59,44,.08);
+    display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .gp-photo-card:hover{ transform:translateY(-4px); box-shadow:0 14px 30px rgba(11,59,44,.14); }
+  .gp-photo-media{
+    position:relative; aspect-ratio:4/3; background:var(--gp-cream-2);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .gp-photo-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .gp-placeholder{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; text-align:center; padding:18px; color:#8a8578; width:100%; height:100%;
+    background:repeating-linear-gradient(135deg, var(--gp-cream-2), var(--gp-cream-2) 10px, #ece5d2 10px, #ece5d2 20px);
+  }
+  .gp-placeholder .gp-ph-icon{ font-size:2rem; opacity:.7; }
+  .gp-placeholder .gp-ph-label{ font-family:'Karla',sans-serif; font-weight:700; font-size:.8rem; color:var(--gp-green); }
+  .gp-placeholder .gp-ph-sub{ font-size:.78rem; color:#9a9484; }
+  .gp-agrandir{
+    position:absolute; bottom:10px; right:10px; background:rgba(11,59,44,.85);
+    color:#fff; border:none; border-radius:999px; padding:7px 14px;
+    font-size:.78rem; font-family:'Karla',sans-serif; font-weight:600;
+    opacity:0; transform:translateY(6px); transition:.2s ease; cursor:pointer;
+  }
+  .gp-photo-card:hover .gp-agrandir{ opacity:1; transform:translateY(0); }
+  .gp-photo-info{ padding:16px 18px 18px; }
+  .gp-photo-info .gp-cat{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.02em;
+    color:var(--gp-gold); margin-bottom:6px; font-family:'Karla',sans-serif;
+  }
+  .gp-photo-info h3{ font-family:'Fraunces',serif; font-size:1.05rem; color:var(--gp-green); margin:0 0 6px; }
+  .gp-photo-info p{ font-size:.85rem; color:#6b665a; line-height:1.5; margin:0; }
+
+  /* --- Grille vidéos --- */
+  .gp-video-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+  .gp-video-card{
+    border-radius:16px; overflow:hidden; background:#fff;
+    box-shadow:0 6px 20px rgba(11,59,44,.08); display:flex; flex-direction:column;
+  }
+  .gp-video-media{
+    position:relative; aspect-ratio:16/9; background:var(--gp-green-dark);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;
+  }
+  .gp-video-media img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:.55; }
+  .gp-play{
+    position:relative; z-index:1; width:58px; height:58px; border-radius:50%;
+    background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center;
+    color:var(--gp-green); font-size:1.3rem; transition:transform .2s ease;
+  }
+  .gp-video-media:hover .gp-play{ transform:scale(1.08); }
+  .gp-video-media.gp-ph{ background:repeating-linear-gradient(135deg, var(--gp-green-dark), var(--gp-green-dark) 10px, #0f4634 10px, #0f4634 20px); cursor:default; }
+  .gp-video-media.gp-ph .gp-play{ background:rgba(255,255,255,.12); color:rgba(255,255,255,.6); }
+  .gp-video-ph-text{ position:absolute; bottom:12px; left:0; right:0; text-align:center; color:rgba(255,255,255,.75); font-family:'Karla',sans-serif; font-size:.78rem; font-weight:600; }
+  .gp-video-info{ padding:16px 18px 18px; }
+  .gp-video-info .gp-cat{ display:inline-block; font-size:.72rem; font-weight:700; color:var(--gp-gold); margin-bottom:6px; font-family:'Karla',sans-serif; }
+  .gp-video-info h3{ font-family:'Fraunces',serif; font-size:1.02rem; color:var(--gp-green); margin:0; }
+  .gp-video-embed{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+  /* --- Moments forts --- */
+  .gp-highlight-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+  .gp-highlight-card{
+    background:#fff; border-radius:18px; overflow:hidden;
+    box-shadow:0 8px 24px rgba(11,59,44,.09); position:relative;
+  }
+  .gp-highlight-media{ aspect-ratio:3/2; background:var(--gp-cream-2); position:relative; }
+  .gp-highlight-badge{
+    position:absolute; top:12px; left:12px; background:var(--gp-gold); color:#1c1608;
+    font-family:'Karla',sans-serif; font-weight:700; font-size:.7rem; padding:5px 12px;
+    border-radius:999px; letter-spacing:.02em;
+  }
+  .gp-highlight-body{ padding:18px 20px 22px; }
+  .gp-highlight-date{ font-family:'Karla',sans-serif; font-size:.78rem; font-weight:700; color:var(--gp-gold); margin-bottom:6px; }
+  .gp-highlight-body h3{ font-family:'Fraunces',serif; color:var(--gp-green); margin:0 0 8px; font-size:1.1rem; }
+  .gp-highlight-body p{ font-size:.88rem; color:#6b665a; line-height:1.6; margin:0; }
+
+  /* --- Visite virtuelle --- */
+  .gp-tour{
+    background:var(--gp-green); border-radius:22px; overflow:hidden;
+    display:grid; grid-template-columns:1.1fr 1fr; align-items:stretch;
+  }
+  .gp-tour-text{ padding:48px 44px; color:#fff; }
+  .gp-tour-text .gp-eyebrow{ color:var(--gp-gold); }
+  .gp-tour-text h2{ color:#fff; }
+  .gp-tour-text p{ color:rgba(255,255,255,.8); line-height:1.7; }
+  .gp-tour-media{
+    position:relative; min-height:280px; background:repeating-linear-gradient(135deg, var(--gp-green-dark), var(--gp-green-dark) 12px, #0f4634 12px, #0f4634 24px);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .gp-tour-media .gp-play{ width:74px; height:74px; font-size:1.6rem; }
+
+  .gp-empty-note{
+    margin-top:14px; font-size:.85rem; color:#8a8578; font-style:italic;
+  }
+
+  @media (max-width: 1024px){
+    .gp-photo-grid{ grid-template-columns:repeat(3, 1fr); }
+    .gp-video-grid, .gp-highlight-grid{ grid-template-columns:repeat(2, 1fr); }
+    .gp-tour{ grid-template-columns:1fr; }
+    .gp-tour-media{ min-height:220px; }
+  }
+  @media (max-width: 720px){
+    .gp-photo-grid{ grid-template-columns:repeat(2, 1fr); gap:16px; }
+    .gp-video-grid, .gp-highlight-grid{ grid-template-columns:1fr; }
+    .gp-hero{ padding:48px 0 56px; }
+    .gp-tour-text{ padding:32px 24px; }
+  }
+  @media (max-width: 480px){
+    .gp-photo-grid{ grid-template-columns:1fr; }
+    .gp-hero-actions{ flex-direction:column; }
+    .gp-btn{ justify-content:center; }
+  }
+</style>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
@@ -92,29 +274,108 @@
     </div>
   </nav>
 </header>
+
 <main id="main">
 
-<section class="page-hero">
+<!-- HERO -->
+<section class="gp-hero">
   <div class="container">
     <div class="crumb">Galerie</div>
-    <h1>La vie de l'Institut en images</h1>
-    <p>Un aperçu de nos infrastructures et de la vie scolaire. Les photos sont ajoutées progressivement par l'établissement.</p>
+    <p class="gp-lead">Découvrez la vie de l'Institut Al Maarifa</p>
+    <h1>Galerie photos &amp; vidéos</h1>
+    <p>Découvrez en images et en vidéos nos infrastructures, nos activités pédagogiques, nos élèves, nos événements et les moments forts de la vie de l'Institut.</p>
+    <div class="gp-hero-actions">
+      <a href="#photos" class="gp-btn gp-btn-gold">📸 Voir les photos</a>
+      <a href="#videos" class="gp-btn gp-btn-outline">▶ Voir les vidéos</a>
+    </div>
   </div>
 </section>
 
-<section>
+<!-- SECTION PHOTOS -->
+<section class="gp-section" id="photos">
   <div class="container">
-    <div class="tag-row" data-filter-root>
-      <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="batiment">Bâtiment</button>
-      <button class="filter-btn" data-filter="classes">Classes</button>
-      <button class="filter-btn" data-filter="vie-scolaire">Vie scolaire</button>
-      <button class="filter-btn" data-filter="activites">Activités</button>
-      <button class="filter-btn" data-filter="evenements">Événements</button>
+    <div class="gp-section-head">
+      <p class="gp-eyebrow">Photos</p>
+      <h2>Nos photos</h2>
+      <p>Un aperçu du bâtiment, des salles de classe, des élèves, des enseignants et de la vie scolaire. Les photos réelles seront ajoutées progressivement par l'établissement.</p>
     </div>
-    <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+
+    <div class="gp-tag-row" data-photo-filter-root>
+      <button class="gp-tag-btn active" data-filter="all">Tout</button>
+      <button class="gp-tag-btn" data-filter="batiment">Bâtiment</button>
+      <button class="gp-tag-btn" data-filter="classes">Classes</button>
+      <button class="gp-tag-btn" data-filter="eleves">Élèves</button>
+      <button class="gp-tag-btn" data-filter="enseignants">Enseignants</button>
+      <button class="gp-tag-btn" data-filter="vie-scolaire">Vie scolaire</button>
+      <button class="gp-tag-btn" data-filter="activites-pedagogiques">Activités pédagogiques</button>
+      <button class="gp-tag-btn" data-filter="activites-islamiques">Activités islamiques</button>
+      <button class="gp-tag-btn" data-filter="sport">Sport</button>
+      <button class="gp-tag-btn" data-filter="evenements">Événements</button>
+      <button class="gp-tag-btn" data-filter="ceremonies">Cérémonies</button>
+      <button class="gp-tag-btn" data-filter="autres">Autres</button>
+    </div>
+
+    <div id="gp-photo-grid" class="gp-photo-grid" aria-live="polite"></div>
+    <p class="gp-empty-note">Les photos manquantes affichent un emplacement réservé, en attendant l'ajout des images réelles de l'établissement.</p>
   </div>
 </section>
+
+<!-- SECTION VIDEOS -->
+<section class="gp-section gp-section-alt" id="videos">
+  <div class="container">
+    <div class="gp-section-head">
+      <p class="gp-eyebrow">Vidéos</p>
+      <h2>Nos vidéos</h2>
+      <p>Présentation de l'Institut, visite de l'établissement, activités pédagogiques et islamiques, événements et témoignages.</p>
+    </div>
+
+    <div class="gp-tag-row" data-video-filter-root>
+      <button class="gp-tag-btn active" data-filter="all">Toutes</button>
+      <button class="gp-tag-btn" data-filter="presentation">Présentation</button>
+      <button class="gp-tag-btn" data-filter="vie-scolaire">Vie scolaire</button>
+      <button class="gp-tag-btn" data-filter="cours">Cours</button>
+      <button class="gp-tag-btn" data-filter="activites">Activités</button>
+      <button class="gp-tag-btn" data-filter="islam-education">Islam &amp; éducation</button>
+      <button class="gp-tag-btn" data-filter="sport">Sport</button>
+      <button class="gp-tag-btn" data-filter="evenements">Événements</button>
+      <button class="gp-tag-btn" data-filter="temoignages">Témoignages</button>
+      <button class="gp-tag-btn" data-filter="actualites">Actualités</button>
+    </div>
+
+    <div id="gp-video-grid" class="gp-video-grid" aria-live="polite"></div>
+    <p class="gp-empty-note">« Vidéo à venir » — les vidéos réelles seront ajoutées dès qu'elles seront disponibles.</p>
+  </div>
+</section>
+
+<!-- MOMENTS FORTS -->
+<section class="gp-section" id="moments-forts">
+  <div class="container">
+    <div class="gp-section-head">
+      <p class="gp-eyebrow">⭐ Temps forts</p>
+      <h2>Les moments forts de l'Institut</h2>
+      <p>Un espace pour mettre en avant les grands rendez-vous de l'année scolaire, au fur et à mesure qu'ils sont documentés.</p>
+    </div>
+    <div class="gp-highlight-grid" id="gp-highlight-grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- VISITE VIRTUELLE -->
+<section class="gp-section gp-section-alt" id="visite-virtuelle">
+  <div class="container">
+    <div class="gp-tour">
+      <div class="gp-tour-text">
+        <p class="gp-eyebrow">🏫 Visite virtuelle</p>
+        <h2>Découvrez notre établissement</h2>
+        <p>Une présentation vidéo de nos locaux, de nos salles de classe et de notre environnement scolaire sera prochainement disponible.</p>
+      </div>
+      <div class="gp-tour-media" id="gp-tour-media">
+        <div class="gp-play">▶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
   <div class="lightbox-inner">
@@ -126,7 +387,6 @@
   </div>
 </div>
 
-</main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -177,22 +437,223 @@
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
 
+<!--
+  ============================================================
+  DONNÉES DE LA GALERIE — à modifier par l'administrateur
+  ============================================================
+  Pour ajouter une vraie photo :
+    1. Déposer le fichier dans public/images/galerie/
+    2. Renseigner "image" avec le chemin du fichier
+    3. Passer "placeholder" à false
+
+  Pour ajouter une vraie vidéo :
+    - Vidéo locale : type "local", src "public/videos/xxx.mp4"
+    - Vidéo YouTube : type "youtube", src "VIDEO_ID" (identifiant uniquement)
+    - Tant qu'aucune vidéo n'est prête, laisser type "placeholder"
+  ============================================================
+-->
 <script>
-  const galGrid = document.getElementById('gallery-grid');
-  let galItems = SITE_DATA.gallery;
+const galleryPhotos = [
+  { image: "public/images/galerie/batiment-01.jpg", placeholder: true, title: "Le bâtiment principal", category: "batiment", description: "Vue d'ensemble du bâtiment de l'Institut." },
+  { image: "public/images/galerie/batiment-02.jpg", placeholder: true, title: "Vue extérieure de l'Institut", category: "batiment", description: "Façade et abords de l'établissement." },
+  { image: "public/images/galerie/batiment-03.jpg", placeholder: true, title: "Cour de l'établissement", category: "batiment", description: "Espace extérieur partagé par les élèves." },
+  { image: "public/images/galerie/classe-01.jpg", placeholder: true, title: "Salle de classe", category: "classes", description: "Un espace d'apprentissage équipé." },
+  { image: "public/images/galerie/classe-02.jpg", placeholder: true, title: "Espace d'apprentissage", category: "classes", description: "Salle dédiée aux enseignements généraux." },
+  { image: "public/images/galerie/classe-03.jpg", placeholder: true, title: "Salle de mémorisation du Coran", category: "classes", description: "Espace réservé à l'enseignement coranique." },
+  { image: "public/images/galerie/eleves-01.jpg", placeholder: true, title: "Nos élèves en classe", category: "eleves", description: "Les élèves pendant une séance de cours." },
+  { image: "public/images/galerie/eleves-02.jpg", placeholder: true, title: "Moment de récréation", category: "eleves", description: "Un instant de détente entre les cours." },
+  { image: "public/images/galerie/enseignants-01.jpg", placeholder: true, title: "Notre équipe pédagogique", category: "enseignants", description: "Les enseignants de l'Institut." },
+  { image: "public/images/galerie/enseignants-02.jpg", placeholder: true, title: "Un enseignant en cours", category: "enseignants", description: "Transmission du savoir en classe." },
+  { image: "public/images/galerie/vie-scolaire-01.jpg", placeholder: true, title: "Vie quotidienne à l'Institut", category: "vie-scolaire", description: "Un aperçu du quotidien des élèves." },
+  { image: "public/images/galerie/vie-scolaire-02.jpg", placeholder: true, title: "Moment convivial entre élèves", category: "vie-scolaire", description: "Échanges et entraide entre camarades." },
+  { image: "public/images/galerie/activite-pedagogique-01.jpg", placeholder: true, title: "Atelier pédagogique", category: "activites-pedagogiques", description: "Activité d'apprentissage en petit groupe." },
+  { image: "public/images/galerie/activite-pedagogique-02.jpg", placeholder: true, title: "Travaux pratiques", category: "activites-pedagogiques", description: "Mise en application des connaissances." },
+  { image: "public/images/galerie/activite-islamique-01.jpg", placeholder: true, title: "Séance d'éducation islamique", category: "activites-islamiques", description: "Enseignement des valeurs islamiques." },
+  { image: "public/images/galerie/activite-islamique-02.jpg", placeholder: true, title: "Moment de prière collective", category: "activites-islamiques", description: "Un temps fort de la vie spirituelle de l'Institut." },
+  { image: "public/images/galerie/sport-01.jpg", placeholder: true, title: "Activité sportive", category: "sport", description: "Les élèves lors d'une séance de sport." },
+  { image: "public/images/galerie/evenement-01.jpg", placeholder: true, title: "Événement de l'Institut", category: "evenements", description: "Un rassemblement organisé par l'établissement." },
+  { image: "public/images/galerie/ceremonie-01.jpg", placeholder: true, title: "Cérémonie de remise de diplômes", category: "ceremonies", description: "Célébration de la réussite des élèves." },
+  { image: "public/images/galerie/autres-01.jpg", placeholder: true, title: "Autres moments de la vie scolaire", category: "autres", description: "D'autres instants de la vie de l'Institut." }
+];
+
+const galleryVideos = [
+  { type: "placeholder", src: "public/videos/institut-01.mp4", title: "Présentation de l'Institut", category: "presentation" },
+  { type: "placeholder", src: "VIDEO_ID", title: "Visite de l'établissement", category: "presentation" },
+  { type: "placeholder", src: "public/videos/vie-scolaire-01.mp4", title: "Vie des élèves", category: "vie-scolaire" },
+  { type: "placeholder", src: "public/videos/cours-01.mp4", title: "Aperçu d'un cours", category: "cours" },
+  { type: "placeholder", src: "public/videos/activite-01.mp4", title: "Activités pédagogiques", category: "activites" },
+  { type: "placeholder", src: "public/videos/islam-01.mp4", title: "Activités islamiques", category: "islam-education" },
+  { type: "placeholder", src: "public/videos/sport-01.mp4", title: "Activités sportives", category: "sport" },
+  { type: "placeholder", src: "public/videos/evenement-01.mp4", title: "Événement de l'Institut", category: "evenements" },
+  { type: "placeholder", src: "public/videos/temoignage-01.mp4", title: "Témoignages", category: "temoignages" },
+  { type: "placeholder", src: "public/videos/actualite-01.mp4", title: "Actualités de l'Institut", category: "actualites" }
+];
+
+const galleryHighlights = [
+  { badge: "Exemple — à personnaliser", date: "Rentrée 2026–2027", title: "Rentrée scolaire 2026–2027", description: "Moment d'accueil des élèves et présentation de l'année scolaire." },
+  { badge: "Exemple — à personnaliser", date: "À venir", title: "Journée sportive", description: "Un temps fort autour des activités sportives de l'Institut." },
+  { badge: "Exemple — à personnaliser", date: "À venir", title: "Cérémonie de fin d'année", description: "Célébration des réussites de l'année scolaire." }
+];
+</script>
+
+<!-- ============================================================ -->
+<!-- LOGIQUE DE LA GALERIE (autonome, n'écrase pas main.js/data.js) -->
+<!-- ============================================================ -->
+<script>
+(function () {
+  const photoGrid = document.getElementById('gp-photo-grid');
+  const videoGrid = document.getElementById('gp-video-grid');
+  const highlightGrid = document.getElementById('gp-highlight-grid');
+  const tourMedia = document.getElementById('gp-tour-media');
+
+  let currentPhotoFilter = 'all';
+  let currentVideoFilter = 'all';
   let lbIndex = 0;
 
-  function renderGallery() {
-    galGrid.innerHTML = galItems.map((g, i) => `
-      <div class="gallery-item reveal in" data-gal-cat="${g.category}" data-index="${i}">
-        ${renderImage(g.image, g.title)}
-      </div>
-    `).join('');
-    galGrid.querySelectorAll('.gallery-item').forEach(el => {
-      el.addEventListener('click', () => openLightbox(parseInt(el.dataset.index, 10)));
+  function photoPlaceholderMarkup(item) {
+    return `
+      <div class="gp-placeholder">
+        <span class="gp-ph-icon">📷</span>
+        <span class="gp-ph-label">Emplacement photo — Ajouter une image</span>
+        <span class="gp-ph-sub">${item.image.split('/').pop()}</span>
+      </div>`;
+  }
+
+  function renderPhotoCard(item, index) {
+    const media = item.placeholder
+      ? photoPlaceholderMarkup(item)
+      : `<img src="${item.image}" alt="${item.title}" loading="lazy">`;
+    return `
+      <div class="gp-photo-card" data-cat="${item.category}" data-index="${index}">
+        <div class="gp-photo-media">
+          ${media}
+          <button class="gp-agrandir" data-open="${index}" aria-label="Agrandir la photo">Agrandir ⤢</button>
+        </div>
+        <div class="gp-photo-info">
+          <span class="gp-cat">${categoryLabel(item.category, photoCatLabels)}</span>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        </div>
+      </div>`;
+  }
+
+  const photoCatLabels = {
+    batiment: "Bâtiment", classes: "Classes", eleves: "Élèves", enseignants: "Enseignants",
+    "vie-scolaire": "Vie scolaire", "activites-pedagogiques": "Activités pédagogiques",
+    "activites-islamiques": "Activités islamiques", sport: "Sport", evenements: "Événements",
+    ceremonies: "Cérémonies", autres: "Autres"
+  };
+  const videoCatLabels = {
+    presentation: "Présentation", "vie-scolaire": "Vie scolaire", cours: "Cours",
+    activites: "Activités", "islam-education": "Islam & éducation", sport: "Sport",
+    evenements: "Événements", temoignages: "Témoignages", actualites: "Actualités"
+  };
+  function categoryLabel(cat, map) { return map[cat] || cat; }
+
+  function renderPhotos() {
+    const items = galleryPhotos
+      .map((item, i) => ({ item, i }))
+      .filter(({ item }) => currentPhotoFilter === 'all' || item.category === currentPhotoFilter);
+
+    photoGrid.innerHTML = items.map(({ item, i }) => renderPhotoCard(item, i)).join('');
+
+    photoGrid.querySelectorAll('.gp-agrandir').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(parseInt(btn.dataset.open, 10));
+      });
+    });
+    photoGrid.querySelectorAll('.gp-photo-card').forEach(card => {
+      card.addEventListener('click', () => openLightbox(parseInt(card.dataset.index, 10)));
     });
   }
 
+  function renderVideoCard(item, index) {
+    if (item.type === 'placeholder') {
+      return `
+        <div class="gp-video-card" data-cat="${item.category}">
+          <div class="gp-video-media gp-ph">
+            <div class="gp-play">▶</div>
+            <span class="gp-video-ph-text">Vidéo à venir</span>
+          </div>
+          <div class="gp-video-info">
+            <span class="gp-cat">${categoryLabel(item.category, videoCatLabels)}</span>
+            <h3>${item.title}</h3>
+          </div>
+        </div>`;
+    }
+    return `
+      <div class="gp-video-card" data-cat="${item.category}">
+        <div class="gp-video-media" data-video-index="${index}">
+          <div class="gp-play">▶</div>
+        </div>
+        <div class="gp-video-info">
+          <span class="gp-cat">${categoryLabel(item.category, videoCatLabels)}</span>
+          <h3>${item.title}</h3>
+        </div>
+      </div>`;
+  }
+
+  function renderVideos() {
+    const items = galleryVideos
+      .map((item, i) => ({ item, i }))
+      .filter(({ item }) => currentVideoFilter === 'all' || item.category === currentVideoFilter);
+
+    videoGrid.innerHTML = items.map(({ item, i }) => renderVideoCard(item, i)).join('');
+
+    // Chargement différé : la vidéo (locale ou YouTube) n'est injectée qu'au clic
+    videoGrid.querySelectorAll('[data-video-index]').forEach(el => {
+      el.addEventListener('click', () => {
+        const item = galleryVideos[parseInt(el.dataset.videoIndex, 10)];
+        if (item.type === 'youtube') {
+          el.innerHTML = `<iframe class="gp-video-embed" src="https://www.youtube.com/embed/${item.src}?autoplay=1" title="${item.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        } else if (item.type === 'local') {
+          el.innerHTML = `<video class="gp-video-embed" controls autoplay><source src="${item.src}" type="video/mp4"></video>`;
+        }
+      });
+    });
+  }
+
+  function renderHighlights() {
+    highlightGrid.innerHTML = galleryHighlights.map(h => `
+      <div class="gp-highlight-card">
+        <div class="gp-highlight-media">
+          <div class="gp-highlight-badge">${h.badge}</div>
+          <div class="gp-placeholder" style="height:100%;">
+            <span class="gp-ph-icon">✨</span>
+            <span class="gp-ph-label">Emplacement photo — Ajouter une image</span>
+          </div>
+        </div>
+        <div class="gp-highlight-body">
+          <p class="gp-highlight-date">${h.date}</p>
+          <h3>${h.title}</h3>
+          <p>${h.description}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function setupFilters(rootSelector, buttonClass, onChange) {
+    const root = document.querySelector(rootSelector);
+    root.querySelectorAll(buttonClass).forEach(btn => {
+      btn.addEventListener('click', () => {
+        root.querySelectorAll(buttonClass).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        onChange(btn.dataset.filter);
+      });
+    });
+  }
+
+  setupFilters('[data-photo-filter-root]', '.gp-tag-btn', (filter) => {
+    currentPhotoFilter = filter;
+    renderPhotos();
+  });
+  setupFilters('[data-video-filter-root]', '.gp-tag-btn', (filter) => {
+    currentVideoFilter = filter;
+    renderVideos();
+  });
+
+  // --- Lightbox photos ---
   const lb = document.getElementById('lightbox');
   const lbImage = document.getElementById('lb-image');
   const lbCaption = document.getElementById('lb-caption');
@@ -203,13 +664,24 @@
     lb.classList.add('open');
   }
   function showLightbox() {
-    const item = galItems[lbIndex];
-    lbImage.innerHTML = renderImage(item.image, item.title, '');
-    lbCaption.textContent = item.title;
+    const item = galleryPhotos[lbIndex];
+    lbImage.innerHTML = item.placeholder
+      ? `<div class="gp-placeholder" style="width:min(80vw,700px);height:min(60vh,500px);border-radius:12px;">
+           <span class="gp-ph-icon" style="font-size:3rem;">📷</span>
+           <span class="gp-ph-label">Emplacement photo — Ajouter une image</span>
+         </div>`
+      : `<img src="${item.image}" alt="${item.title}" style="max-width:90vw;max-height:75vh;border-radius:12px;">`;
+    lbCaption.textContent = `${item.title} — ${categoryLabel(item.category, photoCatLabels)}`;
   }
   document.getElementById('lb-close').addEventListener('click', () => lb.classList.remove('open'));
-  document.getElementById('lb-prev').addEventListener('click', () => { lbIndex = (lbIndex - 1 + galItems.length) % galItems.length; showLightbox(); });
-  document.getElementById('lb-next').addEventListener('click', () => { lbIndex = (lbIndex + 1) % galItems.length; showLightbox(); });
+  document.getElementById('lb-prev').addEventListener('click', () => {
+    lbIndex = (lbIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+    showLightbox();
+  });
+  document.getElementById('lb-next').addEventListener('click', () => {
+    lbIndex = (lbIndex + 1) % galleryPhotos.length;
+    showLightbox();
+  });
   lb.addEventListener('click', (e) => { if (e.target === lb) lb.classList.remove('open'); });
   document.addEventListener('keydown', (e) => {
     if (!lb.classList.contains('open')) return;
@@ -218,8 +690,18 @@
     if (e.key === 'ArrowRight') document.getElementById('lb-next').click();
   });
 
-  renderGallery();
-  initFilters('[data-filter-root]', '[data-gal-cat]', 'data-gal-cat');
+  // Défilement doux vers les sections depuis le hero
+  document.querySelectorAll('.gp-hero-actions a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  renderPhotos();
+  renderVideos();
+  renderHighlights();
+})();
 </script>
 
 </body>
