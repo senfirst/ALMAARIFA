@@ -51,6 +51,407 @@
   ]
 }
 </script>
+
+<style>
+  /* ============================================================
+     ACTUALITÉS — styles scoppés à cette page uniquement.
+     Utilise les variables déjà définies par s.css quand elles
+     existent (--vert / --dore / --creme etc.) avec un repli
+     cohérent avec l'identité de l'Institut si elles n'existent pas.
+     ============================================================ */
+  #main {
+    --am-green: var(--primary, #0B3B2C);
+    --am-green-dark: #082A20;
+    --am-gold: var(--gold, #B8903E);
+    --am-gold-light: #D9B876;
+    --am-cream: #FAF6EC;
+    --am-white: #FFFFFF;
+    --am-ink: #1C2620;
+    --am-line: #E7E0CE;
+    --am-shadow: 0 10px 30px -14px rgba(11, 59, 44, 0.28);
+    --am-shadow-hover: 0 20px 40px -16px rgba(11, 59, 44, 0.38);
+    --am-radius: 18px;
+  }
+
+  /* ---------- Bannière ---------- */
+  .news-banner {
+    position: relative;
+    background:
+      radial-gradient(1200px 400px at 15% -10%, rgba(184,144,62,0.18), transparent 60%),
+      linear-gradient(160deg, var(--am-green) 0%, var(--am-green-dark) 100%);
+    color: var(--am-cream);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .news-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 26px);
+    z-index: -1;
+  }
+  .news-banner .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--am-gold-light);
+  }
+  .news-banner .am-divider {
+    width: 64px;
+    height: 3px;
+    margin: 18px 0 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--am-gold), var(--am-gold-light));
+  }
+  .news-banner h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4.4vw, 3rem);
+    line-height: 1.12;
+    margin: 0 0 14px;
+    max-width: 18ch;
+  }
+  .news-banner p.lead {
+    font-family: 'Karla', sans-serif;
+    color: rgba(250,246,236,0.82);
+    font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+    max-width: 52ch;
+    margin: 0 0 26px;
+  }
+  .news-banner .crumb {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.86rem;
+    color: rgba(250,246,236,0.7);
+  }
+  .news-banner .crumb a {
+    color: var(--am-gold-light);
+    text-decoration: none;
+  }
+  .news-banner .crumb a:hover,
+  .news-banner .crumb a:focus-visible { text-decoration: underline; }
+  .news-banner .crumb .sep { margin: 0 8px; opacity: 0.6; }
+  .news-banner .crumb .current { color: var(--am-cream); }
+
+  /* ---------- Barre de recherche / filtres ---------- */
+  .news-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--am-white);
+    border: 1px solid var(--am-line);
+    border-radius: var(--am-radius);
+    padding: 16px 20px;
+    margin: -34px 0 40px;
+    position: relative;
+    box-shadow: var(--am-shadow);
+  }
+  .news-search {
+    flex: 1 1 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--am-cream);
+    border: 1px solid var(--am-line);
+    border-radius: 999px;
+    padding: 10px 18px;
+  }
+  .news-search svg { flex: none; color: var(--am-green); opacity: 0.75; }
+  .news-search input {
+    border: 0;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.96rem;
+    color: var(--am-ink);
+  }
+  .news-search input::placeholder { color: #8C9186; }
+
+  .news-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .news-filter-btn {
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--am-line);
+    background: var(--am-white);
+    color: var(--am-green);
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease;
+    white-space: nowrap;
+  }
+  .news-filter-btn:hover { border-color: var(--am-gold); transform: translateY(-1px); }
+  .news-filter-btn:focus-visible {
+    outline: 2px solid var(--am-gold);
+    outline-offset: 2px;
+  }
+  .news-filter-btn.active {
+    background: var(--am-green);
+    border-color: var(--am-green);
+    color: var(--am-cream);
+  }
+
+  .news-results-count {
+    width: 100%;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.84rem;
+    color: #6D7268;
+    padding: 0 2px;
+    margin-top: -6px;
+  }
+
+  /* ---------- Grille & cartes ---------- */
+  #news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  @media (min-width: 640px) {
+    #news-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1000px) {
+    #news-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--am-white);
+    border: 1px solid var(--am-line);
+    border-radius: var(--am-radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--am-shadow);
+    transition: transform .28s ease, box-shadow .28s ease;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: newsCardIn .5s ease forwards;
+  }
+  .news-card:hover,
+  .news-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: var(--am-shadow-hover);
+  }
+  .news-card:focus-visible { outline: 2px solid var(--am-gold); outline-offset: 3px; }
+  @keyframes newsCardIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .news-card { animation: none; opacity: 1; transform: none; }
+    .news-card:hover { transform: none; }
+  }
+
+  .news-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: var(--am-cream);
+    overflow: hidden;
+  }
+  .news-card-media img,
+  .news-card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+  }
+  .news-card:hover .news-card-media img { transform: scale(1.06); }
+  .news-card-media .media-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(11,59,44,0.82);
+    color: var(--am-cream);
+    font-size: 0.72rem;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .news-card-media.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--am-green);
+    opacity: 0.35;
+  }
+
+  .news-card-body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+  .news-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: 'Karla', sans-serif;
+  }
+  .news-badge {
+    display: inline-block;
+    background: rgba(184,144,62,0.14);
+    color: var(--am-gold);
+    border: 1px solid rgba(184,144,62,0.35);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .news-date {
+    font-size: 0.82rem;
+    color: #7A8074;
+    white-space: nowrap;
+  }
+  .news-card-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.18rem;
+    line-height: 1.32;
+    margin: 2px 0 0;
+    color: var(--am-green-dark);
+  }
+  .news-card-body p.summary {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: #4E564A;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .news-readmore {
+    margin-top: auto;
+    padding-top: 8px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--am-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .news-readmore svg { transition: transform .2s ease; }
+  .news-card:hover .news-readmore svg { transform: translateX(4px); }
+
+  /* ---------- État vide ---------- */
+  .news-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 24px;
+    border: 1px dashed var(--am-line);
+    border-radius: var(--am-radius);
+    background: var(--am-cream);
+  }
+  .news-empty .icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    color: var(--am-gold);
+    opacity: 0.8;
+  }
+  .news-empty h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: var(--am-green-dark);
+    margin: 0 0 8px;
+  }
+  .news-empty p {
+    font-family: 'Karla', sans-serif;
+    color: #6D7268;
+    margin: 0;
+    max-width: 44ch;
+    margin-inline: auto;
+  }
+
+  /* ---------- Détail d'une actualité ---------- */
+  #news-detail-content .detail-media {
+    width: 100%;
+    border-radius: var(--am-radius);
+    overflow: hidden;
+    background: var(--am-cream);
+    box-shadow: var(--am-shadow);
+  }
+  #news-detail-content .detail-media img {
+    width: 100%;
+    display: block;
+    max-height: 480px;
+    object-fit: cover;
+  }
+  #news-detail-content .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--am-radius);
+    overflow: hidden;
+    background: #000;
+    box-shadow: var(--am-shadow);
+  }
+  #news-detail-content .video-embed iframe,
+  #news-detail-content .video-embed video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  #news-detail-content .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Karla', sans-serif;
+    flex-wrap: wrap;
+  }
+  #news-detail-content h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+    color: var(--am-green-dark);
+    margin: 14px 0 18px;
+    line-height: 1.22;
+  }
+  #news-detail-content .detail-body {
+    font-family: 'Karla', sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: #3B4238;
+    white-space: pre-line;
+  }
+  #news-detail-content .detail-extra-media {
+    margin-top: 28px;
+  }
+
+  @media (max-width: 640px) {
+    .news-toolbar { margin-top: -20px; padding: 14px; }
+    .news-filters { gap: 6px; }
+    .news-filter-btn { padding: 8px 12px; font-size: 0.8rem; }
+  }
+</style>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
@@ -69,7 +470,7 @@
       <a href="centre.html" data-nav-link class="">Centre</a>
       <a href="programmes.html" data-nav-link class="">Programmes</a>
       <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="active">Actualités</a>
+      <a href="actualites.html" data-nav-link class="active" aria-current="page">Actualités</a>
       <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
       <a href="galerie.html" data-nav-link class="">Galerie</a>
       <a href="tarifs.html" data-nav-link class="">Tarifs</a>
@@ -80,17 +481,17 @@
       <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="am-mobile-nav">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
+  <nav class="mobile-nav" id="am-mobile-nav" aria-label="Navigation mobile">
     <a href="index.html" data-nav-link class="">Accueil</a>
       <a href="institut.html" data-nav-link class="">L'Institut</a>
       <a href="centre.html" data-nav-link class="">Centre</a>
       <a href="programmes.html" data-nav-link class="">Programmes</a>
       <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="active">Actualités</a>
+      <a href="actualites.html" data-nav-link class="active" aria-current="page">Actualités</a>
       <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
       <a href="galerie.html" data-nav-link class="">Galerie</a>
       <a href="tarifs.html" data-nav-link class="">Tarifs</a>
@@ -104,12 +505,12 @@
 </header>
 <main id="main">
 
-<section class="page-banner">
+<section class="page-banner news-banner">
   <div class="container">
     <span class="eyebrow">L'<strong>Institut</strong> Al Maarifa</span>
-    <div class="divider"><span></span></div>
+    <div class="am-divider"></div>
     <h1>Les dernières actualités de l'Institut</h1>
-    <p>Annonces, événements et vie scolaire de l'Institut Al Maarifa.</p>
+    <p class="lead">Annonces, événements et vie scolaire de l'Institut Al Maarifa.</p>
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="index.html">Accueil</a>
       <span class="sep">»</span>
@@ -120,12 +521,25 @@
 
 <section>
   <div class="container">
+
+    <div class="news-toolbar" role="search">
+      <label class="news-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="visually-hidden">Rechercher une actualité</span>
+        <input type="search" id="news-search-input" placeholder="Rechercher une actualité...">
+      </label>
+      <div class="news-filters" id="news-filters" role="group" aria-label="Filtrer par catégorie">
+        <!-- généré dynamiquement -->
+      </div>
+      <span class="news-results-count" id="news-results-count" aria-live="polite"></span>
+    </div>
+
     <div id="news-grid" class="grid grid-3" aria-live="polite"></div>
   </div>
 </section>
 
-<section style="background:var(--white);border-top:1px solid var(--line);">
-  <div class="container" id="news-detail" style="display:none;">
+<section style="background:var(--white, #fff);border-top:1px solid var(--line, #E7E0CE);">
+  <div class="container" id="news-detail" style="display:none;padding-top:36px;padding-bottom:56px;">
     <a href="actualites.html" class="btn btn-line small" style="margin-bottom:24px;">&larr; Retour aux actualités</a>
     <div id="news-detail-content"></div>
   </div>
@@ -183,87 +597,264 @@
 <script src="assets/js/main.js"></script>
 
 <script>
+/* ============================================================
+   MENU BURGER — implémentation autonome et défensive.
+   S'active uniquement si le bouton/menu existent sur la page,
+   et ne s'attache qu'une seule fois (garde anti-doublon) même
+   si un script comme main.js tente également de l'initialiser.
+   ============================================================ */
+(function initBurgerMenu() {
+  var burger = document.querySelector('.burger');
+  var mobileNav = document.querySelector('.mobile-nav');
+  if (!burger || !mobileNav) return;                // page sans menu mobile : on ne fait rien
+  if (burger.dataset.amBound === '1') return;        // déjà initialisé, on évite un double binding
+  burger.dataset.amBound = '1';
+
+  function isOpen() { return mobileNav.classList.contains('open'); }
+
+  function openMenu() {
+    mobileNav.classList.add('open');
+    burger.classList.add('active');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
+  }
+
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    burger.classList.remove('active');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }
+
+  function toggleMenu() {
+    if (isOpen()) { closeMenu(); } else { openMenu(); }
+  }
+
+  burger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Fermer au clic sur un lien du menu mobile
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () { closeMenu(); });
+  });
+
+  // Fermer au clic à l'extérieur du menu / du bouton
+  document.addEventListener('click', function (e) {
+    if (!isOpen()) return;
+    if (mobileNav.contains(e.target) || burger.contains(e.target)) return;
+    closeMenu();
+  });
+
+  // Fermer avec la touche Échap
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen()) {
+      closeMenu();
+      burger.focus();
+    }
+  });
+
+  // Si on repasse en desktop, on referme proprement le menu mobile
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900 && isOpen()) closeMenu();
+  });
+})();
+</script>
+
+<script>
+/* ============================================================
+   ACTUALITÉS — rendu des cartes, recherche, filtres, détail.
+   Namespacé sous AM_NEWS pour ne jamais entrer en conflit avec
+   d'éventuelles variables globales de main.js / data.js.
+   ============================================================ */
 (function () {
-  const newsGrid = document.getElementById('news-grid');
-  const fmtNews = d => {
+  var newsGrid = document.getElementById('news-grid');
+  if (!newsGrid) return; // sécurité : page sans grille d'actualités
+
+  var searchInput = document.getElementById('news-search-input');
+  var filtersWrap = document.getElementById('news-filters');
+  var resultsCount = document.getElementById('news-results-count');
+  var detailSection = document.getElementById('news-detail');
+  var detailContent = document.getElementById('news-detail-content');
+  var listSection = newsGrid.closest('section');
+
+  var state = { query: '', category: 'Toutes' };
+
+  var fmtNews = function (d) {
     try { return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }); }
     catch (e) { return ''; }
   };
 
-  // Places réservées : utilisées uniquement si data.js n'a pas encore
-  // d'actualités réelles (SITE_DATA.news vide ou absent). À remplacer
-  // dès que les vraies actualités sont ajoutées dans data.js.
-  const PLACEHOLDER_NEWS = [
-    {
-      id: "placeholder-1",
-      image: "public/images/actualites/actualite-1.jpg",
-      category: "Catégorie à définir",
-      date: null,
-      title: "Titre de l'actualité — à compléter",
-      summary: "Résumé court de l'actualité. Remplacez ce texte par le contenu réel une fois l'information disponible.",
-      content: "Contenu complet de l'actualité à rédiger."
-    },
-    {
-      id: "placeholder-2",
-      image: "public/images/actualites/actualite-2.jpg",
-      category: "Catégorie à définir",
-      date: null,
-      title: "Titre de l'actualité — à compléter",
-      summary: "Résumé court de l'actualité. Remplacez ce texte par le contenu réel une fois l'information disponible.",
-      content: "Contenu complet de l'actualité à rédiger."
-    },
-    {
-      id: "placeholder-3",
-      image: "public/images/actualites/actualite-3.jpg",
-      category: "Catégorie à définir",
-      date: null,
-      title: "Titre de l'actualité — à compléter",
-      summary: "Résumé court de l'actualité. Remplacez ce texte par le contenu réel une fois l'information disponible.",
-      content: "Contenu complet de l'actualité à rédiger."
-    }
-  ];
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
 
+  // -------- Source des données --------
+  // Utilise SITE_DATA.news (data.js) si disponible et non vide.
+  // Sinon, aucune fausse actualité n'est affichée : un message
+  // clair indique qu'aucune actualité n'est encore disponible.
   function getNewsList() {
-    const real = (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.news)) ? SITE_DATA.news : [];
-    return real.length > 0 ? { list: real, isPlaceholder: false } : { list: PLACEHOLDER_NEWS, isPlaceholder: true };
+    var real = (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.news)) ? SITE_DATA.news : [];
+    return real;
+  }
+
+  function getCategories(list) {
+    var set = [];
+    list.forEach(function (n) {
+      if (n.category && set.indexOf(n.category) === -1) set.push(n.category);
+    });
+    return set;
+  }
+
+  function renderFilters(list) {
+    if (!filtersWrap) return;
+    var categories = ['Toutes'].concat(getCategories(list));
+    if (categories.length <= 1) { filtersWrap.innerHTML = ''; return; }
+    filtersWrap.innerHTML = categories.map(function (cat) {
+      var active = cat === state.category ? ' active' : '';
+      return '<button type="button" class="news-filter-btn' + active + '" data-cat="' + escapeHtml(cat) + '">' + escapeHtml(cat) + '</button>';
+    }).join('');
+    filtersWrap.querySelectorAll('.news-filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.category = btn.getAttribute('data-cat');
+        filtersWrap.querySelectorAll('.news-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        renderNewsList();
+      });
+    });
+  }
+
+  function matchesFilters(item) {
+    var okCategory = state.category === 'Toutes' || item.category === state.category;
+    if (!okCategory) return false;
+    if (!state.query) return true;
+    var q = state.query.toLowerCase();
+    var haystack = [item.title, item.summary, item.content, item.category].filter(Boolean).join(' ').toLowerCase();
+    return haystack.indexOf(q) !== -1;
+  }
+
+  function mediaBadge(item) {
+    if (item.video || item.youtube) {
+      return '<span class="media-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vidéo</span>';
+    }
+    return '';
+  }
+
+  function cardMedia(item) {
+    if (item.image) {
+      return '' +
+        '<div class="news-card-media">' +
+          '<img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy">' +
+          mediaBadge(item) +
+        '</div>';
+    }
+    // Pas d'image : bloc neutre identifiable, pas de fausse photo
+    return '' +
+      '<div class="news-card-media no-image" aria-hidden="true">' +
+        '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 16l-5-5-4 4-2-2-5 5"/></svg>' +
+        mediaBadge(item) +
+      '</div>';
   }
 
   function renderNewsList() {
-    const { list, isPlaceholder } = getNewsList();
-    newsGrid.innerHTML = list.map(n => `
-      <a href="${isPlaceholder ? '#' : `actualites.html?id=${n.id}`}" class="card reveal in" style="display:block;" ${isPlaceholder ? 'aria-disabled="true" tabindex="-1"' : ''}>
-        ${typeof renderImage === 'function' ? renderImage(n.image, n.title, 'landscape') : ''}
-        <div class="card-body">
-          <div class="meta-row">
-            <span class="badge">${n.category}</span>
-            <span>${n.date ? fmtNews(n.date) : 'Date à venir'}</span>
-          </div>
-          <h3>${n.title}</h3>
-          <p>${n.summary}</p>
-        </div>
-      </a>
-    `).join('');
+    var list = getNewsList();
+    renderFilters(list);
+
+    var filtered = list.filter(matchesFilters);
+
+    if (resultsCount) {
+      resultsCount.textContent = list.length === 0
+        ? ''
+        : (filtered.length + ' actualité' + (filtered.length > 1 ? 's' : '') + (state.query || state.category !== 'Toutes' ? ' trouvée' + (filtered.length > 1 ? 's' : '') : ''));
+    }
+
+    if (list.length === 0) {
+      newsGrid.innerHTML = '' +
+        '<div class="news-empty">' +
+          '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 4h16v12H7l-3 3V4Z"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="11.5" x2="14" y2="11.5"/></svg>' +
+          '<h3>Aucune actualité disponible pour le moment.</h3>' +
+          '<p>Les prochaines actualités de l\u2019Institut seront publiées ici.</p>' +
+        '</div>';
+      return;
+    }
+
+    if (filtered.length === 0) {
+      newsGrid.innerHTML = '' +
+        '<div class="news-empty">' +
+          '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
+          '<h3>Aucun résultat</h3>' +
+          '<p>Essayez un autre mot-clé ou choisissez une autre catégorie.</p>' +
+        '</div>';
+      return;
+    }
+
+    newsGrid.innerHTML = filtered.map(function (n, i) {
+      return '' +
+        '<a href="actualites.html?id=' + encodeURIComponent(n.id) + '" class="news-card" style="animation-delay:' + Math.min(i * 60, 360) + 'ms">' +
+          cardMedia(n) +
+          '<div class="news-card-body">' +
+            '<div class="news-meta-row">' +
+              '<span class="news-badge">' + escapeHtml(n.category || 'Actualité') + '</span>' +
+              '<span class="news-date">' + (n.date ? fmtNews(n.date) : 'Date à venir') + '</span>' +
+            '</div>' +
+            '<h3>' + escapeHtml(n.title) + '</h3>' +
+            '<p class="summary">' + escapeHtml(n.summary) + '</p>' +
+            '<span class="news-readmore">Lire la suite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>' +
+          '</div>' +
+        '</a>';
+    }).join('');
+  }
+
+  function detailMedia(item) {
+    if (item.youtube) {
+      var ytId = item.youtube.indexOf('http') === 0
+        ? (item.youtube.split('v=')[1] || item.youtube.split('/').pop()).split('&')[0]
+        : item.youtube;
+      return '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + encodeURIComponent(ytId) + '" title="' + escapeHtml(item.title || 'Vidéo') + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+    }
+    if (item.video) {
+      return '<div class="video-embed"><video src="' + escapeHtml(item.video) + '" controls preload="metadata"></video></div>';
+    }
+    if (item.image) {
+      return '<div class="detail-media"><img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy"></div>';
+    }
+    return '';
   }
 
   function renderNewsDetail(id) {
-    const { list, isPlaceholder } = getNewsList();
-    if (isPlaceholder) return false; // pas de fiche détail pour les placeholders
-    const item = list.find(n => n.id === id);
+    var list = getNewsList();
+    var item = list.find(function (n) { return String(n.id) === String(id); });
     if (!item) return false;
-    document.getElementById('news-grid').closest('section').style.display = 'none';
-    const detail = document.getElementById('news-detail');
-    detail.style.display = 'block';
-    document.getElementById('news-detail-content').innerHTML = `
-      ${typeof renderImage === 'function' ? renderImage(item.image, item.title, 'landscape') : ''}
-      <div class="meta-row" style="margin-top:22px;"><span class="badge">${item.category}</span><span>${item.date ? fmtNews(item.date) : ''}</span></div>
-      <h1>${item.title}</h1>
-      <p style="max-width:70ch;">${item.content}</p>
-    `;
+
+    if (listSection) listSection.style.display = 'none';
+    var toolbar = document.querySelector('.news-toolbar');
+    if (toolbar) toolbar.style.display = 'none';
+    detailSection.style.display = 'block';
+
+    detailContent.innerHTML = '' +
+      detailMedia(item) +
+      '<div class="meta-row" style="margin-top:22px;">' +
+        '<span class="news-badge">' + escapeHtml(item.category || 'Actualité') + '</span>' +
+        '<span class="news-date">' + (item.date ? fmtNews(item.date) : '') + '</span>' +
+      '</div>' +
+      '<h1>' + escapeHtml(item.title) + '</h1>' +
+      '<p class="detail-body">' + escapeHtml(item.content || item.summary || '') + '</p>';
+
+    document.title = item.title + ' | Actualités | Institut Al Maarifa';
     return true;
   }
 
-  const params = new URLSearchParams(location.search);
-  const id = params.get('id');
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      state.query = searchInput.value.trim();
+      renderNewsList();
+    });
+  }
+
+  var params = new URLSearchParams(location.search);
+  var id = params.get('id');
   renderNewsList();
   if (id) renderNewsDetail(id);
 })();
