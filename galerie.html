@@ -205,6 +205,22 @@
     margin-top:14px; font-size:.85rem; color:#8a8578; font-style:italic;
   }
 
+  /* --- Filet de sécurité pour le menu burger mobile ---
+     N'agit que si le menu ne s'ouvre pas déjà via main.js.
+     Utilise une classe dédiée (gp-nav-open) pour ne jamais
+     interférer avec le fonctionnement existant du site. */
+  @media (max-width: 900px){
+    body.gp-nav-open .mobile-nav{
+      display:flex !important;
+      flex-direction:column !important;
+      visibility:visible !important;
+      opacity:1 !important;
+      max-height:none !important;
+      pointer-events:auto !important;
+    }
+    body.gp-nav-open{ overflow:hidden; }
+  }
+
   @media (max-width: 1024px){
     .gp-photo-grid{ grid-template-columns:repeat(3, 1fr); }
     .gp-video-grid, .gp-highlight-grid{ grid-template-columns:repeat(2, 1fr); }
@@ -701,6 +717,34 @@ const galleryHighlights = [
   renderPhotos();
   renderVideos();
   renderHighlights();
+
+  // --- Filet de sécurité : menu burger mobile ---
+  // S'ajoute au comportement de main.js sans le remplacer.
+  // Si main.js gère déjà correctement l'ouverture, ceci reste
+  // silencieux (la classe gp-nav-open n'est utilisée nulle part
+  // ailleurs dans le site, donc aucun risque de conflit visuel).
+  const burgerBtn = document.querySelector('.burger');
+  const mobileNav = document.querySelector('.mobile-nav');
+  if (burgerBtn && mobileNav) {
+    burgerBtn.addEventListener('click', () => {
+      const isOpen = document.body.classList.toggle('gp-nav-open');
+      burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    // Ferme le menu si on clique un lien ou en dehors du menu
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.body.classList.remove('gp-nav-open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (document.body.classList.contains('gp-nav-open') &&
+          !mobileNav.contains(e.target) && !burgerBtn.contains(e.target)) {
+        document.body.classList.remove('gp-nav-open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 })();
 </script>
 
