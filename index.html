@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'Institut — Institut Al Maarifa Thierno Djibril Ousmane Ba</title>
-<meta name="description" content="Découvrez l'Institut Al Maarifa Thierno Djibril Ousmane Ba : notre histoire, notre mission, notre pédagogie et notre partenariat avec l'Institut Al-Azhar, à Bambilor - Darou Salam.">
+<title>Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor</title>
+<meta name="description" content="Institut Al Maarifa Thierno Djibril Ousmane Ba, école franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.">
 <meta name="theme-color" content="#0B3B2C">
-<link rel="canonical" href="https://www.institut-almaarifa.sn/institut.html">
+<link rel="canonical" href="https://www.institut-almaarifa.sn/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="L'Institut — Institut Al Maarifa Thierno Djibril Ousmane Ba">
-<meta property="og:description" content="Découvrez l'Institut Al Maarifa Thierno Djibril Ousmane Ba : notre histoire, notre mission, notre pédagogie et notre partenariat avec l'Institut Al-Azhar.">
+<meta property="og:title" content="Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor">
+<meta property="og:description" content="Institut Al Maarifa Thierno Djibril Ousmane Ba, école franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
@@ -162,6 +162,35 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
   .burger{ display:flex; }
 }
 
+/* ---------- hero ---------- */
+.hero{
+  position:relative; min-height:min(86vh,760px); display:flex; align-items:flex-end;
+  background:linear-gradient(180deg, rgba(9,46,34,.35), rgba(9,46,34,.86)), var(--deep-green);
+  background-size:cover; background-position:center;
+  color:#fff; overflow:hidden;
+}
+.hero-inner{ position:relative; z-index:2; padding:64px 0 68px; max-width:760px; }
+.hero-eyebrow-line{
+  display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3); padding:8px 16px; border-radius:100px;
+  font-weight:700; font-size:.85rem; margin-bottom:22px; color:var(--gold-l);
+}
+.hero h1{ color:#fff; }
+.hero .partner{ font-weight:700; color:var(--gold-l); font-size:1.05rem; margin-bottom:14px; }
+.hero .slogan{ font-size:1.18rem; color:#EAF3EC; max-width:52ch; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+
+/* ---------- hero background image (avec repli placeholder) ---------- */
+.hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.hero-bg img{ width:100%; height:100%; object-fit:cover; display:block; }
+.hero-bg.is-empty{
+  background:var(--deep-green);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  color:#DCEAE1;
+}
+.hero-bg.is-empty .placeholder-icon{ width:48px; height:48px; margin-bottom:10px; opacity:.7; }
+.hero-bg.is-empty .placeholder-label{ font-size:.85rem; opacity:.8; position:static; background:none; }
+
 /* ---------- generic page hero (inner pages) ---------- */
 .page-hero{
   background:linear-gradient(120deg,var(--deep-green),var(--deep-green-2));
@@ -174,7 +203,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 /* ---------- page banner avec photo ---------- */
 .page-banner{
   position:relative;
-  min-height:420px;
+  min-height:520px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -184,7 +213,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
       rgba(7, 45, 28, 0.72),
       rgba(7, 45, 28, 0.82)
     ),
-    var(--deep-green);
+    url("/images/institut.jpg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -203,7 +232,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 }
 @media(max-width:720px){
   .page-banner{
-    min-height:340px;
+    min-height:380px;
     background-position:center;
   }
 }
@@ -218,7 +247,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
   margin-bottom:16px;
 }
 .page-banner .eyebrow strong{
-  color:#8FE0B8;
+  color:#8FE0B8; /* vert clair, accent lisible sur fond sombre */
   font-style:normal;
   font-weight:700;
 }
@@ -247,7 +276,6 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 
 /* ---------- section headers ---------- */
 .section-head{ max-width:640px; margin-bottom:44px; }
-.section-head.center{ max-width:640px; text-align:center; }
 .section-head .kicker{ color:var(--emerald); font-weight:700; font-size:.9rem; margin-bottom:8px; display:block; }
 
 /* ---------- cards ---------- */
@@ -297,21 +325,90 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 .stat-strip .l{ font-size:.85rem; color:#CFE3D8; }
 @media(max-width:720px){ .stat-strip{ grid-template-columns:repeat(2,1fr); } }
 
-/* ---------- timeline (histoire) ---------- */
-.timeline{ position:relative; padding-left:28px; border-left:2px solid var(--line); }
-.timeline-item{ position:relative; padding-bottom:36px; }
-.timeline-item:last-child{ padding-bottom:0; }
-.timeline-item::before{
-  content:""; position:absolute; left:-34px; top:4px; width:12px; height:12px;
-  border-radius:50%; background:var(--gold); border:3px solid var(--cloth); box-shadow:0 0 0 2px var(--gold);
+/* ---------- program levels ---------- */
+.level-card{
+  border:1px solid var(--line); border-radius:var(--radius-m); background:#fff; padding:24px;
+  transition:box-shadow .18s ease, border-color .18s ease;
 }
-.timeline-item .date{ font-weight:700; color:var(--emerald); font-size:.88rem; margin-bottom:4px; display:block; }
+.level-card:hover{ box-shadow:var(--shadow-1); border-color:var(--emerald); }
+.level-card .tag{
+  display:inline-block; font-size:.72rem; font-weight:700; color:var(--emerald);
+  background:var(--emerald-l); padding:4px 10px; border-radius:100px; margin-bottom:12px;
+}
+.subject-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.subject-pill{
+  display:flex; align-items:center; gap:8px; padding:10px 16px; border-radius:100px;
+  background:#fff; border:1px solid var(--line); font-weight:700; font-size:.9rem;
+}
 
-/* ---------- team ---------- */
-.team-card{ text-align:center; }
-.team-card .img-slot{ aspect-ratio:1/1; border-radius:50%; border:none; max-width:180px; margin:0 auto 16px; }
-.team-card h3{ margin-bottom:2px; }
-.team-card .role{ color:var(--emerald); font-weight:700; font-size:.88rem; }
+/* ---------- news / activities ---------- */
+.tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
+.filter-btn{
+  padding:9px 16px; border-radius:100px; border:1px solid var(--line); background:#fff;
+  font-weight:700; font-size:.85rem; cursor:pointer; color:var(--ink-soft);
+}
+.filter-btn.active{ background:var(--deep-green); color:#fff; border-color:var(--deep-green); }
+.meta-row{ display:flex; gap:14px; font-size:.82rem; color:var(--ink-soft); margin-bottom:6px; flex-wrap:wrap; }
+.badge{ background:var(--gold-l); color:#8a6a24; font-weight:700; padding:3px 10px; border-radius:100px; font-size:.72rem; }
+
+/* ---------- library ---------- */
+.lib-toolbar{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px; }
+.lib-toolbar input[type=text]{ flex:1; min-width:220px; }
+.field{
+  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
+  font-family:var(--font-text); font-size:.96rem; background:#fff;
+}
+.book-card{ display:flex; flex-direction:column; height:100%; }
+.book-card .card-body{ display:flex; flex-direction:column; gap:10px; flex:1; }
+.book-actions{ display:flex; gap:10px; margin-top:auto; }
+.book-actions .btn{ padding:9px 14px; font-size:.82rem; }
+
+/* ---------- gallery ---------- */
+.gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+@media(max-width:920px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:600px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+.gallery-item{ cursor:zoom-in; border-radius:var(--radius-s); overflow:hidden; }
+.gallery-item .img-slot{ aspect-ratio:1/1; transition:transform .25s ease; }
+.gallery-item:hover .img-slot{ transform:scale(1.03); }
+
+.lightbox{
+  position:fixed; inset:0; background:rgba(9,20,16,.94); z-index:200;
+  display:none; align-items:center; justify-content:center; padding:24px;
+}
+.lightbox.open{ display:flex; }
+.lightbox-inner{ position:relative; max-width:920px; width:100%; }
+.lightbox .img-slot{ aspect-ratio:16/10; border-radius:var(--radius-m); }
+.lightbox-close, .lightbox-prev, .lightbox-next{
+  position:absolute; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4);
+  color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.lightbox-close{ top:-56px; right:0; }
+.lightbox-prev{ left:-56px; top:50%; transform:translateY(-50%); }
+.lightbox-next{ right:-56px; top:50%; transform:translateY(-50%); }
+@media(max-width:760px){ .lightbox-prev{ left:8px; } .lightbox-next{ right:8px; } .lightbox-close{ top:8px; right:8px; } }
+
+/* ---------- pricing ---------- */
+.price-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-m); padding:36px 30px;
+  box-shadow:var(--shadow-1);
+}
+.price-line{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line); }
+.price-line:last-of-type{ border-bottom:none; }
+.price-line .amount{ font-weight:700; color:var(--deep-green); }
+.price-total{
+  display:flex; justify-content:space-between; align-items:baseline; margin-top:18px;
+  padding-top:18px; border-top:2px solid var(--deep-green);
+}
+.price-total .amount{ font-family:var(--font-display); font-size:1.9rem; color:var(--deep-green); }
+
+/* ---------- countdown ---------- */
+.countdown{ display:flex; gap:14px; flex-wrap:wrap; }
+.countdown .cd-box{
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); border-radius:var(--radius-m);
+  padding:16px 20px; min-width:84px; text-align:center;
+}
+.countdown .cd-box .num{ font-family:var(--font-display); font-size:1.9rem; color:var(--gold-l); }
+.countdown .cd-box .lab{ font-size:.72rem; color:#CFE3D8; letter-spacing:.03em; }
 
 /* ---------- forms ---------- */
 .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
@@ -319,11 +416,18 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 .form-group{ display:flex; flex-direction:column; gap:6px; }
 .form-group label{ font-weight:700; font-size:.88rem; color:var(--deep-green); }
 .form-group.full{ grid-column:1/-1; }
-.field{
-  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
-  font-family:var(--font-text); font-size:.96rem; background:#fff;
-}
 textarea.field{ resize:vertical; min-height:120px; }
+.form-note{ font-size:.82rem; color:var(--ink-soft); margin-top:10px; }
+.form-success{
+  display:none; background:var(--emerald-l); border:1px solid var(--emerald); color:var(--deep-green);
+  padding:14px 18px; border-radius:var(--radius-s); font-weight:700; margin-bottom:18px;
+}
+.form-success.show{ display:block; }
+
+/* ---------- contact ---------- */
+.contact-block{ display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line); }
+.contact-block:last-child{ border-bottom:none; }
+.map-slot{ border-radius:var(--radius-m); overflow:hidden; border:1px solid var(--line); }
 
 /* ---------- footer ---------- */
 .site-footer{ background:var(--deep-green-2); color:#CFE3D8; padding:60px 0 26px; }
@@ -346,7 +450,10 @@ textarea.field{ resize:vertical; min-height:120px; }
 }
 .wa-float:hover{ background:#175f3e; }
 
-/* ---------- reveal-on-scroll ---------- */
+/* ---------- reveal-on-scroll ----------
+   Visible par défaut (sécurité si JS absent, en erreur, ou désactivé).
+   L'effet d'apparition ne s'active que lorsque main.js confirme son
+   exécution en ajoutant la classe "js-ready" sur <html>. */
 .reveal{ opacity:1; transform:none; }
 .js-ready .reveal{
   opacity:0; transform:translateY(14px);
@@ -402,8 +509,8 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
       </span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="active">L'Institut</a>
+      <a href="index.html" data-nav-link class="active">Accueil</a>
+      <a href="institut.html" data-nav-link class="">L'Institut</a>
       <a href="centre.html" data-nav-link class="">Centre</a>
       <a href="programmes.html" data-nav-link class="">Programmes</a>
       <a href="activites.html" data-nav-link class="">Activités</a>
@@ -423,8 +530,8 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="active">L'Institut</a>
+    <a href="index.html" data-nav-link class="active">Accueil</a>
+      <a href="institut.html" data-nav-link class="">L'Institut</a>
       <a href="centre.html" data-nav-link class="">Centre</a>
       <a href="programmes.html" data-nav-link class="">Programmes</a>
       <a href="activites.html" data-nav-link class="">Activités</a>
@@ -442,27 +549,41 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 </header>
 <main id="main">
 
-<section class="page-banner" data-img-slot>
-  <div class="container">
-    <span class="eyebrow">Faire connaissance avec <strong>l'Institut</strong></span>
-    <h1>Notre histoire, notre mission</h1>
-    <div class="divider"><span></span></div>
-    <p>Une école franco-arabe à Bambilor - Darou Salam, portée par l'exigence académique et la fidélité aux valeurs islamiques, en partenariat avec l'Institut Al-Azhar.</p>
-    <p class="crumb"><a href="index.html">Accueil</a><span class="sep">/</span><span class="current">L'Institut</span></p>
+<section class="hero">
+  <div class="hero-bg" data-img-slot>
+    <img src="li.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="eager"
+      onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
+    <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+      <circle cx="8.5" cy="10" r="1.6"></circle>
+      <path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path>
+    </svg>
+    <span class="placeholder-label">Photo à venir — building.jpg</span>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow-line">Inscriptions ouvertes — 2026 / 2027</div>
+    <div class="partner">Partenaire officiel : Institut Al-Azhar</div>
+    <h1>École franco-arabe<br>Institut Al Maarifa Thierno Djibril Ousmane Ba</h1>
+    <p class="slogan">Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="inscriptions.html">Inscrire mon enfant</a>
+      <a class="btn btn-outline" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-outline" href="contact.html">Nous contacter</a>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="container split">
     <div class="reveal">
-      <span class="kicker" style="color:var(--emerald);font-weight:700;">Qui sommes-nous</span>
-      <h2>Une école pensée pour donner à chaque enfant les moyens de réussir</h2>
-      <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né de la volonté de proposer, à Bambilor - Darou Salam, une alternative éducative exigeante : un enseignement général de qualité, une maîtrise réelle de la langue arabe, et une éducation islamique authentique transmise avec pédagogie.</p>
-      <p>Nous accueillons les élèves du préscolaire à la terminale dans un cadre structuré, où la discipline, la propreté et la sécurité ne sont pas des options mais des fondations. Chaque niveau bénéficie d'un encadrement pensé pour faire grandir l'enfant sans jamais le perdre de vue.</p>
-      <a class="btn btn-line" href="programmes.html">Voir nos programmes</a>
+      <span class="kicker" style="color:var(--emerald);font-weight:700;">L'Institut</span>
+      <h2>Un cadre d'apprentissage exigeant, bienveillant et fidèle à nos valeurs</h2>
+      <p>Situé à Bambilor - Darou Salam, l'Institut Al Maarifa Thierno Djibril Ousmane Ba accompagne les élèves du préscolaire à la terminale, en conjuguant un enseignement général de qualité, l'apprentissage de la langue arabe et une éducation islamique solide, dans le cadre de son partenariat avec l'Institut Al-Azhar.</p>
+      <p>Discipline, propreté, sécurité et rigueur pédagogique sont au cœur de notre quotidien, pour donner à chaque enfant les moyens de réussir.</p>
+      <a class="btn btn-line" href="institut.html">Découvrir l'Institut</a>
     </div>
     <div class="reveal">
-      <div class="img-slot landscape" data-img-slot><img src="public/images/institut-presentation.jpg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — institut-presentation.jpg</span></div>
+      <div class="img-slot landscape" data-img-slot><img src="public/images/education.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — education.jpg</span></div>
     </div>
   </div>
 </section>
@@ -479,22 +600,8 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 </section>
 
 <section>
-  <div class="container split">
-    <div class="reveal" style="order:2;">
-      <span class="kicker" style="color:var(--emerald);font-weight:700;">Notre mission</span>
-      <h2>Concilier excellence académique et éducation religieuse</h2>
-      <p>Notre mission est simple à énoncer, exigeante à tenir : former des élèves solides dans les matières générales, capables de lire, écrire et comprendre l'arabe avec aisance, et enracinés dans des valeurs islamiques qu'ils porteront toute leur vie.</p>
-      <p>Cette mission se construit jour après jour, en classe comme en dehors, à travers un encadrement pédagogique rigoureux et un accompagnement humain attentif à chaque élève.</p>
-    </div>
-    <div class="reveal" style="order:1;">
-      <div class="img-slot landscape" data-img-slot><img src="public/images/institut-mission.jpg" alt="Enseignant accompagnant un élève à l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — institut-mission.jpg</span></div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="container">
-    <div class="section-head center reveal">
+    <div class="section-head reveal">
       <span class="kicker">Nos valeurs</span>
       <h2>Ce qui guide chaque journée à l'Institut</h2>
     </div>
@@ -507,68 +614,11 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Notre partenariat</span>
-      <h2>Un partenariat officiel avec l'Institut Al-Azhar</h2>
-    </div>
-    <div class="split">
-      <div class="reveal">
-        <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est fier d'être partenaire officiel de l'Institut Al-Azhar, référence historique de l'enseignement islamique. Ce partenariat garantit la rigueur et l'authenticité de notre programme d'éducation islamique et de langue arabe.</p>
-        <p>Il permet également à nos élèves de bénéficier d'un cursus reconnu, pensé pour ouvrir des perspectives d'études supérieures, aussi bien au Sénégal qu'à l'international.</p>
-        <div class="chip-row">
-          <span class="chip">Programme reconnu</span>
-          <span class="chip">Encadrement qualifié</span>
-          <span class="chip">Perspectives internationales</span>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="img-slot square" data-img-slot><img src="public/images/al-azhar-partenariat.jpg" alt="Partenariat avec l'Institut Al-Azhar" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — al-azhar-partenariat.jpg</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Notre parcours</span>
-      <h2>Les grandes étapes de l'Institut</h2>
-    </div>
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <span class="date">Fondation</span>
-        <h3>Ouverture de l'Institut à Bambilor - Darou Salam</h3>
-        <p>Naissance du projet éducatif, avec une première rentrée accueillant les premiers élèves du préscolaire et du primaire.</p>
-      </div>
-      <div class="timeline-item">
-        <span class="date">Développement</span>
-        <h3>Extension des niveaux et partenariat avec Al-Azhar</h3>
-        <p>Ouverture progressive des classes jusqu'au collège, et signature du partenariat officiel avec l'Institut Al-Azhar.</p>
-      </div>
-      <div class="timeline-item">
-        <span class="date">Aujourd'hui</span>
-        <h3>Un institut complet, du préscolaire à la terminale</h3>
-        <p>L'Institut couvre désormais l'ensemble du parcours scolaire, avec une bibliothèque numérique et un suivi pédagogique modernisé.</p>
-      </div>
-      <div class="timeline-item">
-        <span class="date">2026 – 2027</span>
-        <h3>Une nouvelle rentrée scolaire</h3>
-        <p>Les inscriptions pour l'année 2026-2027 sont ouvertes, avec des places limitées par niveau.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section style="background:var(--deep-green);color:#fff;">
   <div class="container reveal" style="text-align:center;">
-    <h2 style="color:#fff;">Envie de rejoindre l'Institut Al Maarifa ?</h2>
-    <p style="color:#DCEAE1;margin:0 auto 26px;">Les inscriptions 2026–2027 sont ouvertes. Places limitées par niveau — contactez-nous dès aujourd'hui.</p>
-    <div class="hero-actions" style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
-      <a class="btn btn-gold" href="inscriptions.html">Commencer l'inscription</a>
-      <a class="btn btn-outline" href="contact.html">Nous contacter</a>
-    </div>
+    <h2 style="color:#fff;">Les inscriptions 2026–2027 sont ouvertes</h2>
+    <p style="color:#DCEAE1;margin:0 auto 26px;">Rejoignez une école franco-arabe reconnue pour son sérieux et son encadrement. Places limitées par niveau.</p>
+    <a class="btn btn-gold" href="inscriptions.html">Commencer l'inscription</a>
   </div>
 </section>
 
@@ -622,7 +672,7 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
 
-/* ===== Menu burger mobile ===== */
+/* ===== Menu burger mobile (fonctionne sans dépendre de fichiers externes) ===== */
 (function(){
   var burger = document.getElementById('burgerBtn');
   var body = document.body;
@@ -634,6 +684,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
     burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
   });
 
+  /* Fermer le menu si on clique sur un lien du menu mobile */
   document.querySelectorAll('.mobile-nav a').forEach(function(link){
     link.addEventListener('click', function(){
       body.classList.remove('nav-open');
@@ -642,6 +693,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
     });
   });
 
+  /* Fermer le menu si on repasse en version bureau */
   window.addEventListener('resize', function(){
     if(window.innerWidth > 960){
       body.classList.remove('nav-open');
@@ -650,7 +702,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
   });
 })();
 
-/* ===== Animation reveal-on-scroll ===== */
+/* ===== Animation reveal-on-scroll (active seulement si tout va bien) ===== */
 (function(){
   document.documentElement.classList.add('js-ready');
   var items = document.querySelectorAll('.reveal');
