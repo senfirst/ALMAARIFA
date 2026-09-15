@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'Institut — Histoire, vision, mission et valeurs | Institut Al Maarifa</title>
-<meta name="description" content="Découvrez l'histoire, la vision, la mission, les valeurs et la direction de l'Institut Al Maarifa Thierno Djibril Ousmane Ba, Bambilor, Sénégal.">
+<title>L'Institut — Institut Al Maarifa Thierno Djibril Ousmane Ba</title>
+<meta name="description" content="Découvrez l'Institut Al Maarifa Thierno Djibril Ousmane Ba : notre histoire, notre mission, notre pédagogie et notre partenariat avec l'Institut Al-Azhar, à Bambilor - Darou Salam.">
 <meta name="theme-color" content="#0B3B2C">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/institut.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="L'Institut — Histoire, vision, mission et valeurs | Institut Al Maarifa">
-<meta property="og:description" content="Découvrez l'histoire, la vision, la mission, les valeurs et la direction de l'Institut Al Maarifa Thierno Djibril Ousmane Ba, Bambilor, Sénégal.">
+<meta property="og:title" content="L'Institut — Institut Al Maarifa Thierno Djibril Ousmane Ba">
+<meta property="og:description" content="Découvrez l'Institut Al Maarifa Thierno Djibril Ousmane Ba : notre histoire, notre mission, notre pédagogie et notre partenariat avec l'Institut Al-Azhar.">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
@@ -23,7 +23,355 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="s.css">
+
+<style>
+/* =========================================================
+   INSTITUT AL MAARIFA — Design system
+   Palette: deep green / emerald / gold, warm off-white base
+   Type: Fraunces (display serif) + Karla (text sans)
+   ========================================================= */
+
+:root{
+  --deep-green:  #0B3B2C;
+  --deep-green-2:#092E22;
+  --emerald:     #1F7A50;
+  --emerald-l:   #E7F1EB;
+  --gold:        #B8903E;
+  --gold-l:      #F4E7CB;
+  --cloth:       #F7F7F2;
+  --white:       #FFFFFF;
+  --ink:         #16211C;
+  --ink-soft:    #4B5751;
+  --line:        #E1E4DE;
+
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
+
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --shadow-1: 0 1px 2px rgba(11,59,44,.06), 0 8px 24px -12px rgba(11,59,44,.18);
+  --shadow-2: 0 20px 48px -20px rgba(11,59,44,.35);
+
+  --wrap: 1180px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--font-text);
+  color:var(--ink);
+  background:var(--cloth);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  color:var(--deep-green);
+  line-height:1.14;
+  margin:0 0 .5em;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+h1{ font-size:clamp(2.3rem,4.4vw,3.6rem); font-weight:560; }
+h2{ font-size:clamp(1.7rem,3vw,2.4rem); }
+h3{ font-size:1.28rem; }
+p{ margin:0 0 1em; max-width:64ch; color:var(--ink-soft); }
+.container{ max-width:var(--wrap); margin:0 auto; padding:0 24px; }
+section{ padding:88px 0; }
+@media(max-width:720px){ section{ padding:56px 0; } }
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:2px solid var(--gold); outline-offset:3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5em;
+  padding:14px 26px; border-radius:var(--radius-s);
+  font-family:var(--font-text); font-weight:700; font-size:.98rem;
+  border:1px solid transparent; cursor:pointer; white-space:nowrap;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:active{ transform:translateY(1px); }
+.btn-gold{ background:var(--gold); color:var(--white); }
+.btn-gold:hover{ background:#a37f36; box-shadow:var(--shadow-1); }
+.btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
+.btn-outline:hover{ background:rgba(255,255,255,.12); }
+.btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
+.btn-line:hover{ background:var(--emerald-l); }
+.btn-whatsapp{ background:#1F7A50; color:#fff; }
+.btn-whatsapp:hover{ background:#175f3e; }
+.btn-block{ width:100%; }
+
+/* ---------- header / nav ---------- */
+.site-header{
+  position:sticky; top:0; z-index:60;
+  background:rgba(247,247,242,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand img{ height:46px; width:46px; object-fit:contain; border-radius:8px; }
+.brand-text{ display:flex; flex-direction:column; line-height:1.2; }
+.brand-text strong{ font-family:var(--font-display); color:var(--deep-green); font-size:1.05rem; }
+.brand-text span{ font-size:.72rem; color:var(--ink-soft); letter-spacing:.03em; }
+
+.main-nav{ display:flex; align-items:center; gap:2px; }
+.main-nav a{
+  padding:10px 14px; font-size:.94rem; font-weight:600; color:var(--ink);
+  border-radius:var(--radius-s); position:relative;
+}
+.main-nav a:hover{ color:var(--emerald); }
+.main-nav a.active{ color:var(--deep-green); }
+.main-nav a.active::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--gold);
+}
+.header-actions{ display:flex; align-items:center; gap:10px; }
+.header-actions .btn{ padding:10px 18px; font-size:.88rem; }
+
+.burger{
+  display:none; width:44px; height:44px; border-radius:var(--radius-s);
+  border:1px solid var(--line); background:var(--white); cursor:pointer;
+  align-items:center; justify-content:center; flex-direction:column; gap:4px;
+}
+.burger span{ width:20px; height:2px; background:var(--deep-green); display:block; transition:transform .2s, opacity .2s; }
+.mobile-nav{
+  display:none; flex-direction:column; gap:2px; padding:8px 24px 18px;
+  background:var(--cloth); border-bottom:1px solid var(--line);
+}
+.mobile-nav a{ padding:12px 6px; font-weight:600; border-bottom:1px solid var(--line); }
+.mobile-nav .header-actions{ margin-top:10px; flex-direction:column; }
+.mobile-nav .header-actions .btn{ width:100%; }
+
+body.nav-open .mobile-nav{ display:flex; }
+body.nav-open .burger span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+body.nav-open .burger span:nth-child(2){ opacity:0; }
+body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+@media(max-width:960px){
+  .main-nav, .header-actions{ display:none; }
+  .burger{ display:flex; }
+}
+
+/* ---------- generic page hero (inner pages) ---------- */
+.page-hero{
+  background:linear-gradient(120deg,var(--deep-green),var(--deep-green-2));
+  color:#fff; padding:74px 0 56px;
+}
+.page-hero h1{ color:#fff; margin-bottom:10px; }
+.page-hero p{ color:#DCEAE1; max-width:60ch; }
+.crumb{ font-size:.85rem; color:var(--gold-l); font-weight:700; margin-bottom:10px; }
+
+/* ---------- page banner avec photo ---------- */
+.page-banner{
+  position:relative;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background-image:
+    linear-gradient(
+      rgba(7, 45, 28, 0.72),
+      rgba(7, 45, 28, 0.82)
+    ),
+    var(--deep-green);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  color:#fff;
+  overflow:hidden;
+}
+.page-banner h1{
+  color:#fff;
+  margin-bottom:10px;
+  font-size:clamp(2.5rem,5vw,4rem);
+}
+.page-banner p{
+  color:#DCEAE1;
+  max-width:60ch;
+  margin:0 auto;
+}
+@media(max-width:720px){
+  .page-banner{
+    min-height:340px;
+    background-position:center;
+  }
+}
+
+/* Eyebrow (petit texte au-dessus du titre) */
+.page-banner .eyebrow{
+  display:block;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1.1rem;
+  color:var(--gold-l);
+  margin-bottom:16px;
+}
+.page-banner .eyebrow strong{
+  color:#8FE0B8;
+  font-style:normal;
+  font-weight:700;
+}
+
+/* Séparateur avec losange central (accent vert) */
+.page-banner .divider{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:0 auto 22px; width:180px;
+}
+.page-banner .divider::before,
+.page-banner .divider::after{
+  content:""; flex:1; height:1px; background:rgba(143,224,184,.55);
+}
+.page-banner .divider span{
+  width:8px; height:8px; background:#8FE0B8; transform:rotate(45deg); flex:0 0 auto;
+}
+
+/* Fil d'Ariane */
+.page-banner .crumb{
+  font-size:.9rem; font-weight:600; margin:18px 0 0; color:#CFE3D8;
+}
+.page-banner .crumb a{ color:#8FE0B8; font-weight:700; }
+.page-banner .crumb a:hover{ text-decoration:underline; }
+.page-banner .crumb .sep{ margin:0 8px; color:rgba(255,255,255,.5); }
+.page-banner .crumb .current{ color:#fff; font-weight:700; }
+
+/* ---------- section headers ---------- */
+.section-head{ max-width:640px; margin-bottom:44px; }
+.section-head.center{ max-width:640px; text-align:center; }
+.section-head .kicker{ color:var(--emerald); font-weight:700; font-size:.9rem; margin-bottom:8px; display:block; }
+
+/* ---------- cards ---------- */
+.grid{ display:grid; gap:26px; }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+@media(max-width:920px){ .grid-3,.grid-4{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:600px){ .grid-3,.grid-4,.grid-2{ grid-template-columns:1fr; } }
+
+.card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
+  overflow:hidden; box-shadow:var(--shadow-1);
+}
+.card-body{ padding:22px; }
+.card h3{ margin-bottom:8px; }
+
+/* image placeholder (used only until real photos are added) */
+.img-slot{
+  position:relative; width:100%; aspect-ratio:4/3; background:
+    linear-gradient(135deg,var(--emerald-l),var(--cloth));
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.img-slot img{ width:100%; height:100%; object-fit:cover; }
+.img-slot .placeholder-icon{ color:var(--emerald); opacity:.55; width:42px; height:42px; }
+.img-slot .placeholder-label{
+  position:absolute; bottom:10px; left:10px; right:10px; font-size:.72rem; font-weight:700;
+  color:var(--deep-green); background:rgba(255,255,255,.85); padding:6px 8px; border-radius:6px;
+  text-align:center;
+}
+.img-slot.landscape{ aspect-ratio:16/9; }
+.img-slot.square{ aspect-ratio:1/1; }
+.img-slot.tall{ aspect-ratio:3/4; }
+
+/* ---------- values / stats ---------- */
+.value-item{ display:flex; gap:16px; align-items:flex-start; }
+.value-icon{
+  flex:0 0 auto; width:48px; height:48px; border-radius:12px; background:var(--emerald-l);
+  display:flex; align-items:center; justify-content:center; color:var(--emerald);
+}
+.stat-strip{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  background:var(--deep-green); color:#fff; border-radius:var(--radius-m); padding:36px 28px;
+}
+.stat-strip .n{ font-family:var(--font-display); font-size:2.1rem; color:var(--gold-l); }
+.stat-strip .l{ font-size:.85rem; color:#CFE3D8; }
+@media(max-width:720px){ .stat-strip{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- timeline (histoire) ---------- */
+.timeline{ position:relative; padding-left:28px; border-left:2px solid var(--line); }
+.timeline-item{ position:relative; padding-bottom:36px; }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-item::before{
+  content:""; position:absolute; left:-34px; top:4px; width:12px; height:12px;
+  border-radius:50%; background:var(--gold); border:3px solid var(--cloth); box-shadow:0 0 0 2px var(--gold);
+}
+.timeline-item .date{ font-weight:700; color:var(--emerald); font-size:.88rem; margin-bottom:4px; display:block; }
+
+/* ---------- team ---------- */
+.team-card{ text-align:center; }
+.team-card .img-slot{ aspect-ratio:1/1; border-radius:50%; border:none; max-width:180px; margin:0 auto 16px; }
+.team-card h3{ margin-bottom:2px; }
+.team-card .role{ color:var(--emerald); font-weight:700; font-size:.88rem; }
+
+/* ---------- forms ---------- */
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media(max-width:640px){ .form-grid{ grid-template-columns:1fr; } }
+.form-group{ display:flex; flex-direction:column; gap:6px; }
+.form-group label{ font-weight:700; font-size:.88rem; color:var(--deep-green); }
+.form-group.full{ grid-column:1/-1; }
+.field{
+  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
+  font-family:var(--font-text); font-size:.96rem; background:#fff;
+}
+textarea.field{ resize:vertical; min-height:120px; }
+
+/* ---------- footer ---------- */
+.site-footer{ background:var(--deep-green-2); color:#CFE3D8; padding:60px 0 26px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; }
+@media(max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
+.site-footer h4{ color:#fff; font-size:.95rem; margin-bottom:14px; }
+.site-footer a{ color:#CFE3D8; display:block; padding:6px 0; font-size:.92rem; }
+.site-footer a:hover{ color:var(--gold-l); }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:40px; padding-top:22px; font-size:.82rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#9DB6A9; }
+.footer-brand{ display:flex; gap:12px; align-items:center; margin-bottom:14px; }
+.footer-brand img{ height:40px; }
+.footer-brand strong{ color:#fff; font-family:var(--font-display); }
+
+/* ---------- floating whatsapp ---------- */
+.wa-float{
+  position:fixed; bottom:22px; right:22px; z-index:80; width:58px; height:58px; border-radius:50%;
+  background:#1F7A50; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-2);
+  color:#fff;
+}
+.wa-float:hover{ background:#175f3e; }
+
+/* ---------- reveal-on-scroll ---------- */
+.reveal{ opacity:1; transform:none; }
+.js-ready .reveal{
+  opacity:0; transform:translateY(14px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.js-ready .reveal.in{ opacity:1; transform:none; }
+
+/* misc */
+.split{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+@media(max-width:860px){ .split{ grid-template-columns:1fr; gap:32px; } }
+.chip-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.chip{ padding:7px 14px; border-radius:100px; background:var(--emerald-l); color:var(--emerald); font-weight:700; font-size:.82rem; }
+hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
+.center{ text-align:center; margin-left:auto; margin-right:auto; }
+.small{ font-size:.85rem; }
+.text-white p{ color:#DCEAE1; }
+.visually-hidden{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.visually-hidden:focus{
+  position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999;
+  background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
+}
+.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
+</style>
 
 <script type="application/ld+json">
 {
@@ -49,7 +397,7 @@
     <a href="index.html" class="brand">
       <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
       <span class="brand-text">
-        <strong>Institut Al Maarifa</strong>
+        <strong>Institut AlMaarifa</strong>
         <span>Thierno Djibril Ousmane Ba</span>
       </span>
     </a>
@@ -67,14 +415,14 @@
       <a href="contact.html" data-nav-link class="">Contact</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
     <a href="index.html" data-nav-link class="">Accueil</a>
       <a href="institut.html" data-nav-link class="active">L'Institut</a>
       <a href="centre.html" data-nav-link class="">Centre</a>
@@ -87,68 +435,139 @@
       <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
       <a href="contact.html" data-nav-link class="">Contact</a>
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
   </nav>
 </header>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-banner" data-img-slot>
   <div class="container">
-    <div class="crumb">L'Institut</div>
-    <h1>Une école franco-arabe fidèle à ses valeurs</h1>
-    <p>Histoire, vision, mission et direction de l'Institut Al Maarifa Thierno Djibril Ousmane Ba.</p>
+    <span class="eyebrow">Faire connaissance avec <strong>l'Institut</strong></span>
+    <h1>Notre histoire, notre mission</h1>
+    <div class="divider"><span></span></div>
+    <p>Une école franco-arabe à Bambilor - Darou Salam, portée par l'exigence académique et la fidélité aux valeurs islamiques, en partenariat avec l'Institut Al-Azhar.</p>
+    <p class="crumb"><a href="index.html">Accueil</a><span class="sep">/</span><span class="current">L'Institut</span></p>
   </div>
 </section>
 
 <section>
   <div class="container split">
     <div class="reveal">
-      <span class="kicker" style="color:var(--emerald);font-weight:700;">Notre histoire</span>
-      <h2>Née d'une volonté d'excellence</h2>
-      <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né de la volonté de proposer, à Bambilor - Darou Salam, une éducation exigeante conjuguant l'enseignement général, la langue arabe et les valeurs islamiques. Année après année, l'Institut a construit sa réputation autour de la rigueur, du sérieux et de l'attention portée à chaque élève.</p>
-      <p>Le partenariat avec l'Institut Al-Azhar est venu renforcer cette ambition, en apportant un cadre pédagogique reconnu pour l'enseignement de l'arabe et des sciences islamiques.</p>
+      <span class="kicker" style="color:var(--emerald);font-weight:700;">Qui sommes-nous</span>
+      <h2>Une école pensée pour donner à chaque enfant les moyens de réussir</h2>
+      <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né de la volonté de proposer, à Bambilor - Darou Salam, une alternative éducative exigeante : un enseignement général de qualité, une maîtrise réelle de la langue arabe, et une éducation islamique authentique transmise avec pédagogie.</p>
+      <p>Nous accueillons les élèves du préscolaire à la terminale dans un cadre structuré, où la discipline, la propreté et la sécurité ne sont pas des options mais des fondations. Chaque niveau bénéficie d'un encadrement pensé pour faire grandir l'enfant sans jamais le perdre de vue.</p>
+      <a class="btn btn-line" href="programmes.html">Voir nos programmes</a>
     </div>
-    <div class="reveal"><div class="img-slot landscape" data-img-slot>
-  <img src="public/images/building.jpg" alt="Bâtiment de l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
-  <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg>
-  <span class="placeholder-label">Bâtiment de l'Institut Al Maarifa</span>
-</div></div>
+    <div class="reveal">
+      <div class="img-slot landscape" data-img-slot><img src="public/images/institut-presentation.jpg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — institut-presentation.jpg</span></div>
+    </div>
   </div>
 </section>
 
 <section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="container">
-    <div class="grid grid-3">
-      <div class="card reveal"><div class="card-body">
-        <h3>Vision</h3>
-        <p>Devenir une référence régionale de l'enseignement franco-arabe, reconnue pour la qualité de sa pédagogie et la solidité de la formation religieuse et académique de ses élèves.</p>
-      </div></div>
-      <div class="card reveal"><div class="card-body">
-        <h3>Mission</h3>
-        <p>Offrir à chaque enfant un enseignement complet — français, arabe, éducation islamique et matières générales — dans un environnement discipliné, sûr et bienveillant.</p>
-      </div></div>
-      <div class="card reveal"><div class="card-body">
-        <h3>Valeurs</h3>
-        <p>Excellence, discipline, respect, foi et modernité guident chaque décision pédagogique et chaque interaction avec les familles.</p>
-      </div></div>
+    <div class="stat-strip reveal">
+      <div><div class="n">10</div><div class="l">Niveaux, du préscolaire à la terminale</div></div>
+      <div><div class="n">2</div><div class="l">Langues d'enseignement : français &amp; arabe</div></div>
+      <div><div class="n">1</div><div class="l">Partenariat avec l'Institut Al-Azhar</div></div>
+      <div><div class="n">2026</div><div class="l">Rentrée scolaire 2026 – 2027</div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container split">
-    <div class="reveal"><div class="img-slot tall" data-img-slot>
-  <img src="public/images/responsable.jpg" alt="Responsable de l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
-  <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg>
-  <span class="placeholder-label">Responsable de l'Institut Al Maarifa</span>
-</div></div>
-    <div class="reveal">
-      <span class="kicker" style="color:var(--emerald);font-weight:700;">Direction</span>
-      <h2>Une direction engagée auprès des familles</h2>
-      <p>La direction de l'Institut veille au quotidien à la qualité de l'enseignement, à la discipline au sein de l'établissement et à un dialogue constant avec les parents et tuteurs, pour accompagner chaque élève dans sa réussite scolaire et spirituelle.</p>
-      <a class="btn btn-line" href="contact.html">Contacter la direction</a>
+    <div class="reveal" style="order:2;">
+      <span class="kicker" style="color:var(--emerald);font-weight:700;">Notre mission</span>
+      <h2>Concilier excellence académique et éducation religieuse</h2>
+      <p>Notre mission est simple à énoncer, exigeante à tenir : former des élèves solides dans les matières générales, capables de lire, écrire et comprendre l'arabe avec aisance, et enracinés dans des valeurs islamiques qu'ils porteront toute leur vie.</p>
+      <p>Cette mission se construit jour après jour, en classe comme en dehors, à travers un encadrement pédagogique rigoureux et un accompagnement humain attentif à chaque élève.</p>
+    </div>
+    <div class="reveal" style="order:1;">
+      <div class="img-slot landscape" data-img-slot><img src="public/images/institut-mission.jpg" alt="Enseignant accompagnant un élève à l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — institut-mission.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="kicker">Nos valeurs</span>
+      <h2>Ce qui guide chaque journée à l'Institut</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 2l2.6 5.9L21 8.6l-4.7 4.1 1.4 6.4L12 15.9 6.3 19.1l1.4-6.4L3 8.6l6.4-.7L12 2z"/></svg></div><div><h3>Excellence</h3><p>Un enseignement exigeant qui prépare les élèves à réussir dans le supérieur comme dans la vie.</p></div></div>
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><div><h3>Discipline</h3><p>Un cadre structuré, respectueux et sécurisant pour chaque élève.</p></div></div>
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 3v18M6 8c0 4 3 5 6 5s6-1 6-5"/></svg></div><div><h3>Valeurs islamiques</h3><p>Une éducation religieuse authentique, transmise avec pédagogie et douceur.</p></div></div>
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><div><h3>Modernité</h3><p>Des méthodes actuelles, une bibliothèque numérique et un suivi pédagogique moderne.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Notre partenariat</span>
+      <h2>Un partenariat officiel avec l'Institut Al-Azhar</h2>
+    </div>
+    <div class="split">
+      <div class="reveal">
+        <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est fier d'être partenaire officiel de l'Institut Al-Azhar, référence historique de l'enseignement islamique. Ce partenariat garantit la rigueur et l'authenticité de notre programme d'éducation islamique et de langue arabe.</p>
+        <p>Il permet également à nos élèves de bénéficier d'un cursus reconnu, pensé pour ouvrir des perspectives d'études supérieures, aussi bien au Sénégal qu'à l'international.</p>
+        <div class="chip-row">
+          <span class="chip">Programme reconnu</span>
+          <span class="chip">Encadrement qualifié</span>
+          <span class="chip">Perspectives internationales</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="img-slot square" data-img-slot><img src="public/images/al-azhar-partenariat.jpg" alt="Partenariat avec l'Institut Al-Azhar" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — al-azhar-partenariat.jpg</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Notre parcours</span>
+      <h2>Les grandes étapes de l'Institut</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <span class="date">Fondation</span>
+        <h3>Ouverture de l'Institut à Bambilor - Darou Salam</h3>
+        <p>Naissance du projet éducatif, avec une première rentrée accueillant les premiers élèves du préscolaire et du primaire.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="date">Développement</span>
+        <h3>Extension des niveaux et partenariat avec Al-Azhar</h3>
+        <p>Ouverture progressive des classes jusqu'au collège, et signature du partenariat officiel avec l'Institut Al-Azhar.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="date">Aujourd'hui</span>
+        <h3>Un institut complet, du préscolaire à la terminale</h3>
+        <p>L'Institut couvre désormais l'ensemble du parcours scolaire, avec une bibliothèque numérique et un suivi pédagogique modernisé.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="date">2026 – 2027</span>
+        <h3>Une nouvelle rentrée scolaire</h3>
+        <p>Les inscriptions pour l'année 2026-2027 sont ouvertes, avec des places limitées par niveau.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--deep-green);color:#fff;">
+  <div class="container reveal" style="text-align:center;">
+    <h2 style="color:#fff;">Envie de rejoindre l'Institut Al Maarifa ?</h2>
+    <p style="color:#DCEAE1;margin:0 auto 26px;">Les inscriptions 2026–2027 sont ouvertes. Places limitées par niveau — contactez-nous dès aujourd'hui.</p>
+    <div class="hero-actions" style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <a class="btn btn-gold" href="inscriptions.html">Commencer l'inscription</a>
+      <a class="btn btn-outline" href="contact.html">Nous contacter</a>
     </div>
   </div>
 </section>
@@ -159,7 +578,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
+          <img src="public/logo.png" alt="Logo Institut Al Maarifa" width="46" height="46" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
           <strong>Institut Al Maarifa</strong>
         </div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
@@ -185,7 +604,7 @@
         <h4>Contact</h4>
         <a href="tel:+221774036424">77 403 64 24</a>
         <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+        <a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
         <a href="contact.html">Formulaire de contact</a>
       </div>
     </div>
@@ -196,13 +615,60 @@
   </div>
 </footer>
 
-<a class="wa-float" data-wa-link href="#" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+<a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/main.js"></script>
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+
+/* ===== Menu burger mobile ===== */
+(function(){
+  var burger = document.getElementById('burgerBtn');
+  var body = document.body;
+  if(!burger) return;
+
+  burger.addEventListener('click', function(){
+    var isOpen = body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+
+  document.querySelectorAll('.mobile-nav a').forEach(function(link){
+    link.addEventListener('click', function(){
+      body.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Ouvrir le menu');
+    });
+  });
+
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 960){
+      body.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+
+/* ===== Animation reveal-on-scroll ===== */
+(function(){
+  document.documentElement.classList.add('js-ready');
+  var items = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ obs.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
 
 </body>
 </html>
