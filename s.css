@@ -2,27 +2,27 @@
    Institut Al Maarifa - Règle 60-30-10
    60 % fond   : beige institutionnel + cartes blanches
    30 % structure : gris clair (sections, bordures) + vert identité (titres, nav) + anthracite (texte)
-   10 % accent : jaune du logo (appel à l'action principale) + vert vif (WhatsApp, actions secondaires)
+   10 % accent : doré (appel à l'action principal) + vert (hover, WhatsApp)
    ========================================================= */
 :root{
   /* 60 % : fonds */
-  --cloth:       #F7F4EB;  /* beige institutionnel */
+  --cloth:       #F7F7F2;  /* fond */
   --white:       #FFFFFF;
-  --emerald-l:   #E6F4EC;  /* fond vert très pâle (pastilles, icônes liés à l'identité) */
-  --line:        #E2E8F0;  /* gris clair : bordures, séparateurs */
+  --emerald-l:   #E7F1EA;  /* fond vert très pâle (pastilles, icônes liés à l'identité) */
+  --line:        #E5E7E5;  /* sections secondaires / bordures */
 
   /* 30 % : structure */
-  --deep-green:  #008B38;  /* vert du logo : titres, nav, hero, stats, footer */
-  --deep-green-2:#005C27;  /* vert plus foncé : fin de dégradé, pied de page */
-  --emerald:     #00A344;  /* vert secondaire (kickers, survols) */
-  --ink:         #2D3748;  /* anthracite : texte principal */
-  --ink-soft:    #5A6472;  /* gris-anthracite : texte secondaire */
+  --deep-green:  #0B3B2C;  /* header : titres, nav, hero, footer */
+  --deep-green-2:#082A20;  /* vert plus foncé : fin de dégradé, pied de page */
+  --emerald:     #1F7A50;  /* effets / hover */
+  --ink:         #222222;  /* texte principal */
+  --ink-soft:    #4A4A4A;  /* texte secondaire */
 
   /* 10 % : accents */
-  --gold:        #FFE600;  /* jaune du logo : bouton d'action principal */
-  --gold-l:      #FFF6B0;  /* jaune pâle : textes sur fond sombre */
-  --accent:      #00A344;  /* vert vif : actions secondaires (WhatsApp) */
-  --accent-dark: #008036;
+  --gold:        #B8903E;  /* boutons */
+  --gold-l:      #F4E7CB;  /* doré pâle : textes sur fond sombre */
+  --accent:      #1F7A50;  /* actions secondaires (WhatsApp) */
+  --accent-dark: #175F3E;
 
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
@@ -40,9 +40,10 @@ html{ scroll-behavior:smooth; }
 body{
   margin:0;
   font-family:var(--font-text);
+  font-size:17px;
   color:var(--ink);
   background:var(--cloth);
-  line-height:1.6;
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 img{ max-width:100%; display:block; }
@@ -82,8 +83,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:active{ transform:translateY(1px); }
-.btn-gold{ background:var(--gold); color:var(--deep-green); }
-.btn-gold:hover{ background:#E6CE00; box-shadow:var(--shadow-1); }
+.btn-gold{ background:var(--gold); color:var(--ink); }
+.btn-gold:hover{ background:#a37f36; color:var(--white); box-shadow:var(--shadow-1); }
 .btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
 .btn-outline:hover{ background:rgba(255,255,255,.12); }
 .btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
@@ -95,7 +96,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- header / nav ---------- */
 .site-header{
   position:sticky; top:0; z-index:60;
-  background:rgba(247,244,235,.92); backdrop-filter:blur(8px);
+  background:rgba(247,247,242,.92); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
 .nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
@@ -145,7 +146,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 /* ---------- hero ---------- */
 .hero{
   position:relative; min-height:min(86vh,760px); display:flex; align-items:flex-end;
-  background:linear-gradient(180deg, rgba(0,60,25,.35), rgba(0,60,25,.86)), var(--deep-green);
+  background:linear-gradient(180deg, rgba(11,59,44,.35), rgba(11,59,44,.86)), var(--deep-green);
   background-size:cover; background-position:center;
   color:#fff; overflow:hidden;
 }
@@ -225,10 +226,10 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 }
 .stat-strip{
   display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-  background:var(--deep-green); color:#fff; border-radius:var(--radius-m); padding:36px 28px;
+  background:#fff; color:var(--ink); border:1px solid var(--line); box-shadow:var(--shadow-1); border-radius:var(--radius-m); padding:36px 28px;
 }
-.stat-strip .n{ font-family:var(--font-display); font-size:2.1rem; color:var(--gold-l); }
-.stat-strip .l{ font-size:.85rem; color:#CFE3D8; }
+.stat-strip .n{ font-family:var(--font-display); font-size:2.1rem; color:var(--gold); }
+.stat-strip .l{ font-size:.85rem; color:var(--ink-soft); }
 @media(max-width:720px){ .stat-strip{ grid-template-columns:repeat(2,1fr); } }
 
 /* ---------- program levels ---------- */
