@@ -455,10 +455,149 @@ textarea.field{ resize:vertical; min-height:120px; }
 /* ---------- reveal-on-scroll ---------- */
 .reveal{ opacity:1; transform:none; }
 .js-ready .reveal{
-  opacity:0; transform:translateY(14px);
-  transition:opacity .5s ease, transform .5s ease;
+  opacity:0; transform:translateY(22px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
 }
 .js-ready .reveal.in{ opacity:1; transform:none; }
+
+/* stagger children of grids/lists automatically */
+.js-ready .grid.reveal-group > *,
+.js-ready .stat-strip.reveal > *{
+  opacity:0; transform:translateY(18px);
+  transition:opacity .55s ease, transform .55s ease;
+}
+.grid.reveal-group.in > *,
+.stat-strip.reveal.in > *{ opacity:1; transform:none; }
+.grid.reveal-group.in > *:nth-child(1){ transition-delay:.05s; }
+.grid.reveal-group.in > *:nth-child(2){ transition-delay:.15s; }
+.grid.reveal-group.in > *:nth-child(3){ transition-delay:.25s; }
+.grid.reveal-group.in > *:nth-child(4){ transition-delay:.35s; }
+.stat-strip.reveal.in > *:nth-child(1){ transition-delay:.05s; }
+.stat-strip.reveal.in > *:nth-child(2){ transition-delay:.15s; }
+.stat-strip.reveal.in > *:nth-child(3){ transition-delay:.25s; }
+.stat-strip.reveal.in > *:nth-child(4){ transition-delay:.35s; }
+
+/* ---------- keyframes ---------- */
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(26px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@keyframes kenBurns{
+  0%{ transform:scale(1) translate(0,0); }
+  100%{ transform:scale(1.12) translate(-1%,-1%); }
+}
+@keyframes floatY{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
+}
+@keyframes pulseRing{
+  0%{ box-shadow:0 0 0 0 rgba(31,122,80,.55); }
+  70%{ box-shadow:0 0 0 14px rgba(31,122,80,0); }
+  100%{ box-shadow:0 0 0 0 rgba(31,122,80,0); }
+}
+@keyframes shimmerBadge{
+  0%,100%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+}
+@keyframes spinSlow{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+@keyframes underlineGrow{
+  from{ transform:scaleX(0); }
+  to{ transform:scaleX(1); }
+}
+
+/* hero entrance choreography */
+.hero-eyebrow-line{ animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) both; animation-delay:.05s; }
+.hero .partner{ animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) both; animation-delay:.18s; }
+.hero h1{ animation:fadeUp .8s cubic-bezier(.22,.61,.36,1) both; animation-delay:.3s; }
+.hero .slogan{ animation:fadeUp .8s cubic-bezier(.22,.61,.36,1) both; animation-delay:.44s; }
+.hero-actions{ animation:fadeUp .8s cubic-bezier(.22,.61,.36,1) both; animation-delay:.58s; }
+.hero-actions .btn{ animation:fadeUp .6s ease both; }
+.hero-actions .btn:nth-child(1){ animation-delay:.62s; }
+.hero-actions .btn:nth-child(2){ animation-delay:.7s; }
+.hero-actions .btn:nth-child(3){ animation-delay:.78s; }
+
+.hero-bg img{ animation:kenBurns 16s ease-in-out infinite alternate; will-change:transform; }
+
+/* buttons: subtle lift + shine sweep */
+.btn{ position:relative; overflow:hidden; }
+.btn::after{
+  content:""; position:absolute; top:0; left:-60%; width:40%; height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+  transform:skewX(-20deg); transition:left .55s ease;
+}
+.btn:hover::after{ left:130%; }
+.btn:hover{ transform:translateY(-2px); }
+.btn-gold:hover{ box-shadow:0 10px 22px -8px rgba(184,144,62,.55); }
+.btn-line:hover{ transform:translateY(-2px); }
+
+/* nav underline grow-in */
+.main-nav a{ overflow:hidden; }
+.main-nav a::before{
+  content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--emerald);
+  transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+}
+.main-nav a:hover::before{ transform:scaleX(1); }
+.main-nav a.active::after{ animation:underlineGrow .4s ease both; transform-origin:left; }
+
+/* value icons: playful hover */
+.value-icon{ transition:transform .35s cubic-bezier(.34,1.56,.64,1), background .25s ease, color .25s ease; }
+.value-item:hover .value-icon{ transform:rotate(-8deg) scale(1.12); background:var(--gold-l); color:var(--gold); }
+
+/* director photo gentle float */
+.director-photo-card{ animation:floatY 6s ease-in-out infinite; }
+
+/* eyebrow badge shimmer */
+.hero-eyebrow-line{
+  background:linear-gradient(90deg, rgba(184,144,62,.35), rgba(255,255,255,.12), rgba(184,144,62,.35));
+  background-size:200% 100%;
+  animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) both, shimmerBadge 5s ease-in-out infinite 1s;
+}
+
+/* stat numbers pop-in */
+.stat-strip .n{ display:inline-block; }
+
+/* academic list staggered entrance */
+.js-ready .academic-list.reveal > li{
+  opacity:0; transform:translateX(-16px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+.academic-list.reveal.in > li{ opacity:1; transform:none; }
+.academic-list.reveal.in > li:nth-child(1){ transition-delay:.05s; }
+.academic-list.reveal.in > li:nth-child(2){ transition-delay:.12s; }
+.academic-list.reveal.in > li:nth-child(3){ transition-delay:.19s; }
+.academic-list.reveal.in > li:nth-child(4){ transition-delay:.26s; }
+.academic-list.reveal.in > li:nth-child(5){ transition-delay:.33s; }
+.academic-list.reveal.in > li:nth-child(6){ transition-delay:.4s; }
+.academic-list.reveal.in > li:nth-child(7){ transition-delay:.47s; }
+
+/* whatsapp float pulse */
+.wa-float{ animation:pulseRing 2.6s ease-out infinite; }
+.wa-float svg{ transition:transform .25s ease; }
+.wa-float:hover svg{ transform:scale(1.15) rotate(-6deg); }
+
+/* section head kicker underline draw */
+.section-head .kicker{ position:relative; padding-bottom:4px; }
+.section-head.reveal.in .kicker::after{ animation:underlineGrow .5s ease .2s both; }
+.section-head .kicker::after{
+  content:""; display:block; width:34px; height:2px; background:var(--gold); margin-top:6px; transform-origin:left;
+}
+
+/* card hover lift for value/level/skill cards already animated via existing rules; add subtle for card class */
+.card{ transition:transform .25s ease, box-shadow .25s ease; }
+.card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-2); }
+
+/* scroll progress bar */
+.scroll-progress{
+  position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--gold),var(--emerald));
+  z-index:100; transition:width .1s linear;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-bg img, .director-photo-card, .wa-float, .hero-eyebrow-line{ animation:none !important; }
+}
 
 /* misc */
 .split{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
@@ -604,6 +743,7 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
 <header class="site-header">
   <div class="nav-row">
@@ -791,10 +931,10 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 <section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="container">
     <div class="stat-strip reveal">
-      <div><div class="n">10</div><div class="l">Niveaux, du préscolaire à la terminale</div></div>
-      <div><div class="n">2</div><div class="l">Langues d'enseignement : français &amp; arabe</div></div>
-      <div><div class="n">1</div><div class="l">Partenariat avec l'Institut Al-Azhar</div></div>
-      <div><div class="n">2026</div><div class="l">Rentrée scolaire 2026 – 2027</div></div>
+      <div><div class="n" data-count="10">0</div><div class="l">Niveaux, du préscolaire à la terminale</div></div>
+      <div><div class="n" data-count="2">0</div><div class="l">Langues d'enseignement : français &amp; arabe</div></div>
+      <div><div class="n" data-count="1">0</div><div class="l">Partenariat avec l'Institut Al-Azhar</div></div>
+      <div><div class="n" data-count="2026">0</div><div class="l">Rentrée scolaire 2026 – 2027</div></div>
     </div>
   </div>
 </section>
@@ -805,11 +945,11 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
       <span class="kicker">Nos valeurs</span>
       <h2>Ce qui guide chaque journée à l'Institut</h2>
     </div>
-    <div class="grid grid-4">
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 2l2.6 5.9L21 8.6l-4.7 4.1 1.4 6.4L12 15.9 6.3 19.1l1.4-6.4L3 8.6l6.4-.7L12 2z"/></svg></div><div><h3>Excellence</h3><p>Un enseignement exigeant qui prépare les élèves à réussir dans le supérieur comme dans la vie.</p></div></div>
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><div><h3>Discipline</h3><p>Un cadre structuré, respectueux et sécurisant pour chaque élève.</p></div></div>
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 3v18M6 8c0 4 3 5 6 5s6-1 6-5"/></svg></div><div><h3>Valeurs islamiques</h3><p>Une éducation religieuse authentique, transmise avec pédagogie et douceur.</p></div></div>
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><div><h3>Modernité</h3><p>Des méthodes actuelles, une bibliothèque numérique et un suivi pédagogique moderne.</p></div></div>
+    <div class="grid grid-4 reveal reveal-group">
+      <div class="value-item"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 2l2.6 5.9L21 8.6l-4.7 4.1 1.4 6.4L12 15.9 6.3 19.1l1.4-6.4L3 8.6l6.4-.7L12 2z"/></svg></div><div><h3>Excellence</h3><p>Un enseignement exigeant qui prépare les élèves à réussir dans le supérieur comme dans la vie.</p></div></div>
+      <div class="value-item"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><div><h3>Discipline</h3><p>Un cadre structuré, respectueux et sécurisant pour chaque élève.</p></div></div>
+      <div class="value-item"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 3v18M6 8c0 4 3 5 6 5s6-1 6-5"/></svg></div><div><h3>Valeurs islamiques</h3><p>Une éducation religieuse authentique, transmise avec pédagogie et douceur.</p></div></div>
+      <div class="value-item"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><div><h3>Modernité</h3><p>Des méthodes actuelles, une bibliothèque numérique et un suivi pédagogique moderne.</p></div></div>
     </div>
   </div>
 </section>
@@ -906,19 +1046,57 @@ document.getElementById('y').textContent = new Date().getFullYear();
 (function(){
   document.documentElement.classList.add('js-ready');
   var items = document.querySelectorAll('.reveal');
+
+  function runCounters(scope){
+    var counters = scope.querySelectorAll('[data-count]');
+    counters.forEach(function(el){
+      if(el.dataset.counted) return;
+      el.dataset.counted = '1';
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var duration = 1100;
+      var startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if(progress < 1){ requestAnimationFrame(step); }
+        else { el.textContent = target; }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
   if('IntersectionObserver' in window){
     var obs = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
           entry.target.classList.add('in');
+          runCounters(entry.target);
           obs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
     items.forEach(function(el){ obs.observe(el); });
   } else {
-    items.forEach(function(el){ el.classList.add('in'); });
+    items.forEach(function(el){ el.classList.add('in'); runCounters(el); });
   }
+})();
+
+/* ===== Barre de progression de défilement ===== */
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  if(!bar) return;
+  function update(){
+    var doc = document.documentElement;
+    var scrollTop = doc.scrollTop || document.body.scrollTop;
+    var scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 
