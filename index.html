@@ -23,6 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- Feuille de style externe (optionnelle) : le CSS ci-dessous reste intégré, donc index.html fonctionne seul -->
+<link rel="stylesheet" href="s.css">
 
 <style>
 /* =========================================================
@@ -450,10 +452,7 @@ textarea.field{ resize:vertical; min-height:120px; }
 }
 .wa-float:hover{ background:#175f3e; }
 
-/* ---------- reveal-on-scroll ----------
-   Visible par défaut (sécurité si JS absent, en erreur, ou désactivé).
-   L'effet d'apparition ne s'active que lorsque main.js confirme son
-   exécution en ajoutant la classe "js-ready" sur <html>. */
+/* ---------- reveal-on-scroll ---------- */
 .reveal{ opacity:1; transform:none; }
 .js-ready .reveal{
   opacity:0; transform:translateY(14px);
