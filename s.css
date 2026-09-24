@@ -1,24 +1,26 @@
-
+/* =========================================================
+   Institut Al Maarifa - Thème gris clair & beige
+   ========================================================= */
 :root{
-  --deep-green:  #0C8B3C;
-  --deep-green-2:#0B3B2C;
-  --emerald:     #1F7A50;
-  --emerald-l:   #E7F1EB;
-  --gold:        #B8903E;
-  --gold-l:      #F4E7CB;
-  --cloth:       #F7F7F2;
+  --deep-green:  #4A443C;  /* titres, boutons : gris-taupe foncé */
+  --deep-green-2:#E8E2D6;  /* beige moyen : pied de page, bandeaux */
+  --emerald:     #7A6C55;  /* accent taupe */
+  --emerald-l:   #EFEBE3;  /* beige très clair */
+  --gold:        #C9B48C;  /* beige doré */
+  --gold-l:      #F1E9D8;
+  --cloth:       #F3F0EA;  /* fond de page : beige clair */
   --white:       #FFFFFF;
-  --ink:         #16211C;
-  --ink-soft:    #4B5751;
-  --line:        #E1E4DE;
+  --ink:         #2B2825;
+  --ink-soft:    #67625B;  /* gris chaud */
+  --line:        #DDD8CE;
 
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
 
   --radius-s: 6px;
   --radius-m: 14px;
-  --shadow-1: 0 1px 2px rgba(11,59,44,.06), 0 8px 24px -12px rgba(11,59,44,.18);
-  --shadow-2: 0 20px 48px -20px rgba(11,59,44,.35);
+  --shadow-1: 0 1px 2px rgba(60,50,35,.06), 0 8px 24px -12px rgba(60,50,35,.18);
+  --shadow-2: 0 20px 48px -20px rgba(60,50,35,.35);
 
   --wrap: 1180px;
 }
@@ -371,20 +373,56 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
   position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999;
   background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
 }
-.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }</style>
+.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
-  "alternateName": "Institut Al Maarifa",
-  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bambilor - Darou Salam",
-    "addressCountry": "SN"
-  },
-  "telephone": ["+221774036424", "+221775722937"],
-  "url": "https://www.institut-almaarifa.sn/"
+
+/* =========================================================
+   Ajustements du thème gris clair & beige
+   (corrigent les couleurs écrites « en dur » ci-dessus)
+   ========================================================= */
+.site-header{ background:rgba(243,240,234,.92); }
+
+/* boutons */
+.btn-gold{ color:var(--ink); }
+.btn-gold:hover{ background:#B9A47B; }
+.btn-outline{ border-color:rgba(43,40,37,.4); color:var(--ink); }
+.btn-outline:hover{ background:rgba(43,40,37,.06); }
+.btn-whatsapp, .wa-float{ background:#4A443C; color:#fff; }
+.btn-whatsapp:hover, .wa-float:hover{ background:#322E29; }
+
+/* hero */
+.hero{ background:var(--deep-green-2); color:var(--ink); }
+.hero-bg::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(243,240,234,.35), rgba(243,240,234,.92));
 }
+.hero-bg.is-empty{ background:var(--deep-green-2); color:var(--ink-soft); }
+.hero h1{ color:var(--deep-green); }
+.hero .partner{ color:var(--emerald); }
+.hero .slogan{ color:var(--ink-soft); }
+.hero-eyebrow-line{ background:rgba(255,255,255,.7); border-color:var(--line); color:var(--emerald); }
+
+/* hero des pages internes */
+.page-hero{ background:linear-gradient(120deg,#EFEAE0,#E3DCCD); color:var(--ink); }
+.page-hero h1{ color:var(--deep-green); }
+.page-hero p{ color:var(--ink-soft); }
+.crumb{ color:var(--emerald); }
+
+/* stats, compte à rebours */
+.stat-strip{ background:var(--deep-green-2); color:var(--ink); }
+.stat-strip .n{ color:var(--emerald); }
+.stat-strip .l{ color:var(--ink-soft); }
+.countdown .cd-box{ background:rgba(255,255,255,.6); border-color:var(--line); }
+.countdown .cd-box .num{ color:var(--emerald); }
+.countdown .cd-box .lab{ color:var(--ink-soft); }
+
+/* divers */
+.badge{ color:var(--emerald); }
+.text-white p{ color:var(--ink-soft); }
+
+/* pied de page */
+.site-footer{ background:var(--deep-green-2); color:var(--ink-soft); }
+.site-footer h4, .footer-brand strong{ color:var(--ink); }
+.site-footer a{ color:var(--ink-soft); }
+.site-footer a:hover{ color:var(--emerald); }
+.footer-bottom{ border-top-color:rgba(43,40,37,.12); color:#8A847B; }
