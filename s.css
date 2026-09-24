@@ -1,26 +1,36 @@
 /* =========================================================
-   Institut Al Maarifa - Thème gris clair & beige
+   Institut Al Maarifa - Règle 60-30-10
+   60 % fond   : blanc cassé / beige très clair + cartes blanches
+   30 % structure : vert très foncé (titres, hero, stats, footer) + gris-vert (texte)
+   10 % accent : jaune (appel à l'action) + vert vif (WhatsApp, actions)
    ========================================================= */
 :root{
-  --deep-green:  #4A443C;  /* titres, boutons : gris-taupe foncé */
-  --deep-green-2:#E8E2D6;  /* beige moyen : pied de page, bandeaux */
-  --emerald:     #7A6C55;  /* accent taupe */
-  --emerald-l:   #EFEBE3;  /* beige très clair */
-  --gold:        #C9B48C;  /* beige doré */
-  --gold-l:      #F1E9D8;
-  --cloth:       #F3F0EA;  /* fond de page : beige clair */
+  /* 60 % : fonds */
+  --cloth:       #F7F5EF;
   --white:       #FFFFFF;
-  --ink:         #2B2825;
-  --ink-soft:    #67625B;  /* gris chaud */
-  --line:        #DDD8CE;
+  --emerald-l:   #E9F0EA;  /* fond vert très pâle (pastilles, icônes) */
+  --line:        #E3E1D8;
+
+  /* 30 % : structure */
+  --deep-green:  #0B3B2C;  /* titres, sections sombres */
+  --deep-green-2:#082A20;  /* pied de page, fin de dégradé */
+  --emerald:     #1F6B48;  /* vert secondaire (kickers, survols) */
+  --ink:         #1B2620;  /* texte principal */
+  --ink-soft:    #4F5A54;  /* texte secondaire */
+
+  /* 10 % : accents */
+  --gold:        #E3B23C;  /* jaune : bouton principal */
+  --gold-l:      #F6E7BC;  /* jaune pâle : textes sur fond sombre */
+  --accent:      #0C8B3C;  /* vert vif : actions secondaires */
+  --accent-dark: #0A7132;
 
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
 
   --radius-s: 6px;
   --radius-m: 14px;
-  --shadow-1: 0 1px 2px rgba(60,50,35,.06), 0 8px 24px -12px rgba(60,50,35,.18);
-  --shadow-2: 0 20px 48px -20px rgba(60,50,35,.35);
+  --shadow-1: 0 1px 2px rgba(11,59,44,.06), 0 8px 24px -12px rgba(11,59,44,.18);
+  --shadow-2: 0 20px 48px -20px rgba(11,59,44,.35);
 
   --wrap: 1180px;
 }
@@ -72,20 +82,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:active{ transform:translateY(1px); }
-.btn-gold{ background:var(--gold); color:var(--white); }
-.btn-gold:hover{ background:#a37f36; box-shadow:var(--shadow-1); }
+.btn-gold{ background:var(--gold); color:var(--deep-green); }
+.btn-gold:hover{ background:#CF9F2C; box-shadow:var(--shadow-1); }
 .btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
 .btn-outline:hover{ background:rgba(255,255,255,.12); }
 .btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
 .btn-line:hover{ background:var(--emerald-l); }
-.btn-whatsapp{ background:#1F7A50; color:#fff; }
-.btn-whatsapp:hover{ background:#175f3e; }
+.btn-whatsapp{ background:var(--accent); color:#fff; }
+.btn-whatsapp:hover{ background:var(--accent-dark); }
 .btn-block{ width:100%; }
 
 /* ---------- header / nav ---------- */
 .site-header{
   position:sticky; top:0; z-index:60;
-  background:rgba(247,247,242,.92); backdrop-filter:blur(8px);
+  background:rgba(247,245,239,.92); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
 .nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
@@ -245,7 +255,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 }
 .filter-btn.active{ background:var(--deep-green); color:#fff; border-color:var(--deep-green); }
 .meta-row{ display:flex; gap:14px; font-size:.82rem; color:var(--ink-soft); margin-bottom:6px; flex-wrap:wrap; }
-.badge{ background:var(--gold-l); color:#8a6a24; font-weight:700; padding:3px 10px; border-radius:100px; font-size:.72rem; }
+.badge{ background:var(--gold-l); color:#6E5210; font-weight:700; padding:3px 10px; border-radius:100px; font-size:.72rem; }
 
 /* ---------- library ---------- */
 .lib-toolbar{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px; }
@@ -341,10 +351,10 @@ textarea.field{ resize:vertical; min-height:120px; }
 /* ---------- floating whatsapp ---------- */
 .wa-float{
   position:fixed; bottom:22px; right:22px; z-index:80; width:58px; height:58px; border-radius:50%;
-  background:#1F7A50; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-2);
+  background:var(--accent); display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-2);
   color:#fff;
 }
-.wa-float:hover{ background:#175f3e; }
+.wa-float:hover{ background:var(--accent-dark); }
 
 /* ---------- reveal-on-scroll ----------
    Visible par défaut (sécurité si JS absent, en erreur, ou désactivé).
@@ -374,55 +384,3 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
   background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
 }
 .img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
-
-
-/* =========================================================
-   Ajustements du thème gris clair & beige
-   (corrigent les couleurs écrites « en dur » ci-dessus)
-   ========================================================= */
-.site-header{ background:rgba(243,240,234,.92); }
-
-/* boutons */
-.btn-gold{ color:var(--ink); }
-.btn-gold:hover{ background:#B9A47B; }
-.btn-outline{ border-color:rgba(43,40,37,.4); color:var(--ink); }
-.btn-outline:hover{ background:rgba(43,40,37,.06); }
-.btn-whatsapp, .wa-float{ background:#4A443C; color:#fff; }
-.btn-whatsapp:hover, .wa-float:hover{ background:#322E29; }
-
-/* hero */
-.hero{ background:var(--deep-green-2); color:var(--ink); }
-.hero-bg::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(243,240,234,.35), rgba(243,240,234,.92));
-}
-.hero-bg.is-empty{ background:var(--deep-green-2); color:var(--ink-soft); }
-.hero h1{ color:var(--deep-green); }
-.hero .partner{ color:var(--emerald); }
-.hero .slogan{ color:var(--ink-soft); }
-.hero-eyebrow-line{ background:rgba(255,255,255,.7); border-color:var(--line); color:var(--emerald); }
-
-/* hero des pages internes */
-.page-hero{ background:linear-gradient(120deg,#EFEAE0,#E3DCCD); color:var(--ink); }
-.page-hero h1{ color:var(--deep-green); }
-.page-hero p{ color:var(--ink-soft); }
-.crumb{ color:var(--emerald); }
-
-/* stats, compte à rebours */
-.stat-strip{ background:var(--deep-green-2); color:var(--ink); }
-.stat-strip .n{ color:var(--emerald); }
-.stat-strip .l{ color:var(--ink-soft); }
-.countdown .cd-box{ background:rgba(255,255,255,.6); border-color:var(--line); }
-.countdown .cd-box .num{ color:var(--emerald); }
-.countdown .cd-box .lab{ color:var(--ink-soft); }
-
-/* divers */
-.badge{ color:var(--emerald); }
-.text-white p{ color:var(--ink-soft); }
-
-/* pied de page */
-.site-footer{ background:var(--deep-green-2); color:var(--ink-soft); }
-.site-footer h4, .footer-brand strong{ color:var(--ink); }
-.site-footer a{ color:var(--ink-soft); }
-.site-footer a:hover{ color:var(--emerald); }
-.footer-bottom{ border-top-color:rgba(43,40,37,.12); color:#8A847B; }
