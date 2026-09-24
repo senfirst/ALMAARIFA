@@ -1,28 +1,28 @@
 /* =========================================================
    Institut Al Maarifa - Règle 60-30-10
-   60 % fond   : blanc cassé / beige très clair + cartes blanches
-   30 % structure : vert très foncé (titres, hero, stats, footer) + gris-vert (texte)
-   10 % accent : jaune (appel à l'action) + vert vif (WhatsApp, actions)
+   60 % fond   : beige institutionnel + cartes blanches
+   30 % structure : gris clair (sections, bordures) + vert identité (titres, nav) + anthracite (texte)
+   10 % accent : jaune du logo (appel à l'action principale) + vert vif (WhatsApp, actions secondaires)
    ========================================================= */
 :root{
   /* 60 % : fonds */
-  --cloth:       #F7F5EF;
+  --cloth:       #F7F4EB;  /* beige institutionnel */
   --white:       #FFFFFF;
-  --emerald-l:   #E9F0EA;  /* fond vert très pâle (pastilles, icônes) */
-  --line:        #E3E1D8;
+  --emerald-l:   #E6F4EC;  /* fond vert très pâle (pastilles, icônes liés à l'identité) */
+  --line:        #E2E8F0;  /* gris clair : bordures, séparateurs */
 
   /* 30 % : structure */
-  --deep-green:  #0B3B2C;  /* titres, sections sombres */
-  --deep-green-2:#082A20;  /* pied de page, fin de dégradé */
-  --emerald:     #1F6B48;  /* vert secondaire (kickers, survols) */
-  --ink:         #1B2620;  /* texte principal */
-  --ink-soft:    #4F5A54;  /* texte secondaire */
+  --deep-green:  #008B38;  /* vert du logo : titres, nav, hero, stats, footer */
+  --deep-green-2:#005C27;  /* vert plus foncé : fin de dégradé, pied de page */
+  --emerald:     #00A344;  /* vert secondaire (kickers, survols) */
+  --ink:         #2D3748;  /* anthracite : texte principal */
+  --ink-soft:    #5A6472;  /* gris-anthracite : texte secondaire */
 
   /* 10 % : accents */
-  --gold:        #E3B23C;  /* jaune : bouton principal */
-  --gold-l:      #F6E7BC;  /* jaune pâle : textes sur fond sombre */
-  --accent:      #0C8B3C;  /* vert vif : actions secondaires */
-  --accent-dark: #0A7132;
+  --gold:        #FFE600;  /* jaune du logo : bouton d'action principal */
+  --gold-l:      #FFF6B0;  /* jaune pâle : textes sur fond sombre */
+  --accent:      #00A344;  /* vert vif : actions secondaires (WhatsApp) */
+  --accent-dark: #008036;
 
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
@@ -83,7 +83,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .btn:active{ transform:translateY(1px); }
 .btn-gold{ background:var(--gold); color:var(--deep-green); }
-.btn-gold:hover{ background:#CF9F2C; box-shadow:var(--shadow-1); }
+.btn-gold:hover{ background:#E6CE00; box-shadow:var(--shadow-1); }
 .btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
 .btn-outline:hover{ background:rgba(255,255,255,.12); }
 .btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
@@ -95,7 +95,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- header / nav ---------- */
 .site-header{
   position:sticky; top:0; z-index:60;
-  background:rgba(247,245,239,.92); backdrop-filter:blur(8px);
+  background:rgba(247,244,235,.92); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
 .nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
@@ -145,7 +145,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 /* ---------- hero ---------- */
 .hero{
   position:relative; min-height:min(86vh,760px); display:flex; align-items:flex-end;
-  background:linear-gradient(180deg, rgba(9,46,34,.35), rgba(9,46,34,.86)), var(--deep-green);
+  background:linear-gradient(180deg, rgba(0,60,25,.35), rgba(0,60,25,.86)), var(--deep-green);
   background-size:cover; background-position:center;
   color:#fff; overflow:hidden;
 }
