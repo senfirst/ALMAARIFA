@@ -32,17 +32,17 @@
    ========================================================= */
 
 :root{
-  --deep-green:  #0B3B2C;
-  --deep-green-2:#092E22;
-  --emerald:     #1F7A50;
-  --emerald-l:   #E7F1EB;
-  --gold:        #B8903E;
-  --gold-l:      #F4E7CB;
-  --cloth:       #F7F7F2;
+  --deep-green:  #6B5233;
+  --deep-green-2:#59422A;
+  --emerald:     #A9825A;
+  --emerald-l:   #F2E9DA;
+  --gold:        #C9A66B;
+  --gold-l:      #F6EFDE;
+  --cloth:       #FAF6EE;
   --white:       #FFFFFF;
-  --ink:         #16211C;
-  --ink-soft:    #4B5751;
-  --line:        #E1E4DE;
+  --ink:         #000000;
+  --ink-soft:    #000000;
+  --line:        #E7DFCE;
 
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
@@ -70,7 +70,7 @@ a{ color:inherit; text-decoration:none; }
 ul{ margin:0; padding:0; list-style:none; }
 h1,h2,h3,h4{
   font-family:var(--font-display);
-  color:var(--deep-green);
+  color:var(--ink);
   line-height:1.14;
   margin:0 0 .5em;
   font-weight:600;
@@ -106,7 +106,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .btn-gold:hover{ background:#a37f36; box-shadow:var(--shadow-1); }
 .btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
 .btn-outline:hover{ background:rgba(255,255,255,.12); }
-.btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
+.btn-line{ background:transparent; border-color:var(--ink); color:var(--ink); }
 .btn-line:hover{ background:var(--emerald-l); }
 .btn-whatsapp{ background:#1F7A50; color:#fff; }
 .btn-whatsapp:hover{ background:#175f3e; }
@@ -122,7 +122,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand img{ height:46px; width:46px; object-fit:contain; border-radius:8px; }
 .brand-text{ display:flex; flex-direction:column; line-height:1.2; }
-.brand-text strong{ font-family:var(--font-display); color:var(--deep-green); font-size:1.05rem; }
+.brand-text strong{ font-family:var(--font-display); color:var(--ink); font-size:1.05rem; }
 .brand-text span{ font-size:.72rem; color:var(--ink-soft); letter-spacing:.03em; }
 
 .main-nav{ display:flex; align-items:center; gap:2px; }
@@ -131,7 +131,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius:var(--radius-s); position:relative;
 }
 .main-nav a:hover{ color:var(--emerald); }
-.main-nav a.active{ color:var(--deep-green); }
+.main-nav a.active{ color:var(--ink); }
 .main-nav a.active::after{
   content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--gold);
 }
@@ -143,7 +143,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border:1px solid var(--line); background:var(--white); cursor:pointer;
   align-items:center; justify-content:center; flex-direction:column; gap:4px;
 }
-.burger span{ width:20px; height:2px; background:var(--deep-green); display:block; transition:transform .2s, opacity .2s; }
+.burger span{ width:20px; height:2px; background:var(--ink); display:block; transition:transform .2s, opacity .2s; }
 .mobile-nav{
   display:none; flex-direction:column; gap:2px; padding:8px 24px 18px;
   background:var(--cloth); border-bottom:1px solid var(--line);
@@ -183,9 +183,10 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
   background-color:var(--deep-green);
   background-image:
     linear-gradient(
-      rgba(7, 45, 28, 0.72),
-      rgba(7, 45, 28, 0.82)
-    );
+      rgba(59, 45, 27, 0.62),
+      rgba(59, 45, 27, 0.72)
+    ),
+    url('li.jpeg');
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -277,7 +278,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 .img-slot .placeholder-icon{ color:var(--emerald); opacity:.55; width:42px; height:42px; }
 .img-slot .placeholder-label{
   position:absolute; bottom:10px; left:10px; right:10px; font-size:.72rem; font-weight:700;
-  color:var(--deep-green); background:rgba(255,255,255,.85); padding:6px 8px; border-radius:6px;
+  color:var(--ink); background:rgba(255,255,255,.85); padding:6px 8px; border-radius:6px;
   text-align:center;
 }
 .img-slot.landscape{ aspect-ratio:16/9; }
@@ -318,7 +319,7 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 @media(max-width:640px){ .form-grid{ grid-template-columns:1fr; } }
 .form-group{ display:flex; flex-direction:column; gap:6px; }
-.form-group label{ font-weight:700; font-size:.88rem; color:var(--deep-green); }
+.form-group label{ font-weight:700; font-size:.88rem; color:var(--ink); }
 .form-group.full{ grid-column:1/-1; }
 .field{
   width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
@@ -327,17 +328,17 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
 textarea.field{ resize:vertical; min-height:120px; }
 
 /* ---------- footer ---------- */
-.site-footer{ background:var(--deep-green-2); color:#CFE3D8; padding:60px 0 26px; }
+.site-footer{ background:var(--gold-l); color:var(--ink); padding:60px 0 26px; border-top:1px solid var(--line); }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; }
 @media(max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
 @media(max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
-.site-footer h4{ color:#fff; font-size:.95rem; margin-bottom:14px; }
-.site-footer a{ color:#CFE3D8; display:block; padding:6px 0; font-size:.92rem; }
-.site-footer a:hover{ color:var(--gold-l); }
-.footer-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:40px; padding-top:22px; font-size:.82rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#9DB6A9; }
+.site-footer h4{ color:var(--ink); font-size:.95rem; margin-bottom:14px; }
+.site-footer a{ color:var(--ink); display:block; padding:6px 0; font-size:.92rem; }
+.site-footer a:hover{ color:var(--emerald); }
+.footer-bottom{ border-top:1px solid var(--line); margin-top:40px; padding-top:22px; font-size:.82rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:var(--ink); }
 .footer-brand{ display:flex; gap:12px; align-items:center; margin-bottom:14px; }
 .footer-brand img{ height:40px; }
-.footer-brand strong{ color:#fff; font-family:var(--font-display); }
+.footer-brand strong{ color:var(--ink); font-family:var(--font-display); }
 
 /* ---------- floating whatsapp ---------- */
 .wa-float{
@@ -370,9 +371,43 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 }
 .visually-hidden:focus{
   position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999;
-  background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
+  background:#fff; color:var(--ink); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
 }
 .img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
+
+/* ---------- parrain de l'institut ---------- */
+.parrain-photo-frame{
+  max-width:320px;
+  margin:0 auto;
+  padding:10px;
+  background:var(--white);
+  border:2px solid var(--gold);
+  border-radius:var(--radius-m);
+  box-shadow:var(--shadow-2);
+}
+.parrain-photo-frame .img-slot{
+  aspect-ratio:4/5;
+  border-radius:8px;
+  border-bottom:none;
+}
+.parrain-name{ margin-bottom:2px; }
+.parrain-altname{
+  font-family:var(--font-text);
+  font-weight:700;
+  font-size:.92rem;
+  color:var(--emerald);
+  margin-bottom:14px;
+  display:block;
+}
+.parrain-quote{
+  font-family:var(--font-display);
+  font-style:italic;
+  color:var(--ink);
+  font-size:1.08rem;
+  border-left:3px solid var(--gold);
+  padding-left:16px;
+  margin:0 0 22px;
+}
 </style>
 
 <script type="application/ld+json">
@@ -465,6 +500,33 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
     </div>
     <div class="reveal">
       <div class="img-slot landscape" data-img-slot><img src="public/images/institut-presentation.jpg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')"><svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg><span class="placeholder-label">Photo à venir — institut-presentation.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="kicker">Parrain de l'Institut</span>
+      <h2>Thierno Djibril Ousmane Bâ</h2>
+    </div>
+    <div class="split">
+      <div class="reveal">
+        <div class="parrain-photo-frame">
+          <div class="img-slot" data-img-slot>
+            <img src="public/images/parrain-thierno-djibril-ousmane-ba.jpg" alt="Thierno Djibril Ousmane Bâ, parrain de l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 20c1.6-3.6 4.5-5.5 7.5-5.5s5.9 1.9 7.5 5.5"></path></svg>
+            <span class="placeholder-label">Photo à venir — parrain-thierno-djibril-ousmane-ba.jpg</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 class="parrain-name">Thierno Djibril Ousmane Bâ</h3>
+        <span class="parrain-altname">Également connu sous le nom de Thierno Djiby</span>
+        <p class="parrain-quote">Une empreinte spirituelle qui continue d'éclairer et d'inspirer l'Institut.</p>
+        <p>Thierno Djibril Ousmane Bâ, également connu sous le nom de Thierno Djiby, était un grand érudit, guide spirituel et figure emblématique de l'islam au Sénégal.</p>
+        <p>Homme de foi et de savoir, reconnu pour sa piété, il a laissé une empreinte indélébile dans l'histoire religieuse et sociale de la commune de Bambilor, dans le département de Rufisque.</p>
+      </div>
     </div>
   </div>
 </section>
