@@ -4,100 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programmes pédagogiques — Préscolaire, Élémentaire, Collège, Lycée | Institut Al Maarifa</title>
-<meta name="description" content="Le programme pédagogique complet de l'Institut Al Maarifa, cycle par cycle et niveau par niveau : français, arabe, Coran et Tajwid, éducation islamique, mathématiques, sciences, anglais, informatique, EPS et philosophie, du préscolaire à la terminale.">
+<meta name="description" content="Le programme pédagogique de l'Institut Al Maarifa, cycle par cycle et niveau par niveau : français, arabe, Coran et Tajwid, éducation islamique, sciences, anglais, informatique, EPS et philosophie.">
 <meta name="theme-color" content="#0B3B2C">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/programmes.html">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Programmes pédagogiques — Préscolaire, Élémentaire, Collège, Lycée | Institut Al Maarifa">
-<meta property="og:description" content="Le programme pédagogique complet de l'Institut Al Maarifa : français, arabe, Coran et Tajwid, éducation islamique et enseignement général, cycle par cycle et niveau par niveau.">
+<meta property="og:title" content="Programmes pédagogiques | Institut Al Maarifa">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
-
 <link rel="icon" type="image/png" href="public/icons/favicon.png">
-<link rel="apple-touch-icon" href="public/icons/favicon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Feuille de style unique du site -->
 <link rel="stylesheet" href="s.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
-  "alternateName": "Institut Al Maarifa",
-  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
-  "address": { "@type": "PostalAddress", "addressLocality": "Bambilor - Darou Salam", "addressCountry": "SN" },
-  "telephone": ["+221774036424", "+221775722937"],
-  "url": "https://www.institut-almaarifa.sn/"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Cycles et niveaux d'enseignement — Institut Al Maarifa",
-  "itemListElement": [
-    { "@type": "Course", "position": 1, "name": "Préscolaire", "description": "Petite Section, Moyenne Section, Grande Section", "provider": { "@type": "EducationalOrganization", "name": "Institut Al Maarifa" } },
-    { "@type": "Course", "position": 2, "name": "École Élémentaire", "description": "CI, CP, CE1, CE2, CM1, CM2", "provider": { "@type": "EducationalOrganization", "name": "Institut Al Maarifa" } },
-    { "@type": "Course", "position": 3, "name": "Collège", "description": "6e, 5e, 4e, 3e", "provider": { "@type": "EducationalOrganization", "name": "Institut Al Maarifa" } },
-    { "@type": "Course", "position": 4, "name": "Lycée", "description": "Seconde, Première, Terminale", "provider": { "@type": "EducationalOrganization", "name": "Institut Al Maarifa" } }
-  ]
-}
-</script>
+<style>
+:root{--g:#0C8B3C;--gd:#0B3B2C;--gold:#B8903E;--gl:#D8B876;--cream:#F7F2E7;--ink:#1C2620;--line:#E1E4E5;--grey:#EEF0F1;--mut:#5B665F}
+body{background:var(--grey)}
+.page-hero{background:linear-gradient(155deg,rgba(12,139,60,.70),rgba(11,59,44,.85)),url("ga.jpeg") center/cover no-repeat;color:var(--cream);padding:64px 0 56px;position:relative;overflow:hidden}
+.page-hero .container{max-width:900px}
+.page-hero .crumb{font:600 .85rem Karla,sans-serif;letter-spacing:.04em;color:var(--gl);margin-bottom:14px}
+.page-hero h1{font:600 clamp(1.8rem,4vw,2.8rem)/1.15 Fraunces,Georgia,serif;margin:0 0 18px;max-width:20ch;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.page-hero p{font:1.05rem/1.65 Karla,sans-serif;max-width:56ch;margin:0 0 26px;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.subject-row{display:flex;flex-wrap:wrap;gap:10px}
+.subject-pill{font:600 .85rem Karla,sans-serif;background:rgba(255,255,255,.12);border:1px solid rgba(216,184,118,.45);padding:8px 14px;border-radius:999px}
+.prog-section{padding:48px 0;background:var(--grey)}
+.section-head{max-width:640px;margin-bottom:28px}
+.kicker{font:700 .82rem Karla,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+.section-head h2{font:600 clamp(1.5rem,2.6vw,2rem)/1.2 Fraunces,Georgia,serif;color:var(--g);margin:0 0 10px}
+.section-head p,.prog-cycle-desc{font-family:Karla,sans-serif;color:#4B5750;line-height:1.6;margin:0}
+.ov{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.ov div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 4px 14px rgba(11,59,44,.06)}
+.ov b{font-size:1.7rem;display:block;margin-bottom:8px}
+.ov h3{font:1.05rem Fraunces,serif;color:var(--g);margin:0 0 6px}
+.ov p{font:.88rem/1.5 Karla,sans-serif;color:var(--mut);margin:0}
+.prog-search-box input{width:100%;max-width:520px;font:1rem Karla,sans-serif;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:#fff;outline:none}
+.prog-search-box input:focus{border-color:var(--gold)}
+#prog-search-results{margin-top:14px;display:flex;flex-direction:column;gap:10px;max-width:720px}
+.res{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-family:Karla,sans-serif}
+.res:hover{border-color:var(--gold)}
+.res strong{color:var(--g)}
+.res .badge{margin-left:8px;font-size:.72rem;font-weight:700;color:var(--gold);background:rgba(184,144,62,.12);padding:2px 8px;border-radius:999px}
+.res p{margin:6px 0 0;font-size:.85rem;color:var(--mut)}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.tab,.chip{font-family:Karla,sans-serif;font-weight:700;cursor:pointer;background:#fff;border:1.5px solid var(--line);color:var(--g)}
+.tab{font-size:.95rem;padding:11px 20px;border-radius:999px}
+.chip{font-size:.88rem;padding:8px 16px;border-radius:8px;color:var(--ink)}
+.tab:hover,.chip:hover{border-color:var(--gold)}
+.tab[aria-selected=true]{background:var(--g);border-color:var(--g);color:var(--cream)}
+.chip[aria-selected=true]{background:var(--gold);border-color:var(--gold);color:var(--gd)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px}
+.prog-fiche{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px clamp(16px,4vw,40px);box-shadow:0 4px 14px rgba(11,59,44,.06)}
+.fh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--grey);padding-bottom:16px;margin-bottom:20px}
+.fh h3{font:600 clamp(1.4rem,2.4vw,1.9rem) Fraunces,serif;color:var(--g);margin:0}
+.fb{font:700 .8rem Karla,sans-serif;background:var(--gold);color:var(--gd);padding:6px 14px;border-radius:999px}
+.blk{margin-bottom:28px}
+.blk h4{font:700 1.02rem Karla,sans-serif;color:var(--g);margin:0 0 14px}
+.lst{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lst li{font:.94rem/1.55 Karla,sans-serif;padding-left:20px;position:relative}
+.lst li:before{content:"›";position:absolute;left:0;color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:#F7F8F8;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card strong{font:1.02rem Fraunces,serif;color:var(--g)}
+.card .vol{display:inline-block;font:700 .75rem Karla,sans-serif;color:var(--g);background:rgba(11,59,44,.08);padding:3px 10px;border-radius:999px;margin:8px 0}
+.card p{font:.88rem/1.55 Karla,sans-serif;color:#4B5750;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+table{width:100%;border-collapse:collapse;font-family:Karla,sans-serif}
+th{text-align:left;font-size:.8rem;color:#7A8A80;padding:0 10px 10px;border-bottom:1px solid var(--line)}
+td{padding:10px;font-size:.92rem;border-bottom:1px solid var(--grey)}
+.note{font:.85rem/1.5 Karla,sans-serif;color:#7A8A80;margin-top:24px}
+@media(max-width:720px){.two{grid-template-columns:1fr}.page-hero{padding:44px 0 40px}}
+@media print{.tabs,.chips,.prog-search-box,.site-header,.site-footer,.wa-float{display:none!important}}
+</style>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
 
-<!-- HEADER — identique au reste du site. NE PAS MODIFIER LA STRUCTURE. -->
 <header class="site-header">
   <div class="nav-row">
     <a href="index.html" class="brand">
-      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
-      <span class="brand-text">
-        <strong>Institut Al Maarifa</strong>
-        <span>Thierno Djibril Ousmane Ba</span>
-      </span>
+      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
+      <span class="brand-text"><strong>Institut Al Maarifa</strong><span>Thierno Djibril Ousmane Ba</span></span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link>Centre</a>
       <a href="programmes.html" data-nav-link class="active">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+      <a href="activites.html" data-nav-link>Activités</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link>Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
     </nav>
     <div class="header-actions">
       <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-    <a href="institut.html" data-nav-link class="">L'Institut</a>
-    <a href="centre.html" data-nav-link class="">Centre</a>
+    <a href="index.html" data-nav-link>Accueil</a>
+    <a href="institut.html" data-nav-link>L'Institut</a>
+    <a href="centre.html" data-nav-link>Centre</a>
     <a href="programmes.html" data-nav-link class="active">Programmes</a>
-    <a href="activites.html" data-nav-link class="">Activités</a>
-    <a href="actualites.html" data-nav-link class="">Actualités</a>
-    <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-    <a href="galerie.html" data-nav-link class="">Galerie</a>
-    <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-    <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-    <a href="contact.html" data-nav-link class="">Contact</a>
+    <a href="activites.html" data-nav-link>Activités</a>
+    <a href="actualites.html" data-nav-link>Actualités</a>
+    <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+    <a href="galerie.html" data-nav-link>Galerie</a>
+    <a href="tarifs.html" data-nav-link>Tarifs</a>
+    <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+    <a href="contact.html" data-nav-link>Contact</a>
     <div class="header-actions">
       <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
@@ -105,70 +122,15 @@
   </nav>
 </header>
 
-<script>
-/* Filet de sécurité pour le menu mobile (les "trois traits").
-   Script autonome : ne dépend pas de assets/js/main.js. */
-(function () {
-  function init() {
-    var burger = document.querySelector('.burger');
-    var nav = document.querySelector('.mobile-nav');
-    if (!burger || !nav) return;
-
-    function closeMenu() {
-      nav.style.display = '';
-      burger.setAttribute('aria-expanded', 'false');
-      burger.classList.remove('is-open');
-      document.body.classList.remove('prog-nav-locked');
-    }
-    function openMenu() {
-      nav.style.display = 'flex';
-      nav.style.flexDirection = 'column';
-      burger.setAttribute('aria-expanded', 'true');
-      burger.classList.add('is-open');
-      document.body.classList.add('prog-nav-locked');
-    }
-
-    burger.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var isOpen = burger.getAttribute('aria-expanded') === 'true';
-      if (isOpen) { closeMenu(); } else { openMenu(); }
-    });
-
-    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (a) {
-      a.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', function (e) {
-      if (nav.style.display === 'flex' && !nav.contains(e.target) && e.target !== burger && !burger.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 880) closeMenu();
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>
-
 <main id="main">
-
 <section class="page-hero">
   <div class="container">
     <div class="crumb">Programmes</div>
     <h1>Un parcours complet, du préscolaire à la terminale</h1>
-    <p>Un enseignement structuré autour de quatre piliers — français, arabe, éducation islamique et matières générales — organisé cycle par cycle et niveau par niveau, avec pour chaque classe ses objectifs, ses matières, ses horaires, ses méthodes et son mode d'évaluation.</p>
+    <p>Un enseignement structuré autour de quatre piliers — français, arabe, éducation islamique et matières générales — organisé cycle par cycle et niveau par niveau.</p>
     <div class="subject-row">
-      <span class="subject-pill">🇫🇷 Français</span>
-      <span class="subject-pill">🇸🇦 Arabe</span>
-      <span class="subject-pill">📖 Coran &amp; Tajwid</span>
-      <span class="subject-pill">🌙 Éducation islamique</span>
+      <span class="subject-pill">🇫🇷 Français</span><span class="subject-pill">🇸🇦 Arabe</span>
+      <span class="subject-pill">📖 Coran &amp; Tajwid</span><span class="subject-pill">🌙 Éducation islamique</span>
       <span class="subject-pill">📚 Enseignement général</span>
     </div>
   </div>
@@ -176,720 +138,151 @@
 
 <section class="prog-section">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Nos matières</span>
-      <h2>Huit à douze piliers d'enseignement selon le cycle</h2>
-      <p>Chaque niveau combine, dans des proportions adaptées à l'âge de l'élève, les matières suivantes (exemple représentatif : le collège).</p>
-    </div>
-    <div id="matieres-overview" class="prog-matiere-overview" aria-label="Vue d'ensemble des matières enseignées"></div>
+    <div class="section-head"><span class="kicker">Nos matières</span><h2>Les piliers de l'enseignement</h2><p>Exemple représentatif : le collège.</p></div>
+    <div id="ov" class="ov"></div>
   </div>
 </section>
 
 <section class="prog-section">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Rechercher</span>
-      <h2>Rechercher dans le programme</h2>
-      <p>Tapez le nom d'une matière, d'un niveau, d'un chapitre ou d'une compétence pour la retrouver instantanément, tous cycles confondus.</p>
-    </div>
-    <div class="prog-search-wrap">
-      <div class="prog-search-box">
-        <input type="search" id="prog-search-input" placeholder="Ex. « Tajwid », « théorème de Pythagore », « CM2 »…" autocomplete="off" aria-label="Rechercher dans le programme pédagogique">
-      </div>
-      <p class="prog-search-hint">La recherche porte sur les matières, chapitres, compétences et niveaux de tous les cycles.</p>
-      <div id="prog-search-results" class="prog-search-results"></div>
-    </div>
+    <div class="section-head"><span class="kicker">Rechercher</span><h2>Rechercher dans le programme</h2><p>Tapez une matière ou un niveau (ex. « Tajwid », « CM2 »).</p></div>
+    <div class="prog-search-box"><input type="search" id="prog-search-input" placeholder="Rechercher…" autocomplete="off" aria-label="Rechercher dans le programme"></div>
+    <div id="prog-search-results"></div>
   </div>
 </section>
 
 <section class="prog-section">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Cycles &amp; niveaux</span>
-      <h2>Explorez le programme, cycle par cycle</h2>
-      <p>Choisissez un cycle, puis un niveau, pour consulter sa fiche pédagogique détaillée : objectifs, matières, horaires, compétences, méthodes et évaluation.</p>
-    </div>
-
-    <div id="cycle-tabs" class="prog-cycle-tabs" role="tablist" aria-label="Choix du cycle scolaire"></div>
-    <p id="cycle-desc" class="prog-cycle-desc"></p>
-
-    <div id="niveau-chips" class="prog-niveau-chips" role="tablist" aria-label="Choix du niveau scolaire"></div>
-
-    <div id="dashboard" class="prog-dashboard" aria-label="Résumé du niveau sélectionné"></div>
-
-    <div id="fiche-panel" role="tabpanel" aria-live="polite"></div>
-
-    <p class="prog-disclaimer" id="prog-disclaimer"></p>
+    <div class="section-head"><span class="kicker">Cycles &amp; niveaux</span><h2>Explorez le programme, cycle par cycle</h2><p>Choisissez un cycle, puis un niveau.</p></div>
+    <div id="tabs" class="tabs" role="tablist"></div>
+    <p id="cdesc" class="prog-cycle-desc"></p>
+    <div id="chips" class="chips" role="tablist"></div>
+    <div id="fiche" aria-live="polite"></div>
+    <p class="note">ℹ️ Programme présenté à titre indicatif ; il peut évoluer selon le calendrier officiel et les orientations de l'établissement.</p>
   </div>
 </section>
-
 </main>
 
-<!-- FOOTER — identique au reste du site. NE PAS MODIFIER LA STRUCTURE. -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
-          <strong>Institut Al Maarifa</strong>
-        </div>
+        <div class="footer-brand"><strong>Institut Al Maarifa</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="index.html">Accueil</a>
-        <a href="institut.html">L'Institut</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="actualites.html">Actualités</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Ressources</h4>
-        <a href="bibliotheque.html">Bibliothèque numérique</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="inscriptions.html">Inscriptions 2026–2027</a>
-        <a href="centre.html">Le Centre</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:+221774036424">77 403 64 24</a>
-        <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <a href="contact.html">Formulaire de contact</a>
-      </div>
+      <div><h4>Navigation</h4><a href="index.html">Accueil</a><a href="institut.html">L'Institut</a><a href="programmes.html">Programmes</a><a href="actualites.html">Actualités</a><a href="contact.html">Contact</a></div>
+      <div><h4>Ressources</h4><a href="bibliotheque.html">Bibliothèque numérique</a><a href="galerie.html">Galerie</a><a href="tarifs.html">Tarifs</a><a href="inscriptions.html">Inscriptions 2026–2027</a><a href="centre.html">Le Centre</a></div>
+      <div><h4>Contact</h4><a href="tel:+221774036424">77 403 64 24</a><a href="tel:+221775722937">77 572 29 37</a><a data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a><a href="contact.html">Formulaire de contact</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span>
-      <span>Partenaire officiel : Institut Al-Azhar</span>
-    </div>
+    <div class="footer-bottom"><span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span><span>Partenaire officiel : Institut Al-Azhar</span></div>
   </div>
 </footer>
 
 <a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
 </a>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-
-<!-- Scripts communs au site (menu burger, liens WhatsApp, etc.) — NE PAS SUPPRIMER -->
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
-
-<!-- DONNÉES + LOGIQUE DE LA PAGE PROGRAMMES -->
-<script src="assets/js/programmes-data.js" onerror="console.warn('assets/js/programmes-data.js introuvable — utilisation des données intégrées.')"></script>
 <script>
-(function () {
+document.getElementById('y').textContent = new Date().getFullYear();
 
-  var PROGRAMMES_DATA = window.PROGRAMMES_DATA || (function () {
+/* ---------- DONNÉES (à compléter : compétences et chapitres par matière) ---------- */
+var CAT = {
+  fr:["Français","🗣️","Lecture, écriture, grammaire et expression."],
+  ar:["Arabe","🇸🇦","Lecture, grammaire et expression en langue arabe."],
+  co:["Coran et Tajwid","📖","Mémorisation et règles de récitation."],
+  is:["Éducation islamique","🌙","Foi, pratiques, Sira et éthique islamique."],
+  ma:["Mathématiques","🔢","Nombres, calcul, géométrie et résolution de problèmes."],
+  de:["Découverte du monde","🔍","Observation du corps, de la nature et de l'environnement."],
+  gr:["Graphisme et motricité fine","✏️","Préparation du geste graphique et de l'écriture."],
+  mo:["Activités motrices et arts","🎨","Jeux moteurs, chants et arts plastiques."],
+  sc:["Sciences","🔬","Corps humain, matière, énergie et environnement."],
+  hg:["Histoire-Géographie","🌍","Repères dans le temps, l'espace et le Sénégal."],
+  en:["Anglais","🇬🇧","Vocabulaire, grammaire et expression orale."],
+  if:["Informatique","💻","Outils numériques et programmation."],
+  eps:["EPS","⚽","Développement moteur et esprit d'équipe."],
+  sv:["SVT","🔬","Sciences de la vie et de la Terre."],
+  pc:["Physique-Chimie","⚗️","Matière, énergie, électricité et réactions."],
+  ci:["Éducation civique et morale","⚖️","Citoyenneté, droits et valeurs."],
+  ph:["Philosophie","🧠","Logique, éthique et réflexion philosophique."]
+};
+function L(id,nom,age,spec){return {id:id,nom:nom,age:age,m:spec.split(',').map(function(s){var p=s.split(':');return {k:p[0],v:p[1]+'h/sem.'}})}}
+var PRES="fr:5,ar:4,co:4,is:2,ma:3,de:2,gr:3,mo:4";
+var ELEM1="fr:7,ma:6,ar:5,co:4,is:2,sc:2,eps:2";
+var ELEM2="fr:6,ma:6,ar:5,co:4,is:2,sc:2,hg:2,eps:2";
+var COLL="fr:5,ma:5,ar:4,co:3,is:2,sv:2,pc:2,hg:3,en:3,if:1,eps:2,ci:1";
+var DATA=[
+ {id:"prescolaire",nom:"Préscolaire",tag:"🧸",desc:"De 3 à 6 ans : éveil du langage, des sens et des premiers repères, dans le respect des valeurs islamiques.",
+  obj:["Favoriser l'éveil, la socialisation et l'autonomie","Développer le langage oral en français et en arabe","Construire les premiers repères numériques, spatiaux et temporels","Initier l'enfant aux valeurs de l'éducation islamique"],
+  met:["Apprentissage par le jeu et la manipulation","Ateliers sensoriels en petits groupes","Chants, comptines et histoires","Accompagnement bienveillant et personnalisé"],
+  ev:["Observation continue de l'enfant","Fiches d'évaluation par domaine","Portfolio des productions","Entretiens réguliers avec les familles"],
+  n:[L("ps","Petite Section (PS)","3 – 4 ans",PRES),L("ms","Moyenne Section (MS)","4 – 5 ans",PRES),L("gs","Grande Section (GS)","5 – 6 ans","fr:6,ar:5,co:5,is:2,ma:4,de:2,gr:4,mo:4")]},
+ {id:"elementaire",nom:"École Élémentaire",tag:"🎒",desc:"De la CI au CM2 : lecture, écriture, calcul et mémorisation coranique, avec un enrichissement progressif des matières.",
+  obj:["Consolider la lecture, l'écriture et le calcul","Progresser dans la mémorisation du Coran et le Tajwid","Développer l'autonomie et le goût de l'effort","Ancrer les valeurs de l'éducation islamique"],
+  met:["Cours dialogués et explications au tableau","Exercices écrits et ateliers de lecture","Travaux de groupe et activités orales","Révisions régulières et soutien individualisé"],
+  ev:["Contrôles continus et interrogations","Devoirs à la maison et dictées","Compositions trimestrielles","Évaluations de compétences par matière"],
+  n:[L("ci","Cours d'Initiation (CI)","6 – 7 ans",ELEM1),L("cp","Cours Préparatoire (CP)","7 – 8 ans",ELEM1),L("ce1","Cours Élémentaire 1 (CE1)","8 – 9 ans",ELEM2),L("ce2","Cours Élémentaire 2 (CE2)","9 – 10 ans",ELEM2+",en:2"),L("cm1","Cours Moyen 1 (CM1)","10 – 11 ans","fr:6,ma:6,ar:4,co:4,is:2,sc:2,hg:2,en:2,if:1,eps:2"),L("cm2","Cours Moyen 2 (CM2)","11 – 12 ans","fr:6,ma:6,ar:4,co:4,is:2,sc:2,hg:2,en:2,if:1,eps:2")]},
+ {id:"college",nom:"Collège",tag:"📘",desc:"De la 6e à la 3e : approfondissement des matières fondamentales et préparation au BFEM.",
+  obj:["Approfondir les savoirs fondamentaux du programme officiel","Développer le raisonnement scientifique et l'expression écrite","Poursuivre la mémorisation du Coran et l'étude du Fiqh et de la Sira","Préparer les élèves au BFEM en classe de 3e"],
+  met:["Cours magistraux et dialogués","Travaux pratiques en sciences","Exposés, débats et travaux de groupe","Devoirs surveillés et révisions","Accompagnement personnalisé"],
+  ev:["Interrogations écrites et devoirs surveillés","Compositions trimestrielles","Évaluations de compétences","Examens blancs (BFEM en 3e)"],
+  n:[L("6e","Sixième (6e)","12 – 13 ans",COLL),L("5e","Cinquième (5e)","13 – 14 ans",COLL),L("4e","Quatrième (4e)","14 – 15 ans",COLL),L("3e","Troisième (3e)","15 – 16 ans",COLL)]},
+ {id:"lycee",nom:"Lycée",tag:"🎓",desc:"De la Seconde à la Terminale : approfondissement disciplinaire, formation religieuse avancée et préparation au Baccalauréat.",
+  obj:["Préparer les élèves aux exigences du Baccalauréat","Développer l'esprit critique et l'argumentation","Consolider la formation religieuse (Tajwid, Fiqh, pensée islamique)","Accompagner le projet d'orientation post-bac"],
+  met:["Cours magistraux et travaux dirigés","Travaux pratiques de laboratoire","Dissertations, commentaires et exposés","Devoirs surveillés et examens blancs","Accompagnement et orientation"],
+  ev:["Devoirs surveillés et interrogations orales","Compositions trimestrielles","Examens blancs","Baccalauréat blanc en Terminale"],
+  n:[L("seconde","Seconde","16 – 17 ans","fr:4,ma:5,ar:3,co:3,is:2,pc:4,sv:3,hg:3,en:3,ci:2,if:1,eps:2"),L("premiere","Première","17 – 18 ans","fr:4,ma:5,ar:3,co:3,is:2,pc:4,sv:3,hg:3,en:3,ph:2,if:1,eps:2"),L("terminale","Terminale","18 – 19 ans","fr:4,ma:5,ar:3,co:3,is:2,pc:4,sv:3,hg:3,en:3,ph:2,if:1,eps:2")]}
+];
 
-    function m(nom, icone, description, volumeHoraire, competences, chapitres) {
-      return { nom: nom, icone: icone, description: description, volumeHoraire: volumeHoraire, competences: competences, chapitres: chapitres };
-    }
+/* ---------- RENDU ---------- */
+var $=function(i){return document.getElementById(i)};
+var cyc=DATA[0].id, niv=DATA[0].n[0].id;
+var getC=function(id){return DATA.filter(function(c){return c.id===id})[0]};
+var getN=function(c,id){return c.n.filter(function(n){return n.id===id})[0]};
+var li=function(a){return a.map(function(x){return '<li>'+x+'</li>'}).join('')};
 
-    var METHODES_PRESCO = ["Apprentissage par le jeu et la manipulation", "Ateliers sensoriels et manuels en petits groupes", "Chants, comptines et histoires racontées", "Répétition guidée et encouragement individuel", "Accompagnement bienveillant et personnalisé"];
-    var METHODES_ELEM = ["Cours dialogués et explications au tableau", "Exercices écrits et ateliers de lecture", "Travaux de groupe et activités orales", "Dictées, jeux pédagogiques et récitations", "Révisions régulières et soutien individualisé"];
-    var METHODES_COLLEGE = ["Cours magistraux et dialogués", "Travaux pratiques en sciences", "Exposés, débats et travaux de groupe", "Lectures dirigées et activités orales", "Devoirs surveillés et révisions méthodiques", "Accompagnement personnalisé et soutien ciblé"];
-    var METHODES_LYCEE = ["Cours magistraux et travaux dirigés", "Travaux pratiques de laboratoire", "Dissertations, commentaires et exposés", "Débats argumentés et exercices oraux", "Devoirs surveillés et examens blancs", "Accompagnement personnalisé et orientation"];
+$('ov').innerHTML=getN(getC('college'),'6e').m.map(function(x){var c=CAT[x.k];return '<div><b>'+c[1]+'</b><h3>'+c[0]+'</h3><p>'+c[2]+'</p></div>'}).join('');
 
-    var EVAL_PRESCO = ["Observation continue de l'enfant dans ses activités", "Fiches d'évaluation par domaine de développement", "Portfolio des productions de l'élève", "Entretiens réguliers avec les familles"];
-    var EVAL_ELEM = ["Contrôles continus et interrogations écrites", "Devoirs à la maison et dictées", "Compositions trimestrielles", "Évaluations de compétences par matière"];
-    var EVAL_COLLEGE = ["Interrogations écrites et devoirs surveillés", "Compositions trimestrielles", "Évaluations de compétences par matière", "Examens blancs (préparation au BFEM en classe de 3e)"];
-    var EVAL_LYCEE = ["Devoirs surveillés et interrogations orales", "Compositions trimestrielles", "Examens blancs", "Soutenances et évaluations orales", "Baccalauréat blanc en classe de Terminale"];
+function render(){
+  var c=getC(cyc), n=getN(c,niv);
+  $('tabs').innerHTML=DATA.map(function(d){return '<button type="button" class="tab" role="tab" data-c="'+d.id+'" aria-selected="'+(d.id===cyc)+'">'+d.tag+' '+d.nom+'</button>'}).join('');
+  $('cdesc').textContent=c.desc;
+  $('chips').innerHTML=c.n.map(function(x){return '<button type="button" class="chip" role="tab" data-n="'+x.id+'" aria-selected="'+(x.id===niv)+'">'+x.nom+'</button>'}).join('');
+  var cards=n.m.map(function(x){var k=CAT[x.k];return '<div class="card"><strong>'+k[1]+' '+k[0]+'</strong><br><span class="vol">'+x.v+'</span><p>'+k[2]+'</p></div>'}).join('');
+  var rows=n.m.map(function(x){var k=CAT[x.k];return '<tr><td>'+k[1]+' '+k[0]+'</td><td>'+x.v+'</td></tr>'}).join('');
+  $('fiche').innerHTML='<article class="prog-fiche"><div class="fh"><h3>'+n.nom+'</h3><span class="fb">'+c.nom+'</span></div>'+
+   '<p class="prog-cycle-desc" style="margin-bottom:22px">Âge indicatif : '+n.age+'</p>'+
+   '<div class="blk"><h4>🎯 Objectifs pédagogiques</h4><ul class="lst">'+li(c.obj)+'</ul></div>'+
+   '<div class="blk"><h4>📚 Matières enseignées ('+n.m.length+')</h4><div class="grid">'+cards+'</div></div>'+
+   '<div class="two"><div class="blk"><h4>⏱️ Volume horaire hebdomadaire indicatif</h4><table><thead><tr><th>Matière</th><th>Volume</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+   '<div class="blk"><h4>👨‍🏫 Méthodes pédagogiques</h4><ul class="lst">'+li(c.met)+'</ul></div></div>'+
+   '<div class="blk"><h4>📝 Mode d\'évaluation</h4><ul class="lst">'+li(c.ev)+'</ul></div></article>';
+}
+$('tabs').addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(!b)return;cyc=b.dataset.c;niv=getC(cyc).n[0].id;render()});
+$('chips').addEventListener('click',function(e){var b=e.target.closest('[data-n]');if(!b)return;niv=b.dataset.n;render()});
 
-    function objPresco(nom) {
-      return [
-        "Favoriser l'éveil, la socialisation et l'autonomie de l'enfant en " + nom,
-        "Développer le langage oral en français et en arabe",
-        "Construire les premiers repères numériques, spatiaux et temporels",
-        "Initier l'enfant aux valeurs et aux bases de l'éducation islamique"
-      ];
-    }
-    function objElem(nom) {
-      return [
-        "Consolider la lecture, l'écriture et le calcul au niveau " + nom,
-        "Progresser dans la mémorisation du Coran et la maîtrise du Tajwid",
-        "Développer l'autonomie de l'élève et le goût de l'effort",
-        "Ancrer les valeurs et pratiques de l'éducation islamique au quotidien"
-      ];
-    }
-    function objCollege(nom) {
-      return [
-        "Approfondir les savoirs fondamentaux du programme officiel en " + nom,
-        "Développer le raisonnement scientifique et l'expression écrite",
-        "Poursuivre la mémorisation du Coran et l'étude du Fiqh et de la Sira",
-        "Préparer les élèves aux examens nationaux (BFEM en classe de 3e)"
-      ];
-    }
-    function objLycee(nom) {
-      return [
-        "Préparer les élèves aux exigences du Baccalauréat en " + nom,
-        "Développer l'esprit critique, l'argumentation et l'autonomie intellectuelle",
-        "Consolider la formation religieuse (Tajwid, Fiqh, pensée islamique)",
-        "Accompagner le projet d'orientation post-baccalauréat de chaque élève"
-      ];
-    }
-
-    /* ================= PRÉSCOLAIRE ================= */
-    var prescolaire = {
-      id: "prescolaire", nom: "Préscolaire", tag: "🧸",
-      description: "De 3 à 6 ans : un cadre chaleureux pour l'éveil du langage, des sens et des premiers repères, dans le respect des valeurs islamiques.",
-      niveaux: [
-        {
-          id: "ps", nom: "Petite Section (PS)", ageIndicatif: "3 – 4 ans",
-          objectifs: objPresco("Petite Section"),
-          methodesPedagogiques: METHODES_PRESCO, evaluation: EVAL_PRESCO,
-          matieres: [
-            m("Éveil au langage (Français)", "🗣️", "Premiers pas dans la langue française à travers le jeu et l'écoute.", "5h/sem.", ["Écouter et comprendre une consigne simple", "Nommer des objets familiers", "Répéter des mots et des sons"], ["Comptines et jeux de sons", "Vocabulaire du quotidien", "Écoute d'histoires courtes"]),
-            m("Éveil à l'arabe", "🇸🇦", "Découverte orale de la langue arabe par les chants et les jeux.", "4h/sem.", ["Reconnaître des sons arabes simples", "Répéter des mots usuels", "Participer à des chants collectifs"], ["Salutations et mots usuels", "Chants et comptines en arabe", "Reconnaissance des sons arabes"]),
-            m("Coran et Tajwid", "📖", "Initiation à l'écoute et à la répétition des sourates les plus courtes.", "4h/sem.", ["Écouter et répéter une sourate courte", "Adopter une posture de récitation", "Reconnaître le rythme de la récitation"], ["Sourates courtes (Al-Fatiha, Al-Ikhlas)", "Écoute et répétition", "Postures de récitation"]),
-            m("Éducation islamique", "🌙", "Premiers repères de politesse et de valeurs selon l'Islam.", "2h/sem.", ["Utiliser les formules islamiques de salutation", "Adopter de bonnes manières simples", "Écouter une histoire de prophète"], ["Bonnes manières (adab) de base", "Formules islamiques usuelles", "Histoires des prophètes (introduction)"]),
-            m("Éveil mathématique", "🔢", "Premières découvertes des formes, des couleurs et des petites quantités.", "3h/sem.", ["Reconnaître les formes et couleurs de base", "Compter jusqu'à 5", "Trier des objets selon un critère"], ["Formes et couleurs", "Comptage jusqu'à 5", "Tri et classification"]),
-            m("Découverte du monde", "🔍", "Premières observations du corps, des animaux et de l'environnement proche.", "2h/sem.", ["Nommer les parties du corps", "Reconnaître les animaux familiers", "Observer une saison"], ["Le corps humain", "Les saisons", "Les animaux familiers"]),
-            m("Graphisme et motricité fine", "✏️", "Préparation du geste graphique par des activités manuelles variées.", "3h/sem.", ["Tenir correctement un crayon", "Tracer des lignes simples", "Découper et coller avec aide"], ["Tenue du crayon", "Tracés libres et lignes", "Découpage et collage"]),
-            m("Activités motrices et arts", "🎨", "Jeux moteurs, chants et premières activités artistiques.", "4h/sem.", ["Participer à un jeu collectif", "Reproduire un rythme simple", "Réaliser une production artistique simple"], ["Jeux moteurs collectifs", "Chants et rondes", "Ateliers de peinture"])
-          ]
-        },
-        {
-          id: "ms", nom: "Moyenne Section (MS)", ageIndicatif: "4 – 5 ans",
-          objectifs: objPresco("Moyenne Section"),
-          methodesPedagogiques: METHODES_PRESCO, evaluation: EVAL_PRESCO,
-          matieres: [
-            m("Éveil au langage (Français)", "🗣️", "Enrichissement du vocabulaire et premières phrases construites.", "5h/sem.", ["Construire une phrase simple", "Enrichir son vocabulaire quotidien", "Raconter un évènement vécu"], ["Enrichissement du vocabulaire", "Construction de phrases simples", "Histoires et récits imagés"]),
-            m("Éveil à l'arabe", "🇸🇦", "Vocabulaire élargi et premières phrases courtes à l'oral.", "4h/sem.", ["Utiliser un vocabulaire élargi (famille, corps, couleurs)", "Répéter une phrase courte", "Reconnaître des lettres isolées"], ["Vocabulaire élargi (famille, corps, couleurs)", "Répétition de phrases courtes", "Jeux de reconnaissance des lettres"]),
-            m("Coran et Tajwid", "📖", "Mémorisation progressive et initiation aux sons arabes du Tajwid.", "4h/sem.", ["Mémoriser deux à trois sourates courtes", "Reconnaître les principaux sons arabes", "Réciter en groupe avec application"], ["Mémorisation de sourates courtes supplémentaires", "Initiation aux sons arabes (huruf)", "Récitation collective"]),
-            m("Éducation islamique", "🌙", "Introduction aux piliers de l'Islam et aux histoires des prophètes.", "2h/sem.", ["Nommer les piliers de l'Islam", "Adopter un comportement respectueux en groupe", "Écouter et restituer une histoire simple"], ["Piliers de l'Islam (introduction)", "Comportement en groupe et respect", "Histoires des prophètes (suite)"]),
-            m("Éveil mathématique", "🔢", "Comptage jusqu'à 10 et premières comparaisons de quantités.", "3h/sem.", ["Compter jusqu'à 10", "Comparer deux quantités", "Se repérer dans l'espace proche"], ["Comptage jusqu'à 10", "Comparaison de quantités (plus/moins)", "Repérage spatial (dessus/dessous)"]),
-            m("Découverte du monde", "🔍", "Découverte de la famille, des métiers et du temps qui passe.", "2h/sem.", ["Nommer les membres de la famille", "Situer les jours de la semaine", "Observer une plante"], ["La famille et les métiers", "Le temps qui passe (jours, semaines)", "La nature et les plantes"]),
-            m("Graphisme et motricité fine", "✏️", "Graphismes dirigés et découpage de plus en plus précis.", "3h/sem.", ["Réaliser un graphisme dirigé", "Découper une forme simple", "Colorier dans les limites"], ["Graphismes dirigés (ronds, traits)", "Découpage précis", "Coloriage dans les limites"]),
-            m("Activités motrices et arts", "🎨", "Parcours moteurs, danses et bricolages créatifs.", "4h/sem.", ["Réaliser un parcours moteur simple", "Suivre un rythme de danse", "Réaliser un bricolage guidé"], ["Parcours moteurs", "Danses et rythmes", "Bricolages créatifs"])
-          ]
-        },
-        {
-          id: "gs", nom: "Grande Section (GS)", ageIndicatif: "5 – 6 ans",
-          objectifs: objPresco("Grande Section"),
-          methodesPedagogiques: METHODES_PRESCO, evaluation: EVAL_PRESCO,
-          matieres: [
-            m("Éveil au langage (Français)", "🗣️", "Préparation active à la lecture et à l'écriture des premières lettres.", "6h/sem.", ["Distinguer les sons d'un mot (phonologie)", "Reconnaître les lettres de l'alphabet", "Raconter une histoire avec ses propres mots"], ["Conscience phonologique", "Premières lettres de l'alphabet", "Production orale de courtes histoires"]),
-            m("Éveil à l'arabe", "🇸🇦", "Introduction à l'alphabet arabe et premières phrases orales.", "5h/sem.", ["Reconnaître les lettres arabes isolées", "Formuler une phrase simple à l'oral", "Réciter un court poème"], ["Introduction aux lettres arabes (alphabet)", "Phrases simples à l'oral", "Chants et poèmes courts"]),
-            m("Coran et Tajwid", "📖", "Mémorisation élargie et initiation guidée aux règles de prononciation.", "5h/sem.", ["Mémoriser 5 à 6 sourates courtes", "Appliquer les premières règles de Tajwid", "Réciter seul devant le groupe"], ["Mémorisation de 5 à 6 sourates courtes", "Initiation au Tajwid (prononciation correcte)", "Récitation individuelle guidée"]),
-            m("Éducation islamique", "🌙", "Les cinq piliers de l'Islam et les bases de l'hygiène islamique.", "2h/sem.", ["Citer les cinq piliers de l'Islam", "Expliquer une règle d'hygiène simple", "Restituer une histoire édifiante"], ["Les 5 piliers de l'Islam", "Hygiène et propreté selon l'Islam", "Histoires édifiantes et valeurs"]),
-            m("Éveil mathématique", "🔢", "Construction du nombre jusqu'à 10 et résolution de petits problèmes.", "4h/sem.", ["Écrire et associer les nombres jusqu'à 10", "Décomposer simplement un nombre", "Résoudre un petit problème concret"], ["Nombres jusqu'à 10 (écriture et quantité)", "Décomposition simple des nombres", "Résolution de petits problèmes concrets"]),
-            m("Découverte du monde", "🔍", "Le corps, la santé et l'environnement proche de l'élève.", "2h/sem.", ["Décrire une règle d'hygiène corporelle", "Situer les lieux familiers (école, quartier)", "Observer un phénomène naturel simple"], ["Le corps et la santé", "L'environnement proche (école, quartier)", "Les phénomènes naturels simples"]),
-            m("Graphisme et pré-écriture", "✏️", "Écriture des lettres majuscules et de son propre prénom.", "4h/sem.", ["Écrire les lettres en majuscules", "Écrire son prénom", "Réaliser un graphisme préparatoire à la cursive"], ["Écriture des lettres en majuscules", "Écriture du prénom", "Graphisme préparatoire à l'écriture cursive"]),
-            m("Activités motrices et arts", "🎨", "Jeux collectifs organisés et expression corporelle et artistique.", "4h/sem.", ["Respecter les règles d'un jeu collectif", "S'exprimer par le corps", "Réaliser une œuvre thématique"], ["Jeux collectifs organisés", "Expression corporelle", "Arts plastiques thématiques"])
-          ]
-        }
-      ]
-    };
-
-    /* ================= ÉLÉMENTAIRE ================= */
-    function eps(chaps) { return m("Éducation Physique et Sportive", "⚽", "Développement moteur, esprit d'équipe et hygiène de vie par le sport.", "2h/sem.", ["Participer activement à un jeu collectif", "Respecter les règles et l'arbitrage", "Progresser dans une activité physique"], chaps); }
-
-    var elementaire = {
-      id: "elementaire", nom: "École Élémentaire", tag: "🎒",
-      description: "De la CI au CM2 : les fondamentaux de la lecture, de l'écriture, du calcul et de la mémorisation coranique, avec un enrichissement progressif des matières.",
-      niveaux: [
-        {
-          id: "ci", nom: "Cours d'Initiation (CI)", ageIndicatif: "6 – 7 ans",
-          objectifs: objElem("CI"), methodesPedagogiques: METHODES_ELEM, evaluation: EVAL_ELEM,
-          matieres: [
-            m("Français", "🗣️", "Entrée dans la lecture par la reconnaissance des lettres et des sons.", "7h/sem.", ["Reconnaître les lettres et leurs sons", "Lire des syllabes simples", "Écrire les mots usuels de la classe"], ["Reconnaissance des lettres et sons", "Lecture syllabique simple", "Premiers mots et phrases"]),
-            m("Mathématiques", "🔢", "Découverte des nombres et des premières opérations d'addition.", "6h/sem.", ["Écrire les nombres de 0 à 20", "Réaliser une addition simple", "Reconnaître les formes géométriques de base"], ["Nombres de 0 à 20", "Addition simple", "Formes géométriques de base"]),
-            m("Arabe", "🇸🇦", "Découverte de l'alphabet arabe isolé et premiers mots lus.", "5h/sem.", ["Reconnaître les lettres arabes isolées", "Lire une syllabe simple", "Utiliser un vocabulaire de base"], ["Alphabet arabe (lettres isolées)", "Lecture syllabique simple", "Vocabulaire de base"]),
-            m("Coran et Tajwid", "📖", "Poursuite de la mémorisation et premières règles du Tajwid.", "4h/sem.", ["Mémoriser de nouvelles sourates courtes", "Appliquer la règle du Noun Sakina", "Réciter individuellement"], ["Mémorisation de nouvelles sourates courtes", "Règles de base du Tajwid (Noun sakina)", "Récitation individuelle"]),
-            m("Éducation islamique", "🌙", "Les piliers de l'Islam et les récits des prophètes.", "2h/sem.", ["Citer les cinq piliers de l'Islam", "Restituer une histoire de prophète", "Appliquer une règle de politesse (adab)"], ["Les piliers de l'Islam", "Histoires des prophètes", "Bonnes manières (adab)"]),
-            m("Découverte du monde (Sciences)", "🔬", "Premières observations du corps humain et du monde animal.", "2h/sem.", ["Nommer les parties du corps", "Décrire l'habitat d'un animal", "Reconnaître les saisons"], ["Le corps humain", "Les animaux et leur habitat", "Les saisons"]),
-            eps(["Jeux collectifs simples", "Motricité globale", "Parcours d'obstacles"])
-          ]
-        },
-        {
-          id: "cp", nom: "Cours Préparatoire (CP)", ageIndicatif: "7 – 8 ans",
-          objectifs: objElem("CP"), methodesPedagogiques: METHODES_ELEM, evaluation: EVAL_ELEM,
-          matieres: [
-            m("Français", "🗣️", "Consolidation de la combinatoire et lecture de phrases courtes.", "7h/sem.", ["Combiner les sons pour lire un mot", "Lire une phrase courte à voix haute", "Écrire les mots usuels sans erreur"], ["Combinatoire des sons (voyelles/consonnes)", "Lecture de phrases courtes", "Écriture des mots usuels"]),
-            m("Mathématiques", "🔢", "Nombres jusqu'à 100 et opérations d'addition et de soustraction.", "6h/sem.", ["Écrire les nombres jusqu'à 100", "Poser une addition et une soustraction", "Mesurer une longueur simple"], ["Nombres de 0 à 100", "Addition et soustraction", "Mesures simples (longueur)"]),
-            m("Arabe", "🇸🇦", "Écriture liée des lettres et lecture de mots courants.", "5h/sem.", ["Lier les lettres arabes entre elles", "Lire un mot courant", "Former une petite phrase"], ["Liaison des lettres (écriture liée)", "Lecture de mots courants", "Petites phrases"]),
-            m("Coran et Tajwid", "📖", "Mémorisation progressive du dernier Joudou et nouvelles règles.", "4h/sem.", ["Mémoriser la suite du Joudou 30", "Appliquer les règles d'Idghâm et d'Ikhfâ", "Corriger sa prononciation"], ["Mémorisation progressive (Joudou 30)", "Règles du Tajwid (Idghâm, Ikhfâ)", "Correction de la prononciation"]),
-            m("Éducation islamique", "🌙", "Biographie simplifiée du Prophète et piliers de la foi.", "2h/sem.", ["Résumer un épisode de la vie du Prophète", "Citer les piliers de la foi (Iman)", "Adopter un comportement social islamique"], ["Le Prophète Muhammad (biographie simplifiée)", "Les piliers de la foi (Iman)", "Comportements sociaux islamiques"]),
-            m("Découverte du monde (Sciences)", "🔬", "Observation des plantes, de l'eau et des matériaux du quotidien.", "2h/sem.", ["Décrire les besoins d'une plante", "Décrire le cycle de l'eau simplement", "Identifier un matériau usuel"], ["Les plantes", "L'eau dans la nature", "Les matériaux du quotidien"]),
-            eps(["Jeux d'équipe", "Coordination motrice", "Athlétisme de base"])
-          ]
-        },
-        {
-          id: "ce1", nom: "Cours Élémentaire 1 (CE1)", ageIndicatif: "8 – 9 ans",
-          objectifs: objElem("CE1"), methodesPedagogiques: METHODES_ELEM, evaluation: EVAL_ELEM,
-          matieres: [
-            m("Français", "🗣️", "Lecture courante et premières conjugaisons au présent.", "6h/sem.", ["Lire un texte court avec fluidité", "Conjuguer un verbe usuel au présent", "Rédiger une phrase simple"], ["Lecture courante de textes courts", "Conjugaison des verbes usuels au présent", "Rédaction de phrases simples"]),
-            m("Mathématiques", "🔢", "Nombres jusqu'à 1000 et découverte des tables de multiplication.", "6h/sem.", ["Écrire et comparer les nombres jusqu'à 1000", "Réciter une table de multiplication", "Résoudre un problème simple"], ["Nombres jusqu'à 1000", "Multiplication (tables)", "Résolution de problèmes simples"]),
-            m("Arabe", "🇸🇦", "Lecture courante et conjugaison simple au présent.", "5h/sem.", ["Lire un texte court en arabe", "Conjuguer un verbe simple au présent", "S'exprimer oralement de façon guidée"], ["Lecture courante de textes courts", "Conjugaison simple (présent)", "Expression orale guidée"]),
-            m("Coran et Tajwid", "📖", "Mémorisation du Joudou 29-30 et règles des allongements.", "4h/sem.", ["Mémoriser le Joudou 29 et 30", "Appliquer les règles du Madd", "Réciter avec fluidité"], ["Mémorisation du Joudou 29-30", "Règles du Madd (allongements)", "Récitation fluide"]),
-            m("Éducation islamique", "🌙", "La prière, les compagnons et les valeurs de solidarité.", "2h/sem.", ["Expliquer le sens des gestes de la prière", "Citer un compagnon du Prophète", "Illustrer une valeur de partage"], ["La prière (Salat) : gestes et sens", "Histoires des compagnons", "Valeurs de partage et solidarité"]),
-            m("Sciences", "🔬", "Le corps humain, les états de la matière et l'environnement proche.", "2h/sem.", ["Citer une règle d'hygiène corporelle", "Nommer les états de la matière", "Décrire son environnement proche"], ["Le corps humain et l'hygiène", "Les états de la matière", "L'environnement proche"]),
-            m("Histoire-Géographie", "🌍", "Premiers repères dans le temps et découverte de son territoire.", "2h/sem.", ["Se repérer dans le temps (jours, mois, années)", "Situer son village ou sa ville", "Décrire un paysage du Sénégal"], ["Repères dans le temps (jours, mois, années)", "Mon village/ma ville", "Les paysages du Sénégal"]),
-            eps(["Sports collectifs (football, basket initiation)", "Souplesse et coordination", "Jeux traditionnels"])
-          ]
-        },
-        {
-          id: "ce2", nom: "Cours Élémentaire 2 (CE2)", ageIndicatif: "9 – 10 ans",
-          objectifs: objElem("CE2"), methodesPedagogiques: METHODES_ELEM, evaluation: EVAL_ELEM,
-          matieres: [
-            m("Français", "🗣️", "Compréhension de textes narratifs et premières notions de grammaire.", "6h/sem.", ["Comprendre un texte narratif", "Identifier la nature et la fonction d'un mot", "Produire un petit récit"], ["Compréhension de textes narratifs", "Grammaire : nature et fonction des mots", "Production de petits récits"]),
-            m("Mathématiques", "🔢", "Nombres jusqu'à 10 000, fractions simples et division.", "6h/sem.", ["Écrire les nombres jusqu'à 10 000", "Reconnaître une fraction simple", "Poser une division simple"], ["Nombres jusqu'à 10 000, fractions simples", "Division", "Géométrie : figures planes"]),
-            m("Arabe", "🇸🇦", "Grammaire de base et compréhension de courts textes.", "5h/sem.", ["Distinguer un nom d'un verbe", "Comprendre un texte simple", "Rédiger une phrase correcte"], ["Grammaire de base (nom/verbe)", "Compréhension de textes", "Rédaction de phrases"]),
-            m("Coran et Tajwid", "📖", "Poursuite de la mémorisation et règle de la Qalqala.", "4h/sem.", ["Mémoriser la suite du Joudou 28", "Appliquer la règle de la Qalqala", "Réciter en appliquant le Tajwid"], ["Poursuite de la mémorisation (Joudou 28)", "Règles du Qalqala", "Tajwid appliqué à la récitation"]),
-            m("Éducation islamique", "🌙", "Le jeûne, les récits édifiants et la tolérance en Islam.", "2h/sem.", ["Expliquer le sens du jeûne", "Restituer une histoire édifiante", "Illustrer une valeur de respect"], ["Le jeûne (Siyam)", "Histoires édifiantes", "Respect et tolérance en Islam"]),
-            m("Sciences", "🔬", "Les êtres vivants, l'énergie et l'introduction au système solaire.", "2h/sem.", ["Décrire le milieu de vie d'un être vivant", "Citer une source d'énergie", "Nommer les planètes du système solaire"], ["Les êtres vivants et leur milieu", "L'énergie (notions simples)", "Le système solaire (introduction)"]),
-            m("Histoire-Géographie", "🌍", "L'histoire familiale, les régions du Sénégal et les grands fleuves.", "2h/sem.", ["Retracer une partie de l'histoire familiale", "Situer les régions du Sénégal", "Nommer un grand fleuve d'Afrique"], ["L'histoire de ma famille et de ma communauté", "Les régions du Sénégal", "Les grands fleuves d'Afrique"]),
-            m("Anglais", "🇬🇧", "Premiers mots et expressions simples de la langue anglaise.", "2h/sem.", ["Se présenter en anglais", "Nommer les nombres et les couleurs", "Utiliser un vocabulaire familial simple"], ["Greetings and introductions", "Numbers and colours", "Simple vocabulary (family, school)"]),
-            eps(["Athlétisme (course, saut)", "Sports collectifs avancés", "Fair-play et esprit d'équipe"])
-          ]
-        },
-        {
-          id: "cm1", nom: "Cours Moyen 1 (CM1)", ageIndicatif: "10 – 11 ans",
-          objectifs: objElem("CM1"), methodesPedagogiques: METHODES_ELEM, evaluation: EVAL_ELEM,
-          matieres: [
-            m("Français", "🗣️", "Analyse de textes variés et conjugaison au passé et au futur.", "6h/sem.", ["Analyser un texte varié", "Conjuguer un verbe au passé et au futur", "Rédiger un texte structuré"], ["Analyse de textes variés", "Conjugaison (passé, futur)", "Rédaction de textes structurés"]),
-            m("Mathématiques", "🔢", "Nombres décimaux, fractions et calcul du périmètre et de l'aire.", "6h/sem.", ["Utiliser un nombre décimal", "Effectuer une opération sur des fractions", "Calculer un périmètre et une aire"], ["Nombres décimaux", "Fractions et opérations", "Périmètre et aire"]),
-            m("Arabe", "🇸🇦", "Grammaire avancée et expression écrite structurée.", "4h/sem.", ["Appliquer une règle d'accord", "Lire un texte varié", "Rédiger un texte structuré"], ["Grammaire avancée (accords)", "Lecture de textes variés", "Expression écrite structurée"]),
-            m("Coran et Tajwid", "📖", "Mémorisation avancée et règles complexes du Tajwid.", "4h/sem.", ["Mémoriser un ensemble de sourates avancées", "Appliquer des règles complexes du Tajwid", "Réciter devant un groupe avec assurance"], ["Mémorisation avancée", "Règles complexes du Tajwid", "Récitation devant un groupe"]),
-            m("Éducation islamique", "🌙", "La Zakat, l'éthique islamique et l'introduction à la Sira.", "2h/sem.", ["Expliquer le principe de la Zakat", "Illustrer une règle d'éthique islamique", "Résumer un épisode de la Sira"], ["La Zakat et la solidarité", "Éthique et morale islamique", "Introduction à la Sira (biographie du Prophète)"]),
-            m("Sciences", "🔬", "La digestion, la respiration et les premières notions d'électricité.", "2h/sem.", ["Décrire le trajet de la digestion", "Expliquer la respiration simplement", "Réaliser un circuit électrique simple"], ["La digestion et la respiration", "L'électricité (notions de base)", "Les écosystèmes"]),
-            m("Histoire-Géographie", "🌍", "Les grandes civilisations africaines et le climat du Sénégal.", "2h/sem.", ["Citer une grande civilisation africaine", "Décrire une zone climatique du Sénégal", "Situer l'organisation administrative du pays"], ["Les grandes civilisations africaines", "Le climat et les zones du Sénégal", "L'organisation administrative du pays"]),
-            m("Anglais", "🇬🇧", "Vocabulaire de la routine quotidienne et présent simple.", "2h/sem.", ["Décrire sa routine quotidienne", "Utiliser le présent simple", "Comprendre un court dialogue"], ["Daily routine vocabulary", "Simple present tense", "Short dialogues"]),
-            m("Informatique", "💻", "Première découverte de l'ordinateur et de ses usages de base.", "1h/sem.", ["Allumer et utiliser un ordinateur", "Manier la souris et le clavier", "Appliquer une règle de sécurité numérique"], ["Découverte de l'ordinateur", "Utilisation de la souris et du clavier", "Notions de sécurité numérique"]),
-            eps(["Perfectionnement technique sportif", "Endurance et résistance", "Compétitions internes"])
-          ]
-        },
-        {
-          id: "cm2", nom: "Cours Moyen 2 (CM2)", ageIndicatif: "11 – 12 ans",
-          objectifs: objElem("CM2"), methodesPedagogiques: METHODES_ELEM, evaluation: EVAL_ELEM,
-          matieres: [
-            m("Français", "🗣️", "Lecture littéraire approfondie et premières formes d'argumentation.", "6h/sem.", ["Analyser un texte littéraire", "Utiliser une proposition subordonnée", "Rédiger un texte argumentatif simple"], ["Littérature et lecture approfondie", "Grammaire avancée (subordination)", "Rédaction argumentative simple"]),
-            m("Mathématiques", "🔢", "Proportionnalité, nombres décimaux avancés et géométrie dans l'espace.", "6h/sem.", ["Résoudre un problème de proportionnalité", "Opérer sur des nombres décimaux avancés", "Calculer le volume d'un solide simple"], ["Proportionnalité", "Nombres décimaux avancés", "Volumes et géométrie dans l'espace"]),
-            m("Arabe", "🇸🇦", "Analyse grammaticale et découverte d'une littérature simplifiée.", "4h/sem.", ["Analyser une phrase arabe simple", "Comprendre un extrait littéraire simplifié", "Rédiger un texte personnel"], ["Analyse grammaticale", "Littérature simplifiée", "Rédaction personnelle"]),
-            m("Coran et Tajwid", "📖", "Consolidation générale de la mémorisation et maîtrise du Tajwid.", "4h/sem.", ["Consolider l'ensemble des sourates mémorisées", "Maîtriser les règles essentielles du Tajwid", "Se préparer à un concours de récitation"], ["Consolidation de la mémorisation", "Maîtrise du Tajwid", "Préparation aux concours de récitation"]),
-            m("Éducation islamique", "🌙", "Le pèlerinage, la Sira approfondie et l'Islam au quotidien.", "2h/sem.", ["Décrire les étapes du Hajj", "Résumer un épisode approfondi de la Sira", "Relier une valeur islamique à la vie quotidienne"], ["Le Hajj (pèlerinage)", "Approfondissement de la Sira", "Islam et vie quotidienne"]),
-            m("Sciences", "🔬", "La reproduction, les changements d'état et la protection de l'environnement.", "2h/sem.", ["Expliquer la reproduction chez les êtres vivants", "Décrire un changement d'état de la matière", "Proposer un geste de protection de l'environnement"], ["La reproduction chez les êtres vivants", "Les états et changements de la matière", "Protection de l'environnement"]),
-            m("Histoire-Géographie", "🌍", "L'histoire du Sénégal, l'Afrique et les activités économiques.", "2h/sem.", ["Situer une étape de l'histoire du Sénégal", "Localiser des pays d'Afrique", "Décrire une activité économique locale"], ["L'histoire du Sénégal (précolonial et colonial)", "L'Afrique et ses pays", "La population et les activités économiques"]),
-            m("Anglais", "🇬🇧", "Description de personnes et de lieux, initiation au passé simple.", "2h/sem.", ["Décrire une personne ou un lieu", "Utiliser le passé simple", "Comprendre un court texte de lecture"], ["Describing people and places", "Simple past tense", "Short reading comprehension"]),
-            m("Informatique", "💻", "Traitement de texte simple et première recherche encadrée sur internet.", "1h/sem.", ["Saisir et mettre en forme un texte simple", "Naviguer sur internet de façon encadrée", "Rechercher une information simple"], ["Traitement de texte simple", "Navigation internet encadrée", "Initiation à la recherche d'information"]),
-            eps(["Sports collectifs de compétition", "Préparation physique", "Arbitrage et règles du jeu"])
-          ]
-        }
-      ]
-    };
-
-    /* ================= COLLÈGE ================= */
-    function epsCollege(chaps) { return m("EPS", "⚽", "Développement sportif, technique et esprit d'équipe.", "2h/sem.", ["Maîtriser un geste technique sportif", "Respecter les règles et l'arbitrage", "S'investir dans une compétition"], chaps); }
-    function infoCollege(chaps) { return m("Informatique / TIC", "💻", "Usage raisonné et progressif des outils numériques.", "1h/sem.", ["Utiliser un logiciel de bureau", "Naviguer sur internet en sécurité", "Réaliser un document numérique simple"], chaps); }
-    function civiqueCollege(chaps) { return m("Éducation civique et morale", "⚖️", "Formation à la citoyenneté et aux valeurs républicaines.", "1h/sem.", ["Citer un droit et un devoir de l'élève", "Expliquer une valeur républicaine", "Illustrer un acte de solidarité"], chaps); }
-
-    var college = {
-      id: "college", nom: "Collège", tag: "📘",
-      description: "De la 6e à la 3e : approfondissement des matières fondamentales, spécialisation progressive en sciences, et préparation au Brevet de Fin d'Études Moyennes (BFEM).",
-      niveaux: [
-        {
-          id: "6e", nom: "Sixième (6e)", ageIndicatif: "12 – 13 ans",
-          objectifs: objCollege("6e"), methodesPedagogiques: METHODES_COLLEGE, evaluation: EVAL_COLLEGE,
-          matieres: [
-            m("Français", "🗣️", "Découverte du récit et des bases grammaticales du collège.", "5h/sem.", ["Analyser la structure d'un récit", "Identifier les classes de mots", "Maîtriser l'orthographe de base"], ["Le récit et le conte", "Grammaire : classes de mots", "Orthographe et conjugaison de base"]),
-            m("Mathématiques", "🔢", "Nombres relatifs, proportionnalité et géométrie plane.", "5h/sem.", ["Effectuer une opération sur les nombres relatifs", "Résoudre un problème de proportionnalité", "Construire une figure géométrique plane"], ["Nombres relatifs", "Fractions et proportionnalité", "Figures géométriques planes"]),
-            m("Arabe", "🇸🇦", "Grammaire de base et premiers textes littéraires simples.", "4h/sem.", ["Appliquer une règle de grammaire simple (i'rab)", "Lire un texte court", "S'exprimer oralement en arabe"], ["Grammaire de base (i'rab simple)", "Lecture de textes courts", "Expression orale"]),
-            m("Coran et Tajwid", "📖", "Poursuite de la mémorisation et révision des règles du Tajwid.", "3h/sem.", ["Mémoriser le Joudou 27-28", "Réviser les règles essentielles du Tajwid", "Réciter collectivement avec justesse"], ["Mémorisation du Joudou 27-28", "Révision des règles du Tajwid", "Exercices de récitation collective"]),
-            m("Éducation islamique", "🌙", "Approfondissement du Fiqh de la prière et de la Sira mecquoise.", "2h/sem.", ["Détailler les règles de la prière", "Situer un évènement de la période mecquoise", "Illustrer une valeur envers les parents"], ["Le Fiqh de la prière (approfondi)", "La Sira : la période mecquoise", "Éthique envers les parents et la société"]),
-            m("SVT", "🔬", "Classification du vivant et besoins des êtres vivants.", "2h/sem.", ["Classer un être vivant simple", "Décrire le peuplement d'un milieu", "Citer les besoins d'un être vivant"], ["La classification du vivant", "Le peuplement d'un milieu", "Les besoins des êtres vivants"]),
-            m("Physique-Chimie", "⚗️", "Les états de la matière et les sources d'énergie.", "2h/sem.", ["Identifier un état de la matière", "Réaliser un mélange simple", "Citer une source d'énergie"], ["Les états de la matière", "Les mélanges", "Les sources d'énergie"]),
-            m("Histoire-Géographie", "🌍", "Les premières civilisations et le relief mondial.", "3h/sem.", ["Situer une première civilisation", "Décrire la préhistoire en Afrique", "Identifier un type de relief"], ["Les premières civilisations", "La préhistoire en Afrique", "Le relief et le climat mondial"]),
-            m("Anglais", "🇬🇧", "Grammaire de base et vocabulaire du quotidien.", "3h/sem.", ["Utiliser le présent simple", "Employer un vocabulaire courant", "Tenir une conversation simple"], ["Basic grammar (present simple)", "Everyday vocabulary", "Simple conversations"]),
-            infoCollege(["Découverte des logiciels de bureau", "Navigation internet sécurisée", "Notions de base des réseaux"]),
-            epsCollege(["Athlétisme et sports collectifs", "Coordination et souplesse", "Règles du jeu et arbitrage"]),
-            civiqueCollege(["Les droits et devoirs de l'élève", "La vie en communauté", "Le respect des institutions"])
-          ]
-        },
-        {
-          id: "5e", nom: "Cinquième (5e)", ageIndicatif: "13 – 14 ans",
-          objectifs: objCollege("5e"), methodesPedagogiques: METHODES_COLLEGE, evaluation: EVAL_COLLEGE,
-          matieres: [
-            m("Français", "🗣️", "Le récit d'aventure et l'analyse des propositions.", "5h/sem.", ["Analyser un récit d'aventure", "Identifier une proposition et son complément", "Rédiger un récit structuré"], ["Le récit d'aventure et la fable", "Les compléments et les propositions", "Expression écrite narrative"]),
-            m("Mathématiques", "🔢", "Puissances, calcul littéral et introduction à la statistique.", "5h/sem.", ["Utiliser une puissance", "Manier une expression littérale simple", "Construire un diagramme statistique"], ["Puissances et calcul littéral", "Symétrie et triangles", "Statistiques de base"]),
-            m("Arabe", "🇸🇦", "Conjugaison régulière et compréhension de récits.", "4h/sem.", ["Conjuguer un verbe régulier", "Comprendre un texte narratif", "Rédiger un texte guidé"], ["Conjugaison des verbes réguliers", "Compréhension de textes narratifs", "Rédaction guidée"]),
-            m("Coran et Tajwid", "📖", "Mémorisation continue et approfondissement des règles d'arrêt.", "3h/sem.", ["Mémoriser le Joudou 25-26", "Appliquer les règles du Waqf", "Réciter en respectant le rythme"], ["Mémorisation du Joudou 25-26", "Approfondissement du Tajwid (waqf)", "Récitation avec maîtrise du rythme"]),
-            m("Éducation islamique", "🌙", "Le Fiqh du jeûne et l'histoire de l'Hégire.", "2h/sem.", ["Expliquer une règle du jeûne", "Situer l'évènement de l'Hégire", "Citer un grand compagnon du Prophète"], ["Le Fiqh du jeûne et de la Zakat", "La Sira : l'Hégire et Médine", "Les grands compagnons du Prophète"]),
-            m("SVT", "🔬", "La respiration, la digestion et la reproduction des plantes.", "2h/sem.", ["Décrire la respiration d'un être vivant", "Expliquer la digestion simplement", "Décrire la reproduction d'une plante"], ["La respiration et la digestion", "La reproduction des plantes", "L'origine des aliments"]),
-            m("Physique-Chimie", "⚗️", "La lumière, la vision et les premiers circuits électriques.", "2h/sem.", ["Expliquer la propagation de la lumière", "Réaliser un circuit électrique simple", "Décrire une propriété de l'air"], ["La lumière et la vision", "L'électricité (circuits simples)", "L'air et ses propriétés"]),
-            m("Histoire-Géographie", "🌍", "Les grands empires africains et le Moyen Âge.", "3h/sem.", ["Situer un grand empire africain", "Caractériser une période du Moyen Âge", "Décrire la répartition de la population mondiale"], ["Les grands empires africains (Ghana, Mali, Songhaï)", "Le Moyen Âge", "La population mondiale"]),
-            m("Anglais", "🇬🇧", "Passé narratif et vocabulaire descriptif.", "3h/sem.", ["Utiliser le passé simple pour raconter", "Employer un vocabulaire descriptif", "Lire un texte court"], ["Past tense and storytelling", "Descriptive vocabulary", "Reading short texts"]),
-            infoCollege(["Traitement de texte avancé", "Tableurs simples", "Recherche documentaire"]),
-            epsCollege(["Perfectionnement technique", "Sports collectifs et individuels", "Endurance"]),
-            civiqueCollege(["La citoyenneté et la nation", "Les valeurs républicaines", "La solidarité et l'entraide"])
-          ]
-        },
-        {
-          id: "4e", nom: "Quatrième (4e)", ageIndicatif: "14 – 15 ans",
-          objectifs: objCollege("4e"), methodesPedagogiques: METHODES_COLLEGE, evaluation: EVAL_COLLEGE,
-          matieres: [
-            m("Français", "🗣️", "Le roman réaliste et les temps du récit.", "5h/sem.", ["Analyser un extrait de roman réaliste", "Employer correctement les temps du récit", "Construire une argumentation simple"], ["Le roman et la nouvelle réaliste", "Les temps du récit et la concordance", "Argumentation simple"]),
-            m("Mathématiques", "🔢", "Racines carrées, équations et théorème de Pythagore.", "5h/sem.", ["Calculer une racine carrée", "Résoudre une équation simple", "Appliquer le théorème de Pythagore"], ["Racines carrées et équations", "Théorème de Pythagore", "Fonctions linéaires (introduction)"]),
-            m("Arabe", "🇸🇦", "Analyse grammaticale approfondie et textes littéraires simplifiés.", "4h/sem.", ["Analyser une phrase complexe", "Comprendre un texte littéraire simplifié", "Rédiger un texte libre"], ["Grammaire approfondie (analyse des phrases)", "Textes littéraires simplifiés", "Expression écrite libre"]),
-            m("Coran et Tajwid", "📖", "Mémorisation avancée et Tajwid appliqué aux longues sourates.", "3h/sem.", ["Mémoriser le Joudou 22-24", "Appliquer le Tajwid à une longue sourate", "Expliquer simplement le sens d'un verset"], ["Mémorisation du Joudou 22-24", "Tajwid appliqué aux longues sourates", "Explication simplifiée (tafsir léger)"]),
-            m("Éducation islamique", "🌙", "Introduction au Fiqh des transactions et califes bien guidés.", "2h/sem.", ["Décrire une règle de transaction licite", "Situer un calife bien guidé", "Relier Islam et sciences"], ["Introduction au Fiqh des transactions", "Histoire des quatre califes bien guidés", "Islam et sciences"]),
-            m("SVT", "🔬", "La reproduction humaine et le fonctionnement du corps.", "2h/sem.", ["Décrire les grandes étapes de la reproduction humaine", "Expliquer le fonctionnement d'un organe", "Citer un risque infectieux et sa prévention"], ["La reproduction humaine", "Le fonctionnement du corps humain", "Les risques infectieux"]),
-            m("Physique-Chimie", "⚗️", "Mouvement, tension électrique et réactions chimiques simples.", "2h/sem.", ["Calculer une vitesse simple", "Mesurer une tension électrique", "Décrire une réaction chimique simple"], ["Mouvement et vitesse", "La tension électrique", "Réactions chimiques simples"]),
-            m("Histoire-Géographie", "🌍", "La traite négrière, la colonisation et les révolutions.", "3h/sem.", ["Expliquer les conséquences de la traite négrière", "Situer une révolution majeure", "Décrire un espace économique mondial"], ["La traite négrière et la colonisation", "Les révolutions (industrielle, française)", "Les espaces économiques mondiaux"]),
-            m("Anglais", "🇬🇧", "Futur, modaux et compréhension de textes plus longs.", "3h/sem.", ["Utiliser le futur et les modaux", "Comprendre un texte plus long", "Rédiger un essai guidé"], ["Future tense and modals", "Comprehension of longer texts", "Guided essay writing"]),
-            infoCollege(["Présentations numériques", "Notions de programmation (introduction)", "Sécurité et éthique numérique"]),
-            epsCollege(["Préparation physique générale", "Compétitions inter-classes", "Fair-play et leadership"]),
-            civiqueCollege(["Les institutions du Sénégal", "Les droits humains", "La démocratie et la participation citoyenne"])
-          ]
-        },
-        {
-          id: "3e", nom: "Troisième (3e)", ageIndicatif: "15 – 16 ans",
-          objectifs: objCollege("3e"), methodesPedagogiques: METHODES_COLLEGE, evaluation: EVAL_COLLEGE,
-          matieres: [
-            m("Français", "🗣️", "Poésie, théâtre et rédaction argumentative en vue du BFEM.", "5h/sem.", ["Analyser un poème ou un extrait théâtral", "Identifier des figures de style", "Rédiger une argumentation structurée"], ["La poésie et le théâtre", "Les figures de style", "Rédaction argumentative structurée"]),
-            m("Mathématiques", "🔢", "Théorème de Thalès, fonctions et trigonométrie de base.", "5h/sem.", ["Appliquer le théorème de Thalès", "Étudier une fonction simple", "Utiliser les rapports trigonométriques de base"], ["Théorème de Thalès", "Fonctions et équations avancées", "Trigonométrie de base"]),
-            m("Arabe", "🇸🇦", "Analyse grammaticale complexe et extraits classiques.", "4h/sem.", ["Analyser une phrase complexe", "Comprendre un extrait classique", "Rédiger une argumentation en arabe"], ["Analyse grammaticale complexe", "Littérature arabe classique (extraits)", "Rédaction argumentative"]),
-            m("Coran et Tajwid", "📖", "Perfectionnement du Tajwid et introduction au tafsir.", "3h/sem.", ["Mémoriser le Joudou 19-21", "Perfectionner l'application du Tajwid", "Expliquer le sens d'une sourate mémorisée"], ["Mémorisation du Joudou 19-21", "Perfectionnement du Tajwid", "Introduction au tafsir des sourates mémorisées"]),
-            m("Éducation islamique", "🌙", "Éthique contemporaine et coexistence en Islam.", "2h/sem.", ["Relier une règle d'éthique à la vie moderne", "Présenter une école de pensée simplement", "Illustrer le principe de coexistence pacifique"], ["Éthique islamique et vie moderne", "Les grandes écoles de pensée (introduction)", "Islam, paix et coexistence"]),
-            m("SVT", "🔬", "Génétique, évolution et responsabilité en matière de santé.", "2h/sem.", ["Expliquer une notion simple de génétique", "Décrire un mécanisme d'évolution", "Adopter un comportement responsable pour sa santé"], ["La génétique (notions de base)", "L'évolution des espèces", "Responsabilité individuelle en matière de santé"]),
-            m("Physique-Chimie", "⚗️", "Énergie, atomes/molécules et circuits électriques complexes.", "2h/sem.", ["Décrire une transformation d'énergie", "Représenter un atome ou une molécule simple", "Analyser un circuit électrique complexe"], ["L'énergie et ses transformations", "Les atomes et les molécules", "Circuits électriques complexes"]),
-            m("Histoire-Géographie", "🌍", "Guerres mondiales, indépendances africaines et mondialisation.", "3h/sem.", ["Situer les deux guerres mondiales", "Expliquer les indépendances africaines", "Analyser un enjeu de la mondialisation"], ["Les deux guerres mondiales", "Les indépendances africaines", "La mondialisation et ses enjeux"]),
-            m("Anglais", "🇬🇧", "Structures avancées et expression argumentée en vue du BFEM.", "3h/sem.", ["Utiliser des structures grammaticales avancées", "Débattre à l'oral en anglais", "Rédiger un essai argumenté"], ["Advanced grammar structures", "Debate and oral expression", "Essay writing and summary"]),
-            infoCollege(["Bases de la programmation", "Création de documents complexes", "Projets numériques encadrés"]),
-            epsCollege(["Spécialisation sportive", "Compétitions officielles", "Hygiène de vie et performance"]),
-            civiqueCollege(["L'État de droit", "Les enjeux de la citoyenneté mondiale", "L'engagement communautaire"])
-          ]
-        }
-      ]
-    };
-
-    /* ================= LYCÉE ================= */
-    function infoLycee(chaps) { return m("Informatique", "💻", "Culture numérique et premiers pas en programmation.", "1h/sem.", ["Structurer un algorithme simple", "Utiliser un logiciel bureautique avancé", "Mener un petit projet numérique"], chaps); }
-    function epsLycee(chaps) { return m("EPS", "⚽", "Performance sportive, préparation physique et hygiène de vie.", "2h/sem.", ["Perfectionner un geste sportif spécialisé", "Gérer son effort physique", "Organiser ou arbitrer une rencontre"], chaps); }
-
-    var lycee = {
-      id: "lycee", nom: "Lycée", tag: "🎓",
-      description: "De la Seconde à la Terminale : approfondissement disciplinaire, formation religieuse avancée et préparation rigoureuse au Baccalauréat.",
-      niveaux: [
-        {
-          id: "seconde", nom: "Seconde", ageIndicatif: "16 – 17 ans",
-          objectifs: objLycee("Seconde"), methodesPedagogiques: METHODES_LYCEE, evaluation: EVAL_LYCEE,
-          matieres: [
-            m("Français", "🗣️", "Introduction aux mouvements littéraires et au commentaire de texte.", "4h/sem.", ["Situer un mouvement littéraire", "Réaliser un commentaire de texte guidé", "Construire un essai argumentatif"], ["Les mouvements littéraires (introduction)", "Le commentaire de texte", "L'argumentation et l'essai"]),
-            m("Mathématiques", "🔢", "Généralités sur les fonctions, vecteurs et statistiques.", "5h/sem.", ["Étudier les généralités d'une fonction", "Utiliser un vecteur en géométrie", "Interpréter une statistique descriptive"], ["Fonctions et généralités", "Vecteurs et géométrie", "Statistiques descriptives"]),
-            m("Arabe", "🇸🇦", "Grammaire avancée (nahw et sarf) et littérature classique.", "3h/sem.", ["Appliquer une règle avancée de nahw/sarf", "Analyser un texte littéraire classique", "Rédiger un texte structuré en arabe"], ["Grammaire avancée (nahw et sarf)", "Littérature arabe classique", "Expression écrite structurée"]),
-            m("Coran et Tajwid", "📖", "Mémorisation continue et introduction aux sept lectures.", "3h/sem.", ["Mémoriser le Joudou 16-18", "Décrire le principe des sept lectures", "Réciter en public avec assurance"], ["Mémorisation du Joudou 16-18", "Tajwid avancé (les sept lectures, introduction)", "Récitation publique"]),
-            m("Éducation islamique", "🌙", "Fiqh approfondi et histoire des écoles juridiques.", "2h/sem.", ["Expliquer une règle approfondie du Fiqh", "Situer une grande école juridique", "Relier l'éthique islamique à un enjeu contemporain"], ["Le Fiqh approfondi (transactions, mariage)", "Histoire des grandes écoles juridiques", "Éthique islamique contemporaine"]),
-            m("Physique-Chimie", "⚗️", "Mécanique, chimie des solutions et ondes.", "4h/sem.", ["Analyser un mouvement simple", "Préparer une solution chimique", "Décrire une onde ou un signal"], ["Mécanique (mouvement et forces)", "Chimie des solutions", "Ondes et signaux"]),
-            m("SVT", "🔬", "Organisation du vivant, géologie et immunologie de base.", "3h/sem.", ["Décrire l'organisation d'un être vivant", "Expliquer la structure de la Terre", "Présenter le principe de l'immunité"], ["L'organisation du vivant", "La géologie (structure de la Terre)", "L'immunologie de base"]),
-            m("Histoire-Géographie", "🌍", "Grandes civilisations mondiales et enjeux du développement.", "3h/sem.", ["Comparer deux grandes civilisations", "Décrire la géographie physique d'une région", "Analyser un enjeu de développement"], ["Les grandes civilisations mondiales", "La géographie physique du monde", "Les enjeux du développement"]),
-            m("Anglais", "🇬🇧", "Révision grammaticale avancée et analyse de textes.", "3h/sem.", ["Réviser une structure grammaticale avancée", "Analyser un texte en anglais", "Réaliser un exposé oral"], ["Advanced grammar review", "Text analysis and comprehension", "Oral presentations"]),
-            m("Éducation civique et morale", "⚖️", "Les institutions et les droits humains fondamentaux.", "2h/sem.", ["Présenter une institution de la République", "Citer un droit humain fondamental", "Illustrer une action citoyenne"], ["Les institutions de la République", "Les droits humains fondamentaux", "La citoyenneté active"]),
-            infoLycee(["Algorithmique de base", "Bureautique avancée", "Sécurité et éthique numérique"]),
-            epsLycee(["Perfectionnement sportif général", "Compétitions inter-lycées", "Hygiène et santé"])
-          ]
-        },
-        {
-          id: "premiere", nom: "Première", ageIndicatif: "17 – 18 ans",
-          objectifs: objLycee("Première"), methodesPedagogiques: METHODES_LYCEE, evaluation: EVAL_LYCEE,
-          matieres: [
-            m("Français", "🗣️", "Étude d'œuvres intégrales et dissertation littéraire.", "4h/sem.", ["Analyser une œuvre intégrale", "Construire une dissertation littéraire", "Identifier des figures de style avancées"], ["Étude d'œuvres intégrales", "La dissertation littéraire", "Les figures de style avancées"]),
-            m("Mathématiques", "🔢", "Dérivation, suites numériques et probabilités.", "5h/sem.", ["Dériver une fonction et l'étudier", "Étudier une suite numérique", "Calculer une probabilité simple"], ["Dérivation et étude de fonctions", "Suites numériques", "Probabilités"]),
-            m("Arabe", "🇸🇦", "Analyse littéraire et introduction à la rhétorique (balagha).", "3h/sem.", ["Analyser un texte littéraire classique", "Identifier une figure de balagha simple", "Rédiger une argumentation en arabe"], ["Analyse littéraire de textes classiques", "Rhétorique arabe (balagha, introduction)", "Rédaction argumentative"]),
-            m("Coran et Tajwid", "📖", "Mémorisation avancée et introduction au tafsir thématique.", "3h/sem.", ["Mémoriser le Joudou 12-15", "Approfondir une règle avancée du Tajwid", "Présenter un tafsir thématique simple"], ["Mémorisation du Joudou 12-15", "Approfondissement du Tajwid", "Introduction au tafsir thématique"]),
-            m("Éducation islamique", "🌙", "Islam, sciences modernes et finalités de la Charia.", "2h/sem.", ["Relier un principe islamique à une découverte scientifique", "Expliquer une finalité de la Charia (maqasid)", "Analyser un enjeu Islam-société"], ["Islam et sciences modernes", "Les maqasid al-shari'a (finalités de la loi islamique)", "Islam et société"]),
-            m("Physique-Chimie", "⚗️", "Travail, énergie et réactions d'oxydoréduction.", "4h/sem.", ["Calculer un travail ou une énergie", "Écrire une réaction d'oxydoréduction", "Analyser un circuit électrique complexe"], ["Travail et énergie", "Réactions chimiques (oxydoréduction)", "Électricité (circuits complexes)"]),
-            m("SVT", "🔬", "Génétique, hérédité et fonctionnement des écosystèmes.", "3h/sem.", ["Expliquer un mécanisme d'hérédité", "Décrire le fonctionnement d'un écosystème", "Analyser un paramètre physiologique humain"], ["La génétique et l'hérédité", "Le fonctionnement des écosystèmes", "La physiologie humaine"]),
-            m("Histoire-Géographie", "🌍", "Relations internationales et géopolitique de l'Afrique.", "3h/sem.", ["Analyser une relation internationale du XXe siècle", "Décrire un enjeu géopolitique africain", "Expliquer une mutation économique mondiale"], ["Les relations internationales (XXe siècle)", "La géopolitique de l'Afrique", "Les mutations économiques mondiales"]),
-            m("Anglais", "🇬🇧", "Textes littéraires et non littéraires, techniques de rédaction.", "3h/sem.", ["Analyser un texte littéraire ou non littéraire", "Structurer un essai en anglais", "Débattre en public"], ["Literary and non-literary texts", "Essay writing techniques", "Debate and public speaking"]),
-            m("Philosophie", "🧠", "Entrée dans la réflexion philosophique et la logique.", "2h/sem.", ["Distinguer une thèse d'un argument", "Appliquer un raisonnement logique simple", "Discuter une question d'éthique"], ["Introduction à la philosophie", "La logique et la raison", "L'éthique et la morale"]),
-            infoLycee(["Initiation à la programmation", "Bases de données simples", "Projets numériques"]),
-            epsLycee(["Spécialisation sportive", "Préparation physique et mentale", "Arbitrage et organisation d'événements"])
-          ]
-        },
-        {
-          id: "terminale", nom: "Terminale", ageIndicatif: "18 – 19 ans",
-          objectifs: objLycee("Terminale"), methodesPedagogiques: METHODES_LYCEE, evaluation: EVAL_LYCEE,
-          matieres: [
-            m("Français", "🗣️", "Littérature comparée et préparation à l'épreuve du Baccalauréat.", "4h/sem.", ["Comparer deux œuvres littéraires", "Rédiger une dissertation complète", "Synthétiser une argumentation complexe"], ["Littérature comparée", "Préparation à l'épreuve du Baccalauréat", "Synthèse et argumentation complexe"]),
-            m("Mathématiques", "🔢", "Limites, intégration et probabilités conditionnelles.", "5h/sem.", ["Calculer une limite de fonction", "Calculer une intégrale simple", "Résoudre un problème de probabilité conditionnelle"], ["Limites et continuité", "Intégration", "Probabilités conditionnelles et logarithmes"]),
-            m("Arabe", "🇸🇦", "Littérature arabe moderne et rhétorique approfondie.", "3h/sem.", ["Analyser une œuvre arabe moderne", "Identifier une figure de balagha avancée", "Se préparer à l'épreuve du Baccalauréat en arabe"], ["Littérature arabe moderne", "Balagha approfondie", "Préparation à l'épreuve du Baccalauréat en arabe"]),
-            m("Coran et Tajwid", "📖", "Consolidation finale de la mémorisation et maîtrise complète du Tajwid.", "3h/sem.", ["Consolider le Joudou restant", "Maîtriser l'ensemble des règles du Tajwid", "Présenter un tafsir approfondi"], ["Mémorisation du Joudou 8-11 (ou consolidation)", "Maîtrise complète du Tajwid", "Tafsir approfondi des sourates mémorisées"]),
-            m("Éducation islamique", "🌙", "Pensée islamique contemporaine et grands enjeux mondiaux.", "2h/sem.", ["Présenter un courant de pensée islamique contemporain", "Analyser un enjeu mondial à la lumière de l'Islam", "Faire la synthèse de sa formation religieuse"], ["Pensée islamique contemporaine", "Islam et enjeux mondiaux (paix, environnement, bioéthique)", "Synthèse de la formation religieuse"]),
-            m("Physique-Chimie", "⚗️", "Mécanique newtonienne avancée et cinétique chimique.", "4h/sem.", ["Appliquer les lois de la mécanique newtonienne", "Étudier la cinétique d'une réaction", "Décrire une notion de physique nucléaire"], ["Mécanique newtonienne avancée", "Cinétique chimique", "Physique nucléaire (notions)"]),
-            m("SVT", "🔬", "Évolution, neurophysiologie et enjeux environnementaux.", "3h/sem.", ["Expliquer un mécanisme d'évolution", "Décrire le fonctionnement du système nerveux", "Analyser un enjeu environnemental contemporain"], ["L'évolution et la biodiversité", "Neurophysiologie", "Enjeux environnementaux contemporains"]),
-            m("Histoire-Géographie", "🌍", "Le monde depuis 1945 et la place du Sénégal dans la mondialisation.", "3h/sem.", ["Analyser une étape du monde depuis 1945", "Décrire un enjeu géostratégique actuel", "Situer le Sénégal dans la mondialisation"], ["Le monde depuis 1945", "Les enjeux géostratégiques actuels", "Le Sénégal dans la mondialisation"]),
-            m("Anglais", "🇬🇧", "Synthèse, compréhension avancée et rédaction académique.", "3h/sem.", ["Synthétiser plusieurs documents en anglais", "Rédiger un texte académique argumenté", "Se préparer à l'épreuve du Baccalauréat"], ["Advanced comprehension and synthesis", "Preparation for Baccalaureate exam", "Academic and argumentative writing"]),
-            m("Philosophie", "🧠", "Métaphysique, philosophie politique et préparation au Bac.", "2h/sem.", ["Discuter une question métaphysique", "Analyser un concept de philosophie politique", "Construire une dissertation philosophique complète"], ["La métaphysique et l'existence", "La philosophie politique", "Préparation à l'épreuve de philosophie au Baccalauréat"]),
-            infoLycee(["Programmation appliquée", "Technologies émergentes (notions)", "Projet numérique de fin de cycle"]),
-            epsLycee(["Performance sportive", "Gestion du stress et de l'effort", "Bilan sportif de fin de cycle"])
-          ]
-        }
-      ]
-    };
-
-    return {
-      disclaimer: "Ce programme est présenté à titre indicatif et pédagogique ; il peut évoluer selon le calendrier officiel et les orientations de l'établissement.",
-      cycles: [prescolaire, elementaire, college, lycee]
-    };
-  })();
-
-  /* ================= RENDU DE LA PAGE ================= */
-
-  var overviewEl = document.getElementById('matieres-overview');
-  var tabsEl = document.getElementById('cycle-tabs');
-  var cycleDescEl = document.getElementById('cycle-desc');
-  var chipsEl = document.getElementById('niveau-chips');
-  var dashboardEl = document.getElementById('dashboard');
-  var ficheEl = document.getElementById('fiche-panel');
-  var disclaimerEl = document.getElementById('prog-disclaimer');
-  var searchInput = document.getElementById('prog-search-input');
-  var searchResultsEl = document.getElementById('prog-search-results');
-
-  if (disclaimerEl) disclaimerEl.textContent = 'ℹ️ ' + PROGRAMMES_DATA.disclaimer;
-
-  /* ---- Aperçu des matières (cycle Collège, représentatif) ---- */
-  var overviewCycle = PROGRAMMES_DATA.cycles.find(function (c) { return c.id === 'college'; }) || PROGRAMMES_DATA.cycles[0];
-  if (overviewEl && overviewCycle) {
-    overviewEl.innerHTML = overviewCycle.niveaux[0].matieres.map(function (mat) {
-      return '' +
-        '<div class="prog-matiere-overview-card">' +
-          '<span class="prog-icon" aria-hidden="true">' + mat.icone + '</span>' +
-          '<h3>' + mat.nom + '</h3>' +
-          '<p>' + mat.description + '</p>' +
-        '</div>';
-    }).join('');
-  }
-
-  var currentCycleId = PROGRAMMES_DATA.cycles[0].id;
-  var currentNiveauId = PROGRAMMES_DATA.cycles[0].niveaux[0].id;
-
-  function getCycle(id) { return PROGRAMMES_DATA.cycles.find(function (c) { return c.id === id; }); }
-  function getNiveau(cycle, id) { return cycle.niveaux.find(function (n) { return n.id === id; }); }
-
-  function renderCycleTabs() {
-    tabsEl.innerHTML = PROGRAMMES_DATA.cycles.map(function (c) {
-      return '' +
-        '<button type="button" class="prog-cycle-tab" role="tab" data-cycle="' + c.id + '" aria-selected="' + (c.id === currentCycleId) + '" aria-controls="fiche-panel">' +
-          '<span class="prog-tab-icon" aria-hidden="true">' + c.tag + '</span> ' + c.nom +
-        '</button>';
-    }).join('');
-
-    Array.prototype.forEach.call(tabsEl.querySelectorAll('.prog-cycle-tab'), function (btn) {
-      btn.addEventListener('click', function () {
-        currentCycleId = btn.dataset.cycle;
-        var cycle = getCycle(currentCycleId);
-        currentNiveauId = cycle.niveaux[0].id;
-        renderCycleTabs();
-        renderCycleDesc();
-        renderNiveauChips();
-        renderDashboard();
-        renderFiche();
-      });
-    });
-  }
-
-  function renderCycleDesc() {
-    var cycle = getCycle(currentCycleId);
-    cycleDescEl.textContent = cycle ? cycle.description : '';
-  }
-
-  function renderNiveauChips() {
-    var cycle = getCycle(currentCycleId);
-    chipsEl.innerHTML = cycle.niveaux.map(function (n) {
-      return '' +
-        '<button type="button" class="prog-niveau-chip" role="tab" data-niveau="' + n.id + '" aria-selected="' + (n.id === currentNiveauId) + '" aria-controls="fiche-panel">' +
-          n.nom +
-        '</button>';
-    }).join('');
-
-    Array.prototype.forEach.call(chipsEl.querySelectorAll('.prog-niveau-chip'), function (btn) {
-      btn.addEventListener('click', function () {
-        currentNiveauId = btn.dataset.niveau;
-        renderNiveauChips();
-        renderDashboard();
-        renderFiche();
-      });
-    });
-  }
-
-  function renderDashboard() {
-    var cycle = getCycle(currentCycleId);
-    var niveau = getNiveau(cycle, currentNiveauId);
-    if (!niveau) { dashboardEl.innerHTML = ''; return; }
-
-    var cards = [
-      { emoji: '🎯', label: 'Objectifs', count: niveau.objectifs.length + ' repères', target: 'bloc-objectifs' },
-      { emoji: '📚', label: 'Matières', count: niveau.matieres.length + ' matières', target: 'bloc-matieres' },
-      { emoji: '⏱️', label: 'Horaires', count: 'Volume hebdo.', target: 'bloc-horaires' },
-      { emoji: '🧠', label: 'Compétences', count: 'Par matière', target: 'bloc-matieres' },
-      { emoji: '📝', label: 'Évaluations', count: niveau.evaluation.length + ' modalités', target: 'bloc-evaluation' },
-      { emoji: '👨‍🏫', label: 'Méthodes', count: niveau.methodesPedagogiques.length + ' approches', target: 'bloc-methodes' }
-    ];
-
-    dashboardEl.innerHTML = cards.map(function (c) {
-      return '' +
-        '<button type="button" class="prog-dash-card" data-target="' + c.target + '">' +
-          '<span class="emoji" aria-hidden="true">' + c.emoji + '</span>' +
-          '<span class="label">' + c.label + '</span>' +
-          '<span class="count">' + c.count + '</span>' +
-        '</button>';
-    }).join('');
-
-    Array.prototype.forEach.call(dashboardEl.querySelectorAll('.prog-dash-card'), function (btn) {
-      btn.addEventListener('click', function () {
-        var el = document.getElementById(btn.dataset.target);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-
-  function renderFiche() {
-    var cycle = getCycle(currentCycleId);
-    var niveau = getNiveau(cycle, currentNiveauId);
-    if (!niveau) { ficheEl.innerHTML = ''; return; }
-
-    var objectifsHtml = niveau.objectifs.map(function (o) { return '<li>' + o + '</li>'; }).join('');
-    var methodesHtml = niveau.methodesPedagogiques.map(function (mt) { return '<li>' + mt + '</li>'; }).join('');
-    var evaluationHtml = niveau.evaluation.map(function (e) { return '<li>' + e + '</li>'; }).join('');
-
-    var matieresCardsHtml = niveau.matieres.map(function (mat) {
-      return '' +
-        '<div class="prog-matiere-card">' +
-          '<div class="prog-matiere-card-head">' +
-            '<strong>' + mat.nom + '</strong>' +
-            '<span class="prog-matiere-icon" aria-hidden="true">' + mat.icone + '</span>' +
-          '</div>' +
-          '<span class="prog-volume-badge">' + mat.volumeHoraire + '</span>' +
-          '<p>' + mat.description + '</p>' +
-          '<div class="prog-matiere-sub">Compétences visées</div>' +
-          '<ul class="prog-list">' + mat.competences.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul>' +
-          '<div class="prog-matiere-sub">Chapitres / thèmes</div>' +
-          '<div class="prog-chip-list">' + mat.chapitres.map(function (ch) { return '<span>' + ch + '</span>'; }).join('') + '</div>' +
-        '</div>';
-    }).join('');
-
-    var horairesRowsHtml = niveau.matieres.map(function (mat) {
-      return '' +
-        '<tr>' +
-          '<td data-label="Matière">' + mat.icone + ' ' + mat.nom + '</td>' +
-          '<td data-label="Volume horaire indicatif">' + mat.volumeHoraire + '</td>' +
-        '</tr>';
-    }).join('');
-
-    ficheEl.innerHTML = '' +
-      '<article class="prog-fiche prog-fade">' +
-        '<div class="prog-fiche-header">' +
-          '<h3>' + niveau.nom + '</h3>' +
-          '<span class="prog-fiche-badge">' + cycle.nom + '</span>' +
-        '</div>' +
-        (niveau.ageIndicatif ? '<p class="prog-fiche-sub">Âge indicatif : ' + niveau.ageIndicatif + '</p>' : '') +
-
-        '<div class="prog-fiche-block" id="bloc-objectifs">' +
-          '<h4>🎯 Objectifs pédagogiques</h4>' +
-          '<ul class="prog-list">' + objectifsHtml + '</ul>' +
-        '</div>' +
-
-        '<div class="prog-fiche-block" id="bloc-matieres">' +
-          '<h4>📚 Matières enseignées</h4>' +
-          '<div class="prog-matieres-grid">' + matieresCardsHtml + '</div>' +
-        '</div>' +
-
-        '<div class="prog-two-col">' +
-          '<div class="prog-fiche-block" id="bloc-horaires">' +
-            '<h4>⏱️ Volume horaire hebdomadaire indicatif</h4>' +
-            '<table class="prog-horaires-table">' +
-              '<thead><tr><th>Matière</th><th>Volume horaire indicatif</th></tr></thead>' +
-              '<tbody>' + horairesRowsHtml + '</tbody>' +
-            '</table>' +
-          '</div>' +
-          '<div class="prog-fiche-block" id="bloc-methodes">' +
-            '<h4>👨‍🏫 Méthodes pédagogiques</h4>' +
-            '<ul class="prog-list">' + methodesHtml + '</ul>' +
-          '</div>' +
-        '</div>' +
-
-        '<div class="prog-fiche-block" id="bloc-evaluation">' +
-          '<h4>📝 Mode d\'évaluation</h4>' +
-          '<ul class="prog-list">' + evaluationHtml + '</ul>' +
-        '</div>' +
-      '</article>';
-  }
-
-  /* ---- Recherche transverse (matières, chapitres, compétences, niveaux) ---- */
-  function buildSearchIndex() {
-    var index = [];
-    PROGRAMMES_DATA.cycles.forEach(function (cycle) {
-      cycle.niveaux.forEach(function (niveau) {
-        index.push({ type: 'niveau', cycleId: cycle.id, niveauId: niveau.id, label: niveau.nom, cycleNom: cycle.nom, text: niveau.nom + ' ' + cycle.nom });
-        niveau.matieres.forEach(function (mat) {
-          index.push({
-            type: 'matiere', cycleId: cycle.id, niveauId: niveau.id,
-            label: mat.nom + ' — ' + niveau.nom, cycleNom: cycle.nom,
-            detail: mat.description,
-            text: [mat.nom, mat.description, niveau.nom, cycle.nom].concat(mat.chapitres, mat.competences).join(' ')
-          });
-        });
-      });
-    });
-    return index;
-  }
-  var SEARCH_INDEX = buildSearchIndex();
-
-  function runSearch(query) {
-    var q = query.trim().toLowerCase();
-    if (q.length < 2) { searchResultsEl.innerHTML = ''; return; }
-    var results = SEARCH_INDEX.filter(function (item) {
-      return item.text.toLowerCase().indexOf(q) !== -1;
-    }).slice(0, 8);
-
-    if (!results.length) {
-      searchResultsEl.innerHTML = '<p class="prog-search-empty">Aucun résultat pour « ' + query + ' ». Essayez un autre mot-clé.</p>';
-      return;
-    }
-
-    searchResultsEl.innerHTML = results.map(function (r, i) {
-      return '' +
-        '<button type="button" class="prog-search-result" data-index="' + i + '">' +
-          '<strong>' + r.label + '</strong>' +
-          '<span class="badge">' + r.cycleNom + '</span>' +
-          (r.detail ? '<p>' + r.detail + '</p>' : '') +
-        '</button>';
-    }).join('');
-
-    Array.prototype.forEach.call(searchResultsEl.querySelectorAll('.prog-search-result'), function (btn, i) {
-      btn.addEventListener('click', function () {
-        var r = results[i];
-        currentCycleId = r.cycleId;
-        currentNiveauId = r.niveauId;
-        renderCycleTabs();
-        renderCycleDesc();
-        renderNiveauChips();
-        renderDashboard();
-        renderFiche();
-        searchInput.value = '';
-        searchResultsEl.innerHTML = '';
-        document.getElementById('cycle-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener('input', function () { runSearch(searchInput.value); });
-  }
-
-  renderCycleTabs();
-  renderCycleDesc();
-  renderNiveauChips();
-  renderDashboard();
-  renderFiche();
-
-  document.querySelectorAll('.prog-section .reveal').forEach(function (el) { el.classList.add('in'); });
-})();
+/* Recherche */
+var IDX=[];
+DATA.forEach(function(c){c.n.forEach(function(n){
+  IDX.push({c:c.id,n:n.id,l:n.nom,cn:c.nom,t:n.nom+' '+c.nom});
+  n.m.forEach(function(x){var k=CAT[x.k];IDX.push({c:c.id,n:n.id,l:k[0]+' — '+n.nom,cn:c.nom,d:k[2],t:k[0]+' '+k[2]+' '+n.nom+' '+c.nom})});
+})});
+$('prog-search-input').addEventListener('input',function(){
+  var q=this.value.trim().toLowerCase(), out=$('prog-search-results');
+  if(q.length<2){out.innerHTML='';return}
+  var r=IDX.filter(function(i){return i.t.toLowerCase().indexOf(q)>-1}).slice(0,8);
+  out.innerHTML=r.length?r.map(function(i,k){return '<button type="button" class="res" data-k="'+k+'"><strong>'+i.l+'</strong><span class="badge">'+i.cn+'</span>'+(i.d?'<p>'+i.d+'</p>':'')+'</button>'}).join(''):'<p class="note">Aucun résultat. Essayez un autre mot-clé.</p>';
+  out._r=r;
+});
+$('prog-search-results').addEventListener('click',function(e){
+  var b=e.target.closest('.res');if(!b)return;
+  var i=this._r[b.dataset.k];cyc=i.c;niv=i.n;render();
+  $('prog-search-input').value='';this.innerHTML='';
+  $('tabs').scrollIntoView({behavior:'smooth'});
+});
+render();
 </script>
-
 </body>
 </html>
