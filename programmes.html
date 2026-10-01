@@ -19,7 +19,7 @@
 <style>
 :root{--g:#5A4A2A;--gd:#3B2F1A;--gold:#B8903E;--gl:#D8B876;--cream:#F7F2E7;--ink:#1C2620;--line:#E1E4E5;--grey:#EEF0F1;--mut:#5B665F}
 body{background:var(--grey)}
-.page-hero{background:linear-gradient(155deg,rgba(247,242,231,.82),rgba(236,224,196,.92)),url("ga.jpeg") center/cover no-repeat;color:var(--ink);padding:64px 0 56px;position:relative;overflow:hidden}
+.page-hero{background:linear-gradient(155deg,rgba(247,242,231,.82),rgba(236,224,196,.92)),url("eleves-classe.jpg") center/cover no-repeat,url("ga.jpeg") center/cover no-repeat;color:var(--ink);padding:64px 0 56px;position:relative;overflow:hidden}
 .page-hero .container{max-width:900px}
 .page-hero .crumb{font:600 .85rem Karla,sans-serif;letter-spacing:.04em;color:#8A6A24;margin-bottom:14px}
 .page-hero h1{font:600 clamp(1.8rem,4vw,2.8rem)/1.15 Fraunces,Georgia,serif;margin:0 0 18px;max-width:20ch;color:var(--gd)}
@@ -73,6 +73,22 @@ td{padding:10px;font-size:.92rem;border-bottom:1px solid var(--grey)}
 .note{font:.85rem/1.5 Karla,sans-serif;color:#7A8A80;margin-top:24px}
 @media(max-width:720px){.two{grid-template-columns:1fr}.page-hero{padding:44px 0 40px}}
 @media print{.tabs,.chips,.prog-search-box,.site-header,.site-footer,.wa-float{display:none!important}}
+
+/* Bas de page marron clair */
+.site-footer{background:#D9C3A3!important;color:#3B2F1A!important}
+.site-footer h4,.site-footer strong,.site-footer p,.site-footer span,.site-footer a{color:#3B2F1A!important}
+.site-footer a:hover{color:#6B4F1D!important;text-decoration:underline}
+.footer-bottom{border-top:1px solid rgba(59,47,26,.25)!important}
+/* Menu mobile (trois traits) */
+@media(max-width:880px){
+  .main-nav,.header-actions{display:none}
+  .burger{display:flex!important;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;background:transparent;border:0;cursor:pointer;position:relative;z-index:70}
+  .burger span{display:block!important;width:24px;height:3px;border-radius:2px;background:#B8903E}
+  .mobile-nav a{color:#3B2F1A!important;padding:12px 6px;border-bottom:1px solid #EEF0F1;font-family:Karla,sans-serif;font-weight:600}
+  .mobile-nav .header-actions{display:flex!important;gap:10px;padding-top:12px}
+}
+@media(min-width:881px){.mobile-nav{display:none!important}}
+body.nav-open{overflow:hidden}
 </style>
 </head>
 <body>
@@ -185,6 +201,27 @@ td{padding:10px;font-size:.92rem;border-bottom:1px solid var(--grey)}
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+(function(){
+  function init(){
+    var old=document.querySelector('.burger'), nav=document.querySelector('.mobile-nav'), head=document.querySelector('.site-header');
+    if(!old||!nav)return;
+    var b=old.cloneNode(true); old.parentNode.replaceChild(b,old); /* retire les anciens écouteurs de main.js */
+    function close(){nav.removeAttribute('style');b.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open')}
+    function open(){
+      var top=head?Math.round(head.getBoundingClientRect().bottom):60;
+      nav.setAttribute('style','display:flex;flex-direction:column;position:fixed;left:0;right:0;top:'+top+'px;max-height:calc(100vh - '+top+'px);overflow:auto;background:#fff;padding:12px 20px 24px;z-index:60;box-shadow:0 12px 24px rgba(0,0,0,.15)');
+      b.setAttribute('aria-expanded','true');document.body.classList.add('nav-open');
+    }
+    b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();b.getAttribute('aria-expanded')==='true'?close():open()});
+    nav.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+    document.addEventListener('click',function(e){if(b.getAttribute('aria-expanded')==='true'&&!nav.contains(e.target)&&!b.contains(e.target))close()});
+    window.addEventListener('resize',function(){if(window.innerWidth>880)close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
 
