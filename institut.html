@@ -408,6 +408,95 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
   padding-left:16px;
   margin:0 0 22px;
 }
+
+/* =========================================================
+   EMBELLISSEMENTS (logo, menu, titres, pied de page)
+   ========================================================= */
+
+/* ===== 1. LOGO AGRANDI (en-tête) ===== */
+.nav-row{padding:10px 24px}
+.brand{gap:16px}
+.brand img{height:78px;width:78px;border-radius:12px;box-shadow:0 4px 14px -4px rgba(59,45,27,.35)}
+.brand-text strong{font-size:1.3rem}
+.brand-text span{font-size:.8rem}
+@media(max-width:960px){.brand img{height:62px;width:62px}}
+@media(max-width:480px){.brand img{height:54px;width:54px}.brand-text strong{font-size:1.05rem}}
+
+/* ===== 2. MENU EMBELLI (Actualités, Bibliothèque, etc.) ===== */
+.main-nav{gap:4px}
+.main-nav a{
+  font-family:var(--font-display);
+  font-size:.95rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  padding:9px 12px;
+  border-radius:100px;
+  transition:background .25s,color .25s,transform .2s,box-shadow .25s;
+}
+.main-nav a:hover{
+  background:var(--emerald-l);
+  color:var(--deep-green);
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px -8px rgba(59,45,27,.45);
+}
+.main-nav a.active{
+  background:var(--deep-green);
+  color:var(--gold-l);
+  box-shadow:0 6px 16px -8px rgba(59,45,27,.7);
+}
+.main-nav a.active::after{display:none}
+.mobile-nav a{font-family:var(--font-display);font-size:1.05rem}
+.mobile-nav a.active{color:var(--emerald);border-left:3px solid var(--gold);padding-left:12px}
+
+/* ===== 3. TITRES DE SECTIONS EMBELLIS ===== */
+.kicker{
+  display:inline-block !important;
+  background:var(--gold-l);
+  color:var(--deep-green) !important;
+  padding:6px 16px;
+  border-radius:100px;
+  font-size:.8rem !important;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border:1px solid rgba(201,166,107,.7);
+  margin-bottom:14px !important;
+}
+main h2{position:relative;padding-bottom:16px;color:var(--deep-green)}
+main h2::after{
+  content:"";
+  display:block;
+  width:72px;height:4px;border-radius:4px;
+  background:linear-gradient(90deg,var(--gold),var(--emerald));
+  margin-top:12px;
+}
+.section-head.center h2::after,
+.container[style*="text-align:center"] h2::after{margin-left:auto;margin-right:auto}
+main h3{color:var(--deep-green)}
+.parrain-quote,.stat-strip h3{color:var(--ink)}
+
+/* ===== 4. PIED DE PAGE MARRON ===== */
+.site-footer{
+  background:linear-gradient(180deg,#6B4429,#4A2E1A);
+  color:#F6EBDD;
+  border-top:4px solid var(--gold);
+}
+.site-footer p,
+.site-footer .small{color:#F6EBDD}
+.site-footer h4{
+  color:var(--gold-l);
+  font-size:1.05rem;
+  padding-bottom:10px;
+  position:relative;
+}
+.site-footer h4::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:36px;height:2px;background:var(--gold);
+}
+.site-footer a{color:#F6EBDD;transition:color .2s,padding-left .2s}
+.site-footer a:hover{color:var(--gold-l);padding-left:6px}
+.footer-brand img{height:68px;width:68px;border-radius:10px}
+.footer-brand strong{color:#fff;font-size:1.15rem}
+.footer-bottom{border-top:1px solid rgba(244,231,203,.28);color:#E8D7BF}
 </style>
 
 <script type="application/ld+json">
@@ -642,7 +731,7 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" width="46" height="46" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+          <img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="46" height="46" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
           <strong>Institut Al Maarifa</strong>
         </div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
