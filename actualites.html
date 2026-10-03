@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Actualités | Institut Al Maarifa</title>
 <meta name="description" content="Toute l'actualité de l'Institut Al Maarifa Thierno Djibril Ousmane Ba : annonces, événements et vie scolaire.">
-<meta name="theme-color" content="#0B3B2C">
+<meta name="theme-color" content="#5C3A21">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/actualites.html">
 
 <!-- Open Graph -->
@@ -54,10 +54,7 @@
 
 <style>
   /* ============================================================
-     ACTUALITÉS — styles scoppés à cette page uniquement.
-     Utilise les variables déjà définies par s.css quand elles
-     existent (--vert / --dore / --creme etc.) avec un repli
-     cohérent avec l'identité de l'Institut si elles n'existent pas.
+     ACTUALITÉS — styles propres à cette page uniquement.
      ============================================================ */
   #main {
     --am-green: var(--primary, #0B3B2C);
@@ -68,28 +65,28 @@
     --am-white: #FFFFFF;
     --am-ink: #1C2620;
     --am-line: #E7E0CE;
+    --am-beige: #F5E9D2;
+    --am-brown: #5C3A21;
+    --am-brown-dark: #3B2414;
     --am-shadow: 0 10px 30px -14px rgba(11, 59, 44, 0.28);
     --am-shadow-hover: 0 20px 40px -16px rgba(11, 59, 44, 0.38);
     --am-radius: 18px;
   }
 
-  /* ---------- Bannière ---------- */
+  /* ---------- Bannière : image g.jpeg, beige en haut -> marron en bas ---------- */
   .news-banner {
     position: relative;
+    padding: 56px 0 84px;
     background:
-      radial-gradient(1200px 400px at 15% -10%, rgba(184,144,62,0.18), transparent 60%),
-      linear-gradient(160deg, var(--am-green) 0%, var(--am-green-dark) 100%);
-    color: var(--am-cream);
+      linear-gradient(180deg,
+        rgba(245, 233, 210, 0.92) 0%,
+        rgba(214, 184, 140, 0.80) 40%,
+        rgba(92, 58, 33, 0.94) 100%),
+      url('li.jpeg') center / cover no-repeat;
+    background-color: #5C3A21; /* repli si l'image ne charge pas */
+    color: var(--am-brown-dark);
     overflow: hidden;
     isolation: isolate;
-  }
-  .news-banner::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 26px);
-    z-index: -1;
   }
   .news-banner .eyebrow {
     display: inline-flex;
@@ -99,14 +96,15 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-size: 0.78rem;
-    color: var(--am-gold-light);
+    font-weight: 700;
+    color: #7A5A1E;
   }
   .news-banner .am-divider {
     width: 64px;
     height: 3px;
     margin: 18px 0 22px;
     border-radius: 999px;
-    background: linear-gradient(90deg, var(--am-gold), var(--am-gold-light));
+    background: linear-gradient(90deg, var(--am-brown), var(--am-gold));
   }
   .news-banner h1 {
     font-family: 'Fraunces', serif;
@@ -115,21 +113,23 @@
     line-height: 1.12;
     margin: 0 0 14px;
     max-width: 18ch;
+    color: var(--am-brown-dark);
   }
   .news-banner p.lead {
     font-family: 'Karla', sans-serif;
-    color: rgba(250,246,236,0.82);
+    color: #4A2E1A;
     font-size: clamp(0.98rem, 1.6vw, 1.12rem);
     max-width: 52ch;
-    margin: 0 0 26px;
+    margin: 0 0 40px;
   }
+  /* Le fil d'Ariane est dans la zone marron : texte clair */
   .news-banner .crumb {
     font-family: 'Karla', sans-serif;
     font-size: 0.86rem;
-    color: rgba(250,246,236,0.7);
+    color: rgba(250, 246, 236, 0.85);
   }
   .news-banner .crumb a {
-    color: var(--am-gold-light);
+    color: #E8CD94;
     text-decoration: none;
   }
   .news-banner .crumb a:hover,
@@ -162,7 +162,7 @@
     border-radius: 999px;
     padding: 10px 18px;
   }
-  .news-search svg { flex: none; color: var(--am-green); opacity: 0.75; }
+  .news-search svg { flex: none; color: var(--am-brown); opacity: 0.75; }
   .news-search input {
     border: 0;
     background: transparent;
@@ -212,6 +212,7 @@
     padding: 0 2px;
     margin-top: -6px;
   }
+  .news-results-count:empty { display: none; }
 
   /* ---------- Grille & cartes ---------- */
   #news-grid {
@@ -275,7 +276,7 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    background: rgba(11,59,44,0.82);
+    background: rgba(92,58,33,0.88);
     color: var(--am-cream);
     font-size: 0.72rem;
     font-family: 'Karla', sans-serif;
@@ -292,8 +293,8 @@
     align-items: center;
     justify-content: center;
     color: var(--am-green);
-    opacity: 0.35;
   }
+  .news-card-media.no-image > svg:first-child { opacity: 0.35; }
 
   .news-card-body {
     padding: 20px 22px 22px;
@@ -312,7 +313,7 @@
   .news-badge {
     display: inline-block;
     background: rgba(184,144,62,0.14);
-    color: var(--am-gold);
+    color: #8A6A22;
     border: 1px solid rgba(184,144,62,0.35);
     font-size: 0.72rem;
     font-weight: 700;
@@ -342,6 +343,7 @@
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -374,6 +376,7 @@
     margin: 0 auto 18px;
     color: var(--am-gold);
     opacity: 0.8;
+    display: block;
   }
   .news-empty h3 {
     font-family: 'Fraunces', serif;
@@ -384,9 +387,8 @@
   .news-empty p {
     font-family: 'Karla', sans-serif;
     color: #6D7268;
-    margin: 0;
+    margin: 0 auto;
     max-width: 44ch;
-    margin-inline: auto;
   }
 
   /* ---------- Détail d'une actualité ---------- */
@@ -441,12 +443,11 @@
     line-height: 1.75;
     color: #3B4238;
     white-space: pre-line;
-  }
-  #news-detail-content .detail-extra-media {
-    margin-top: 28px;
+    max-width: 75ch;
   }
 
   @media (max-width: 640px) {
+    .news-banner { padding: 40px 0 70px; }
     .news-toolbar { margin-top: -20px; padding: 14px; }
     .news-filters { gap: 6px; }
     .news-filter-btn { padding: 8px 12px; font-size: 0.8rem; }
@@ -465,20 +466,20 @@
       </span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link>Centre</a>
+      <a href="programmes.html" data-nav-link>Programmes</a>
+      <a href="activites.html" data-nav-link>Activités</a>
       <a href="actualites.html" data-nav-link class="active" aria-current="page">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link>Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="am-mobile-nav">
@@ -486,19 +487,19 @@
     </button>
   </div>
   <nav class="mobile-nav" id="am-mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="active" aria-current="page">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+    <a href="index.html" data-nav-link>Accueil</a>
+    <a href="institut.html" data-nav-link>L'Institut</a>
+    <a href="centre.html" data-nav-link>Centre</a>
+    <a href="programmes.html" data-nav-link>Programmes</a>
+    <a href="activites.html" data-nav-link>Activités</a>
+    <a href="actualites.html" data-nav-link class="active" aria-current="page">Actualités</a>
+    <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+    <a href="galerie.html" data-nav-link>Galerie</a>
+    <a href="tarifs.html" data-nav-link>Tarifs</a>
+    <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+    <a href="contact.html" data-nav-link>Contact</a>
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
   </nav>
@@ -507,7 +508,7 @@
 
 <section class="page-banner news-banner">
   <div class="container">
-    <span class="eyebrow">L'<strong>Institut</strong> Al Maarifa</span>
+    <span class="eyebrow">Institut Al Maarifa</span>
     <div class="am-divider"></div>
     <h1>Les dernières actualités de l'Institut</h1>
     <p class="lead">Annonces, événements et vie scolaire de l'Institut Al Maarifa.</p>
@@ -534,7 +535,7 @@
       <span class="news-results-count" id="news-results-count" aria-live="polite"></span>
     </div>
 
-    <div id="news-grid" class="grid grid-3" aria-live="polite"></div>
+    <div id="news-grid" aria-live="polite"></div>
   </div>
 </section>
 
@@ -551,7 +552,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
+          <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
           <strong>Institut Al Maarifa</strong>
         </div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
@@ -577,7 +578,7 @@
         <h4>Contact</h4>
         <a href="tel:+221774036424">77 403 64 24</a>
         <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+        <a data-wa-link href="https://wa.me/221774036424" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
         <a href="contact.html">Formulaire de contact</a>
       </div>
     </div>
@@ -588,8 +589,8 @@
   </div>
 </footer>
 
-<a class="wa-float" data-wa-link href="#" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+<a class="wa-float" data-wa-link href="https://wa.me/221774036424" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
@@ -598,27 +599,22 @@
 
 <script>
 /* ============================================================
-   MENU BURGER — implémentation autonome et défensive.
-   S'active uniquement si le bouton/menu existent sur la page,
-   et ne s'attache qu'une seule fois (garde anti-doublon) même
-   si un script comme main.js tente également de l'initialiser.
+   MENU BURGER — autonome et défensif (anti-doublon avec main.js).
    ============================================================ */
 (function initBurgerMenu() {
   var burger = document.querySelector('.burger');
   var mobileNav = document.querySelector('.mobile-nav');
-  if (!burger || !mobileNav) return;                // page sans menu mobile : on ne fait rien
-  if (burger.dataset.amBound === '1') return;        // déjà initialisé, on évite un double binding
+  if (!burger || !mobileNav) return;
+  if (burger.dataset.amBound === '1') return;
   burger.dataset.amBound = '1';
 
   function isOpen() { return mobileNav.classList.contains('open'); }
-
   function openMenu() {
     mobileNav.classList.add('open');
     burger.classList.add('active');
     burger.setAttribute('aria-expanded', 'true');
     document.body.classList.add('nav-open');
   }
-
   function closeMenu() {
     mobileNav.classList.remove('open');
     burger.classList.remove('active');
@@ -626,36 +622,21 @@
     document.body.classList.remove('nav-open');
   }
 
-  function toggleMenu() {
-    if (isOpen()) { closeMenu(); } else { openMenu(); }
-  }
-
   burger.addEventListener('click', function (e) {
     e.stopPropagation();
-    toggleMenu();
+    if (isOpen()) { closeMenu(); } else { openMenu(); }
   });
-
-  // Fermer au clic sur un lien du menu mobile
   mobileNav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () { closeMenu(); });
+    link.addEventListener('click', closeMenu);
   });
-
-  // Fermer au clic à l'extérieur du menu / du bouton
   document.addEventListener('click', function (e) {
     if (!isOpen()) return;
     if (mobileNav.contains(e.target) || burger.contains(e.target)) return;
     closeMenu();
   });
-
-  // Fermer avec la touche Échap
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && isOpen()) {
-      closeMenu();
-      burger.focus();
-    }
+    if (e.key === 'Escape' && isOpen()) { closeMenu(); burger.focus(); }
   });
-
-  // Si on repasse en desktop, on referme proprement le menu mobile
   window.addEventListener('resize', function () {
     if (window.innerWidth > 900 && isOpen()) closeMenu();
   });
@@ -665,12 +646,10 @@
 <script>
 /* ============================================================
    ACTUALITÉS — rendu des cartes, recherche, filtres, détail.
-   Namespacé sous AM_NEWS pour ne jamais entrer en conflit avec
-   d'éventuelles variables globales de main.js / data.js.
    ============================================================ */
 (function () {
   var newsGrid = document.getElementById('news-grid');
-  if (!newsGrid) return; // sécurité : page sans grille d'actualités
+  if (!newsGrid) return;
 
   var searchInput = document.getElementById('news-search-input');
   var filtersWrap = document.getElementById('news-filters');
@@ -681,23 +660,23 @@
 
   var state = { query: '', category: 'Toutes' };
 
-  var fmtNews = function (d) {
-    try { return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }); }
-    catch (e) { return ''; }
-  };
+  function fmtNews(d) {
+    try {
+      var date = new Date(d);
+      if (isNaN(date.getTime())) return '';
+      return date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+    } catch (e) { return ''; }
+  }
 
   function escapeHtml(str) {
     return String(str == null ? '' : str)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  // -------- Source des données --------
-  // Utilise SITE_DATA.news (data.js) si disponible et non vide.
-  // Sinon, aucune fausse actualité n'est affichée : un message
-  // clair indique qu'aucune actualité n'est encore disponible.
+  // Source : SITE_DATA.news (data.js). Aucune fausse actualité si vide.
   function getNewsList() {
-    var real = (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.news)) ? SITE_DATA.news : [];
-    return real;
+    return (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.news)) ? SITE_DATA.news : [];
   }
 
   function getCategories(list) {
@@ -719,16 +698,13 @@
     filtersWrap.querySelectorAll('.news-filter-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         state.category = btn.getAttribute('data-cat');
-        filtersWrap.querySelectorAll('.news-filter-btn').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
         renderNewsList();
       });
     });
   }
 
   function matchesFilters(item) {
-    var okCategory = state.category === 'Toutes' || item.category === state.category;
-    if (!okCategory) return false;
+    if (state.category !== 'Toutes' && item.category !== state.category) return false;
     if (!state.query) return true;
     var q = state.query.toLowerCase();
     var haystack = [item.title, item.summary, item.content, item.category].filter(Boolean).join(' ').toLowerCase();
@@ -744,75 +720,75 @@
 
   function cardMedia(item) {
     if (item.image) {
-      return '' +
-        '<div class="news-card-media">' +
+      return '<div class="news-card-media">' +
           '<img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy">' +
           mediaBadge(item) +
         '</div>';
     }
-    // Pas d'image : bloc neutre identifiable, pas de fausse photo
-    return '' +
-      '<div class="news-card-media no-image" aria-hidden="true">' +
+    return '<div class="news-card-media no-image" aria-hidden="true">' +
         '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 16l-5-5-4 4-2-2-5 5"/></svg>' +
         mediaBadge(item) +
       '</div>';
   }
 
+  function emptyBlock(iconSvg, title, text) {
+    return '<div class="news-empty">' + iconSvg + '<h3>' + title + '</h3><p>' + text + '</p></div>';
+  }
+
   function renderNewsList() {
     var list = getNewsList();
     renderFilters(list);
-
     var filtered = list.filter(matchesFilters);
+    var isFiltering = state.query || state.category !== 'Toutes';
 
     if (resultsCount) {
-      resultsCount.textContent = list.length === 0
-        ? ''
-        : (filtered.length + ' actualité' + (filtered.length > 1 ? 's' : '') + (state.query || state.category !== 'Toutes' ? ' trouvée' + (filtered.length > 1 ? 's' : '') : ''));
+      resultsCount.textContent = list.length === 0 ? '' :
+        filtered.length + ' actualité' + (filtered.length > 1 ? 's' : '') +
+        (isFiltering ? ' trouvée' + (filtered.length > 1 ? 's' : '') : '');
     }
 
     if (list.length === 0) {
-      newsGrid.innerHTML = '' +
-        '<div class="news-empty">' +
-          '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 4h16v12H7l-3 3V4Z"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="11.5" x2="14" y2="11.5"/></svg>' +
-          '<h3>Aucune actualité disponible pour le moment.</h3>' +
-          '<p>Les prochaines actualités de l\u2019Institut seront publiées ici.</p>' +
-        '</div>';
+      newsGrid.innerHTML = emptyBlock(
+        '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 4h16v12H7l-3 3V4Z"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="11.5" x2="14" y2="11.5"/></svg>',
+        'Aucune actualité disponible pour le moment.',
+        'Les prochaines actualités de l\u2019Institut seront publiées ici.');
       return;
     }
 
     if (filtered.length === 0) {
-      newsGrid.innerHTML = '' +
-        '<div class="news-empty">' +
-          '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
-          '<h3>Aucun résultat</h3>' +
-          '<p>Essayez un autre mot-clé ou choisissez une autre catégorie.</p>' +
-        '</div>';
+      newsGrid.innerHTML = emptyBlock(
+        '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+        'Aucun résultat',
+        'Essayez un autre mot-clé ou choisissez une autre catégorie.');
       return;
     }
 
     newsGrid.innerHTML = filtered.map(function (n, i) {
-      return '' +
-        '<a href="actualites.html?id=' + encodeURIComponent(n.id) + '" class="news-card" style="animation-delay:' + Math.min(i * 60, 360) + 'ms">' +
+      return '<a href="actualites.html?id=' + encodeURIComponent(n.id) + '" class="news-card" style="animation-delay:' + Math.min(i * 60, 360) + 'ms">' +
           cardMedia(n) +
           '<div class="news-card-body">' +
             '<div class="news-meta-row">' +
               '<span class="news-badge">' + escapeHtml(n.category || 'Actualité') + '</span>' +
-              '<span class="news-date">' + (n.date ? fmtNews(n.date) : 'Date à venir') + '</span>' +
+              '<span class="news-date">' + (n.date ? fmtNews(n.date) : '') + '</span>' +
             '</div>' +
             '<h3>' + escapeHtml(n.title) + '</h3>' +
             '<p class="summary">' + escapeHtml(n.summary) + '</p>' +
-            '<span class="news-readmore">Lire la suite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>' +
+            '<span class="news-readmore">Lire la suite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>' +
           '</div>' +
         '</a>';
     }).join('');
   }
 
+  function youtubeId(value) {
+    var v = String(value);
+    if (v.indexOf('http') !== 0) return v;
+    if (v.indexOf('v=') !== -1) return v.split('v=')[1].split('&')[0];
+    return v.split('?')[0].split('/').pop();
+  }
+
   function detailMedia(item) {
     if (item.youtube) {
-      var ytId = item.youtube.indexOf('http') === 0
-        ? (item.youtube.split('v=')[1] || item.youtube.split('/').pop()).split('&')[0]
-        : item.youtube;
-      return '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + encodeURIComponent(ytId) + '" title="' + escapeHtml(item.title || 'Vidéo') + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+      return '<div class="video-embed"><iframe src="https://www.youtube.com/embed/' + encodeURIComponent(youtubeId(item.youtube)) + '" title="' + escapeHtml(item.title || 'Vidéo') + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
     }
     if (item.video) {
       return '<div class="video-embed"><video src="' + escapeHtml(item.video) + '" controls preload="metadata"></video></div>';
@@ -824,16 +800,13 @@
   }
 
   function renderNewsDetail(id) {
-    var list = getNewsList();
-    var item = list.find(function (n) { return String(n.id) === String(id); });
+    var item = getNewsList().find(function (n) { return String(n.id) === String(id); });
     if (!item) return false;
 
     if (listSection) listSection.style.display = 'none';
-    var toolbar = document.querySelector('.news-toolbar');
-    if (toolbar) toolbar.style.display = 'none';
     detailSection.style.display = 'block';
 
-    detailContent.innerHTML = '' +
+    detailContent.innerHTML =
       detailMedia(item) +
       '<div class="meta-row" style="margin-top:22px;">' +
         '<span class="news-badge">' + escapeHtml(item.category || 'Actualité') + '</span>' +
@@ -853,8 +826,7 @@
     });
   }
 
-  var params = new URLSearchParams(location.search);
-  var id = params.get('id');
+  var id = new URLSearchParams(location.search).get('id');
   renderNewsList();
   if (id) renderNewsDetail(id);
 })();
