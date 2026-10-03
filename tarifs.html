@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarifs 2026-2027 | Institut Al Maarifa</title>
 <meta name="description" content="Tarifs de l'Institut Al Maarifa pour l'année 2026-2027 : frais d'inscription, blouse et mensualité.">
-<meta name="theme-color" content="#0B3B2C">
+<meta name="theme-color" content="#5C3A21">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/tarifs.html">
 
 <!-- Open Graph -->
@@ -41,6 +41,99 @@
   "url": "https://www.institut-almaarifa.sn/"
 }
 </script>
+
+<style>
+  /* ============================================================
+     TARIFS — styles propres à cette page uniquement.
+     ============================================================ */
+
+  /* ---------- Bannière : image g.jpeg, beige en haut -> marron en bas ---------- */
+  .tarifs-banner {
+    position: relative;
+    padding: 56px 0 84px;
+    background:
+      linear-gradient(180deg,
+        rgba(245, 233, 210, 0.92) 0%,
+        rgba(214, 184, 140, 0.80) 40%,
+        rgba(92, 58, 33, 0.94) 100%),
+      url('li.jpeg') center / cover no-repeat;
+    background-color: #5C3A21; /* repli si l'image ne charge pas */
+    color: #3B2414;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .tarifs-banner::before { display: none; }
+  .tarifs-banner .am-divider {
+    width: 64px;
+    height: 3px;
+    margin: 0 0 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #5C3A21, #B8903E);
+  }
+  .tarifs-banner h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4.4vw, 3rem);
+    line-height: 1.12;
+    margin: 0 0 14px;
+    max-width: 20ch;
+    color: #3B2414;
+  }
+  .tarifs-banner p {
+    font-family: 'Karla', sans-serif;
+    color: #4A2E1A;
+    font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+    max-width: 52ch;
+    margin: 0 0 40px;
+  }
+  /* Le fil d'Ariane est dans la zone marron : texte clair */
+  .tarifs-banner .crumb {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.86rem;
+    color: rgba(250, 246, 236, 0.9);
+  }
+  .tarifs-banner .crumb a { color: #E8CD94; text-decoration: none; }
+  .tarifs-banner .crumb a:hover,
+  .tarifs-banner .crumb a:focus-visible { text-decoration: underline; }
+  .tarifs-banner .crumb .sep { margin: 0 8px; opacity: 0.6; }
+  .tarifs-banner .crumb .current { color: #FAF6EC; }
+
+  /* La carte des tarifs chevauche le bas de la bannière */
+  .tarifs-card-wrap { margin-top: -44px; position: relative; }
+
+  @media (max-width: 640px) {
+    .tarifs-banner { padding: 40px 0 70px; }
+    .tarifs-card-wrap { margin-top: -30px; }
+  }
+
+  /* ---------- Pied de page : marron foncé (au lieu de vert) ---------- */
+  .site-footer {
+    background: #3B2414 !important;
+    color: rgba(250, 246, 236, 0.85);
+  }
+  .site-footer h4,
+  .site-footer strong { color: #FAF6EC; }
+  .site-footer a { color: rgba(250, 246, 236, 0.8); }
+  .site-footer a:hover,
+  .site-footer a:focus-visible { color: #E8CD94; }
+  .site-footer .footer-bottom {
+    border-top-color: rgba(250, 246, 236, 0.18);
+    color: rgba(250, 246, 236, 0.7);
+  }
+
+  /* ---------- Menu mobile : affichage garanti quand il est ouvert ---------- */
+  @media (max-width: 960px) {
+    .mobile-nav.open,
+    body.nav-open .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      max-height: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+  }
+</style>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
@@ -54,57 +147,62 @@
       </span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="active">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link>Centre</a>
+      <a href="programmes.html" data-nav-link>Programmes</a>
+      <a href="activites.html" data-nav-link>Activités</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link class="active" aria-current="page">Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="am-mobile-nav">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="active">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+  <nav class="mobile-nav" id="am-mobile-nav" aria-label="Navigation mobile">
+    <a href="index.html" data-nav-link>Accueil</a>
+    <a href="institut.html" data-nav-link>L'Institut</a>
+    <a href="centre.html" data-nav-link>Centre</a>
+    <a href="programmes.html" data-nav-link>Programmes</a>
+    <a href="activites.html" data-nav-link>Activités</a>
+    <a href="actualites.html" data-nav-link>Actualités</a>
+    <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+    <a href="galerie.html" data-nav-link>Galerie</a>
+    <a href="tarifs.html" data-nav-link class="active" aria-current="page">Tarifs</a>
+    <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+    <a href="contact.html" data-nav-link>Contact</a>
     <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
     </div>
   </nav>
 </header>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero tarifs-banner">
   <div class="container">
-    <div class="crumb">Tarifs</div>
+    <div class="am-divider"></div>
     <h1>Des tarifs clairs pour l'année 2026–2027</h1>
     <p>Voici le détail des frais applicables pour l'inscription de votre enfant.</p>
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span class="sep">»</span>
+      <span class="current">Tarifs</span>
+    </nav>
   </div>
 </section>
 
 <section>
-  <div class="container">
-    <div class="price-card reveal" style="max-width:520px;margin:0 auto;">
+  <div class="container tarifs-card-wrap">
+    <div class="price-card reveal in" style="max-width:520px;margin:0 auto;">
       <h3>Frais pour l'année 2026 – 2027</h3>
       <div class="price-line"><span>Frais d'inscription</span><span class="amount">20 000 F CFA</span></div>
       <div class="price-line"><span>Blouse</span><span class="amount">5 000 F CFA</span></div>
@@ -122,7 +220,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
+          <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
           <strong>Institut Al Maarifa</strong>
         </div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
@@ -148,7 +246,7 @@
         <h4>Contact</h4>
         <a href="tel:+221774036424">77 403 64 24</a>
         <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+        <a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
         <a href="contact.html">Formulaire de contact</a>
       </div>
     </div>
@@ -159,11 +257,46 @@
   </div>
 </footer>
 
-<a class="wa-float" data-wa-link href="#" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+<a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script>
+/* ===== Menu burger mobile : autonome, placé AVANT main.js pour éviter tout double déclenchement ===== */
+(function () {
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.mobile-nav');
+  if (!burger || !nav) return;
+  var body = document.body;
+
+  function isOpen() { return nav.classList.contains('open'); }
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    body.classList.toggle('nav-open', open);
+    burger.classList.toggle('active', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  }
+
+  burger.addEventListener('click', function (e) {
+    e.stopImmediatePropagation(); // empêche main.js de rebasculer le menu
+    setOpen(!isOpen());
+  });
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+  document.addEventListener('click', function (e) {
+    if (isOpen() && !nav.contains(e.target) && !burger.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen()) { setOpen(false); burger.focus(); }
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960 && isOpen()) setOpen(false);
+  });
+})();
+</script>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
 
