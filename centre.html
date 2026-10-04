@@ -412,7 +412,7 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
 /* ===== 1. LOGO AGRANDI (en-tête) ===== */
 .nav-row{padding:10px 24px}
 .brand{gap:16px}
-.brand img{height:78px;width:78px;border-radius:12px;box-shadow:0 4px 14px -4px rgba(90,70,40,.35)}
+.brand img{height:78px;width:78px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 4px 14px -4px rgba(90,70,40,.35)}
 .brand-text strong{font-size:1.3rem}
 .brand-text span{font-size:.85rem}
 @media(max-width:960px){.brand img{height:62px;width:62px}}
@@ -468,6 +468,37 @@ main h2::after{
 .container[style*="text-align:center"] h2::after{margin-left:auto;margin-right:auto}
 main h3{color:var(--deep-green)}
 
+/* ===== IMAGE DE FOND DU BANDEAU (li.jpeg) ===== */
+.page-hero{
+  position:relative;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  padding:80px 0;
+  background-color:var(--deep-green);
+  background-image:linear-gradient(rgba(59,45,27,.62),rgba(59,45,27,.74)),url('li.jpeg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  color:#fff;
+}
+.page-hero .container{width:100%}
+.page-hero h1{color:#fff;font-size:clamp(2.2rem,4.8vw,3.6rem)}
+.page-hero p{color:#F6EFDF;margin-left:auto;margin-right:auto}
+.page-hero .crumb{
+  display:inline-block;
+  color:var(--gold-l);
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);
+  padding:6px 16px;
+  border-radius:100px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-size:.8rem;
+}
+@media(max-width:720px){.page-hero{min-height:340px;padding:56px 0}}
+
 /* ===== 4. PIED DE PAGE MARRON ===== */
 .site-footer{
   background:linear-gradient(180deg,#6B4429,#4A2E1A);
@@ -488,7 +519,7 @@ main h3{color:var(--deep-green)}
 }
 .site-footer a{color:#F6EBDD;transition:color .2s,padding-left .2s}
 .site-footer a:hover{color:var(--gold-l);padding-left:6px}
-.footer-brand img{height:68px;width:68px;border-radius:10px}
+.footer-brand img{height:68px;width:68px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
 .footer-brand strong{color:#fff;font-size:1.15rem}
 .footer-bottom{border-top:1px solid rgba(244,231,203,.28);color:#E8D7BF}
 </style>
