@@ -89,6 +89,118 @@ td{padding:10px;font-size:.92rem;border-bottom:1px solid var(--grey)}
 }
 @media(min-width:881px){.mobile-nav{display:none!important}}
 body.nav-open{overflow:hidden}
+
+/* =========================================================
+   EMBELLISSEMENTS (logo rond, menu, titres, fond, pied de page)
+   ========================================================= */
+
+/* ===== 1. LOGO AGRANDI ET ROND ===== */
+.nav-row{padding:10px 24px}
+.brand{gap:16px}
+.brand img{height:78px;width:78px;border-radius:50%;object-fit:cover;border:2px solid #B8903E;box-shadow:0 4px 14px -4px rgba(59,47,26,.35)}
+.brand-text strong{font-family:Fraunces,Georgia,serif;font-size:1.3rem}
+.brand-text span{font-size:.85rem}
+@media(max-width:960px){.brand img{height:62px;width:62px}}
+@media(max-width:480px){.brand img{height:54px;width:54px}.brand-text strong{font-size:1.05rem}}
+
+/* ===== 2. MENU EMBELLI (pastilles) ===== */
+.main-nav{gap:4px}
+.main-nav a{
+  font-family:Fraunces,Georgia,serif;
+  font-size:.95rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  padding:9px 12px;
+  border-radius:100px;
+  transition:background .25s,color .25s,transform .2s,box-shadow .25s;
+}
+.main-nav a:hover{
+  background:#F1E8D6;
+  color:#3B2F1A;
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px -8px rgba(59,47,26,.45);
+}
+.main-nav a::before{display:none}
+.main-nav a.active{
+  background:#5A4A2A;
+  color:#F4E7CB;
+  box-shadow:0 6px 16px -8px rgba(59,47,26,.7);
+}
+.main-nav a.active::after{display:none}
+.mobile-nav a{font-family:Fraunces,Georgia,serif;font-size:1.05rem}
+.mobile-nav a.active{border-left:3px solid #B8903E;padding-left:12px}
+
+/* ===== 3. TITRES EMBELLIS ===== */
+.kicker{
+  display:inline-block;
+  background:#F4E7CB;
+  color:#3B2F1A;
+  padding:6px 16px;
+  border-radius:100px;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  border:1px solid rgba(184,144,62,.6);
+  margin-bottom:12px;
+}
+.section-head h2{padding-bottom:6px}
+.section-head h2::after{
+  content:"";
+  display:block;
+  width:72px;height:4px;border-radius:4px;
+  background:linear-gradient(90deg,#B8903E,#75592F);
+  margin-top:12px;
+}
+
+/* ===== 4. IMAGE DE FOND DU BANDEAU (li.jpeg) ===== */
+.page-hero{
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  padding:80px 0;
+  background:linear-gradient(rgba(59,45,27,.62),rgba(59,45,27,.74)),url("li.jpeg") center/cover no-repeat #5A4A2A;
+  color:#fff;
+}
+.page-hero .container{width:100%}
+.page-hero h1{color:#fff;margin-left:auto;margin-right:auto;font-size:clamp(2.1rem,4.6vw,3.4rem);max-width:22ch}
+.page-hero p{color:#F6EFDF;margin-left:auto;margin-right:auto}
+.page-hero .crumb{
+  display:inline-block;
+  color:#F4E7CB;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);
+  padding:6px 16px;
+  border-radius:100px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-size:.8rem;
+}
+.page-hero .subject-row{justify-content:center}
+@media(max-width:720px){.page-hero{min-height:340px;padding:56px 0}}
+
+/* ===== 5. PIED DE PAGE MARRON ===== */
+.site-footer{
+  background:linear-gradient(180deg,#6B4429,#4A2E1A)!important;
+  color:#F6EBDD!important;
+  border-top:4px solid #C9A66B;
+}
+.site-footer p,.site-footer span,.site-footer strong,.site-footer a,.site-footer .small{color:#F6EBDD!important}
+.site-footer h4{
+  color:#F4E7CB!important;
+  font-size:1.05rem;
+  padding-bottom:10px;
+  position:relative;
+}
+.site-footer h4::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:36px;height:2px;background:#C9A66B;
+}
+.site-footer a{transition:color .2s,padding-left .2s}
+.site-footer a:hover{color:#F4E7CB!important;padding-left:6px;text-decoration:none}
+.footer-brand img{height:68px;width:68px;border-radius:50%;object-fit:cover;border:2px solid #C9A66B}
+.footer-brand strong{color:#fff!important;font-size:1.15rem}
+.footer-bottom{border-top:1px solid rgba(244,231,203,.28)!important}
+.footer-bottom span{color:#E8D7BF!important}
 </style>
 </head>
 <body>
@@ -183,7 +295,7 @@ body.nav-open{overflow:hidden}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><strong>Institut Al Maarifa</strong></div>
+        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'"><strong>Institut Al Maarifa</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
