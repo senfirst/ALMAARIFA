@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor</title>
 <meta name="description" content="Institut Al Maarifa Thierno Djibril Ousmane Ba, école franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.">
-<meta name="theme-color" content="#0B3B2C">
+<meta name="theme-color" content="#4A2E1A">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor">
@@ -22,14 +22,15 @@
 
 <style>
 :root{
-  --deep-green:#0B3B2C; --deep-green-2:#092E22; --emerald:#1F7A50; --emerald-l:#E7F1EB;
+  /* Les noms de variables sont conservés, les valeurs vertes sont maintenant marron */
+  --deep-green:#4A2E1A; --deep-green-2:#3A2314; --emerald:#8B5A2B; --emerald-l:#F3EBE1;
   --gold:#B8903E; --gold-l:#F4E7CB; --cloth:#F1F3F5; --white:#FFFFFF;
   --ink:#000; --ink-soft:#000; --line:#DEE2E6;
   --font-display:"Fraunces","Iowan Old Style",Georgia,serif;
   --font-text:"Karla","Helvetica Neue",Arial,sans-serif;
   --radius-s:6px; --radius-m:14px;
-  --shadow-1:0 1px 2px rgba(11,59,44,.06),0 8px 24px -12px rgba(11,59,44,.18);
-  --shadow-2:0 20px 48px -20px rgba(11,59,44,.35);
+  --shadow-1:0 1px 2px rgba(74,46,26,.06),0 8px 24px -12px rgba(74,46,26,.18);
+  --shadow-2:0 20px 48px -20px rgba(74,46,26,.35);
   --wrap:1180px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -60,8 +61,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .btn-outline:hover{background:rgba(255,255,255,.12)}
 .btn-line{background:transparent;border-color:#000;color:#000}
 .btn-line:hover{background:var(--emerald-l)}
-.btn-whatsapp{background:#1F7A50;color:#fff}
-.btn-whatsapp:hover{background:#175f3e}
+.btn-whatsapp{background:#8B5A2B;color:#fff}
+.btn-whatsapp:hover{background:#6E4420}
 
 /* header */
 .site-header{position:sticky;top:0;z-index:60;background:rgba(241,243,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -92,18 +93,18 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg
 @media(max-width:960px){.main-nav,.header-actions{display:none}.burger{display:flex}}
 
 /* hero */
-.hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(9,46,34,.35),rgba(9,46,34,.86)),var(--deep-green);background-size:cover;background-position:center;color:#fff;overflow:hidden}
+.hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(58,35,20,.35),rgba(58,35,20,.86)),var(--deep-green);background-size:cover;background-position:center;color:#fff;overflow:hidden}
 .hero-inner{position:relative;z-index:2;padding:64px 0 68px;max-width:760px}
 .hero-eyebrow-line{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,rgba(184,144,62,.35),rgba(255,255,255,.12),rgba(184,144,62,.35));background-size:200% 100%;border:1px solid rgba(255,255,255,.3);padding:8px 16px;border-radius:100px;font-weight:700;font-size:.85rem;margin-bottom:22px;color:var(--gold-l);animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) both,shimmerBadge 5s ease-in-out infinite 1s}
 .hero h1{color:#fff;animation:fadeUp .8s cubic-bezier(.22,.61,.36,1) both;animation-delay:.3s}
 .hero .partner{font-weight:700;color:var(--gold-l);font-size:1.05rem;margin-bottom:14px;animation:fadeUp .7s both;animation-delay:.18s}
-.hero .slogan{font-size:1.18rem;color:#EAF3EC;max-width:52ch;animation:fadeUp .8s both;animation-delay:.44s}
+.hero .slogan{font-size:1.18rem;color:#F6EBDD;max-width:52ch;animation:fadeUp .8s both;animation-delay:.44s}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;animation:fadeUp .8s both;animation-delay:.58s}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-bg img{width:100%;height:100%;object-fit:cover;display:block;animation:kenBurns 16s ease-in-out infinite alternate;will-change:transform}
-.hero-bg.is-empty{background:var(--deep-green);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#DCEAE1}
+.hero-bg.is-empty{background:var(--deep-green);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#F1E3D0}
 .hero-bg.is-empty .placeholder-icon{width:48px;height:48px;margin-bottom:10px;opacity:.7}
-.hero-bg.is-empty .placeholder-label{font-size:.85rem;opacity:.8;position:static;background:none;color:#DCEAE1}
+.hero-bg.is-empty .placeholder-label{font-size:.85rem;opacity:.8;position:static;background:none;color:#F1E3D0}
 
 /* section head */
 .section-head{max-width:640px;margin-bottom:44px}
@@ -139,7 +140,7 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:48px 0}
 .visually-hidden{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .visually-hidden:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;z-index:999;background:#fff;color:#000;padding:10px 16px;border-radius:8px;box-shadow:var(--shadow-2)}
 
-/* director */
+/* director + founder */
 .subnav{display:flex;flex-wrap:wrap;gap:10px;padding:16px 0;border-bottom:1px solid var(--line)}
 .subnav a{padding:9px 16px;border-radius:100px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:.85rem;color:#000;transition:background .15s,border-color .15s}
 .subnav a:hover{background:var(--emerald-l);border-color:var(--emerald)}
@@ -186,8 +187,8 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:48px 0}
 .footer-brand img{height:40px}
 .footer-brand strong{color:#000;font-family:var(--font-display)}
 .small{font-size:.85rem}
-.wa-float{position:fixed;bottom:22px;right:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:#1F7A50;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-2);color:#fff;animation:pulseRing 2.6s ease-out infinite}
-.wa-float:hover{background:#175f3e}
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:#8B5A2B;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-2);color:#fff;animation:pulseRing 2.6s ease-out infinite}
+.wa-float:hover{background:#6E4420}
 
 /* reveal */
 .reveal{opacity:1;transform:none}
@@ -211,7 +212,7 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:48px 0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 @keyframes kenBurns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.12) translate(-1%,-1%)}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(31,122,80,.55)}70%{box-shadow:0 0 0 14px rgba(31,122,80,0)}100%{box-shadow:0 0 0 0 rgba(31,122,80,0)}}
+@keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(139,90,43,.55)}70%{box-shadow:0 0 0 14px rgba(139,90,43,0)}100%{box-shadow:0 0 0 0 rgba(139,90,43,0)}}
 @keyframes shimmerBadge{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 @keyframes underlineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (prefers-reduced-motion:reduce){.hero-bg img,.director-photo-card,.wa-float,.hero-eyebrow-line{animation:none!important}}
@@ -223,7 +224,7 @@ main strong{color:#000!important}
 /* ===== 1. LOGO AGRANDI (en-tête) ===== */
 .nav-row{padding:10px 24px}
 .brand{gap:16px}
-.brand img{height:78px;width:78px;border-radius:12px;box-shadow:0 4px 14px -4px rgba(11,59,44,.35)}
+.brand img{height:78px;width:78px;border-radius:12px;box-shadow:0 4px 14px -4px rgba(74,46,26,.35)}
 .brand-text strong{font-size:1.3rem}
 .brand-text span{font-size:.8rem}
 @media(max-width:960px){.brand img{height:62px;width:62px}}
@@ -244,13 +245,13 @@ main strong{color:#000!important}
   background:var(--emerald-l);
   color:var(--deep-green);
   transform:translateY(-2px);
-  box-shadow:0 6px 14px -8px rgba(11,59,44,.45);
+  box-shadow:0 6px 14px -8px rgba(74,46,26,.45);
 }
 .main-nav a::before{display:none}
 .main-nav a.active{
   background:var(--deep-green);
   color:var(--gold-l);
-  box-shadow:0 6px 16px -8px rgba(11,59,44,.7);
+  box-shadow:0 6px 16px -8px rgba(74,46,26,.7);
 }
 .main-nav a.active::after{display:none}
 .mobile-nav a{font-family:var(--font-display);font-size:1.05rem}
@@ -313,6 +314,7 @@ main h3{color:var(--deep-green)}
   "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
   "alternateName": "Institut Al Maarifa",
   "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
+  "founder": {"@type": "Person", "name": "Thierno Malick BA"},
   "address": {"@type": "PostalAddress","addressLocality": "Bambilor - Darou Salam","addressCountry": "SN"},
   "telephone": ["+221774036424", "+221775722937"],
   "url": "https://www.institut-almaarifa.sn/"
@@ -325,7 +327,7 @@ main h3{color:var(--deep-green)}
 <header class="site-header">
   <div class="nav-row">
     <a href="index.html" class="brand">
-      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%234A2E1A%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
       <span class="brand-text">
         <strong>Institut AlMaarifa</strong>
         <span>Thierno Djibril Ousmane Ba</span>
@@ -463,7 +465,43 @@ main h3{color:var(--deep-green)}
 </div>
 </section>
 
-<!-- ============ BLOC 2 : LE DIRECTEUR ============ -->
+<!-- ============ BLOC 2 : LE FONDATEUR ============ -->
+<section class="group-wrap" style="padding-top:0;" id="fondateur">
+<div class="group-box">
+
+<section class="bio-banner">
+  <div class="container">
+    <span class="eyebrow">Le Fondateur</span>
+    <h2>Portrait du Fondateur</h2>
+    <div class="divider"><span></span></div>
+    <div class="function">M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="bio-profile-card reveal">
+      <div class="director-photo-card">
+        <div class="img-slot" data-img-slot>
+          <img src="fondateur-thierno-malick-ba.jpg" alt="M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
+          <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="3.4"></circle><path d="M4.5 20c1.6-3.6 4.5-5.5 7.5-5.5s5.9 1.9 7.5 5.5"></path></svg>
+          <span class="placeholder-label">Photo du Fondateur</span>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:1.5rem;">M. Thierno Malick BA</h3>
+        <div class="director-function">Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</div>
+        <p>M. Thierno Malick BA est le fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba. C'est de sa vision qu'est née cette école franco-arabe de Bambilor – Darou Salam, pensée pour offrir aux enfants une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
+        <p>Grâce à son engagement, l'Institut accompagne aujourd'hui les élèves du préscolaire à la terminale, avec le souci constant de l'excellence, de la discipline et de la transmission des valeurs de respect, de morale et de responsabilité.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</section>
+
+<!-- ============ BLOC 3 : LE DIRECTEUR ============ -->
 <section class="group-wrap" style="padding-top:0;">
 <div class="group-box">
 
@@ -577,7 +615,7 @@ main h3{color:var(--deep-green)}
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="46" height="46" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+          <img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="46" height="46" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%234A2E1A%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
           <strong>Institut Al Maarifa</strong>
         </div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
@@ -587,6 +625,7 @@ main h3{color:var(--deep-green)}
         <h4>Navigation</h4>
         <a href="index.html">Accueil</a>
         <a href="institut.html">L'Institut</a>
+        <a href="index.html#fondateur">Le Fondateur</a>
         <a href="programmes.html">Programmes</a>
         <a href="actualites.html">Actualités</a>
         <a href="contact.html">Contact</a>
