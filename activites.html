@@ -5,267 +5,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Activités — Pédagogiques, islamiques, sportives et culturelles | Institut Al Maarifa</title>
 <meta name="description" content="Activités pédagogiques, islamiques, sportives et culturelles organisées par l'Institut Al Maarifa tout au long de l'année scolaire.">
-<meta name="theme-color" content="#FAF5E9">
+<meta name="theme-color" content="#800020">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/activites.html">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Activités — Pédagogiques, islamiques, sportives et culturelles | Institut Al Maarifa">
 <meta property="og:description" content="Activités pédagogiques, islamiques, sportives et culturelles organisées par l'Institut Al Maarifa tout au long de l'année scolaire.">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
-
 <link rel="icon" type="image/png" href="public/icons/favicon.png">
 <link rel="apple-touch-icon" href="public/icons/favicon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   INSTITUT AL MAARIFA — Design system
-   Palette: beige / crème clair / or, base crème chaude
-   Type: Fraunces (display serif) + Karla (text sans)
-   ========================================================= */
-:root{
-  --deep-green: #5A4528;     /* beige très foncé : titres, boutons */
-  --deep-green-2: #C9B28A;   /* beige */
-
-  --emerald: #75592F;
-  --emerald-l: #F1E8D6;
-
-  --gold: #8A6A24;
-  --gold-l: #F4E7CB;
-
-  --cloth: #FAF5E9;          /* fond crème */
-  --white: #FFFFFF;
-
-  --ink: #1F1A12;            /* texte principal */
-  --ink-soft: #3F362A;       /* texte secondaire */
-  --line: #E6DCC6;           /* bordures */
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
-  --radius-s: 6px;
-  --radius-m: 14px;
-  --shadow-1: 0 1px 2px rgba(90,70,40,.06), 0 8px 24px -12px rgba(90,70,40,.18);
-  --shadow-2: 0 20px 48px -20px rgba(90,70,40,.35);
-  --wrap: 1180px;
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{ margin:0; font-family:var(--font-text); font-size:17px; color:var(--ink); background:var(--cloth); line-height:1.7; -webkit-font-smoothing:antialiased; }
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-ul{ margin:0; padding:0; list-style:none; }
-h1,h2,h3,h4{ font-family:var(--font-display); color:var(--deep-green); line-height:1.14; margin:0 0 .5em; font-weight:600; letter-spacing:-.01em; }
-h1{ font-size:clamp(2.3rem,4.4vw,3.6rem); font-weight:560; }
-h2{ font-size:clamp(1.7rem,3vw,2.4rem); }
-h3{ font-size:1.35rem; }
-p{ margin:0 0 1em; max-width:64ch; color:var(--ink-soft); font-size:1.06rem; }
-.container{ max-width:var(--wrap); margin:0 auto; padding:0 24px; }
-section{ padding:88px 0; }
-@media(max-width:720px){ section{ padding:56px 0; } }
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
-@media (prefers-reduced-motion: reduce){ *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; } }
-
-.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5em; padding:14px 26px; border-radius:var(--radius-s); font-family:var(--font-text); font-weight:700; font-size:.98rem; border:1px solid transparent; cursor:pointer; white-space:nowrap; transition:transform .15s ease, box-shadow .15s ease, background .15s ease; }
-.btn:active{ transform:translateY(1px); }
-.btn-gold{ background:var(--gold); color:var(--white); }
-.btn-gold:hover{ background:#755a1d; box-shadow:var(--shadow-1); }
-.btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
-.btn-outline:hover{ background:rgba(255,255,255,.12); }
-.btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
-.btn-line:hover{ background:var(--emerald-l); }
-.btn-whatsapp{ background:#75592F; color:#fff; }
-.btn-whatsapp:hover{ background:#5E4824; }
-.btn-block{ width:100%; }
-
-/* ---------- HAUT : en-tête crème clair ---------- */
-.site-header{ position:sticky; top:0; z-index:60; background:rgba(250,245,233,.95); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
-.nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:46px; width:46px; object-fit:contain; border-radius:8px; }
-.brand-text{ display:flex; flex-direction:column; line-height:1.2; }
-.brand-text strong{ font-family:var(--font-display); color:var(--deep-green); font-size:1.05rem; }
-.brand-text span{ font-size:.82rem; color:var(--ink-soft); letter-spacing:.03em; }
-.main-nav{ display:flex; align-items:center; gap:2px; }
-.main-nav a{ padding:10px 14px; font-size:1rem; font-weight:700; color:var(--ink); border-radius:var(--radius-s); position:relative; }
-.main-nav a:hover{ color:var(--emerald); }
-.main-nav a.active{ color:var(--deep-green); }
-.main-nav a.active::after{ content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--gold); }
-.header-actions{ display:flex; align-items:center; gap:10px; }
-.header-actions .btn{ padding:10px 18px; font-size:.88rem; }
-.burger{ display:none; width:44px; height:44px; border-radius:var(--radius-s); border:1px solid var(--line); background:var(--white); cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:4px; }
-.burger span{ width:20px; height:2px; background:var(--deep-green); display:block; transition:transform .2s, opacity .2s; }
-.mobile-nav{ display:none; flex-direction:column; gap:2px; padding:8px 24px 18px; background:#FAF5E9; border-bottom:1px solid var(--line); }
-.mobile-nav a{ padding:14px 6px; font-weight:700; font-size:1.05rem; border-bottom:1px solid var(--line); }
-.mobile-nav .header-actions{ margin-top:10px; flex-direction:column; }
-.mobile-nav .header-actions .btn{ width:100%; }
-body.nav-open .mobile-nav{ display:flex; }
-body.nav-open .burger span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
-body.nav-open .burger span:nth-child(2){ opacity:0; }
-body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
-@media(max-width:960px){ .main-nav, .header-actions{ display:none; } .burger{ display:flex; } }
-
-/* ---------- HAUT : bannière beige clair ---------- */
-.page-banner{ position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; text-align:center; background-image: linear-gradient( rgba(250,245,233,0.86), rgba(235,222,194,0.93) ), url("/images/institut.jpg"); background-color:#F3EAD6; background-size:cover; background-position:center; background-repeat:no-repeat; color:var(--ink); overflow:hidden; }
-.page-banner h1{ color:var(--deep-green); margin-bottom:10px; font-size:clamp(2.5rem,5vw,4rem); }
-.page-banner p{ color:var(--ink-soft); max-width:60ch; margin:0 auto; }
-@media(max-width:720px){ .page-banner{ min-height:380px; background-position:center; } }
-.page-banner .eyebrow{ display:block; font-family:var(--font-display); font-style:italic; font-size:1.2rem; color:#6B5233; margin-bottom:16px; }
-.page-banner .eyebrow strong{ color:var(--gold); font-style:normal; font-weight:700; }
-.page-banner .divider{ display:flex; align-items:center; justify-content:center; gap:10px; margin:0 auto 22px; width:180px; }
-.page-banner .divider::before, .page-banner .divider::after{ content:""; flex:1; height:1px; background:rgba(138,106,36,.55); }
-.page-banner .divider span{ width:8px; height:8px; background:var(--gold); transform:rotate(45deg); flex:0 0 auto; }
-.page-banner .crumb{ font-size:.98rem; font-weight:600; margin:18px 0 0; color:#6B5233; }
-.page-banner .crumb a{ color:var(--gold); font-weight:700; }
-.page-banner .crumb a:hover{ text-decoration:underline; }
-.page-banner .crumb .sep{ margin:0 8px; color:rgba(90,69,40,.5); }
-.page-banner .crumb .current{ color:var(--deep-green); font-weight:700; }
-
-.grid{ display:grid; gap:26px; }
-.grid-3{ grid-template-columns:repeat(3,1fr); }
-@media(max-width:920px){ .grid-3{ grid-template-columns:repeat(2,1fr); } }
-@media(max-width:600px){ .grid-3{ grid-template-columns:1fr; } }
-.card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); overflow:hidden; box-shadow:var(--shadow-1); }
-.card-body{ padding:22px; }
-.card h3{ margin-bottom:8px; }
-
-.img-slot{ position:relative; width:100%; aspect-ratio:4/3; background: linear-gradient(135deg,var(--emerald-l),var(--cloth)); display:flex; align-items:center; justify-content:center; overflow:hidden; border-bottom:1px solid var(--line); }
-.img-slot img{ width:100%; height:100%; object-fit:cover; }
-.img-slot .placeholder-icon{ color:var(--emerald); opacity:.55; width:42px; height:42px; }
-.img-slot .placeholder-label{ position:absolute; bottom:10px; left:10px; right:10px; font-size:.85rem; font-weight:700; color:var(--deep-green); background:rgba(255,255,255,.92); padding:6px 8px; border-radius:6px; text-align:center; }
-.img-slot.landscape{ aspect-ratio:16/9; }
-.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
-
-.activities-status{ grid-column:1/-1; text-align:center; color:var(--ink-soft); padding:32px 16px; font-weight:600; }
-.tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
-.filter-btn{ padding:10px 18px; border-radius:100px; border:1px solid var(--line); background:#fff; font-weight:700; font-size:.95rem; cursor:pointer; color:var(--ink-soft); }
-.filter-btn.active{ background:var(--deep-green); color:#fff; border-color:var(--deep-green); }
-.meta-row{ display:flex; gap:14px; font-size:.92rem; color:var(--ink-soft); margin-bottom:6px; flex-wrap:wrap; align-items:center; }
-.badge{ background:var(--gold-l); color:#6B5233; font-weight:700; padding:3px 10px; border-radius:100px; font-size:.82rem; }
-.meta-loc{ display:flex; align-items:center; gap:6px; font-size:.92rem; color:var(--ink-soft); margin-bottom:10px; }
-
-.reveal{ opacity:1; transform:none; }
-.js-ready .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
-.js-ready .reveal.in{ opacity:1; transform:none; }
-
-/* ---------- BAS : pied de page crème clair ---------- */
-.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; }
-@media(max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
-@media(max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
-.site-footer{ background:#F6EFDF; color:var(--ink-soft); padding:60px 0 26px; border-top:1px solid var(--line); }
-.site-footer h4{ color:var(--deep-green); font-size:1.1rem; margin-bottom:14px; }
-.site-footer a{ color:var(--ink-soft); display:block; padding:6px 0; font-size:1rem; }
-.site-footer a:hover{ color:var(--gold); }
-.footer-bottom{ border-top:1px solid var(--line); margin-top:40px; padding-top:22px; font-size:.9rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#4A4033; }
-.footer-brand{ display:flex; gap:12px; align-items:center; margin-bottom:14px; }
-.footer-brand img{ height:40px; }
-.footer-brand strong{ color:var(--deep-green); font-family:var(--font-display); }
-
-.wa-float{ position:fixed; bottom:22px; right:22px; z-index:80; width:58px; height:58px; border-radius:50%; background:#75592F; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-2); color:#fff; }
-.wa-float:hover{ background:#5E4824; }
-
-.visually-hidden{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-.visually-hidden:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999; background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2); }
-.small{ font-size:.95rem; }
+/* Institut Al Maarifa — charte bordeaux / gris / marron, sans animation */
+:root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
+--serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:84px;
+--sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--hh) + 12px)}
+body{margin:0;font:400 1.0625rem/1.7 var(--sans);color:var(--ink);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{margin:0;padding:0;list-style:none}
+h1,h2,h3{font-family:var(--serif);color:var(--bx-d);line-height:1.2;margin:0 0 .6em;font-weight:700}
+h1{font-size:clamp(2rem,4.4vw,3.4rem)}h2{font-size:clamp(1.6rem,2.8vw,2.3rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:66ch}
+.container{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
+:focus-visible{outline:3px solid var(--br-l);outline-offset:3px}
+.visually-hidden{position:absolute;left:-9999px}.visually-hidden:focus{position:fixed;left:12px;top:12px;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:var(--r);font:600 .95rem var(--sans);border:2px solid transparent;cursor:pointer}
+.btn-bx{background:var(--bx);color:#fff}.btn-bx:hover{background:var(--bx-d)}
+.btn-white{background:#fff;color:var(--bx-d)}.btn-white:hover{background:var(--g1)}
+/* en-tête */
+.site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
+.brand{display:flex;align-items:center;gap:14px;flex:0 0 auto;min-width:0}
+.brand img{width:64px;height:64px;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--g2);border-radius:12px}
+.brand-text{display:flex;flex-direction:column;line-height:1.25}
+.brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
+.brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.brand-text em{font-style:normal;font-size:.68rem;color:var(--br);font-weight:600;letter-spacing:.06em}
+.main-nav{display:flex;align-items:center;gap:2px}
+.main-nav a{position:relative;padding:9px 11px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap}
+.main-nav a:hover{color:var(--bx);background:var(--g1)}
+.main-nav a.active{color:var(--bx);font-weight:600}
+.main-nav a.active::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:20px;height:2px;background:var(--bx-d)}
+.mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;background:#fff;border-top:1px solid var(--g2);max-height:calc(100vh - var(--hh));overflow-y:auto}
+.mobile-nav a{padding:13px 8px;font-weight:500;border-bottom:1px solid var(--g1)}
+.mobile-nav a.active{color:var(--bx);font-weight:700;border-left:3px solid var(--bx);padding-left:12px}
+.mobile-nav .btn{margin-top:14px;border-bottom:0}
+body.nav-open .mobile-nav{display:flex}
+body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .burger span:nth-child(2){opacity:0}
+body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1240px){.main-nav{display:none}.burger{display:flex}}
+@media(max-width:520px){:root{--hh:72px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.9rem}.brand-text span{font-size:.62rem}.brand-text em{display:none}}
+@media(max-width:360px){.brand-text span{white-space:normal}}
+/* hero (image fixe) */
+.hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(420px,64vh,620px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(92,16,37,.45),rgba(92,16,37,.88))}
+.hero-inner{position:relative;z-index:2;padding-top:72px;padding-bottom:72px}
+.badge{display:inline-block;background:#fff;color:var(--bx);font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:7px 16px;border-radius:100px;margin-bottom:16px}
+.hero h1{color:#fff;max-width:20ch;margin-bottom:.45em}
+.slogan{font-size:1.15rem;max-width:56ch;color:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+/* titres */
+.kicker{display:block;color:var(--br);font-weight:600;font-size:.88rem;margin-bottom:6px}
+.section-head{max-width:760px;margin-bottom:32px}
+.section-head h2::after{content:"";display:block;width:56px;height:3px;background:var(--br-l);margin-top:14px;border-radius:3px}
+/* filtres */
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.filter-btn{padding:10px 18px;border-radius:100px;border:1.5px solid var(--g2);background:#fff;font:600 .92rem var(--sans);cursor:pointer;color:var(--bx-d)}
+.filter-btn:hover{border-color:var(--bx)}
+.filter-btn.active{background:var(--bx);color:#fff;border-color:var(--bx)}
+/* cartes */
+.grid{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--g2);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.card .body{padding:22px 24px 26px}
+.card h3{margin-bottom:8px}
+.card p{margin:0;font-size:.95rem}
+.img-slot{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--g1);border-bottom:1px solid var(--g2)}
+.img-slot img{width:100%;height:100%;object-fit:cover}
+.img-slot.is-empty::after{content:"Photo à venir";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--br)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:.88rem;margin-bottom:6px}
+.tag{background:var(--g1);color:var(--bx);font-weight:700;font-size:.78rem;padding:3px 12px;border-radius:100px;border:1px solid var(--g2)}
+.loc{font-size:.88rem;color:var(--br);font-weight:600;margin-bottom:10px}
+.status{grid-column:1/-1;text-align:center;padding:32px 16px;font-weight:600;max-width:none}
+/* inscriptions */
+.cta{background:var(--bx);color:#fff;text-align:center}
+.cta h2{color:#fff}.cta h2::after{content:"";display:block;width:56px;height:3px;margin:14px auto 0;background:var(--br-l);border-radius:3px}.cta p{color:#fff;margin:0 auto 26px}
+/* pied de page */
+.site-footer{background:var(--bx-d);color:#fff;padding:60px 0 24px;border-top:4px solid var(--br-l)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
+.site-footer p{color:#F1F2F4;font-size:.92rem}
+.site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-brand img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:12px;padding:3px}
+.footer-brand strong{font:700 1.1rem var(--serif)}
+.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+@media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
+/* aucune animation ni transition */
+*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 </style>
-
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
-  "alternateName": "Institut Al Maarifa",
-  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
-  "address": { "@type": "PostalAddress", "addressLocality": "Bambilor - Darou Salam", "addressCountry": "SN" },
-  "telephone": ["+221774036424", "+221775722937"],
-  "url": "https://www.institut-almaarifa.sn/"
-}
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
 </script>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.institut-almaarifa.sn/index.html" },
-    { "@type": "ListItem", "position": 2, "name": "Activités", "item": "https://www.institut-almaarifa.sn/activites.html" }
-  ]
-}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.institut-almaarifa.sn/index.html"},{"@type":"ListItem","position":2,"name":"Activités","item":"https://www.institut-almaarifa.sn/activites.html"}]}
 </script>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
-
 <header class="site-header">
   <div class="nav-row">
-    <a href="index.html" class="brand">
-      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%237A6445%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23F4E7CB%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
-      <span class="brand-text">
-        <strong>Institut Al Maarifa</strong>
-        <span>Thierno Djibril Ousmane Ba</span>
-      </span>
+    <a href="index.html" class="brand" aria-label="Institut Al Maarifa — accueil">
+      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+      <span class="brand-text"><strong>INSTITUT AL MAARIFA</strong><span>THIERNO DJIBRIL OUSMANE BA</span><em>ÉCOLE FRANCO-ARABE</em></span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="active">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link>Centre</a>
+      <a href="programmes.html" data-nav-link>Programmes</a>
+      <a href="activites.html" data-nav-link class="active" aria-current="page">Activités</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link>Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
     </nav>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn"><span></span><span></span><span></span></button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-    <a href="institut.html" data-nav-link class="">L'Institut</a>
-    <a href="centre.html" data-nav-link class="">Centre</a>
-    <a href="programmes.html" data-nav-link class="">Programmes</a>
-    <a href="activites.html" data-nav-link class="active">Activités</a>
-    <a href="actualites.html" data-nav-link class="">Actualités</a>
-    <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-    <a href="galerie.html" data-nav-link class="">Galerie</a>
-    <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-    <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-    <a href="contact.html" data-nav-link class="">Contact</a>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link>Centre</a>
+      <a href="programmes.html" data-nav-link>Programmes</a>
+      <a href="activites.html" data-nav-link class="active" aria-current="page">Activités</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link>Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
+    <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
   </nav>
 </header>
-
 <main id="main">
 
-<section class="page-banner">
-  <div class="container">
-    <span class="eyebrow">L'<strong>Institut</strong> Al Maarifa</span>
-    <div class="divider"><span></span></div>
+<section class="hero">
+  <div class="hero-bg"><img src="li.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="eager" onerror="this.remove()"></div>
+  <div class="container hero-inner">
+    <div class="badge">ACTIVITÉS</div>
     <h1>La vie de l'Institut en dehors des cours</h1>
-    <p>Activités pédagogiques, islamiques, sportives et culturelles rythment l'année scolaire de nos élèves.</p>
-    <nav class="crumb" aria-label="Fil d'Ariane">
-      <a href="index.html">Accueil</a>
-      <span class="sep">»</span>
-      <span class="current">Activités</span>
-    </nav>
+    <p class="slogan">Activités pédagogiques, islamiques, sportives et culturelles rythment l'année scolaire de nos élèves.</p>
+    <div class="hero-actions">
+      <a class="btn btn-bx" style="border-color:#fff" href="inscriptions.html">INSCRIRE MON ENFANT</a>
+      <a class="btn btn-white" href="contact.html">NOUS CONTACTER</a>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="container">
+    <div class="section-head"><span class="kicker">Calendrier</span><h2>Les temps forts de l'année</h2></div>
     <div class="tag-row" data-filter-root role="group" aria-label="Filtrer les activités par catégorie">
       <button class="filter-btn active" data-filter="all" aria-pressed="true">Toutes</button>
       <button class="filter-btn" data-filter="pedagogique" aria-pressed="false">Pédagogiques</button>
@@ -274,259 +187,93 @@ body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45de
       <button class="filter-btn" data-filter="culturelle" aria-pressed="false">Culturelles</button>
       <button class="filter-btn" data-filter="evenement" aria-pressed="false">Événements</button>
     </div>
+    <div id="activities-grid" class="grid" aria-live="polite" aria-busy="true"><p class="status">Chargement des activités…</p></div>
+    <p id="activities-empty" class="status" hidden>Aucune activité ne correspond à ce filtre pour le moment.</p>
+  </div>
+</section>
 
-    <div id="activities-grid" class="grid grid-3" aria-live="polite" aria-busy="true">
-      <p class="activities-status">Chargement des activités…</p>
-    </div>
-    <p id="activities-empty" class="activities-status" hidden>Aucune activité ne correspond à ce filtre pour le moment.</p>
+<section class="cta">
+  <div class="container">
+    <h2>PRÉPAREZ L'AVENIR DE VOTRE ENFANT</h2>
+    <p>Rejoignez l'Institut Al Maarifa Thierno Djibril Ousmane Ba pour une éducation associant connaissances modernes et valeurs islamiques.</p>
+    <a class="btn btn-white" href="inscriptions.html">DÉCOUVRIR LES INSCRIPTIONS</a>
   </div>
 </section>
 
 </main>
-
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
-          <strong>Institut Al Maarifa</strong>
-        </div>
+        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="64" height="64" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="index.html">Accueil</a>
-        <a href="institut.html">L'Institut</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="actualites.html">Actualités</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Ressources</h4>
-        <a href="bibliotheque.html">Bibliothèque numérique</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="inscriptions.html">Inscriptions 2026–2027</a>
-        <a href="centre.html">Le Centre</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:+221774036424">77 403 64 24</a>
-        <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <a href="contact.html">Formulaire de contact</a>
-      </div>
+      <div><h4>Navigation</h4><a href="index.html">Accueil</a><a href="institut.html">L'Institut</a><a href="index.html#fondateur">Le Fondateur</a><a href="programmes.html">Programmes</a><a href="actualites.html">Actualités</a><a href="contact.html">Contact</a></div>
+      <div><h4>Ressources</h4><a href="bibliotheque.html">Bibliothèque numérique</a><a href="galerie.html">Galerie</a><a href="tarifs.html">Tarifs</a><a href="inscriptions.html">Inscriptions 2026–2027</a><a href="centre.html">Le Centre</a></div>
+      <div><h4>Contact</h4><a href="tel:+221774036424">77 403 64 24</a><a href="tel:+221775722937">77 572 29 37</a><a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a><a href="contact.html">Formulaire de contact</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span>
-      <span>Partenaire officiel : Institut Al-Azhar</span>
-    </div>
+    <div class="footer-bottom"><span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span><span>Partenaire officiel : Institut Al-Azhar</span></div>
   </div>
 </footer>
 
 <a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm4.51 11.94c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-
-<!-- ========================================================= -->
-<!-- DONNÉES DES ACTIVITÉS — intégrées directement dans la page -->
-<!-- ========================================================= -->
 <script>
-const SITE_DATA = {
-  activities: [
-    {
-      type: "pedagogique",
-      date: "2026-09-05",
-      title: "Rentrée scolaire 2026–2027",
-      time: "08h00 – 12h00",
-      location: "Cour principale de l'Institut",
-      description: "Accueil solennel des élèves et de leurs familles pour le lancement de la nouvelle année scolaire. Au programme : mot de bienvenue de la direction, présentation du corps enseignant, remise des emplois du temps et visite guidée des classes pour les nouveaux inscrits.",
-      image: "public/images/activites/rentree.jpg"
-    },
-    {
-      type: "islamique",
-      date: "2026-09-12",
-      title: "Concours de mémorisation du Coran",
-      time: "09h00 – 13h00",
-      location: "Salle de la mosquée de l'Institut",
-      description: "Compétition annuelle réunissant les élèves autour de la récitation et de la mémorisation du Saint Coran (tajwid et hifz). Un jury composé d'enseignants qualifiés évalue la justesse de la récitation, la fluidité et la maîtrise des règles de lecture. Des prix récompensent les trois meilleures performances de chaque niveau.",
-      image: "public/images/activites/coran.jpg"
-    },
-    {
-      type: "sportive",
-      date: "2026-09-20",
-      title: "Journée sportive inter-classes",
-      time: "08h30 – 17h00",
-      location: "Terrain de sport de l'Institut",
-      description: "Tournois de football, d'athlétisme et de jeux collectifs opposant les classes de l'établissement dans un esprit de fair-play et de cohésion. La journée se conclut par une cérémonie de remise de médailles et un goûter partagé entre élèves, enseignants et parents présents.",
-      image: "public/images/activites/sport.jpg"
-    },
-    {
-      type: "culturelle",
-      date: "2026-10-03",
-      title: "Journée culturelle et artistique",
-      time: "10h00 – 16h00",
-      location: "Cour principale et salles polyvalentes",
-      description: "Exposition des talents des élèves à travers la calligraphie arabe, la poésie, le théâtre et l'artisanat traditionnel. Chaque classe présente un stand thématique mettant en valeur un aspect du patrimoine culturel sénégalais et islamique.",
-      image: "public/images/activites/culture.jpg"
-    },
-    {
-      type: "evenement",
-      date: "2026-10-15",
-      title: "Cérémonie de remise des prix du 1er trimestre",
-      time: "15h00 – 18h00",
-      location: "Grande salle de l'Institut",
-      description: "Cérémonie officielle célébrant l'excellence académique et le comportement exemplaire des élèves. Diplômes, trophées et distinctions sont remis en présence des familles, du personnel enseignant et des partenaires de l'Institut, dont des représentants de l'Institut Al-Azhar.",
-      image: "public/images/activites/remise-prix.jpg"
-    },
-    {
-      type: "pedagogique",
-      date: "2026-11-08",
-      title: "Journée portes ouvertes",
-      time: "09h00 – 13h00",
-      location: "Ensemble du campus",
-      description: "Les familles et futurs élèves sont invités à découvrir les locaux, rencontrer les enseignants et assister à des mini-cours de démonstration dans les matières phares du programme franco-arabe. Un espace d'information sur les inscriptions 2026–2027 est également prévu.",
-      image: "public/images/activites/portes-ouvertes.jpg"
-    },
-    {
-      type: "islamique",
-      date: "2026-11-22",
-      title: "Conférence sur la Sira du Prophète (SAW)",
-      time: "16h00 – 18h00",
-      location: "Salle de conférence",
-      description: "Conférence animée par un intervenant invité, retraçant les enseignements et les valeurs tirées de la vie du Prophète Muhammad (paix et bénédictions sur lui). La séance se termine par un temps de questions-réponses ouvert aux élèves du secondaire.",
-      image: "public/images/activites/sira.jpg"
-    },
-    {
-      type: "culturelle",
-      date: "2026-12-10",
-      title: "Soirée des langues",
-      time: "17h00 – 19h30",
-      location: "Cour principale",
-      description: "Présentation de sketchs, chants et récitations en français, arabe et wolof préparés par les élèves. Cette soirée met à l'honneur le multilinguisme qui caractérise le projet pédagogique de l'Institut.",
-      image: "public/images/activites/soiree-langues.jpg"
-    },
-    {
-      type: "evenement",
-      date: "2027-01-14",
-      title: "Cérémonie de remise des prix du 2e trimestre",
-      time: "15h00 – 18h00",
-      location: "Grande salle de l'Institut",
-      description: "Deuxième édition trimestrielle de la cérémonie de récompenses, l'occasion de saluer les progrès réalisés par les élèves depuis la rentrée et de partager les objectifs du trimestre suivant avec les familles.",
-      image: "public/images/activites/remise-prix-2.jpg"
-    },
-    {
-      type: "sportive",
-      date: "2027-02-06",
-      title: "Randonnée pédagogique et écologique",
-      time: "08h00 – 13h00",
-      location: "Environs de Bambilor - Darou Salam",
-      description: "Sortie pédagogique combinant activité physique et sensibilisation à l'environnement : ramassage de déchets, observation de la faune locale et échanges sur l'importance de préserver le cadre de vie, en lien avec les valeurs islamiques de préservation de la nature.",
-      image: "public/images/activites/randonnee.jpg"
-    }
-  ]
-};
-</script>
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){
+  var b=document.getElementById('burgerBtn'),body=document.body;
+  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')}
+  b.addEventListener('click',function(){set(!body.classList.contains('nav-open'))});
+  document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
+  window.addEventListener('resize',function(){if(innerWidth>1240)set(false)});
+})();
 
-<!-- Menu mobile (bouton burger) -->
-<script>
-(function () {
-  const burger = document.querySelector('.burger');
-  if (!burger) return;
-  burger.addEventListener('click', () => {
-    const isOpen = document.body.classList.toggle('nav-open');
-    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-  // Ferme le menu si on clique sur un lien du menu mobile
-  document.querySelectorAll('.mobile-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-      burger.setAttribute('aria-expanded', 'false');
+var ACTIVITIES=[
+ {type:"pedagogique",date:"2026-09-05",title:"Rentrée scolaire 2026–2027",time:"08h00 – 12h00",location:"Cour principale de l'Institut",description:"Accueil solennel des élèves et de leurs familles pour le lancement de la nouvelle année scolaire. Au programme : mot de bienvenue de la direction, présentation du corps enseignant, remise des emplois du temps et visite guidée des classes pour les nouveaux inscrits.",image:"public/images/activites/rentree.jpg"},
+ {type:"islamique",date:"2026-09-12",title:"Concours de mémorisation du Coran",time:"09h00 – 13h00",location:"Salle de la mosquée de l'Institut",description:"Compétition annuelle réunissant les élèves autour de la récitation et de la mémorisation du Saint Coran (tajwid et hifz). Un jury composé d'enseignants qualifiés évalue la justesse de la récitation, la fluidité et la maîtrise des règles de lecture. Des prix récompensent les trois meilleures performances de chaque niveau.",image:"public/images/activites/coran.jpg"},
+ {type:"sportive",date:"2026-09-20",title:"Journée sportive inter-classes",time:"08h30 – 17h00",location:"Terrain de sport de l'Institut",description:"Tournois de football, d'athlétisme et de jeux collectifs opposant les classes de l'établissement dans un esprit de fair-play et de cohésion. La journée se conclut par une cérémonie de remise de médailles et un goûter partagé entre élèves, enseignants et parents présents.",image:"public/images/activites/sport.jpg"},
+ {type:"culturelle",date:"2026-10-03",title:"Journée culturelle et artistique",time:"10h00 – 16h00",location:"Cour principale et salles polyvalentes",description:"Exposition des talents des élèves à travers la calligraphie arabe, la poésie, le théâtre et l'artisanat traditionnel. Chaque classe présente un stand thématique mettant en valeur un aspect du patrimoine culturel sénégalais et islamique.",image:"public/images/activites/culture.jpg"},
+ {type:"evenement",date:"2026-10-15",title:"Cérémonie de remise des prix du 1er trimestre",time:"15h00 – 18h00",location:"Grande salle de l'Institut",description:"Cérémonie officielle célébrant l'excellence académique et le comportement exemplaire des élèves. Diplômes, trophées et distinctions sont remis en présence des familles, du personnel enseignant et des partenaires de l'Institut, dont des représentants de l'Institut Al-Azhar.",image:"public/images/activites/remise-prix.jpg"},
+ {type:"pedagogique",date:"2026-11-08",title:"Journée portes ouvertes",time:"09h00 – 13h00",location:"Ensemble du campus",description:"Les familles et futurs élèves sont invités à découvrir les locaux, rencontrer les enseignants et assister à des mini-cours de démonstration dans les matières phares du programme franco-arabe. Un espace d'information sur les inscriptions 2026–2027 est également prévu.",image:"public/images/activites/portes-ouvertes.jpg"},
+ {type:"islamique",date:"2026-11-22",title:"Conférence sur la Sira du Prophète (SAW)",time:"16h00 – 18h00",location:"Salle de conférence",description:"Conférence animée par un intervenant invité, retraçant les enseignements et les valeurs tirées de la vie du Prophète Muhammad (paix et bénédictions sur lui). La séance se termine par un temps de questions-réponses ouvert aux élèves du secondaire.",image:"public/images/activites/sira.jpg"},
+ {type:"culturelle",date:"2026-12-10",title:"Soirée des langues",time:"17h00 – 19h30",location:"Cour principale",description:"Présentation de sketchs, chants et récitations en français, arabe et wolof préparés par les élèves. Cette soirée met à l'honneur le multilinguisme qui caractérise le projet pédagogique de l'Institut.",image:"public/images/activites/soiree-langues.jpg"},
+ {type:"evenement",date:"2027-01-14",title:"Cérémonie de remise des prix du 2e trimestre",time:"15h00 – 18h00",location:"Grande salle de l'Institut",description:"Deuxième édition trimestrielle de la cérémonie de récompenses, l'occasion de saluer les progrès réalisés par les élèves depuis la rentrée et de partager les objectifs du trimestre suivant avec les familles.",image:"public/images/activites/remise-prix-2.jpg"},
+ {type:"sportive",date:"2027-02-06",title:"Randonnée pédagogique et écologique",time:"08h00 – 13h00",location:"Environs de Bambilor - Darou Salam",description:"Sortie pédagogique combinant activité physique et sensibilisation à l'environnement : ramassage de déchets, observation de la faune locale et échanges sur l'importance de préserver le cadre de vie, en lien avec les valeurs islamiques de préservation de la nature.",image:"public/images/activites/randonnee.jpg"}
+];
+var LABELS={pedagogique:"Pédagogique",islamique:"Islamique",sportive:"Sportive",culturelle:"Culturelle",evenement:"Événement"};
+(function(){
+  var grid=document.getElementById('activities-grid'),empty=document.getElementById('activities-empty');
+  function fmt(d){try{return new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'})}catch(e){return ''}}
+  function img(src,alt){
+    if(!src)return '<div class="img-slot is-empty"></div>';
+    return '<div class="img-slot"><img src="'+src+'" alt="'+alt+'" loading="lazy" onerror="this.parentNode.classList.add(\'is-empty\');this.remove()"></div>';
+  }
+  if(!ACTIVITIES.length){grid.innerHTML='<p class="status">Les activités seront publiées prochainement. Revenez bientôt !</p>';grid.removeAttribute('aria-busy');return}
+  var sorted=ACTIVITIES.slice().sort(function(a,b){return new Date(b.date)-new Date(a.date)});
+  grid.innerHTML=sorted.map(function(a){
+    return '<article class="card" data-activity-type="'+a.type+'">'+img(a.image,a.title)+
+      '<div class="body"><div class="meta"><span class="tag">'+(LABELS[a.type]||a.type)+'</span><span>'+fmt(a.date)+(a.time?' · '+a.time:'')+'</span></div>'+
+      (a.location?'<div class="loc">📍 '+a.location+'</div>':'')+
+      '<h3>'+a.title+'</h3><p>'+a.description+'</p></div></article>';
+  }).join('');
+  grid.removeAttribute('aria-busy');
+  var root=document.querySelector('[data-filter-root]');
+  root.addEventListener('click',function(e){
+    var btn=e.target.closest('.filter-btn');if(!btn)return;
+    root.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-pressed','false')});
+    btn.classList.add('active');btn.setAttribute('aria-pressed','true');
+    var v=btn.dataset.filter,n=0;
+    grid.querySelectorAll('[data-activity-type]').forEach(function(c){
+      var show=v==='all'||c.getAttribute('data-activity-type')===v;
+      c.style.display=show?'':'none';if(show)n++;
     });
+    empty.hidden=n!==0;
   });
 })();
 </script>
-
-<!-- Fonctions utilitaires attendues par le rendu (image + filtres) -->
-<script>
-function renderImage(src, alt, sizeClass) {
-  if (!src) {
-    return `<div class="img-slot ${sizeClass || ''} is-empty"><span class="placeholder-label">Image à venir</span></div>`;
-  }
-  return `<div class="img-slot ${sizeClass || ''}"><img src="${src}" alt="${alt || ''}" loading="lazy" onerror="this.parentElement.classList.add('is-empty'); this.remove();"></div>`;
-}
-
-function initFilters(rootSelector, itemSelector, dataAttr) {
-  // Point d'entrée conservé pour compatibilité avec le reste du site (main.js).
-  // La logique de filtrage effective pour cette page est gérée plus bas.
-}
-</script>
-
-<script>
-(function () {
-  const actGrid = document.getElementById('activities-grid');
-  const emptyMsg = document.getElementById('activities-empty');
-  if (!actGrid) return;
-
-  const fmt = d => {
-    try { return new Date(d).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }); }
-    catch (e) { return ''; }
-  };
-
-  const list = (typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.activities)) ? SITE_DATA.activities : [];
-
-  if (list.length === 0) {
-    actGrid.innerHTML = '<p class="activities-status">Les activités seront publiées prochainement. Revenez bientôt !</p>';
-    actGrid.removeAttribute('aria-busy');
-    return;
-  }
-
-  const sorted = [...list].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  actGrid.innerHTML = sorted.map(a => `
-    <div class="card reveal in" data-activity-type="${a.type}">
-      ${typeof renderImage === 'function' ? renderImage(a.image, a.title, 'landscape') : ''}
-      <div class="card-body">
-        <div class="meta-row">
-          <span class="badge">${a.type}</span>
-          <span>${fmt(a.date)}${a.time ? ' · ' + a.time : ''}</span>
-        </div>
-        ${a.location ? `<div class="meta-loc">📍 ${a.location}</div>` : ''}
-        <h3>${a.title}</h3>
-        <p>${a.description}</p>
-      </div>
-    </div>
-  `).join('');
-
-  actGrid.removeAttribute('aria-busy');
-
-  const filterRoot = document.querySelector('[data-filter-root]');
-  if (filterRoot) {
-    filterRoot.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterRoot.querySelectorAll('.filter-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
-        btn.setAttribute('aria-pressed', 'true');
-        filterRoot.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const val = btn.dataset.filter;
-        const cards = actGrid.querySelectorAll('[data-activity-type]');
-        let visibleCount = 0;
-        cards.forEach(card => {
-          const show = val === 'all' || card.getAttribute('data-activity-type') === val;
-          card.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
-        if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
-      });
-    });
-  }
-})();
-</script>
-
 </body>
 </html>
