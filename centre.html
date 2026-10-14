@@ -5,701 +5,258 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Le Centre — Infrastructures | Institut Al Maarifa</title>
 <meta name="description" content="Découvrez les infrastructures de l'Institut Al Maarifa : salles de classe, sécurité, propreté et environnement d'apprentissage à Bambilor.">
-<meta name="theme-color" content="#FAF5E9">
+<meta name="theme-color" content="#800020">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/centre.html">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Le Centre — Infrastructures | Institut Al Maarifa">
 <meta property="og:description" content="Découvrez les infrastructures de l'Institut Al Maarifa : salles de classe, sécurité, propreté et environnement d'apprentissage à Bambilor.">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
-
 <link rel="icon" type="image/png" href="public/icons/favicon.png">
 <link rel="apple-touch-icon" href="public/icons/favicon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="s.css">
-  <style>/* =========================================================
-   INSTITUT AL MAARIFA — Design system
-   Palette: beige / crème clair / or, base crème chaude
-   Type: Fraunces (display serif) + Karla (text sans)
-   ========================================================= */
-
-:root{
-  --deep-green:  #5A4528;   /* beige foncé : titres, boutons */
-  --deep-green-2:#C9B28A;   /* beige */
-  --emerald:     #75592F;
-  --emerald-l:   #F1E8D6;
-  --gold:        #8A6A24;
-  --gold-l:      #F4E7CB;
-  --cloth:       #FAF5E9;   /* fond crème */
-  --white:       #FFFFFF;
-  --ink:         #1F1A12;
-  --ink-soft:    #3F362A;
-  --line:        #E6DCC6;
-
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-text: "Karla", "Helvetica Neue", Arial, sans-serif;
-
-  --radius-s: 6px;
-  --radius-m: 14px;
-  --shadow-1: 0 1px 2px rgba(90,70,40,.06), 0 8px 24px -12px rgba(90,70,40,.18);
-  --shadow-2: 0 20px 48px -20px rgba(90,70,40,.35);
-
-  --wrap: 1180px;
+<style>
+/* Institut Al Maarifa — refonte visuelle (bordeaux / gris / marron) */
+:root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
+--serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:84px;
+--sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px)}
+body{margin:0;font:400 1.0625rem/1.7 var(--sans);color:var(--ink);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{margin:0;padding:0;list-style:none}
+h1,h2,h3{font-family:var(--serif);color:var(--bx-d);line-height:1.2;margin:0 0 .6em;font-weight:700}
+h1{font-size:clamp(2rem,4.4vw,3.4rem)}h2{font-size:clamp(1.6rem,2.8vw,2.3rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:66ch}
+.container{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
+.alt{background:var(--g1)}
+:focus-visible{outline:3px solid var(--br-l);outline-offset:3px}
+.visually-hidden{position:absolute;left:-9999px}.visually-hidden:focus{position:fixed;left:12px;top:12px;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:var(--r);font:600 .95rem var(--sans);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-bx{background:var(--bx);color:#fff}.btn-bx:hover{background:var(--bx-d)}
+.btn-br{background:var(--br);color:#fff}.btn-br:hover{background:#5a3410}
+.btn-line{border-color:var(--bx);color:var(--bx);background:transparent}.btn-line:hover{background:var(--bx);color:#fff}
+.btn-white{background:#fff;color:var(--bx-d)}.btn-white:hover{background:var(--g1)}
+/* en-tête */
+.site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
+.brand{display:flex;align-items:center;gap:14px;flex:0 0 auto;min-width:0}
+.brand img{width:64px;height:64px;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--g2);border-radius:12px}
+.brand-text{display:flex;flex-direction:column;line-height:1.25}
+.brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
+.brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.brand-text em{font-style:normal;font-size:.68rem;color:var(--br);font-weight:600;letter-spacing:.06em}
+.main-nav{display:flex;align-items:center;gap:2px}
+.main-nav a{position:relative;padding:9px 11px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap;transition:color .2s,background .2s}
+.main-nav a:hover{color:var(--bx);background:var(--g1)}
+.main-nav a.active{color:var(--bx);font-weight:600}
+.main-nav a.active::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:20px;height:2px;background:var(--bx-d);transition:transform .2s,opacity .2s}
+.mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;background:#fff;border-top:1px solid var(--g2);max-height:calc(100vh - var(--hh));overflow-y:auto}
+.mobile-nav a{padding:13px 8px;font-weight:500;border-bottom:1px solid var(--g1)}
+.mobile-nav a.active{color:var(--bx);font-weight:700;border-left:3px solid var(--bx);padding-left:12px}
+.mobile-nav .btn{margin-top:14px;border-bottom:0}
+body.nav-open .mobile-nav{display:flex}
+body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .burger span:nth-child(2){opacity:0}
+body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1240px){.main-nav{display:none}.burger{display:flex}}
+@media(max-width:520px){:root{--hh:72px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.9rem}.brand-text span{font-size:.62rem}.brand-text em{display:none}}
+@media(max-width:360px){.brand-text span{white-space:normal}}
+/* hero */
+.hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(420px,64vh,620px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(92,16,37,.45),rgba(92,16,37,.88))}
+.hero-inner{position:relative;z-index:2;padding-top:72px;padding-bottom:72px}
+.badge{display:inline-block;background:#fff;color:var(--bx);font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:7px 16px;border-radius:100px;margin-bottom:16px}
+.hero h1{color:#fff;max-width:20ch;margin-bottom:.45em}
+.slogan{font-size:1.15rem;max-width:56ch;color:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.hero .badge,.hero h1,.slogan,.hero-actions{animation:fade .8s ease both}
+.hero h1{animation-delay:.12s}.slogan{animation-delay:.22s}.hero-actions{animation-delay:.32s}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* hero : animation de l'image de fond */
+.hero-bg img{
+  transform-origin:60% 40%;
+  will-change:transform;
+  animation:kenburns 24s ease-in-out infinite alternate;
 }
-
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family:var(--font-text);
-  color:var(--ink);
-  background:var(--cloth);
-  font-size:17px;
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
+@keyframes kenburns{
+  0%  {transform:scale(1)    translate(0,0)}
+  50% {transform:scale(1.10) translate(-1.5%,-1%)}
+  100%{transform:scale(1.18) translate(-3%,-2%)}
 }
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-ul{ margin:0; padding:0; list-style:none; }
-h1,h2,h3,h4{
-  font-family:var(--font-display);
-  color:var(--deep-green);
-  line-height:1.14;
-  margin:0 0 .5em;
-  font-weight:600;
-  letter-spacing:-.01em;
+/* reflet lumineux qui traverse l'image */
+.hero-bg::before{
+  content:"";position:absolute;inset:-20% -50%;z-index:1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.10) 50%,transparent 60%);
+  transform:translateX(-60%);
+  animation:sheen 9s ease-in-out infinite;
 }
-h1{ font-size:clamp(2.3rem,4.4vw,3.6rem); font-weight:560; }
-h2{ font-size:clamp(1.7rem,3vw,2.4rem); }
-h3{ font-size:1.35rem; }
-p{ margin:0 0 1em; max-width:64ch; color:var(--ink-soft); font-size:1.06rem; }
-.container{ max-width:var(--wrap); margin:0 auto; padding:0 24px; }
-section{ padding:88px 0; }
-@media(max-width:720px){ section{ padding:56px 0; } }
-
-/* focus visibility */
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
-  outline:2px solid var(--gold); outline-offset:3px;
+@keyframes sheen{
+  0%,15%{transform:translateX(-60%)}
+  60%,100%{transform:translateX(60%)}
 }
-
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-}
-
-/* ---------- buttons ---------- */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:.5em;
-  padding:14px 26px; border-radius:var(--radius-s);
-  font-family:var(--font-text); font-weight:700; font-size:.98rem;
-  border:1px solid transparent; cursor:pointer; white-space:nowrap;
-  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
-.btn:active{ transform:translateY(1px); }
-.btn-gold{ background:var(--gold); color:var(--white); }
-.btn-gold:hover{ background:#755a1d; box-shadow:var(--shadow-1); }
-.btn-outline{ background:transparent; border-color:rgba(255,255,255,.55); color:var(--white); }
-.btn-outline:hover{ background:rgba(255,255,255,.12); }
-.btn-line{ background:transparent; border-color:var(--deep-green); color:var(--deep-green); }
-.btn-line:hover{ background:var(--emerald-l); }
-.btn-whatsapp{ background:#75592F; color:#fff; }
-.btn-whatsapp:hover{ background:#5E4824; }
-.btn-block{ width:100%; }
-
-/* ---------- header / nav (HAUT : crème clair) ---------- */
-.site-header{
-  position:sticky; top:0; z-index:60;
-  background:rgba(250,245,233,.95); backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; max-width:var(--wrap); margin:0 auto; }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:46px; width:46px; object-fit:contain; border-radius:8px; }
-.brand-text{ display:flex; flex-direction:column; line-height:1.2; }
-.brand-text strong{ font-family:var(--font-display); color:var(--deep-green); font-size:1.05rem; }
-.brand-text span{ font-size:.82rem; color:var(--ink-soft); letter-spacing:.03em; }
-
-.main-nav{ display:flex; align-items:center; gap:2px; }
-.main-nav a{
-  padding:10px 14px; font-size:1rem; font-weight:700; color:var(--ink);
-  border-radius:var(--radius-s); position:relative;
-}
-.main-nav a:hover{ color:var(--emerald); }
-.main-nav a.active{ color:var(--deep-green); }
-.main-nav a.active::after{
-  content:""; position:absolute; left:14px; right:14px; bottom:4px; height:2px; background:var(--gold);
-}
-.header-actions{ display:flex; align-items:center; gap:10px; }
-.header-actions .btn{ padding:10px 18px; font-size:.88rem; }
-
-.burger{
-  display:none; width:44px; height:44px; border-radius:var(--radius-s);
-  border:1px solid var(--line); background:var(--white); cursor:pointer;
-  align-items:center; justify-content:center; flex-direction:column; gap:4px;
-}
-.burger span{ width:20px; height:2px; background:var(--deep-green); display:block; transition:transform .2s, opacity .2s; }
-.mobile-nav{
-  display:none; flex-direction:column; gap:2px; padding:8px 24px 18px;
-  background:#FAF5E9; border-bottom:1px solid var(--line);
-}
-.mobile-nav a{ padding:14px 6px; font-weight:700; font-size:1.05rem; border-bottom:1px solid var(--line); }
-.mobile-nav .header-actions{ margin-top:10px; flex-direction:column; }
-.mobile-nav .header-actions .btn{ width:100%; }
-
-body.nav-open .mobile-nav{ display:flex; }
-body.nav-open .burger span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
-body.nav-open .burger span:nth-child(2){ opacity:0; }
-body.nav-open .burger span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
-
-@media(max-width:960px){
-  .main-nav, .header-actions{ display:none; }
-  .burger{ display:flex; }
-}
-
-/* ---------- hero ---------- */
-.hero{
-  position:relative; min-height:min(86vh,760px); display:flex; align-items:flex-end;
-  background:linear-gradient(180deg, rgba(70,52,30,.35), rgba(70,52,30,.85)), var(--deep-green);
-  background-size:cover; background-position:center;
-  color:#fff; overflow:hidden;
-}
-.hero-inner{ position:relative; z-index:2; padding:64px 0 68px; max-width:760px; }
-.hero-eyebrow-line{
-  display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.3); padding:8px 16px; border-radius:100px;
-  font-weight:700; font-size:.85rem; margin-bottom:22px; color:var(--gold-l);
-}
-.hero h1{ color:#fff; }
-.hero .partner{ font-weight:700; color:var(--gold-l); font-size:1.05rem; margin-bottom:14px; }
-.hero .slogan{ font-size:1.18rem; color:#F6EFDF; max-width:52ch; }
-.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-
-/* ---------- hero background image (avec repli placeholder) ---------- */
-.hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
-.hero-bg img{ width:100%; height:100%; object-fit:cover; display:block; }
-.hero-bg.is-empty{
-  background:var(--deep-green);
-  display:flex; align-items:center; justify-content:center; flex-direction:column;
-  color:#F1E8D6;
-}
-.hero-bg.is-empty .placeholder-icon{ width:48px; height:48px; margin-bottom:10px; opacity:.7; }
-.hero-bg.is-empty .placeholder-label{ font-size:.85rem; opacity:.8; position:static; background:none; }
-
-/* ---------- generic page hero (HAUT : beige clair) ---------- */
-.page-hero{
-  background:linear-gradient(120deg,#F3EAD6,#E6D7B8);
-  color:var(--ink); padding:74px 0 56px;
-}
-.page-hero h1{ color:var(--deep-green); margin-bottom:10px; }
-.page-hero p{ color:var(--ink-soft); max-width:60ch; }
-.crumb{ font-size:.95rem; color:#6B5233; font-weight:700; margin-bottom:10px; }
-
-/* ---------- section headers ---------- */
-.section-head{ max-width:640px; margin-bottom:44px; }
-.section-head .kicker{ color:var(--emerald); font-weight:700; font-size:1rem; margin-bottom:8px; display:block; }
-
-/* ---------- cards ---------- */
-.grid{ display:grid; gap:26px; }
-.grid-3{ grid-template-columns:repeat(3,1fr); }
-.grid-4{ grid-template-columns:repeat(4,1fr); }
-.grid-2{ grid-template-columns:repeat(2,1fr); }
-@media(max-width:920px){ .grid-3,.grid-4{ grid-template-columns:repeat(2,1fr); } }
-@media(max-width:600px){ .grid-3,.grid-4,.grid-2{ grid-template-columns:1fr; } }
-
-.card{
-  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
-  overflow:hidden; box-shadow:var(--shadow-1);
-}
-.card-body{ padding:22px; }
-.card h3{ margin-bottom:8px; }
-
-/* image placeholder (used only until real photos are added) */
-.img-slot{
-  position:relative; width:100%; aspect-ratio:4/3; background:
-    linear-gradient(135deg,var(--emerald-l),var(--cloth));
-  display:flex; align-items:center; justify-content:center; overflow:hidden;
-  border-bottom:1px solid var(--line);
-}
-.img-slot img{ width:100%; height:100%; object-fit:cover; }
-.img-slot .placeholder-icon{ color:var(--emerald); opacity:.55; width:42px; height:42px; }
-.img-slot .placeholder-label{
-  position:absolute; bottom:10px; left:10px; right:10px; font-size:.85rem; font-weight:700;
-  color:var(--deep-green); background:rgba(255,255,255,.92); padding:6px 8px; border-radius:6px;
-  text-align:center;
-}
-.img-slot.landscape{ aspect-ratio:16/9; }
-.img-slot.square{ aspect-ratio:1/1; }
-.img-slot.tall{ aspect-ratio:3/4; }
-
-/* ---------- values / stats ---------- */
-.value-item{ display:flex; gap:16px; align-items:flex-start; }
-.value-icon{
-  flex:0 0 auto; width:48px; height:48px; border-radius:12px; background:var(--emerald-l);
-  display:flex; align-items:center; justify-content:center; color:var(--emerald);
-}
-.stat-strip{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-  background:var(--deep-green); color:#fff; border-radius:var(--radius-m); padding:36px 28px;
-}
-.stat-strip .n{ font-family:var(--font-display); font-size:2.1rem; color:var(--gold-l); }
-.stat-strip .l{ font-size:.85rem; color:#F1E8D6; }
-@media(max-width:720px){ .stat-strip{ grid-template-columns:repeat(2,1fr); } }
-
-/* ---------- program levels ---------- */
-.level-card{
-  border:1px solid var(--line); border-radius:var(--radius-m); background:#fff; padding:24px;
-  transition:box-shadow .18s ease, border-color .18s ease;
-}
-.level-card:hover{ box-shadow:var(--shadow-1); border-color:var(--emerald); }
-.level-card .tag{
-  display:inline-block; font-size:.72rem; font-weight:700; color:var(--emerald);
-  background:var(--emerald-l); padding:4px 10px; border-radius:100px; margin-bottom:12px;
-}
-.subject-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-.subject-pill{
-  display:flex; align-items:center; gap:8px; padding:10px 16px; border-radius:100px;
-  background:#fff; border:1px solid var(--line); font-weight:700; font-size:.9rem;
-}
-
-/* ---------- news / activities ---------- */
-.tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
-.filter-btn{
-  padding:9px 16px; border-radius:100px; border:1px solid var(--line); background:#fff;
-  font-weight:700; font-size:.85rem; cursor:pointer; color:var(--ink-soft);
-}
-.filter-btn.active{ background:var(--deep-green); color:#fff; border-color:var(--deep-green); }
-.meta-row{ display:flex; gap:14px; font-size:.82rem; color:var(--ink-soft); margin-bottom:6px; flex-wrap:wrap; }
-.badge{ background:var(--gold-l); color:#8a6a24; font-weight:700; padding:3px 10px; border-radius:100px; font-size:.72rem; }
-
-/* ---------- library ---------- */
-.lib-toolbar{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px; }
-.lib-toolbar input[type=text]{ flex:1; min-width:220px; }
-.field{
-  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:var(--radius-s);
-  font-family:var(--font-text); font-size:.96rem; background:#fff;
-}
-.book-card{ display:flex; flex-direction:column; height:100%; }
-.book-card .card-body{ display:flex; flex-direction:column; gap:10px; flex:1; }
-.book-actions{ display:flex; gap:10px; margin-top:auto; }
-.book-actions .btn{ padding:9px 14px; font-size:.82rem; }
-
-/* ---------- gallery ---------- */
-.gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-@media(max-width:920px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
-@media(max-width:600px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
-.gallery-item{ cursor:zoom-in; border-radius:var(--radius-s); overflow:hidden; }
-.gallery-item .img-slot{ aspect-ratio:1/1; transition:transform .25s ease; }
-.gallery-item:hover .img-slot{ transform:scale(1.03); }
-
-.lightbox{
-  position:fixed; inset:0; background:rgba(30,22,12,.94); z-index:200;
-  display:none; align-items:center; justify-content:center; padding:24px;
-}
-.lightbox.open{ display:flex; }
-.lightbox-inner{ position:relative; max-width:920px; width:100%; }
-.lightbox .img-slot{ aspect-ratio:16/10; border-radius:var(--radius-m); }
-.lightbox-close, .lightbox-prev, .lightbox-next{
-  position:absolute; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4);
-  color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
-}
-.lightbox-close{ top:-56px; right:0; }
-.lightbox-prev{ left:-56px; top:50%; transform:translateY(-50%); }
-.lightbox-next{ right:-56px; top:50%; transform:translateY(-50%); }
-@media(max-width:760px){ .lightbox-prev{ left:8px; } .lightbox-next{ right:8px; } .lightbox-close{ top:8px; right:8px; } }
-
-/* ---------- pricing ---------- */
-.price-card{
-  background:#fff; border:1px solid var(--line); border-radius:var(--radius-m); padding:36px 30px;
-  box-shadow:var(--shadow-1);
-}
-.price-line{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line); }
-.price-line:last-of-type{ border-bottom:none; }
-.price-line .amount{ font-weight:700; color:var(--deep-green); }
-.price-total{
-  display:flex; justify-content:space-between; align-items:baseline; margin-top:18px;
-  padding-top:18px; border-top:2px solid var(--deep-green);
-}
-.price-total .amount{ font-family:var(--font-display); font-size:1.9rem; color:var(--deep-green); }
-
-/* ---------- countdown ---------- */
-.countdown{ display:flex; gap:14px; flex-wrap:wrap; }
-.countdown .cd-box{
-  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); border-radius:var(--radius-m);
-  padding:16px 20px; min-width:84px; text-align:center;
-}
-.countdown .cd-box .num{ font-family:var(--font-display); font-size:1.9rem; color:var(--gold-l); }
-.countdown .cd-box .lab{ font-size:.72rem; color:#F1E8D6; letter-spacing:.03em; }
-
-/* ---------- forms ---------- */
-.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-@media(max-width:640px){ .form-grid{ grid-template-columns:1fr; } }
-.form-group{ display:flex; flex-direction:column; gap:6px; }
-.form-group label{ font-weight:700; font-size:.88rem; color:var(--deep-green); }
-.form-group.full{ grid-column:1/-1; }
-textarea.field{ resize:vertical; min-height:120px; }
-.form-note{ font-size:.82rem; color:var(--ink-soft); margin-top:10px; }
-.form-success{
-  display:none; background:var(--emerald-l); border:1px solid var(--emerald); color:var(--deep-green);
-  padding:14px 18px; border-radius:var(--radius-s); font-weight:700; margin-bottom:18px;
-}
-.form-success.show{ display:block; }
-
-/* ---------- contact ---------- */
-.contact-block{ display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line); }
-.contact-block:last-child{ border-bottom:none; }
-.map-slot{ border-radius:var(--radius-m); overflow:hidden; border:1px solid var(--line); }
-
-/* ---------- footer (BAS : crème clair) ---------- */
-.site-footer{ background:#F6EFDF; color:var(--ink-soft); padding:60px 0 26px; border-top:1px solid var(--line); }
-.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; }
-@media(max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
-@media(max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
-.site-footer h4{ color:var(--deep-green); font-size:1.1rem; margin-bottom:14px; }
-.site-footer a{ color:var(--ink-soft); display:block; padding:6px 0; font-size:1rem; }
-.site-footer a:hover{ color:var(--gold); }
-.footer-bottom{ border-top:1px solid var(--line); margin-top:40px; padding-top:22px; font-size:.9rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#4A4033; }
-.footer-brand{ display:flex; gap:12px; align-items:center; margin-bottom:14px; }
-.footer-brand img{ height:40px; }
-.footer-brand strong{ color:var(--deep-green); font-family:var(--font-display); }
-
-/* ---------- floating whatsapp ---------- */
-.wa-float{
-  position:fixed; bottom:22px; right:22px; z-index:80; width:58px; height:58px; border-radius:50%;
-  background:#75592F; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-2);
-  color:#fff;
-}
-.wa-float:hover{ background:#5E4824; }
-
-/* ---------- reveal-on-scroll ----------
-   Visible par défaut (sécurité si JS absent, en erreur, ou désactivé).
-   L'effet d'apparition ne s'active que lorsque main.js confirme son
-   exécution en ajoutant la classe "js-ready" sur <html>. */
-.reveal{ opacity:1; transform:none; }
-.js-ready .reveal{
-  opacity:0; transform:translateY(14px);
-  transition:opacity .5s ease, transform .5s ease;
-}
-.js-ready .reveal.in{ opacity:1; transform:none; }
-
-/* misc */
-.split{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-@media(max-width:860px){ .split{ grid-template-columns:1fr; gap:32px; } }
-.chip-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
-.chip{ padding:7px 14px; border-radius:100px; background:var(--emerald-l); color:var(--emerald); font-weight:700; font-size:.82rem; }
-hr.rule{ border:none; border-top:1px solid var(--line); margin:48px 0; }
-.center{ text-align:center; margin-left:auto; margin-right:auto; }
-.small{ font-size:.95rem; }
-.text-white p{ color:#F1E8D6; }
-.visually-hidden{
-  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
-.visually-hidden:focus{
-  position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:999;
-  background:#fff; color:var(--deep-green); padding:10px 16px; border-radius:8px; box-shadow:var(--shadow-2);
-}
-.img-slot.is-empty{ background:linear-gradient(135deg,var(--emerald-l),var(--cloth)); }
-
-/* =========================================================
-   EMBELLISSEMENTS (logo, menu, titres, pied de page)
-   ========================================================= */
-
-/* ===== 1. LOGO AGRANDI (en-tête) ===== */
-.nav-row{padding:10px 24px}
-.brand{gap:16px}
-.brand img{height:78px;width:78px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 4px 14px -4px rgba(90,70,40,.35)}
-.brand-text strong{font-size:1.3rem}
-.brand-text span{font-size:.85rem}
-@media(max-width:960px){.brand img{height:62px;width:62px}}
-@media(max-width:480px){.brand img{height:54px;width:54px}.brand-text strong{font-size:1.05rem}}
-
-/* ===== 2. MENU EMBELLI (Actualités, Bibliothèque, etc.) ===== */
-.main-nav{gap:4px}
-.main-nav a{
-  font-family:var(--font-display);
-  font-size:.95rem;
-  font-weight:600;
-  letter-spacing:.01em;
-  padding:9px 12px;
-  border-radius:100px;
-  transition:background .25s,color .25s,transform .2s,box-shadow .25s;
-}
-.main-nav a:hover{
-  background:var(--emerald-l);
-  color:var(--deep-green);
-  transform:translateY(-2px);
-  box-shadow:0 6px 14px -8px rgba(90,70,40,.45);
-}
-.main-nav a.active{
-  background:var(--deep-green);
-  color:var(--gold-l);
-  box-shadow:0 6px 16px -8px rgba(90,70,40,.7);
-}
-.main-nav a.active::after{display:none}
-.mobile-nav a{font-family:var(--font-display);font-size:1.05rem}
-.mobile-nav a.active{color:var(--emerald);border-left:3px solid var(--gold);padding-left:12px}
-
-/* ===== 3. TITRES DE SECTIONS EMBELLIS ===== */
-.section-head .kicker{
-  display:inline-block;
-  background:var(--gold-l);
-  color:var(--deep-green);
-  padding:6px 16px;
-  border-radius:100px;
-  font-size:.8rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  border:1px solid rgba(138,106,36,.4);
-}
-main h2{position:relative;padding-bottom:16px;color:var(--deep-green)}
-main h2::after{
-  content:"";
-  display:block;
-  width:72px;height:4px;border-radius:4px;
-  background:linear-gradient(90deg,var(--gold),var(--emerald));
-  margin-top:12px;
-}
-.section-head.center h2::after,
-.container[style*="text-align:center"] h2::after{margin-left:auto;margin-right:auto}
-main h3{color:var(--deep-green)}
-
-/* ===== IMAGE DE FOND DU BANDEAU (li.jpeg) ===== */
-.page-hero{
-  position:relative;
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  text-align:center;
-  padding:80px 0;
-  background-color:var(--deep-green);
-  background-image:linear-gradient(rgba(59,45,27,.62),rgba(59,45,27,.74)),url('li.jpeg');
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  color:#fff;
-}
-.page-hero .container{width:100%}
-.page-hero h1{color:#fff;font-size:clamp(2.2rem,4.8vw,3.6rem)}
-.page-hero p{color:#F6EFDF;margin-left:auto;margin-right:auto}
-.page-hero .crumb{
-  display:inline-block;
-  color:var(--gold-l);
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.3);
-  padding:6px 16px;
-  border-radius:100px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  font-size:.8rem;
-}
-@media(max-width:720px){.page-hero{min-height:340px;padding:56px 0}}
-
-/* ===== 4. PIED DE PAGE MARRON ===== */
-.site-footer{
-  background:linear-gradient(180deg,#6B4429,#4A2E1A);
-  color:#F6EBDD;
-  border-top:4px solid #C9A66B;
-}
-.site-footer p,
-.site-footer .small{color:#F6EBDD}
-.site-footer h4{
-  color:var(--gold-l);
-  font-size:1.05rem;
-  padding-bottom:10px;
-  position:relative;
-}
-.site-footer h4::after{
-  content:"";position:absolute;left:0;bottom:0;
-  width:36px;height:2px;background:#C9A66B;
-}
-.site-footer a{color:#F6EBDD;transition:color .2s,padding-left .2s}
-.site-footer a:hover{color:var(--gold-l);padding-left:6px}
-.footer-brand img{height:68px;width:68px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
-.footer-brand strong{color:#fff;font-size:1.15rem}
-.footer-bottom{border-top:1px solid rgba(244,231,203,.28);color:#E8D7BF}
+/* titres de section */
+.kicker{display:block;color:var(--br);font-weight:600;font-size:.88rem;margin-bottom:6px}
+.section-head{max-width:760px;margin-bottom:40px}
+.section-head h2::after{content:"";display:block;width:56px;height:3px;background:var(--br-l);margin-top:14px;border-radius:3px}
+/* grilles et cartes */
+.grid{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid,.grid-2,.grid-4{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;align-items:flex-start;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:var(--sh);transform:translateY(-3px)}
+.card .ico{width:44px;height:44px;border-radius:10px;background:var(--g1);color:var(--bx);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.card p{flex:1}
+.card.media{padding:0;overflow:hidden;align-items:stretch}
+.card.media .img-slot{border-radius:0;border:0;border-bottom:1px solid var(--g2)}
+.card.media .body{padding:24px 28px 28px}
+.card.media .body p{margin-bottom:0}
+.img-slot{position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;background:var(--g1);border:1px solid var(--g2)}
+.img-slot img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card.media:hover .img-slot img{transform:scale(1.05)}
+.img-slot.is-empty::after{content:"Photo à venir";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--br)}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:32px 28px;box-shadow:var(--sh)}
+.stat-strip .n{font:700 2.1rem var(--serif);color:var(--bx)}.stat-strip .l{font-size:.88rem}
+@media(max-width:720px){.stat-strip{grid-template-columns:1fr 1fr}}
+/* inscriptions */
+.cta{background:var(--bx);color:#fff;text-align:center}
+.cta h2{color:#fff}.cta h2::after{content:"";display:block;width:56px;height:3px;margin:14px auto 0;background:var(--br-l);border-radius:3px}.cta p{color:#fff;margin:0 auto 26px}
+/* pied de page */
+.site-footer{background:var(--bx-d);color:#fff;padding:60px 0 24px;border-top:4px solid var(--br-l)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
+.site-footer p{color:#F1F2F4;font-size:.92rem}
+.site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-brand img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:12px;padding:3px}
+.footer-brand strong{font:700 1.1rem var(--serif)}
+.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s}
+.wa-float:hover{transform:scale(1.06)}
+@media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
+/* apparition */
+.js-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js-ready .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js-ready .reveal{opacity:1;transform:none}}
 </style>
-
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
-  "alternateName": "Institut Al Maarifa",
-  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bambilor - Darou Salam",
-    "addressCountry": "SN"
-  },
-  "telephone": ["+221774036424", "+221775722937"],
-  "url": "https://www.institut-almaarifa.sn/"
-}
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
 </script>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
 <header class="site-header">
   <div class="nav-row">
-    <a href="index.html" class="brand">
-      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%237A6445%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23F4E7CB%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
-      <span class="brand-text">
-        <strong>Institut Al Maarifa</strong>
-        <span>Thierno Djibril Ousmane Ba</span>
-      </span>
+    <a href="index.html" class="brand" aria-label="Institut Al Maarifa — accueil">
+      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+      <span class="brand-text"><strong>INSTITUT AL MAARIFA</strong><span>THIERNO DJIBRIL OUSMANE BA</span><em>ÉCOLE FRANCO-ARABE</em></span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="active">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link class="active" aria-current="page">Centre</a>
+      <a href="programmes.html" data-nav-link>Programmes</a>
+      <a href="activites.html" data-nav-link>Activités</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link>Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
     </nav>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn"><span></span><span></span><span></span></button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="active">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="centre.html" data-nav-link class="active" aria-current="page">Centre</a>
+      <a href="programmes.html" data-nav-link>Programmes</a>
+      <a href="activites.html" data-nav-link>Activités</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <a href="galerie.html" data-nav-link>Galerie</a>
+      <a href="tarifs.html" data-nav-link>Tarifs</a>
+      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="contact.html" data-nav-link>Contact</a>
+    <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
   </nav>
 </header>
-
-<script>
-/* =========================================================================
-   Filet de sécurité pour le menu mobile (les "trois traits").
-   Ce script est autonome : il clone le bouton burger pour retirer tout
-   écouteur déjà posé par assets/js/main.js qui pourrait entrer en conflit
-   et empêcher le menu de s'ouvrir sur mobile, puis force l'affichage avec
-   !important pour ne jamais être écrasé par le CSS du site.
-   ========================================================================= */
-(function () {
-  function init() {
-    var burgerOld = document.querySelector('.burger');
-    var nav = document.querySelector('.mobile-nav');
-    if (!burgerOld || !nav) return;
-
-    var burger = burgerOld.cloneNode(true);
-    burgerOld.parentNode.replaceChild(burger, burgerOld);
-
-    function isOpen() { return burger.getAttribute('aria-expanded') === 'true'; }
-
-    function closeMenu() {
-      nav.style.setProperty('display', 'none', 'important');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('nav-open');
-    }
-    function openMenu() {
-      nav.style.setProperty('display', 'flex', 'important');
-      nav.style.setProperty('flex-direction', 'column', 'important');
-      burger.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('nav-open');
-    }
-
-    burger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      isOpen() ? closeMenu() : openMenu();
-    });
-
-    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (a) {
-      a.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', function (e) {
-      if (isOpen() && !nav.contains(e.target) && !burger.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 960) closeMenu();
-    });
-
-    closeMenu();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>
-
 <main id="main">
 
-<section class="page-hero">
-  <div class="container">
-    <div class="crumb">Le Centre</div>
+<section class="hero">
+  <div class="hero-bg" data-img-slot><img src="li.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="eager" onerror="this.remove()"></div>
+  <div class="container hero-inner">
+    <div class="badge">LE CENTRE</div>
     <h1>Des infrastructures pensées pour l'apprentissage</h1>
-    <p>Propreté, sécurité, discipline et confort : découvrez le cadre de vie de nos élèves, pensé chaque jour pour offrir un environnement sain, sûr et propice à la réussite scolaire.</p>
+    <p class="slogan">Propreté, sécurité, discipline et confort : découvrez le cadre de vie de nos élèves, pensé chaque jour pour offrir un environnement sain, sûr et propice à la réussite scolaire.</p>
+    <div class="hero-actions">
+      <a class="btn btn-bx" style="border-color:#fff" href="inscriptions.html">INSCRIRE MON ENFANT</a>
+      <a class="btn btn-white" href="contact.html">NOUS CONTACTER</a>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Nos espaces</span>
+      <h2>Un cadre solide, propre et accueillant</h2>
+    </div>
     <div class="grid grid-2">
-      <div class="card reveal"><div class="img-slot landscape" data-img-slot>
-  <img src="li.jpeg" alt="Bâtiment principal" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
-  <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg>
-  <span class="placeholder-label">Bâtiment principal</span>
-</div><div class="card-body"><h3>Bâtiment principal</h3><p>Un bâtiment solide et bien entretenu, conçu pour accueillir les élèves dans de bonnes conditions toute l'année. Sa structure est régulièrement inspectée et rénovée afin de garantir un cadre stable, durable et adapté aux besoins de chaque promotion.</p></div></div>
-      <div class="card reveal"><div class="img-slot landscape" data-img-slot>
-  <img src="b.jpeg" alt="Intérieur de l'Institut" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
-  <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg>
-  <span class="placeholder-label">Intérieur de l'Institut</span>
-</div><div class="card-body"><h3>Espaces intérieurs</h3><p>Des espaces propres et lumineux, régulièrement entretenus pour garantir le confort des élèves et du personnel. Chaque couloir, chaque salle commune est nettoyé quotidiennement afin de préserver un environnement sain et agréable à vivre.</p></div></div>
-      <div class="card reveal"><div class="img-slot landscape" data-img-slot>
-  <img src="public/images/classroom.jpg" alt="Salle de classe" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
-  <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg>
-  <span class="placeholder-label">Salle de classe</span>
-</div><div class="card-body"><h3>Salles de classe</h3><p>Des salles adaptées à chaque niveau, pensées pour favoriser la concentration et les échanges pédagogiques. L'aménagement de chaque espace tient compte de l'âge des élèves et des exigences propres à chaque matière enseignée.</p></div></div>
-      <div class="card reveal"><div class="img-slot landscape" data-img-slot>
-  <img src="public/images/students.jpg" alt="Élèves de l'Institut" loading="lazy" onerror="this.remove();this.closest('[data-img-slot]').classList.add('is-empty')">
-  <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8.5" cy="10" r="1.6"></circle><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 19"></path></svg>
-  <span class="placeholder-label">Élèves de l'Institut</span>
-</div><div class="card-body"><h3>Vie des élèves</h3><p>Un environnement sécurisé où les élèves évoluent sereinement, encadrés à chaque instant de la journée par une équipe attentive à leur bien-être, à leur discipline et à leur progression, aussi bien pendant les cours que durant les temps de pause.</p></div></div>
+      <article class="card media reveal">
+        <div class="img-slot" data-img-slot><img src="li.jpeg" alt="Bâtiment principal" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
+        <div class="body"><h3>Bâtiment principal</h3><p>Un bâtiment solide et bien entretenu, conçu pour accueillir les élèves dans de bonnes conditions toute l'année. Sa structure est régulièrement inspectée et rénovée afin de garantir un cadre stable, durable et adapté aux besoins de chaque promotion.</p></div>
+      </article>
+      <article class="card media reveal">
+        <div class="img-slot" data-img-slot><img src="b.jpeg" alt="Intérieur de l'Institut" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
+        <div class="body"><h3>Espaces intérieurs</h3><p>Des espaces propres et lumineux, régulièrement entretenus pour garantir le confort des élèves et du personnel. Chaque couloir, chaque salle commune est nettoyé quotidiennement afin de préserver un environnement sain et agréable à vivre.</p></div>
+      </article>
+      <article class="card media reveal">
+        <div class="img-slot" data-img-slot><img src="public/images/classroom.jpg" alt="Salle de classe" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
+        <div class="body"><h3>Salles de classe</h3><p>Des salles adaptées à chaque niveau, pensées pour favoriser la concentration et les échanges pédagogiques. L'aménagement de chaque espace tient compte de l'âge des élèves et des exigences propres à chaque matière enseignée.</p></div>
+      </article>
+      <article class="card media reveal">
+        <div class="img-slot" data-img-slot><img src="public/images/students.jpg" alt="Élèves de l'Institut" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
+        <div class="body"><h3>Vie des élèves</h3><p>Un environnement sécurisé où les élèves évoluent sereinement, encadrés à chaque instant de la journée par une équipe attentive à leur bien-être, à leur discipline et à leur progression, aussi bien pendant les cours que durant les temps de pause.</p></div>
+      </article>
     </div>
   </div>
 </section>
 
-<section style="background:var(--white);border-top:1px solid var(--line);">
+<section class="alt">
   <div class="container">
-    <div class="section-head reveal"><span class="kicker">Ce qui nous distingue</span><h2>Un environnement d'apprentissage de qualité</h2></div>
-    <div class="grid grid-4">
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M4 12l6 6L20 6"/></svg></div><div><h3>Propreté</h3><p>Entretien quotidien de tous les espaces, des salles de classe aux sanitaires, pour offrir un cadre sain en toute saison.</p></div></div>
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></svg></div><div><h3>Sécurité</h3><p>Accès contrôlé et surveillance permanente, du matin à la sortie des classes, pour la tranquillité des familles.</p></div></div>
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><div><h3>Discipline</h3><p>Un cadre structuré du matin au soir, qui inculque aux élèves rigueur, ponctualité et respect mutuel.</p></div></div>
-      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><div><h3>Confort</h3><p>Des espaces adaptés à chaque âge, pensés pour que chaque élève se sente bien du premier au dernier jour d'école.</p></div></div>
+    <div class="section-head reveal">
+      <span class="kicker">Ce qui nous distingue</span>
+      <h2>Un environnement d'apprentissage de qualité</h2>
     </div>
+    <div class="grid grid-4 reveal">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></div><h3>Propreté</h3><p>Entretien quotidien de tous les espaces, des salles de classe aux sanitaires, pour offrir un cadre sain en toute saison.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div><h3>Sécurité</h3><p>Accès contrôlé et surveillance permanente, du matin à la sortie des classes, pour la tranquillité des familles.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><h3>Discipline</h3><p>Un cadre structuré du matin au soir, qui inculque aux élèves rigueur, ponctualité et respect mutuel.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><h3>Confort</h3><p>Des espaces adaptés à chaque âge, pensés pour que chaque élève se sente bien du premier au dernier jour d'école.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container reveal">
+    <h2>PRÉPAREZ L'AVENIR DE VOTRE ENFANT</h2>
+    <p>Rejoignez l'Institut Al Maarifa Thierno Djibril Ousmane Ba pour une éducation associant connaissances modernes et valeurs islamiques.</p>
+    <a class="btn btn-white" href="inscriptions.html">DÉCOUVRIR LES INSCRIPTIONS</a>
   </div>
 </section>
 
@@ -708,84 +265,40 @@ main h3{color:var(--deep-green)}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">
-          <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
-          <strong>Institut Al Maarifa</strong>
-        </div>
+        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="64" height="64" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="index.html">Accueil</a>
-        <a href="institut.html">L'Institut</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="actualites.html">Actualités</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Ressources</h4>
-        <a href="bibliotheque.html">Bibliothèque numérique</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="inscriptions.html">Inscriptions 2026–2027</a>
-        <a href="centre.html">Le Centre</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:+221774036424">77 403 64 24</a>
-        <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <a href="contact.html">Formulaire de contact</a>
-      </div>
+      <div><h4>Navigation</h4><a href="index.html">Accueil</a><a href="institut.html">L'Institut</a><a href="index.html#fondateur">Le Fondateur</a><a href="programmes.html">Programmes</a><a href="actualites.html">Actualités</a><a href="contact.html">Contact</a></div>
+      <div><h4>Ressources</h4><a href="bibliotheque.html">Bibliothèque numérique</a><a href="galerie.html">Galerie</a><a href="tarifs.html">Tarifs</a><a href="inscriptions.html">Inscriptions 2026–2027</a><a href="centre.html">Le Centre</a></div>
+      <div><h4>Contact</h4><a href="tel:+221774036424">77 403 64 24</a><a href="tel:+221775722937">77 572 29 37</a><a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a><a href="contact.html">Formulaire de contact</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span>
-      <span>Partenaire officiel : Institut Al-Azhar</span>
-    </div>
+    <div class="footer-bottom"><span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span><span>Partenaire officiel : Institut Al-Azhar</span></div>
   </div>
 </footer>
 
 <a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm4.51 11.94c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/main.js"></script>
-
 <script>
-/* =========================================================================
-   Filet de sécurité pour les boutons WhatsApp (header, menu mobile, footer,
-   bouton flottant). Certains scripts (ex: assets/js/main.js) peuvent poser
-   un écouteur sur ces liens qui bloque le clic (preventDefault sans action
-   de repli, erreur JS, données non chargées, etc.). Ce script clone chaque
-   lien data-wa-link pour retirer tout écouteur potentiellement conflictuel,
-   puis force une navigation directe et fiable vers WhatsApp.
-   ========================================================================= */
-(function () {
-  function init() {
-    var links = document.querySelectorAll('[data-wa-link]');
-    Array.prototype.forEach.call(links, function (oldLink) {
-      var newLink = oldLink.cloneNode(true);
-      oldLink.parentNode.replaceChild(newLink, oldLink);
-
-      newLink.addEventListener('click', function (e) {
-        var url = newLink.getAttribute('href');
-        if (!url) return;
-        e.preventDefault();
-        window.open(url, '_blank', 'noopener');
-      });
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){
+  var b=document.getElementById('burgerBtn'),body=document.body;
+  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')}
+  b.addEventListener('click',function(){set(!body.classList.contains('nav-open'))});
+  document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
+  window.addEventListener('resize',function(){if(innerWidth>1240)set(false)});
+})();
+(function(){
+  document.documentElement.classList.add('js-ready');
+  var items=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{threshold:.05});
+    items.forEach(function(el){o.observe(el)});
+  }else{items.forEach(function(el){el.classList.add('in')})}
 })();
 </script>
-
 </body>
 </html>
