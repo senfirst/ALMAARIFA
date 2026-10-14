@@ -72,7 +72,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 @media(max-width:360px){.brand-text span{white-space:normal}}
 /* hero */
 .hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(480px,78vh,720px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
-.hero-bg{position:absolute;inset:0}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(92,16,37,.45),rgba(92,16,37,.88))}
 .hero-inner{position:relative;z-index:2;padding-top:72px;padding-bottom:72px}
@@ -85,6 +85,28 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .hero .badge,.hero .partner,.hero h1,.slogan,.hero-actions{animation:fade .8s ease both}
 .hero h1{animation-delay:.12s}.slogan{animation-delay:.22s}.hero-actions{animation-delay:.32s}
 @keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* hero : animation de l'image de fond */
+.hero-bg img{
+  transform-origin:60% 40%;
+  will-change:transform;
+  animation:kenburns 24s ease-in-out infinite alternate;
+}
+@keyframes kenburns{
+  0%  {transform:scale(1)    translate(0,0)}
+  50% {transform:scale(1.10) translate(-1.5%,-1%)}
+  100%{transform:scale(1.18) translate(-3%,-2%)}
+}
+/* reflet lumineux qui traverse l'image */
+.hero-bg::before{
+  content:"";position:absolute;inset:-20% -50%;z-index:1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.10) 50%,transparent 60%);
+  transform:translateX(-60%);
+  animation:sheen 9s ease-in-out infinite;
+}
+@keyframes sheen{
+  0%,15%{transform:translateX(-60%)}
+  60%,100%{transform:translateX(60%)}
+}
 /* titres de section */
 .kicker{display:block;color:var(--br);font-weight:600;font-size:.88rem;margin-bottom:6px}
 .section-head{max-width:760px;margin-bottom:40px}
