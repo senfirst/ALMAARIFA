@@ -5,1517 +5,270 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galerie photos &amp; vidéos | Institut Al Maarifa</title>
 <meta name="description" content="Galerie photos et vidéos de l'Institut Al Maarifa : bâtiment, salles de classe, élèves, enseignants, activités pédagogiques, islamiques, sportives et événements à Bambilor.">
-<meta name="theme-color" content="#0B3B2C">
+<meta name="theme-color" content="#701C32">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/galerie.html">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Galerie photos &amp; vidéos | Institut Al Maarifa">
-<meta property="og:description" content="Découvrez en images et en vidéos la vie de l'Institut Al Maarifa : infrastructures, classes, élèves, enseignants et événements.">
+<meta property="og:description" content="Galerie photos et vidéos de l'Institut Al Maarifa : bâtiment, salles de classe, élèves, enseignants, activités pédagogiques, islamiques, sportives et événements à Bambilor.">
 <meta property="og:image" content="public/images/og-cover.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Institut Al Maarifa Thierno Djibril Ousmane Ba">
-
 <link rel="icon" type="image/png" href="public/icons/favicon.png">
 <link rel="apple-touch-icon" href="public/icons/favicon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="s.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Institut Al Maarifa Thierno Djibril Ousmane Ba",
-  "alternateName": "Institut Al Maarifa",
-  "description": "École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bambilor - Darou Salam",
-    "addressCountry": "SN"
-  },
-  "telephone": ["+221774036424", "+221775722937"],
-  "url": "https://www.institut-almaarifa.sn/"
-}
-</script>
-
-<!--
-  Styles propres à la page Galerie uniquement (ne modifie pas s.css).
-  Préfixe "gp-" pour éviter tout conflit avec les classes existantes du site.
--->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
- /* =========================================================
-   s.css — Institut Al Maarifa
-   CSS complet + corrigé
-   ========================================================= */
-
-:root{
-  --gp-green:#0C8B3C;
-  --gp-green-dark:#0B3B2C;
-  --gp-green-deep:#082D22;
-  --gp-gold:#B8903E;
-  --gp-gold-light:#D4B66D;
-  --gp-cream:#FBF8F1;
-  --gp-cream-2:#F3EEE1;
-  --gp-white:#FFFFFF;
-  --gp-text:#222820;
-  --gp-muted:#6B665A;
-  --gp-border:#E4DDCC;
-  --gp-shadow:0 10px 30px rgba(11,59,44,.10);
-  --gp-radius:16px;
-  --gp-container:1180px;
-}
-
-*{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
-}
-
-body{
-  margin:0;
-  background:#fff;
-  color:var(--gp-text);
-  font-family:'Karla',Arial,sans-serif;
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-body.gp-nav-open{overflow:hidden}
-
-img,video,iframe{max-width:100%}
-
-img{height:auto}
-
-a{color:inherit}
-
-button,input,textarea,select{font:inherit}
-
-button{cursor:pointer}
-
-.container{
-  width:min(100% - 40px,var(--gp-container));
-  margin-inline:auto;
-}
-
-/* =========================
-   ACCESSIBILITÉ
-   ========================= */
-
-.visually-hidden{
-  position:absolute!important;
-  width:1px!important;
-  height:1px!important;
-  padding:0!important;
-  margin:-1px!important;
-  overflow:hidden!important;
-  clip:rect(0,0,0,0)!important;
-  white-space:nowrap!important;
-  border:0!important;
-}
-
-:focus-visible{
-  outline:3px solid var(--gp-gold-light);
-  outline-offset:3px;
-}
-
-/* =========================
-   HEADER
-   ========================= */
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid rgba(11,59,44,.10);
-  box-shadow:0 3px 18px rgba(0,0,0,.06);
-  backdrop-filter:blur(12px);
-}
-
-.nav-row{
-  width:min(100% - 40px,1280px);
-  min-height:78px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  gap:24px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  min-width:max-content;
-  text-decoration:none;
-  color:var(--gp-green-dark);
-}
-
-.brand img{
-  width:46px;
-  height:46px;
-  border-radius:10px;
-  object-fit:cover;
-  flex:none;
-}
-
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.15;
-}
-
-.brand-text strong{
-  font-family:'Fraunces',Georgia,serif;
-  font-size:1.05rem;
-  font-weight:700;
-}
-
-.brand-text span{
-  margin-top:4px;
-  color:#777064;
-  font-size:.70rem;
-  font-weight:600;
-}
-
-.main-nav{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:4px;
-  flex:1;
-}
-
-.main-nav a,
-.mobile-nav a{
-  text-decoration:none;
-  color:#334238;
-  font-size:.86rem;
-  font-weight:600;
-  transition:color .2s ease,background .2s ease;
-}
-
-.main-nav a{
-  padding:9px 8px;
-  border-radius:8px;
-}
-
-.main-nav a:hover,
-.main-nav a.active{
-  color:var(--gp-green);
-  background:rgba(12,139,60,.07);
-}
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:40px;
-  padding:9px 15px;
-  border-radius:999px;
-  border:1px solid transparent;
-  text-decoration:none;
-  font-size:.82rem;
-  font-weight:700;
-  white-space:nowrap;
-  transition:transform .2s ease,background .2s ease,border-color .2s ease;
-}
-
-.btn:hover{transform:translateY(-1px)}
-
-.btn-whatsapp{
-  background:#eef8f1;
-  color:var(--gp-green-dark);
-  border-color:#cde7d5;
-}
-
-.btn-whatsapp:hover{background:#e2f3e7}
-
-.btn-gold{
-  background:var(--gp-gold);
-  color:#211a0c;
-}
-
-.btn-gold:hover{background:var(--gp-gold-light)}
-
-.burger{
-  display:none;
-  width:46px;
-  height:46px;
-  padding:10px;
-  margin-left:auto;
-  border:1px solid var(--gp-border);
-  border-radius:10px;
-  background:#fff;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:5px;
-}
-
-.burger span{
-  display:block;
-  width:22px;
-  height:2px;
-  border-radius:2px;
-  background:var(--gp-green-dark);
-  transition:transform .2s ease,opacity .2s ease;
-}
-
-.mobile-nav{
-  display:none;
-}
-
-/* =========================
-   GALERIE — HERO
-   ========================= */
-
-.gp-hero{
-  background:linear-gradient(160deg,var(--gp-green) 0%,var(--gp-green-dark) 100%);
-  color:#fff;
-  padding:64px 0 72px;
-}
-
-.gp-hero .crumb{
-  display:inline-block;
-  margin-bottom:12px;
-  color:var(--gp-gold-light);
-  font-size:.78rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.10em;
-}
-
-.gp-hero h1{
-  margin:0 0 10px;
-  color:#fff;
-  font-family:'Fraunces',Georgia,serif;
-  font-size:clamp(2.2rem,5vw,4rem);
-  line-height:1.05;
-}
-
-.gp-hero .gp-lead{
-  margin:0 0 14px;
-  color:var(--gp-gold-light);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:clamp(1.3rem,2.4vw,1.7rem);
-  font-weight:400;
-}
-
-.gp-hero p:not(.gp-lead){
-  max-width:680px;
-  margin:0;
-  color:rgba(255,255,255,.86);
-  line-height:1.75;
-}
-
-.gp-hero-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:28px;
-}
-
-.gp-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  min-height:48px;
-  padding:13px 26px;
-  border:1px solid transparent;
-  border-radius:999px;
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.95rem;
-  font-weight:700;
-  text-decoration:none;
-  cursor:pointer;
-  transition:transform .2s ease,background .2s ease,border-color .2s ease;
-}
-
-.gp-btn:hover{transform:translateY(-2px)}
-
-.gp-btn-gold{
-  background:var(--gp-gold);
-  color:#1c1608;
-}
-
-.gp-btn-gold:hover{background:var(--gp-gold-light)}
-
-.gp-btn-outline{
-  background:transparent;
-  color:#fff;
-  border-color:rgba(255,255,255,.55);
-}
-
-.gp-btn-outline:hover{
-  background:rgba(255,255,255,.08);
-  border-color:#fff;
-}
-
-/* =========================
-   SECTIONS
-   ========================= */
-
-.gp-section{
-  padding:72px 0;
-}
-
-.gp-section-alt{
-  background:var(--gp-cream);
-}
-
-.gp-section-head{
-  max-width:700px;
-  margin-bottom:36px;
-}
-
-.gp-eyebrow{
-  margin:0 0 8px;
-  color:var(--gp-gold);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.8rem;
-  font-weight:800;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-}
-
-.gp-section h2{
-  margin:0 0 12px;
-  color:var(--gp-green);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:clamp(1.7rem,3vw,2.3rem);
-  line-height:1.15;
-}
-
-.gp-section-head p:last-child{
-  margin:0;
-  color:#4b4b46;
-  line-height:1.75;
-}
-
-/* =========================
-   FILTRES
-   ========================= */
-
-.gp-tag-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:32px;
-}
-
-.gp-tag-btn{
-  padding:9px 18px;
-  border:1px solid #d9d2bf;
-  border-radius:999px;
-  background:#fff;
-  color:var(--gp-green);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.88rem;
-  font-weight:700;
-  cursor:pointer;
-  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
-}
-
-.gp-tag-btn:hover{
-  border-color:var(--gp-gold);
-  transform:translateY(-1px);
-}
-
-.gp-tag-btn.active{
-  background:var(--gp-green);
-  border-color:var(--gp-green);
-  color:#fff;
-}
-
-/* =========================
-   PHOTOS
-   ========================= */
-
-.gp-photo-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
-}
-
-.gp-photo-card{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  min-width:0;
-  border-radius:var(--gp-radius);
-  background:#fff;
-  box-shadow:var(--gp-shadow);
-  transition:transform .25s ease,box-shadow .25s ease;
-}
-
-.gp-photo-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 30px rgba(11,59,44,.15);
-}
-
-.gp-photo-media{
-  position:relative;
-  aspect-ratio:4/3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:var(--gp-cream-2);
-}
-
-.gp-photo-media img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .35s ease;
-}
-
-.gp-photo-card:hover .gp-photo-media img{
-  transform:scale(1.03);
-}
-
-.gp-placeholder{
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:18px;
-  text-align:center;
-  color:#8a8578;
-  background:repeating-linear-gradient(
-    135deg,
-    var(--gp-cream-2),
-    var(--gp-cream-2) 10px,
-    #ece5d2 10px,
-    #ece5d2 20px
-  );
-}
-
-.gp-placeholder .gp-ph-icon{
-  font-size:2rem;
-  line-height:1;
-  opacity:.7;
-}
-
-.gp-placeholder .gp-ph-label{
-  color:var(--gp-green);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.8rem;
-  font-weight:800;
-}
-
-.gp-placeholder .gp-ph-sub{
-  color:#9a9484;
-  font-size:.78rem;
-}
-
-.gp-agrandir{
-  position:absolute;
-  right:10px;
-  bottom:10px;
-  padding:7px 14px;
-  border:0;
-  border-radius:999px;
-  background:rgba(11,59,44,.88);
-  color:#fff;
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.78rem;
-  font-weight:700;
-  opacity:0;
-  transform:translateY(6px);
-  transition:opacity .2s ease,transform .2s ease;
-}
-
-.gp-photo-card:hover .gp-agrandir,
-.gp-photo-card:focus-within .gp-agrandir{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.gp-photo-info{
-  padding:16px 18px 18px;
-}
-
-.gp-photo-info .gp-cat{
-  display:inline-block;
-  margin-bottom:6px;
-  color:var(--gp-gold);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.02em;
-  text-transform:uppercase;
-}
-
-.gp-photo-info h3{
-  margin:0 0 6px;
-  color:var(--gp-green);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:1.05rem;
-  line-height:1.25;
-}
-
-.gp-photo-info p{
-  margin:0;
-  color:#6b665a;
-  font-size:.85rem;
-  line-height:1.5;
-}
-
-/* =========================
-   VIDEOS
-   ========================= */
-
-.gp-video-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-.gp-video-card{
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  border-radius:var(--gp-radius);
-  background:#fff;
-  box-shadow:var(--gp-shadow);
-}
-
-.gp-video-media{
-  position:relative;
-  aspect-ratio:16/9;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:var(--gp-green-dark);
-  cursor:pointer;
-}
-
-.gp-video-media img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:.55;
-}
-
-.gp-video-media.gp-ph{
-  background:repeating-linear-gradient(
-    135deg,
-    var(--gp-green-dark),
-    var(--gp-green-dark) 10px,
-    #0f4634 10px,
-    #0f4634 20px
-  );
-  cursor:default;
-}
-
-.gp-play{
-  position:relative;
-  z-index:2;
-  width:58px;
-  height:58px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.92);
-  color:var(--gp-green);
-  font-size:1.3rem;
-  line-height:1;
-  box-shadow:0 5px 18px rgba(0,0,0,.15);
-  transition:transform .2s ease;
-}
-
-.gp-video-media:not(.gp-ph):hover .gp-play{
-  transform:scale(1.08);
-}
-
-.gp-video-media.gp-ph .gp-play{
-  background:rgba(255,255,255,.12);
-  color:rgba(255,255,255,.6);
-}
-
-.gp-video-ph-text{
-  position:absolute;
-  right:0;
-  bottom:12px;
-  left:0;
-  z-index:2;
-  color:rgba(255,255,255,.75);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.78rem;
-  font-weight:700;
-  text-align:center;
-}
-
-.gp-video-info{
-  padding:16px 18px 18px;
-}
-
-.gp-video-info .gp-cat{
-  display:inline-block;
-  margin-bottom:6px;
-  color:var(--gp-gold);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.72rem;
-  font-weight:800;
-  text-transform:uppercase;
-}
-
-.gp-video-info h3{
-  margin:0;
-  color:var(--gp-green);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:1.02rem;
-  line-height:1.3;
-}
-
-.gp-video-embed{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* =========================
-   MOMENTS FORTS
-   ========================= */
-
-.gp-highlight-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-.gp-highlight-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:18px;
-  background:#fff;
-  box-shadow:var(--gp-shadow);
-}
-
-.gp-highlight-media{
-  position:relative;
-  aspect-ratio:3/2;
-  background:var(--gp-cream-2);
-}
-
-.gp-highlight-badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  z-index:2;
-  padding:5px 12px;
-  border-radius:999px;
-  background:var(--gp-gold);
-  color:#1c1608;
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.7rem;
-  font-weight:800;
-  letter-spacing:.02em;
-}
-
-.gp-highlight-body{
-  padding:18px 20px 22px;
-}
-
-.gp-highlight-date{
-  margin:0 0 6px;
-  color:var(--gp-gold);
-  font-family:'Karla',Arial,sans-serif;
-  font-size:.78rem;
-  font-weight:800;
-}
-
-.gp-highlight-body h3{
-  margin:0 0 8px;
-  color:var(--gp-green);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:1.1rem;
-  line-height:1.25;
-}
-
-.gp-highlight-body p:last-child{
-  margin:0;
-  color:#6b665a;
-  font-size:.88rem;
-  line-height:1.6;
-}
-
-/* =========================
-   VISITE VIRTUELLE
-   ========================= */
-
-.gp-tour{
-  display:grid;
-  grid-template-columns:1.1fr 1fr;
-  align-items:stretch;
-  overflow:hidden;
-  border-radius:22px;
-  background:var(--gp-green);
-  box-shadow:0 15px 40px rgba(11,59,44,.13);
-}
-
-.gp-tour-text{
-  padding:48px 44px;
-  color:#fff;
-}
-
-.gp-tour-text .gp-eyebrow{
-  color:var(--gp-gold-light);
-}
-
-.gp-tour-text h2{
-  color:#fff;
-}
-
-.gp-tour-text p{
-  margin:0;
-  color:rgba(255,255,255,.82);
-  line-height:1.7;
-}
-
-.gp-tour-media{
-  position:relative;
-  min-height:280px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:repeating-linear-gradient(
-    135deg,
-    var(--gp-green-dark),
-    var(--gp-green-dark) 12px,
-    #0f4634 12px,
-    #0f4634 24px
-  );
-}
-
-.gp-tour-media .gp-play{
-  width:74px;
-  height:74px;
-  font-size:1.6rem;
-}
-
-/* =========================
-   NOTES
-   ========================= */
-
-.gp-empty-note{
-  margin:14px 0 0;
-  color:#8a8578;
-  font-size:.85rem;
-  font-style:italic;
-}
-
-/* =========================
-   LIGHTBOX
-   ========================= */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  z-index:2000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:30px;
-  background:rgba(0,0,0,.86);
-}
-
-.lightbox.open{
-  display:flex;
-}
-
-.lightbox-inner{
-  position:relative;
-  width:min(100%,1000px);
-  max-height:95vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-
-#lb-image{
-  max-width:100%;
-  max-height:78vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-#lb-image img{
-  display:block;
-  max-width:90vw;
-  max-height:75vh;
-  border-radius:12px;
-  object-fit:contain;
-}
-
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next{
-  position:absolute;
-  z-index:3;
-  width:44px;
-  height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:50%;
-  background:rgba(0,0,0,.45);
-  color:#fff;
-  font-size:1.7rem;
-  line-height:1;
-}
-
-.lightbox-close{
-  top:-8px;
-  right:0;
-}
-
-.lightbox-prev{
-  top:50%;
-  left:-60px;
-  transform:translateY(-50%);
-}
-
-.lightbox-next{
-  top:50%;
-  right:-60px;
-  transform:translateY(-50%);
-}
-
-.lightbox-close:hover,
-.lightbox-prev:hover,
-.lightbox-next:hover{
-  background:rgba(255,255,255,.16);
-}
-
-#lb-caption{
-  max-width:90%;
-  margin:14px 0 0;
-  color:#fff;
-  text-align:center;
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-
-.site-footer{
-  padding:58px 0 0;
-  background:var(--gp-green-deep);
-  color:rgba(255,255,255,.82);
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1fr;
-  gap:40px;
-  padding-bottom:42px;
-}
-
-.footer-brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:15px;
-  color:#fff;
-}
-
-.footer-brand img{
-  width:42px;
-  height:42px;
-  border-radius:9px;
-  object-fit:cover;
-}
-
-.footer-brand strong{
-  font-family:'Fraunces',Georgia,serif;
-  font-size:1.05rem;
-}
-
-.site-footer p{
-  max-width:430px;
-  margin:0 0 10px;
-  color:rgba(255,255,255,.68);
-  font-size:.9rem;
-  line-height:1.7;
-}
-
-.site-footer .small{
-  color:var(--gp-gold-light);
-}
-
-.site-footer h4{
-  margin:0 0 14px;
-  color:#fff;
-  font-family:'Fraunces',Georgia,serif;
-  font-size:1rem;
-}
-
-.site-footer a{
-  display:block;
-  width:max-content;
-  max-width:100%;
-  margin:0 0 8px;
-  color:rgba(255,255,255,.68);
-  font-size:.88rem;
-  text-decoration:none;
-  transition:color .2s ease;
-}
-
-.site-footer a:hover{
-  color:var(--gp-gold-light);
-}
-
-.footer-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:18px 0;
-  border-top:1px solid rgba(255,255,255,.12);
-  color:rgba(255,255,255,.55);
-  font-size:.76rem;
-}
-
-.footer-bottom span:last-child{
-  color:var(--gp-gold-light);
-}
-
-/* =========================
-   WHATSAPP FLOTTANT
-   ========================= */
-
-.wa-float{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  z-index:900;
-  width:56px;
-  height:56px;
-  display:flex!important;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#25D366;
-  color:#fff!important;
-  text-decoration:none;
-  box-shadow:0 8px 25px rgba(0,0,0,.22);
-  transition:transform .2s ease;
-}
-
-.wa-float:hover{
-  transform:translateY(-3px) scale(1.04);
-}
-
-.wa-float svg{
-  width:28px;
-  height:28px;
-}
-
-/* =========================
-   RESPONSIVE 1024px
-   ========================= */
-
-@media (max-width:1100px){
-  .main-nav{
-    gap:0;
-  }
-
-  .main-nav a{
-    padding-inline:6px;
-    font-size:.79rem;
-  }
-
-  .header-actions .btn-whatsapp{
-    display:none;
-  }
-
-  .gp-photo-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .gp-video-grid,
-  .gp-highlight-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .gp-tour{
-    grid-template-columns:1fr;
-  }
-
-  .gp-tour-media{
-    min-height:240px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1.5fr 1fr 1fr;
-  }
-}
-
-/* =========================
-   RESPONSIVE 900px
-   ========================= */
-
-@media (max-width:900px){
-  .nav-row{
-    min-height:70px;
-  }
-
-  .main-nav,
-  .site-header > .nav-row > .header-actions{
-    display:none;
-  }
-
-  .burger{
-    display:flex;
-  }
-
-  .mobile-nav{
-    width:100%;
-    max-height:0;
-    overflow:hidden;
-    padding:0 20px;
-    background:#fff;
-    border-top:1px solid transparent;
-    transition:max-height .3s ease,padding .3s ease;
-  }
-
-  body.gp-nav-open .mobile-nav{
-    display:flex!important;
-    flex-direction:column!important;
-    visibility:visible!important;
-    opacity:1!important;
-    max-height:calc(100vh - 70px)!important;
-    padding:10px 20px 24px!important;
-    overflow-y:auto;
-    pointer-events:auto!important;
-    border-top-color:rgba(11,59,44,.08);
-  }
-
-  .mobile-nav a{
-    display:block;
-    width:100%;
-    padding:13px 12px;
-    border-radius:9px;
-    font-size:.95rem;
-  }
-
-  .mobile-nav a:hover,
-  .mobile-nav a.active{
-    background:rgba(12,139,60,.07);
-    color:var(--gp-green);
-  }
-
-  .mobile-nav .header-actions{
-    display:flex;
-    flex-wrap:wrap;
-    padding:14px 12px 0;
-    margin-top:8px;
-    border-top:1px solid var(--gp-border);
-  }
-
-  .mobile-nav .header-actions .btn{
-    flex:1;
-    min-width:130px;
-  }
-
-  .gp-photo-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-/* =========================
-   RESPONSIVE 720px
-   ========================= */
-
-@media (max-width:720px){
-  .container{
-    width:min(100% - 28px,var(--gp-container));
-  }
-
-  .nav-row{
-    width:min(100% - 28px,1280px);
-  }
-
-  .brand-text span{
-    display:none;
-  }
-
-  .gp-hero{
-    padding:48px 0 56px;
-  }
-
-  .gp-hero h1{
-    font-size:clamp(2rem,10vw,3rem);
-  }
-
-  .gp-section{
-    padding:54px 0;
-  }
-
-  .gp-tag-row{
-    gap:8px;
-    margin-bottom:24px;
-  }
-
-  .gp-tag-btn{
-    padding:8px 13px;
-    font-size:.78rem;
-  }
-
-  .gp-photo-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-  }
-
-  .gp-video-grid,
-  .gp-highlight-grid{
-    grid-template-columns:1fr;
-    gap:18px;
-  }
-
-  .gp-photo-info{
-    padding:13px 14px 15px;
-  }
-
-  .gp-photo-info h3{
-    font-size:.98rem;
-  }
-
-  .gp-photo-info p{
-    font-size:.81rem;
-  }
-
-  .gp-agrandir{
-    opacity:1;
-    transform:none;
-  }
-
-  .gp-tour-text{
-    padding:32px 24px;
-  }
-
-  .gp-tour-media{
-    min-height:200px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-    gap:30px 22px;
-  }
-
-  .footer-grid > div:first-child{
-    grid-column:1/-1;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .lightbox{
-    padding:16px;
-  }
-
-  .lightbox-prev{
-    left:4px;
-  }
-
-  .lightbox-next{
-    right:4px;
-  }
-
-  .lightbox-close{
-    top:4px;
-    right:4px;
-  }
-}
-
-/* =========================
-   RESPONSIVE 480px
-   ========================= */
-
-@media (max-width:480px){
-  .container{
-    width:calc(100% - 24px);
-  }
-
-  .nav-row{
-    width:calc(100% - 24px);
-  }
-
-  .brand img{
-    width:42px;
-    height:42px;
-  }
-
-  .brand-text strong{
-    font-size:.95rem;
-  }
-
-  .gp-hero{
-    padding:42px 0 48px;
-  }
-
-  .gp-hero-actions{
-    flex-direction:column;
-  }
-
-  .gp-btn{
-    width:100%;
-    justify-content:center;
-  }
-
-  .gp-photo-grid{
-    grid-template-columns:1fr;
-  }
-
-  .gp-photo-media{
-    aspect-ratio:16/10;
-  }
-
-  .gp-tag-row{
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:5px;
-    scrollbar-width:thin;
-  }
-
-  .gp-tag-btn{
-    flex:0 0 auto;
-  }
-
-  .gp-tour{
-    border-radius:16px;
-  }
-
-  .gp-tour-text{
-    padding:28px 20px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid > div:first-child{
-    grid-column:auto;
-  }
-
-  .wa-float{
-    right:15px;
-    bottom:15px;
-    width:52px;
-    height:52px;
-  }
-}
-
-/* =========================
-   MOTION REDUITE
-   ========================= */
-
-@media (prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
-  }
-
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
-  }
-}
-
+/* Institut Al Maarifa — charte bordeaux / gris / marron, sans animation */
+:root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
+--serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:84px;
+--sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--hh) + 12px)}
+body{margin:0;font:400 1.0625rem/1.7 var(--sans);color:var(--ink);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{margin:0;padding:0;list-style:none}
+h1,h2,h3{font-family:var(--serif);color:var(--bx-d);line-height:1.2;margin:0 0 .6em;font-weight:700}
+h1{font-size:clamp(2rem,4.4vw,3.4rem)}h2{font-size:clamp(1.6rem,2.8vw,2.3rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:66ch}
+.container{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
+:focus-visible{outline:3px solid var(--br-l);outline-offset:3px}
+.visually-hidden{position:absolute;left:-9999px}.visually-hidden:focus{position:fixed;left:12px;top:12px;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:var(--r);font:600 .95rem var(--sans);border:2px solid transparent;cursor:pointer}
+.btn-bx{background:var(--bx);color:#fff}.btn-bx:hover{background:var(--bx-d)}
+.btn-white{background:#fff;color:var(--bx-d)}.btn-white:hover{background:var(--g1)}
+.btn-line{background:#fff;color:var(--bx-d);border-color:var(--g2)}.btn-line:hover{border-color:var(--bx)}
+/* en-tête */
+.site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
+.brand{display:flex;align-items:center;gap:14px;flex:0 0 auto;min-width:0}
+.brand img{width:64px;height:64px;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--g2);border-radius:12px}
+.brand-text{display:flex;flex-direction:column;line-height:1.25}
+.brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
+.brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.brand-text em{font-style:normal;font-size:.68rem;color:var(--br);font-weight:600;letter-spacing:.06em}
+.main-nav{display:flex;align-items:center;gap:2px}
+.main-nav a{position:relative;padding:9px 11px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap}
+.main-nav a:hover{color:var(--bx);background:var(--g1)}
+.main-nav a.active{color:var(--bx);font-weight:600}
+.main-nav a.active::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:20px;height:2px;background:var(--bx-d)}
+.mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;background:#fff;border-top:1px solid var(--g2);max-height:calc(100vh - var(--hh));overflow-y:auto}
+.mobile-nav a{padding:13px 8px;font-weight:500;border-bottom:1px solid var(--g1)}
+.mobile-nav a.active{color:var(--bx);font-weight:700;border-left:3px solid var(--bx);padding-left:12px}
+.mobile-nav .btn{margin-top:14px;border-bottom:0}
+body.nav-open .mobile-nav{display:flex}
+body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .burger span:nth-child(2){opacity:0}
+body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1240px){.main-nav{display:none}.burger{display:flex}}
+@media(max-width:520px){:root{--hh:72px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.9rem}.brand-text span{font-size:.62rem}.brand-text em{display:none}}
+@media(max-width:360px){.brand-text span{white-space:normal}}
+/* hero (image fixe) */
+.hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(420px,64vh,620px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(92,16,37,.45),rgba(92,16,37,.88))}
+.hero-inner{position:relative;z-index:2;padding-top:72px;padding-bottom:72px}
+.badge{display:inline-block;background:#fff;color:var(--bx);font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:7px 16px;border-radius:100px;margin-bottom:16px}
+.hero h1{color:#fff;max-width:20ch;margin-bottom:.45em}
+.slogan{font-size:1.15rem;max-width:56ch;color:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+/* titres */
+.kicker{display:block;color:var(--br);font-weight:600;font-size:.88rem;margin-bottom:6px}
+.section-head{max-width:760px;margin-bottom:32px}
+.section-head h2::after{content:"";display:block;width:56px;height:3px;background:var(--br-l);margin-top:14px;border-radius:3px}
+/* recherche + filtres */
+.news-search{display:flex;align-items:center;gap:10px;max-width:420px;margin-bottom:20px;background:#fff;border:1.5px solid var(--g2);border-radius:100px;padding:10px 18px}
+.news-search:focus-within{border-color:var(--bx)}
+.news-search svg{flex:none;color:var(--br)}
+.news-search input{border:0;background:transparent;outline:none;width:100%;font:400 .95rem var(--sans);color:var(--ink)}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.tag-row:empty{display:none}
+.filter-btn{padding:10px 18px;border-radius:100px;border:1.5px solid var(--g2);background:#fff;font:600 .92rem var(--sans);cursor:pointer;color:var(--bx-d)}
+.filter-btn:hover{border-color:var(--bx)}
+.filter-btn.active{background:var(--bx);color:#fff;border-color:var(--bx)}
+.count{font-size:.88rem;color:var(--br);font-weight:600;margin-bottom:24px}
+.count:empty{display:none}
+/* cartes */
+.grid{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--g2);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh)}
+a.card:hover{border-color:var(--bx)}
+.card .body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.card h3{margin-bottom:8px}
+.card p.summary{margin:0;font-size:.95rem;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.more{margin-top:auto;padding-top:14px;font-weight:700;font-size:.92rem;color:var(--bx)}
+.img-slot{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--g1);border-bottom:1px solid var(--g2)}
+.img-slot img{width:100%;height:100%;object-fit:cover}
+.img-slot.is-empty::after{content:"Photo à venir";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--br)}
+.media-badge{position:absolute;top:12px;right:12px;z-index:2;background:var(--bx-d);color:#fff;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:100px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:.88rem;margin-bottom:8px}
+.tag{background:var(--g1);color:var(--bx);font-weight:700;font-size:.78rem;padding:3px 12px;border-radius:100px;border:1px solid var(--g2)}
+.status{grid-column:1/-1;text-align:center;padding:32px 16px;font-weight:600;max-width:none;margin:0}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.grid-4{grid-template-columns:repeat(3,1fr)}}@media(max-width:820px){.grid-4{grid-template-columns:1fr 1fr}}@media(max-width:480px){.grid-4{grid-template-columns:1fr}}
+.book-placeholder{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;background:var(--g1);color:var(--br);border-bottom:1px solid var(--g2)}
+.book-placeholder svg{opacity:.45}
+.book-card .body{gap:6px}.book-card h3{font-size:1.05rem;margin:6px 0 2px}
+.book-card .lang{margin:0;font-size:.88rem;color:var(--br)}
+.book-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px}
+.book-actions .btn{min-height:42px;padding:8px 16px;font-size:.86rem}
+.btn-dl{background:var(--bx);color:#fff}.btn-dl:hover{background:var(--bx-l)}
+.ph-note{margin:16px 0 0;font-size:.88rem;font-style:italic;color:var(--br);max-width:none}
+.card .more-btn{position:absolute;right:10px;bottom:10px;z-index:2;padding:7px 14px;border:0;border-radius:100px;background:var(--bx);color:#fff;font:600 .78rem var(--sans);cursor:pointer}
+.card .body .tag{align-self:flex-start;margin-bottom:8px}
+.photo-card{cursor:pointer}
+.photo-card h3{font-size:1.05rem}.photo-card p{font-size:.88rem}
+.scroll-row{flex-wrap:wrap}
+@media(max-width:480px){.scroll-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.scroll-row .filter-btn{flex:0 0 auto}}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.grid-4{grid-template-columns:repeat(3,1fr)}}@media(max-width:820px){.grid-4{grid-template-columns:1fr 1fr}}@media(max-width:480px){.grid-4{grid-template-columns:1fr}}
+.vid{position:relative;aspect-ratio:16/9;background:var(--bx);display:flex;align-items:center;justify-content:center;overflow:hidden;width:100%;border:0;padding:0;color:#fff;cursor:pointer}
+.vid.ph{background:repeating-linear-gradient(135deg,#701C32,#701C32 10px,#5e1729 10px,#5e1729 20px);cursor:default}
+.vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--bx);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.vid.ph .play{background:rgba(255,255,255,.14);color:rgba(255,255,255,.7)}
+.vid-note{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.8)}
+.hl-media{position:relative}.hl-badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:#252525;font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:100px}
+.hl-date{font-size:.82rem;font-weight:700;color:var(--br);margin:0 0 6px}
+.tour{display:grid;grid-template-columns:1.1fr 1fr;border-radius:18px;overflow:hidden;background:var(--bx);color:#fff}
+.tour-text{padding:48px 44px}.tour-text h2{color:#fff}.tour-text p{color:rgba(255,255,255,.88);margin:0}.tour-text .kicker{color:var(--gold)}
+.tour-media{min-height:260px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#5e1729,#5e1729 12px,#4d1222 12px,#4d1222 24px)}
+@media(max-width:820px){.tour{grid-template-columns:1fr}.tour-text{padding:32px 22px}.tour-media{min-height:200px}}
+.alt{background:var(--g1)}
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(37,37,37,.9);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.lightbox.open{opacity:1;visibility:visible}
+.lb-inner{position:relative;width:min(100%,1000px);display:flex;flex-direction:column;align-items:center;transform:scale(.97);transition:transform .3s}
+.lightbox.open .lb-inner{transform:none}
+#lb-image img{display:block;max-width:90vw;max-height:75vh;border-radius:12px;object-fit:contain}
+.lb-ph{width:min(80vw,700px);height:min(60vh,480px);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--br);background:var(--g1)}
+.lb-btn{position:absolute;z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font-size:1.6rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lb-btn:hover{background:var(--bx)}
+#lb-close{top:-10px;right:0}#lb-prev{top:50%;left:-60px;transform:translateY(-50%)}#lb-next{top:50%;right:-60px;transform:translateY(-50%)}
+#lb-caption{color:#fff;text-align:center;margin:14px 0 0;max-width:90%}
+@media(max-width:720px){#lb-prev{left:4px}#lb-next{right:4px}#lb-close{top:4px;right:4px}}
+/* détail */
+.detail .media{border-radius:var(--r);overflow:hidden;background:var(--g1);border:1px solid var(--g2);margin-bottom:24px}
+.detail .media img{width:100%;max-height:480px;object-fit:cover}
+.detail .video{position:relative;aspect-ratio:16/9;background:#000}
+.detail .video iframe,.detail .video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.detail h1{font-size:clamp(1.7rem,3.6vw,2.6rem);margin:12px 0 18px}
+.detail .text{white-space:pre-line;max-width:75ch;margin:0}
+/* inscriptions */
+.cta{background:var(--bx);color:#fff;text-align:center}
+.cta h2{color:#fff}.cta h2::after{content:"";display:block;width:56px;height:3px;margin:14px auto 0;background:var(--br-l);border-radius:3px}.cta p{color:#fff;margin:0 auto 26px}
+/* pied de page */
+.site-footer{background:var(--bx-d);color:#fff;padding:60px 0 24px;border-top:4px solid var(--br-l)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
+.site-footer p{color:#F1F2F4;font-size:.92rem}
+.site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-brand img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:12px;padding:3px}
+.footer-brand strong{font:700 1.1rem var(--serif)}
+.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+@media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
 </style>
+<link rel="stylesheet" href="premium.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.institut-almaarifa.sn/index.html"},{"@type":"ListItem","position":2,"name":"Galerie","item":"https://www.institut-almaarifa.sn/galerie.html"}]}
+</script>
 </head>
 <body>
 <a href="#main" class="visually-hidden">Aller au contenu</a>
 <header class="site-header">
   <div class="nav-row">
-    <a href="index.html" class="brand">
-      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%230B3B2C%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23B8903E%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
-      <span class="brand-text">
-        <strong>Institut Al Maarifa</strong>
-        <span>Thierno Djibril Ousmane Ba</span>
-      </span>
+    <a href="index.html" class="brand" aria-label="Institut Al Maarifa — accueil">
+      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+      <span class="brand-text"><strong>INSTITUT AL MAARIFA</strong><span>THIERNO DJIBRIL OUSMANE BA</span><em>ÉCOLE FRANCO-ARABE</em></span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="active">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>Notre établissement</a>
+      <a href="programmes.html" data-nav-link>Nos enseignements</a>
+      <a href="activites.html" data-nav-link>Vie scolaire</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="galerie.html" data-nav-link class="active" aria-current="page">Galerie</a>
+      <a href="contact.html" data-nav-link>Contact</a>
     </nav>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="btn btn-bx header-cta" href="inscriptions.html">Inscription</a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn"><span></span><span></span><span></span></button>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile">
-    <a href="index.html" data-nav-link class="">Accueil</a>
-      <a href="institut.html" data-nav-link class="">L'Institut</a>
-      <a href="centre.html" data-nav-link class="">Centre</a>
-      <a href="programmes.html" data-nav-link class="">Programmes</a>
-      <a href="activites.html" data-nav-link class="">Activités</a>
-      <a href="actualites.html" data-nav-link class="">Actualités</a>
-      <a href="bibliotheque.html" data-nav-link class="">Bibliothèque</a>
-      <a href="galerie.html" data-nav-link class="active">Galerie</a>
-      <a href="tarifs.html" data-nav-link class="">Tarifs</a>
-      <a href="inscriptions.html" data-nav-link class="">Inscriptions</a>
-      <a href="contact.html" data-nav-link class="">Contact</a>
-    <div class="header-actions">
-      <a class="btn btn-whatsapp" data-wa-link href="https://wa.me/221774036424?text=Assalamu alaikum, je souhaite avoir des informations sur l%27Institut Al Maarifa." target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-gold" href="inscriptions.html">Inscription</a>
-    </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <a href="index.html" data-nav-link>Accueil</a>
+      <a href="institut.html" data-nav-link>Notre établissement</a>
+      <a href="programmes.html" data-nav-link>Nos enseignements</a>
+      <a href="activites.html" data-nav-link>Vie scolaire</a>
+      <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="galerie.html" data-nav-link class="active" aria-current="page">Galerie</a>
+      <a href="contact.html" data-nav-link>Contact</a>
+    <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
   </nav>
 </header>
-
 <main id="main">
 
-<!-- HERO -->
-<section class="gp-hero">
-  <div class="container">
-    <div class="crumb">Galerie</div>
-    <p class="gp-lead">Découvrez la vie de l'Institut Al Maarifa</p>
+<section class="hero">
+  <div class="hero-bg"><img src="li.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="eager" onerror="this.remove()"></div>
+  <div class="container hero-inner">
+    <div class="badge">GALERIE</div>
     <h1>Galerie photos &amp; vidéos</h1>
-    <p>Découvrez en images et en vidéos nos infrastructures, nos activités pédagogiques, nos élèves, nos événements et les moments forts de la vie de l'Institut.</p>
-    <div class="gp-hero-actions">
-      <a href="#photos" class="gp-btn gp-btn-gold">📸 Voir les photos</a>
-      <a href="#videos" class="gp-btn gp-btn-outline">▶ Voir les vidéos</a>
+    <p class="slogan">Découvrez en images et en vidéos nos infrastructures, nos activités pédagogiques, nos élèves, nos événements et les moments forts de la vie de l'Institut.</p>
+    <div class="hero-actions">
+      <a class="btn btn-bx" style="border-color:#fff" href="#photos">VOIR LES PHOTOS</a>
+      <a class="btn btn-white" href="#videos">VOIR LES VIDÉOS</a>
     </div>
   </div>
 </section>
 
-<!-- SECTION PHOTOS -->
-<section class="gp-section" id="photos">
+<section id="photos">
   <div class="container">
-    <div class="gp-section-head">
-      <p class="gp-eyebrow">Photos</p>
-      <h2>Nos photos</h2>
-      <p>Un aperçu du bâtiment, des salles de classe, des élèves, des enseignants et de la vie scolaire. Les photos réelles seront ajoutées progressivement par l'établissement.</p>
-    </div>
-
-    <div class="gp-tag-row" data-photo-filter-root>
-      <button class="gp-tag-btn active" data-filter="all">Tout</button>
-      <button class="gp-tag-btn" data-filter="batiment">Bâtiment</button>
-      <button class="gp-tag-btn" data-filter="classes">Classes</button>
-      <button class="gp-tag-btn" data-filter="eleves">Élèves</button>
-      <button class="gp-tag-btn" data-filter="enseignants">Enseignants</button>
-      <button class="gp-tag-btn" data-filter="vie-scolaire">Vie scolaire</button>
-      <button class="gp-tag-btn" data-filter="activites-pedagogiques">Activités pédagogiques</button>
-      <button class="gp-tag-btn" data-filter="activites-islamiques">Activités islamiques</button>
-      <button class="gp-tag-btn" data-filter="sport">Sport</button>
-      <button class="gp-tag-btn" data-filter="evenements">Événements</button>
-      <button class="gp-tag-btn" data-filter="ceremonies">Cérémonies</button>
-      <button class="gp-tag-btn" data-filter="autres">Autres</button>
-    </div>
-
-    <div id="gp-photo-grid" class="gp-photo-grid" aria-live="polite"></div>
-    <p class="gp-empty-note">Les photos manquantes affichent un emplacement réservé, en attendant l'ajout des images réelles de l'établissement.</p>
+    <div class="section-head"><span class="kicker">Photos</span><h2>Nos photos</h2><p>Un aperçu du bâtiment, des salles de classe, des élèves, des enseignants et de la vie scolaire. Les photos réelles seront ajoutées progressivement par l'établissement.</p></div>
+    <div class="tag-row scroll-row" id="photo-filters" role="group" aria-label="Filtrer les photos par catégorie"></div>
+    <div id="photo-grid" class="grid grid-4" aria-live="polite"></div>
+    <p class="ph-note">Les photos manquantes affichent un emplacement réservé, en attendant l'ajout des images réelles de l'établissement.</p>
   </div>
 </section>
 
-<!-- SECTION VIDEOS -->
-<section class="gp-section gp-section-alt" id="videos">
+<section class="alt" id="videos">
   <div class="container">
-    <div class="gp-section-head">
-      <p class="gp-eyebrow">Vidéos</p>
-      <h2>Nos vidéos</h2>
-      <p>Présentation de l'Institut, visite de l'établissement, activités pédagogiques et islamiques, événements et témoignages.</p>
-    </div>
-
-    <div class="gp-tag-row" data-video-filter-root>
-      <button class="gp-tag-btn active" data-filter="all">Toutes</button>
-      <button class="gp-tag-btn" data-filter="presentation">Présentation</button>
-      <button class="gp-tag-btn" data-filter="vie-scolaire">Vie scolaire</button>
-      <button class="gp-tag-btn" data-filter="cours">Cours</button>
-      <button class="gp-tag-btn" data-filter="activites">Activités</button>
-      <button class="gp-tag-btn" data-filter="islam-education">Islam &amp; éducation</button>
-      <button class="gp-tag-btn" data-filter="sport">Sport</button>
-      <button class="gp-tag-btn" data-filter="evenements">Événements</button>
-      <button class="gp-tag-btn" data-filter="temoignages">Témoignages</button>
-      <button class="gp-tag-btn" data-filter="actualites">Actualités</button>
-    </div>
-
-    <div id="gp-video-grid" class="gp-video-grid" aria-live="polite"></div>
-    <p class="gp-empty-note">« Vidéo à venir » — les vidéos réelles seront ajoutées dès qu'elles seront disponibles.</p>
+    <div class="section-head"><span class="kicker">Vidéos</span><h2>Nos vidéos</h2><p>Présentation de l'Institut, visite de l'établissement, activités pédagogiques et islamiques, événements et témoignages.</p></div>
+    <div class="tag-row scroll-row" id="video-filters" role="group" aria-label="Filtrer les vidéos par catégorie"></div>
+    <div id="video-grid" class="grid" aria-live="polite"></div>
+    <p class="ph-note">« Vidéo à venir » — les vidéos réelles seront ajoutées dès qu'elles seront disponibles.</p>
   </div>
 </section>
 
-<!-- MOMENTS FORTS -->
-<section class="gp-section" id="moments-forts">
+<section id="moments-forts">
   <div class="container">
-    <div class="gp-section-head">
-      <p class="gp-eyebrow">⭐ Temps forts</p>
-      <h2>Les moments forts de l'Institut</h2>
-      <p>Un espace pour mettre en avant les grands rendez-vous de l'année scolaire, au fur et à mesure qu'ils sont documentés.</p>
-    </div>
-    <div class="gp-highlight-grid" id="gp-highlight-grid" aria-live="polite"></div>
+    <div class="section-head"><span class="kicker">Temps forts</span><h2>Les moments forts de l'Institut</h2><p>Un espace pour mettre en avant les grands rendez-vous de l'année scolaire, au fur et à mesure qu'ils sont documentés.</p></div>
+    <div id="highlight-grid" class="grid" aria-live="polite"></div>
   </div>
 </section>
 
-<!-- VISITE VIRTUELLE -->
-<section class="gp-section gp-section-alt" id="visite-virtuelle">
+<section class="alt" id="visite-virtuelle">
   <div class="container">
-    <div class="gp-tour">
-      <div class="gp-tour-text">
-        <p class="gp-eyebrow">🏫 Visite virtuelle</p>
-        <h2>Découvrez notre établissement</h2>
-        <p>Une présentation vidéo de nos locaux, de nos salles de classe et de notre environnement scolaire sera prochainement disponible.</p>
-      </div>
-      <div class="gp-tour-media" id="gp-tour-media">
-        <div class="gp-play">▶</div>
-      </div>
+    <div class="tour">
+      <div class="tour-text"><span class="kicker">Visite virtuelle</span><h2>Découvrez notre établissement</h2><p>Une présentation vidéo de nos locaux, de nos salles de classe et de notre environnement scolaire sera prochainement disponible.</p></div>
+      <div class="tour-media" aria-hidden="true"><div class="play" style="width:74px;height:74px;background:rgba(255,255,255,.14);color:rgba(255,255,255,.7)">▶</div></div>
     </div>
   </div>
 </section>
 
 </main>
-
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" id="lb-close" aria-label="Fermer">✕</button>
-    <button class="lightbox-prev" id="lb-prev" aria-label="Photo précédente">‹</button>
+  <div class="lb-inner">
+    <button class="lb-btn" id="lb-close" type="button" aria-label="Fermer">✕</button>
+    <button class="lb-btn" id="lb-prev" type="button" aria-label="Photo précédente">‹</button>
     <div id="lb-image"></div>
-    <p id="lb-caption" style="color:#fff;text-align:center;margin-top:14px;"></p>
-    <button class="lightbox-next" id="lb-next" aria-label="Photo suivante">›</button>
+    <p id="lb-caption"></p>
+    <button class="lb-btn" id="lb-next" type="button" aria-label="Photo suivante">›</button>
   </div>
 </div>
 
@@ -1523,346 +276,168 @@ button{cursor:pointer}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">
-          <img src="public/logo.png" alt="Logo Institut Al Maarifa" onerror="this.style.display='none'">
-          <strong>Institut Al Maarifa</strong>
-        </div>
+        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="64" height="64" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
-        <a href="index.html">Accueil</a>
-        <a href="institut.html">L'Institut</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="actualites.html">Actualités</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Ressources</h4>
-        <a href="bibliotheque.html">Bibliothèque numérique</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="inscriptions.html">Inscriptions 2026–2027</a>
-        <a href="centre.html">Le Centre</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:+221774036424">77 403 64 24</a>
-        <a href="tel:+221775722937">77 572 29 37</a>
-        <a data-wa-link href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <a href="contact.html">Formulaire de contact</a>
-      </div>
+      <div><h4>Navigation</h4><a href="index.html">Accueil</a><a href="institut.html">L'Institut</a><a href="index.html#fondateur">Le Fondateur</a><a href="programmes.html">Programmes</a><a href="actualites.html">Actualités</a><a href="contact.html">Contact</a></div>
+      <div><h4>Ressources</h4><a href="bibliotheque.html">Bibliothèque numérique</a><a href="galerie.html">Galerie</a><a href="tarifs.html">Tarifs</a><a href="inscriptions.html">Inscriptions 2026–2027</a><a href="centre.html">Le Centre</a></div>
+      <div><h4>Contact</h4><a href="tel:+221774036424">77 403 64 24</a><a href="tel:+221775722937">77 572 29 37</a><a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a><a href="contact.html">Formulaire de contact</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span>
-      <span>Partenaire officiel : Institut Al-Azhar</span>
-    </div>
+    <div class="footer-bottom"><span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span><span>Partenaire officiel : Institut Al-Azhar</span></div>
   </div>
 </footer>
 
-<a class="wa-float" data-wa-link href="#" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.32c0-4.53 3.69-8.22 8.24-8.22 4.55 0 8.24 3.69 8.24 8.22 0 4.53-3.7 8.19-8.24 8.19Zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+<a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm4.51 11.94c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!--
-  ============================================================
-  DONNÉES DE LA GALERIE — à modifier par l'administrateur
-  ============================================================
-  Pour ajouter une vraie photo :
-    1. Déposer le fichier dans public/images/galerie/
-    2. Renseigner "image" avec le chemin du fichier
-    3. Passer "placeholder" à false
-
-  Pour ajouter une vraie vidéo :
-    - Vidéo locale : type "local", src "public/videos/xxx.mp4"
-    - Vidéo YouTube : type "youtube", src "VIDEO_ID" (identifiant uniquement)
-    - Tant qu'aucune vidéo n'est prête, laisser type "placeholder"
-  ============================================================
--->
 <script>
-const galleryPhotos = [
-  { image: "public/images/galerie/batiment-01.jpg", placeholder: true, title: "Le bâtiment principal", category: "batiment", description: "Vue d'ensemble du bâtiment de l'Institut." },
-  { image: "public/images/galerie/batiment-02.jpg", placeholder: true, title: "Vue extérieure de l'Institut", category: "batiment", description: "Façade et abords de l'établissement." },
-  { image: "public/images/galerie/batiment-03.jpg", placeholder: true, title: "Cour de l'établissement", category: "batiment", description: "Espace extérieur partagé par les élèves." },
-  { image: "public/images/galerie/classe-01.jpg", placeholder: true, title: "Salle de classe", category: "classes", description: "Un espace d'apprentissage équipé." },
-  { image: "public/images/galerie/classe-02.jpg", placeholder: true, title: "Espace d'apprentissage", category: "classes", description: "Salle dédiée aux enseignements généraux." },
-  { image: "public/images/galerie/classe-03.jpg", placeholder: true, title: "Salle de mémorisation du Coran", category: "classes", description: "Espace réservé à l'enseignement coranique." },
-  { image: "public/images/galerie/eleves-01.jpg", placeholder: true, title: "Nos élèves en classe", category: "eleves", description: "Les élèves pendant une séance de cours." },
-  { image: "public/images/galerie/eleves-02.jpg", placeholder: true, title: "Moment de récréation", category: "eleves", description: "Un instant de détente entre les cours." },
-  { image: "public/images/galerie/enseignants-01.jpg", placeholder: true, title: "Notre équipe pédagogique", category: "enseignants", description: "Les enseignants de l'Institut." },
-  { image: "public/images/galerie/enseignants-02.jpg", placeholder: true, title: "Un enseignant en cours", category: "enseignants", description: "Transmission du savoir en classe." },
-  { image: "public/images/galerie/vie-scolaire-01.jpg", placeholder: true, title: "Vie quotidienne à l'Institut", category: "vie-scolaire", description: "Un aperçu du quotidien des élèves." },
-  { image: "public/images/galerie/vie-scolaire-02.jpg", placeholder: true, title: "Moment convivial entre élèves", category: "vie-scolaire", description: "Échanges et entraide entre camarades." },
-  { image: "public/images/galerie/activite-pedagogique-01.jpg", placeholder: true, title: "Atelier pédagogique", category: "activites-pedagogiques", description: "Activité d'apprentissage en petit groupe." },
-  { image: "public/images/galerie/activite-pedagogique-02.jpg", placeholder: true, title: "Travaux pratiques", category: "activites-pedagogiques", description: "Mise en application des connaissances." },
-  { image: "public/images/galerie/activite-islamique-01.jpg", placeholder: true, title: "Séance d'éducation islamique", category: "activites-islamiques", description: "Enseignement des valeurs islamiques." },
-  { image: "public/images/galerie/activite-islamique-02.jpg", placeholder: true, title: "Moment de prière collective", category: "activites-islamiques", description: "Un temps fort de la vie spirituelle de l'Institut." },
-  { image: "public/images/galerie/sport-01.jpg", placeholder: true, title: "Activité sportive", category: "sport", description: "Les élèves lors d'une séance de sport." },
-  { image: "public/images/galerie/evenement-01.jpg", placeholder: true, title: "Événement de l'Institut", category: "evenements", description: "Un rassemblement organisé par l'établissement." },
-  { image: "public/images/galerie/ceremonie-01.jpg", placeholder: true, title: "Cérémonie de remise de diplômes", category: "ceremonies", description: "Célébration de la réussite des élèves." },
-  { image: "public/images/galerie/autres-01.jpg", placeholder: true, title: "Autres moments de la vie scolaire", category: "autres", description: "D'autres instants de la vie de l'Institut." }
-];
-
-const galleryVideos = [
-  { type: "placeholder", src: "public/videos/institut-01.mp4", title: "Présentation de l'Institut", category: "presentation" },
-  { type: "placeholder", src: "VIDEO_ID", title: "Visite de l'établissement", category: "presentation" },
-  { type: "placeholder", src: "public/videos/vie-scolaire-01.mp4", title: "Vie des élèves", category: "vie-scolaire" },
-  { type: "placeholder", src: "public/videos/cours-01.mp4", title: "Aperçu d'un cours", category: "cours" },
-  { type: "placeholder", src: "public/videos/activite-01.mp4", title: "Activités pédagogiques", category: "activites" },
-  { type: "placeholder", src: "public/videos/islam-01.mp4", title: "Activités islamiques", category: "islam-education" },
-  { type: "placeholder", src: "public/videos/sport-01.mp4", title: "Activités sportives", category: "sport" },
-  { type: "placeholder", src: "public/videos/evenement-01.mp4", title: "Événement de l'Institut", category: "evenements" },
-  { type: "placeholder", src: "public/videos/temoignage-01.mp4", title: "Témoignages", category: "temoignages" },
-  { type: "placeholder", src: "public/videos/actualite-01.mp4", title: "Actualités de l'Institut", category: "actualites" }
-];
-
-const galleryHighlights = [
-  { badge: "Exemple — à personnaliser", date: "Rentrée 2026–2027", title: "Rentrée scolaire 2026–2027", description: "Moment d'accueil des élèves et présentation de l'année scolaire." },
-  { badge: "Exemple — à personnaliser", date: "À venir", title: "Journée sportive", description: "Un temps fort autour des activités sportives de l'Institut." },
-  { badge: "Exemple — à personnaliser", date: "À venir", title: "Cérémonie de fin d'année", description: "Célébration des réussites de l'année scolaire." }
-];
-</script>
-
-<!-- ============================================================ -->
-<!-- LOGIQUE DE LA GALERIE (autonome, n'écrase pas main.js/data.js) -->
-<!-- ============================================================ -->
-<script>
-(function () {
-  const photoGrid = document.getElementById('gp-photo-grid');
-  const videoGrid = document.getElementById('gp-video-grid');
-  const highlightGrid = document.getElementById('gp-highlight-grid');
-  const tourMedia = document.getElementById('gp-tour-media');
-
-  let currentPhotoFilter = 'all';
-  let currentVideoFilter = 'all';
-  let lbIndex = 0;
-
-  function photoPlaceholderMarkup(item) {
-    return `
-      <div class="gp-placeholder">
-        <span class="gp-ph-icon">📷</span>
-        <span class="gp-ph-label">Emplacement photo — Ajouter une image</span>
-        <span class="gp-ph-sub">${item.image.split('/').pop()}</span>
-      </div>`;
-  }
-
-  function renderPhotoCard(item, index) {
-    const media = item.placeholder
-      ? photoPlaceholderMarkup(item)
-      : `<img src="${item.image}" alt="${item.title}" loading="lazy">`;
-    return `
-      <div class="gp-photo-card" data-cat="${item.category}" data-index="${index}">
-        <div class="gp-photo-media">
-          ${media}
-          <button class="gp-agrandir" data-open="${index}" aria-label="Agrandir la photo">Agrandir ⤢</button>
-        </div>
-        <div class="gp-photo-info">
-          <span class="gp-cat">${categoryLabel(item.category, photoCatLabels)}</span>
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-        </div>
-      </div>`;
-  }
-
-  const photoCatLabels = {
-    batiment: "Bâtiment", classes: "Classes", eleves: "Élèves", enseignants: "Enseignants",
-    "vie-scolaire": "Vie scolaire", "activites-pedagogiques": "Activités pédagogiques",
-    "activites-islamiques": "Activités islamiques", sport: "Sport", evenements: "Événements",
-    ceremonies: "Cérémonies", autres: "Autres"
-  };
-  const videoCatLabels = {
-    presentation: "Présentation", "vie-scolaire": "Vie scolaire", cours: "Cours",
-    activites: "Activités", "islam-education": "Islam & éducation", sport: "Sport",
-    evenements: "Événements", temoignages: "Témoignages", actualites: "Actualités"
-  };
-  function categoryLabel(cat, map) { return map[cat] || cat; }
-
-  function renderPhotos() {
-    const items = galleryPhotos
-      .map((item, i) => ({ item, i }))
-      .filter(({ item }) => currentPhotoFilter === 'all' || item.category === currentPhotoFilter);
-
-    photoGrid.innerHTML = items.map(({ item, i }) => renderPhotoCard(item, i)).join('');
-
-    photoGrid.querySelectorAll('.gp-agrandir').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openLightbox(parseInt(btn.dataset.open, 10));
-      });
-    });
-    photoGrid.querySelectorAll('.gp-photo-card').forEach(card => {
-      card.addEventListener('click', () => openLightbox(parseInt(card.dataset.index, 10)));
-    });
-  }
-
-  function renderVideoCard(item, index) {
-    if (item.type === 'placeholder') {
-      return `
-        <div class="gp-video-card" data-cat="${item.category}">
-          <div class="gp-video-media gp-ph">
-            <div class="gp-play">▶</div>
-            <span class="gp-video-ph-text">Vidéo à venir</span>
-          </div>
-          <div class="gp-video-info">
-            <span class="gp-cat">${categoryLabel(item.category, videoCatLabels)}</span>
-            <h3>${item.title}</h3>
-          </div>
-        </div>`;
-    }
-    return `
-      <div class="gp-video-card" data-cat="${item.category}">
-        <div class="gp-video-media" data-video-index="${index}">
-          <div class="gp-play">▶</div>
-        </div>
-        <div class="gp-video-info">
-          <span class="gp-cat">${categoryLabel(item.category, videoCatLabels)}</span>
-          <h3>${item.title}</h3>
-        </div>
-      </div>`;
-  }
-
-  function renderVideos() {
-    const items = galleryVideos
-      .map((item, i) => ({ item, i }))
-      .filter(({ item }) => currentVideoFilter === 'all' || item.category === currentVideoFilter);
-
-    videoGrid.innerHTML = items.map(({ item, i }) => renderVideoCard(item, i)).join('');
-
-    // Chargement différé : la vidéo (locale ou YouTube) n'est injectée qu'au clic
-    videoGrid.querySelectorAll('[data-video-index]').forEach(el => {
-      el.addEventListener('click', () => {
-        const item = galleryVideos[parseInt(el.dataset.videoIndex, 10)];
-        if (item.type === 'youtube') {
-          el.innerHTML = `<iframe class="gp-video-embed" src="https://www.youtube.com/embed/${item.src}?autoplay=1" title="${item.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        } else if (item.type === 'local') {
-          el.innerHTML = `<video class="gp-video-embed" controls autoplay><source src="${item.src}" type="video/mp4"></video>`;
-        }
-      });
-    });
-  }
-
-  function renderHighlights() {
-    highlightGrid.innerHTML = galleryHighlights.map(h => `
-      <div class="gp-highlight-card">
-        <div class="gp-highlight-media">
-          <div class="gp-highlight-badge">${h.badge}</div>
-          <div class="gp-placeholder" style="height:100%;">
-            <span class="gp-ph-icon">✨</span>
-            <span class="gp-ph-label">Emplacement photo — Ajouter une image</span>
-          </div>
-        </div>
-        <div class="gp-highlight-body">
-          <p class="gp-highlight-date">${h.date}</p>
-          <h3>${h.title}</h3>
-          <p>${h.description}</p>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  function setupFilters(rootSelector, buttonClass, onChange) {
-    const root = document.querySelector(rootSelector);
-    root.querySelectorAll(buttonClass).forEach(btn => {
-      btn.addEventListener('click', () => {
-        root.querySelectorAll(buttonClass).forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        onChange(btn.dataset.filter);
-      });
-    });
-  }
-
-  setupFilters('[data-photo-filter-root]', '.gp-tag-btn', (filter) => {
-    currentPhotoFilter = filter;
-    renderPhotos();
-  });
-  setupFilters('[data-video-filter-root]', '.gp-tag-btn', (filter) => {
-    currentVideoFilter = filter;
-    renderVideos();
-  });
-
-  // --- Lightbox photos ---
-  const lb = document.getElementById('lightbox');
-  const lbImage = document.getElementById('lb-image');
-  const lbCaption = document.getElementById('lb-caption');
-
-  function openLightbox(i) {
-    lbIndex = i;
-    showLightbox();
-    lb.classList.add('open');
-  }
-  function showLightbox() {
-    const item = galleryPhotos[lbIndex];
-    lbImage.innerHTML = item.placeholder
-      ? `<div class="gp-placeholder" style="width:min(80vw,700px);height:min(60vh,500px);border-radius:12px;">
-           <span class="gp-ph-icon" style="font-size:3rem;">📷</span>
-           <span class="gp-ph-label">Emplacement photo — Ajouter une image</span>
-         </div>`
-      : `<img src="${item.image}" alt="${item.title}" style="max-width:90vw;max-height:75vh;border-radius:12px;">`;
-    lbCaption.textContent = `${item.title} — ${categoryLabel(item.category, photoCatLabels)}`;
-  }
-  document.getElementById('lb-close').addEventListener('click', () => lb.classList.remove('open'));
-  document.getElementById('lb-prev').addEventListener('click', () => {
-    lbIndex = (lbIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
-    showLightbox();
-  });
-  document.getElementById('lb-next').addEventListener('click', () => {
-    lbIndex = (lbIndex + 1) % galleryPhotos.length;
-    showLightbox();
-  });
-  lb.addEventListener('click', (e) => { if (e.target === lb) lb.classList.remove('open'); });
-  document.addEventListener('keydown', (e) => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') lb.classList.remove('open');
-    if (e.key === 'ArrowLeft') document.getElementById('lb-prev').click();
-    if (e.key === 'ArrowRight') document.getElementById('lb-next').click();
-  });
-
-  // Défilement doux vers les sections depuis le hero
-  document.querySelectorAll('.gp-hero-actions a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  renderPhotos();
-  renderVideos();
-  renderHighlights();
-
-  // --- Filet de sécurité : menu burger mobile ---
-  // S'ajoute au comportement de main.js sans le remplacer.
-  // Si main.js gère déjà correctement l'ouverture, ceci reste
-  // silencieux (la classe gp-nav-open n'est utilisée nulle part
-  // ailleurs dans le site, donc aucun risque de conflit visuel).
-  const burgerBtn = document.querySelector('.burger');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (burgerBtn && mobileNav) {
-    burgerBtn.addEventListener('click', () => {
-      const isOpen = document.body.classList.toggle('gp-nav-open');
-      burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-    // Ferme le menu si on clique un lien ou en dehors du menu
-    mobileNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.body.classList.remove('gp-nav-open');
-        burgerBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.addEventListener('click', (e) => {
-      if (document.body.classList.contains('gp-nav-open') &&
-          !mobileNav.contains(e.target) && !burgerBtn.contains(e.target)) {
-        document.body.classList.remove('gp-nav-open');
-        burgerBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
+/* Menu burger — autonome et défensif (anti-doublon avec main.js) */
+(function(){
+  var b=document.getElementById('burgerBtn'),body=document.body;
+  if(!b||b.dataset.amBound==='1')return;
+  b.dataset.amBound='1';
+  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')}
+  b.addEventListener('click',function(e){e.stopPropagation();set(!body.classList.contains('nav-open'))});
+  document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
+  window.addEventListener('resize',function(){if(innerWidth>1240)set(false)});
 })();
 </script>
 
+<script>
+/* Données de la galerie — à modifier par l'administrateur.
+   Photo réelle : déposer le fichier dans public/images/galerie/, puis passer "placeholder" à false.
+   Vidéo : type "local" (src "public/videos/xxx.mp4") ou "youtube" (src = identifiant seul) ; sinon "placeholder". */
+var galleryPhotos=[
+ {image:"public/images/galerie/batiment-01.jpg",placeholder:true,title:"Le bâtiment principal",category:"batiment",description:"Vue d'ensemble du bâtiment de l'Institut."},
+ {image:"public/images/galerie/batiment-02.jpg",placeholder:true,title:"Vue extérieure de l'Institut",category:"batiment",description:"Façade et abords de l'établissement."},
+ {image:"public/images/galerie/batiment-03.jpg",placeholder:true,title:"Cour de l'établissement",category:"batiment",description:"Espace extérieur partagé par les élèves."},
+ {image:"public/images/galerie/classe-01.jpg",placeholder:true,title:"Salle de classe",category:"classes",description:"Un espace d'apprentissage équipé."},
+ {image:"public/images/galerie/classe-02.jpg",placeholder:true,title:"Espace d'apprentissage",category:"classes",description:"Salle dédiée aux enseignements généraux."},
+ {image:"public/images/galerie/classe-03.jpg",placeholder:true,title:"Salle de mémorisation du Coran",category:"classes",description:"Espace réservé à l'enseignement coranique."},
+ {image:"public/images/galerie/eleves-01.jpg",placeholder:true,title:"Nos élèves en classe",category:"eleves",description:"Les élèves pendant une séance de cours."},
+ {image:"public/images/galerie/eleves-02.jpg",placeholder:true,title:"Moment de récréation",category:"eleves",description:"Un instant de détente entre les cours."},
+ {image:"public/images/galerie/enseignants-01.jpg",placeholder:true,title:"Notre équipe pédagogique",category:"enseignants",description:"Les enseignants de l'Institut."},
+ {image:"public/images/galerie/enseignants-02.jpg",placeholder:true,title:"Un enseignant en cours",category:"enseignants",description:"Transmission du savoir en classe."},
+ {image:"public/images/galerie/vie-scolaire-01.jpg",placeholder:true,title:"Vie quotidienne à l'Institut",category:"vie-scolaire",description:"Un aperçu du quotidien des élèves."},
+ {image:"public/images/galerie/vie-scolaire-02.jpg",placeholder:true,title:"Moment convivial entre élèves",category:"vie-scolaire",description:"Échanges et entraide entre camarades."},
+ {image:"public/images/galerie/activite-pedagogique-01.jpg",placeholder:true,title:"Atelier pédagogique",category:"activites-pedagogiques",description:"Activité d'apprentissage en petit groupe."},
+ {image:"public/images/galerie/activite-pedagogique-02.jpg",placeholder:true,title:"Travaux pratiques",category:"activites-pedagogiques",description:"Mise en application des connaissances."},
+ {image:"public/images/galerie/activite-islamique-01.jpg",placeholder:true,title:"Séance d'éducation islamique",category:"activites-islamiques",description:"Enseignement des valeurs islamiques."},
+ {image:"public/images/galerie/activite-islamique-02.jpg",placeholder:true,title:"Moment de prière collective",category:"activites-islamiques",description:"Un temps fort de la vie spirituelle de l'Institut."},
+ {image:"public/images/galerie/sport-01.jpg",placeholder:true,title:"Activité sportive",category:"sport",description:"Les élèves lors d'une séance de sport."},
+ {image:"public/images/galerie/evenement-01.jpg",placeholder:true,title:"Événement de l'Institut",category:"evenements",description:"Un rassemblement organisé par l'établissement."},
+ {image:"public/images/galerie/ceremonie-01.jpg",placeholder:true,title:"Cérémonie de remise de diplômes",category:"ceremonies",description:"Célébration de la réussite des élèves."},
+ {image:"public/images/galerie/autres-01.jpg",placeholder:true,title:"Autres moments de la vie scolaire",category:"autres",description:"D'autres instants de la vie de l'Institut."}
+];
+var galleryVideos=[
+ {type:"placeholder",src:"public/videos/institut-01.mp4",title:"Présentation de l'Institut",category:"presentation"},
+ {type:"placeholder",src:"VIDEO_ID",title:"Visite de l'établissement",category:"presentation"},
+ {type:"placeholder",src:"public/videos/vie-scolaire-01.mp4",title:"Vie des élèves",category:"vie-scolaire"},
+ {type:"placeholder",src:"public/videos/cours-01.mp4",title:"Aperçu d'un cours",category:"cours"},
+ {type:"placeholder",src:"public/videos/activite-01.mp4",title:"Activités pédagogiques",category:"activites"},
+ {type:"placeholder",src:"public/videos/islam-01.mp4",title:"Activités islamiques",category:"islam-education"},
+ {type:"placeholder",src:"public/videos/sport-01.mp4",title:"Activités sportives",category:"sport"},
+ {type:"placeholder",src:"public/videos/evenement-01.mp4",title:"Événement de l'Institut",category:"evenements"},
+ {type:"placeholder",src:"public/videos/temoignage-01.mp4",title:"Témoignages",category:"temoignages"},
+ {type:"placeholder",src:"public/videos/actualite-01.mp4",title:"Actualités de l'Institut",category:"actualites"}
+];
+var galleryHighlights=[
+ {badge:"Exemple — à personnaliser",date:"Rentrée 2026–2027",title:"Rentrée scolaire 2026–2027",description:"Moment d'accueil des élèves et présentation de l'année scolaire."},
+ {badge:"Exemple — à personnaliser",date:"À venir",title:"Journée sportive",description:"Un temps fort autour des activités sportives de l'Institut."},
+ {badge:"Exemple — à personnaliser",date:"À venir",title:"Cérémonie de fin d'année",description:"Célébration des réussites de l'année scolaire."}
+];
+(function(){
+  var PL={batiment:"Bâtiment",classes:"Classes",eleves:"Élèves",enseignants:"Enseignants","vie-scolaire":"Vie scolaire","activites-pedagogiques":"Activités pédagogiques","activites-islamiques":"Activités islamiques",sport:"Sport",evenements:"Événements",ceremonies:"Cérémonies",autres:"Autres"};
+  var VL={presentation:"Présentation","vie-scolaire":"Vie scolaire",cours:"Cours",activites:"Activités","islam-education":"Islam & éducation",sport:"Sport",evenements:"Événements",temoignages:"Témoignages",actualites:"Actualités"};
+  var pf='all',vf='all',lbi=0;
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+  function lab(c,m){return m[c]||c}
+  var pGrid=document.getElementById('photo-grid'),vGrid=document.getElementById('video-grid'),hGrid=document.getElementById('highlight-grid');
+
+  function filters(root,map,allLabel,cb){
+    var h='<button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">'+allLabel+'</button>';
+    Object.keys(map).forEach(function(k){h+='<button type="button" class="filter-btn" data-filter="'+k+'" aria-pressed="false">'+esc(map[k])+'</button>'});
+    root.innerHTML=h;
+    root.addEventListener('click',function(e){
+      var b=e.target.closest('.filter-btn');if(!b)return;
+      root.querySelectorAll('.filter-btn').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false')});
+      b.classList.add('active');b.setAttribute('aria-pressed','true');cb(b.dataset.filter);
+    });
+  }
+
+  function renderPhotos(){
+    var out='';
+    galleryPhotos.forEach(function(p,i){
+      if(pf!=='all'&&p.category!==pf)return;
+      var media=p.placeholder?'<div class="img-slot is-empty"><button type="button" class="more-btn" data-open="'+i+'" aria-label="Agrandir : '+esc(p.title)+'">Agrandir ⤢</button></div>'
+        :'<div class="img-slot"><img src="'+esc(p.image)+'" alt="'+esc(p.title)+'" loading="lazy" onerror="this.parentNode.classList.add(\'is-empty\');this.remove()"><button type="button" class="more-btn" data-open="'+i+'" aria-label="Agrandir : '+esc(p.title)+'">Agrandir ⤢</button></div>';
+      out+='<article class="card photo-card" data-index="'+i+'">'+media+'<div class="body"><span class="tag">'+esc(lab(p.category,PL))+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p></div></article>';
+    });
+    pGrid.innerHTML=out||'<p class="status">Aucune photo dans cette catégorie pour le moment.</p>';
+  }
+
+  function renderVideos(){
+    var out='';
+    galleryVideos.forEach(function(v,i){
+      if(vf!=='all'&&v.category!==vf)return;
+      var m=v.type==='placeholder'
+        ?'<div class="vid ph"><div class="play">▶</div><span class="vid-note">Vidéo à venir</span></div>'
+        :'<button type="button" class="vid" data-video="'+i+'" aria-label="Lire la vidéo : '+esc(v.title)+'"><span class="play">▶</span></button>';
+      out+='<article class="card">'+m+'<div class="body"><span class="tag">'+esc(lab(v.category,VL))+'</span><h3>'+esc(v.title)+'</h3></div></article>';
+    });
+    vGrid.innerHTML=out||'<p class="status">Aucune vidéo dans cette catégorie pour le moment.</p>';
+  }
+  vGrid.addEventListener('click',function(e){
+    var el=e.target.closest('[data-video]');if(!el)return;
+    var v=galleryVideos[+el.dataset.video];
+    if(v.type==='youtube')el.outerHTML='<div class="vid"><iframe src="https://www.youtube.com/embed/'+encodeURIComponent(v.src)+'?autoplay=1" title="'+esc(v.title)+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    else if(v.type==='local')el.outerHTML='<div class="vid"><video controls autoplay src="'+esc(v.src)+'"></video></div>';
+  });
+
+  function renderHighlights(){
+    hGrid.innerHTML=galleryHighlights.map(function(h){
+      return '<article class="card"><div class="hl-media"><span class="hl-badge">'+esc(h.badge)+'</span><div class="img-slot is-empty"></div></div><div class="body"><p class="hl-date">'+esc(h.date)+'</p><h3>'+esc(h.title)+'</h3><p>'+esc(h.description)+'</p></div></article>';
+    }).join('');
+  }
+
+  /* visionneuse */
+  var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-image'),lbCap=document.getElementById('lb-caption'),lastFocus=null;
+  function show(){
+    var p=galleryPhotos[lbi];
+    lbImg.innerHTML=p.placeholder?'<div class="lb-ph">Emplacement photo — Ajouter une image</div>':'<img src="'+esc(p.image)+'" alt="'+esc(p.title)+'">';
+    lbCap.textContent=p.title+' — '+lab(p.category,PL);
+  }
+  function openLb(i){lastFocus=document.activeElement;lbi=i;show();lb.classList.add('open');document.getElementById('lb-close').focus()}
+  function closeLb(){lb.classList.remove('open');if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+  function step(d){lbi=(lbi+d+galleryPhotos.length)%galleryPhotos.length;show()}
+  pGrid.addEventListener('click',function(e){
+    var b=e.target.closest('[data-open]');
+    if(b){e.stopPropagation();openLb(+b.dataset.open);return}
+    var c=e.target.closest('.photo-card');if(c)openLb(+c.dataset.index);
+  });
+  document.getElementById('lb-close').addEventListener('click',closeLb);
+  document.getElementById('lb-prev').addEventListener('click',function(){step(-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){step(1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')closeLb();
+    if(e.key==='ArrowLeft')step(-1);
+    if(e.key==='ArrowRight')step(1);
+  });
+
+  filters(document.getElementById('photo-filters'),PL,'Tout',function(f){pf=f;renderPhotos()});
+  filters(document.getElementById('video-filters'),VL,'Toutes',function(f){vf=f;renderVideos()});
+  renderPhotos();renderVideos();renderHighlights();
+})();
+</script>
+<script src="premium.js"></script>
 </body>
 </html>
