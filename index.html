@@ -159,6 +159,25 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s}
 .wa-float:hover{transform:scale(1.06)}
 @media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
+/* réseaux sociaux */
+.social{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2)}
+.social-title{font:700 1.05rem var(--serif);color:#E8D2B4;margin-right:6px}
+.site-footer .social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:12px;background:rgba(255,255,255,.12);color:#fff;transition:background .2s,transform .2s}
+.site-footer .social a:hover{background:var(--br-l);color:#fff;text-decoration:none;transform:translateY(-3px)}
+.site-footer .social a svg{width:22px;height:22px}
+/* directeur */
+.subnav.center{justify-content:center;margin:24px 0 0}
+.dir-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;margin-top:28px;align-items:start}
+@media(max-width:900px){.dir-grid{grid-template-columns:1fr}}
+.panel{background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:32px;box-shadow:var(--sh)}
+.panel h3{font-size:1.35rem;margin-bottom:.5em}
+.panel h3::after{content:"";display:block;width:44px;height:3px;background:var(--br-l);margin-top:10px;border-radius:3px}
+.timeline{position:relative;margin:20px 0 0;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--g2)}
+.timeline li{position:relative;padding:0 0 20px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-28px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--bx)}
+.timeline .a-year{display:block;margin-bottom:2px}
 /* apparition */
 .js-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .js-ready .reveal.in{opacity:1;transform:none}
@@ -330,47 +349,50 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
     savoir, la foi et l'intégrité.
   </p>
 </div>
-  </div>
-</section>
-
-<section id="biographie-directeur">
-  <div class="container">
-    <nav class="subnav" aria-label="Sous-navigation Le Directeur">
-      <a href="#biographie-directeur">Portrait du Directeur</a><a href="#parcours-academique">Parcours académique</a><a href="#vocation-enseignement">Vocation &amp; enseignement</a>
-    </nav>
-    <div class="bio-banner reveal"><span class="kicker">Le Directeur</span><h2>Portrait du Directeur</h2><p class="function">M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</p></div>
-    <div class="profile reveal" style="margin-top:32px">
-      <div class="img-slot" data-img-slot><img src="di.png" alt="M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
-      <div>
-        <h3>M. Ousseynou KHOUMA</h3><div class="role">Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</div>
-        <p>Passionné par la langue arabe, la civilisation arabo-islamique et l'art d'enseigner, M. Ousseynou KHOUMA met aujourd'hui son expérience et sa vision au service de l'Institut Al Maarifa Thierno Djibril Ousmane Ba, dont il assure la direction.</p>
-        <p>Son parcours s'appuie sur une alliance solide entre rigueur académique et pratique du terrain. Au fil des années, il a façonné sa démarche pédagogique au sein de divers établissements et structures de formation, guidé par un engagement constant : transmettre le savoir avec excellence et accompagner l'épanouissement des apprenants.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="parcours-academique">
+<section id="biographie-directeur">
   <div class="container">
-    <div class="section-head reveal"><span class="kicker">Parcours</span><h2>Un parcours académique d'excellence</h2></div>
-    <p class="reveal">Son itinéraire universitaire témoigne d'une spécialisation poussée dans les études arabo-islamiques, menée principalement à la Faculté des Lettres et Sciences Humaines (FLSH) de l'Université Cheikh Anta Diop (UCAD) de Dakar, tout en s'enrichissant d'une ouverture internationale :</p>
-    <ul class="academic-list reveal">
-      <li><span class="a-year">2026</span><span><strong>Doctorat</strong> (UCAD)</span></li>
-      <li><span class="a-year">2020 / 2021</span><span><strong>4ᵉ année de doctorat ARCIV</strong>, spécialité Études arabo-islamiques (UCAD)</span></li>
-      <li><span class="a-year">2014</span><span><strong>Master 2</strong>, spécialité Civilisation arabo-islamique (Département d'Arabe, FLSH, UCAD)</span></li>
-      <li><span class="a-year">2012</span><span><strong>Master 1</strong>, spécialité Civilisation arabo-islamique (Département d'Arabe, FLSH, UCAD)</span></li>
-      <li><span class="a-year">2011</span><span><strong>Licence</strong> (Département d'Arabe, FLSH, UCAD)</span></li>
-      <li><span class="a-year">2010</span><span><strong>Brevet d'Arabe Littéral</strong> (Université Sorbonne Paris III, France)</span></li>
-      <li><span class="a-year">2008 – 2009</span><span><strong>DUEL I et DUEL II</strong> (Département d'Arabe, FLSH, UCAD)</span></li>
-    </ul>
-  </div>
-</section>
+    <div class="bio-banner reveal"><span class="kicker">Le Directeur</span><h2>Portrait du Directeur</h2><p class="function">M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</p></div>
+    <nav class="subnav center" aria-label="Sous-navigation Le Directeur">
+      <a href="#biographie-directeur">Portrait</a><a href="#parcours-academique">Parcours académique</a><a href="#vocation-enseignement">Vocation &amp; enseignement</a>
+    </nav>
 
-<section id="vocation-enseignement">
-  <div class="container">
-    <div class="section-head reveal"><span class="kicker">Parcours</span><h2>Une vocation dédiée à l'enseignement et au partage</h2></div>
-    <p class="reveal">Spécialisé dans l'enseignement de l'arabe moderne et la formation pédagogique, M. Ousseynou KHOUMA a forgé son expérience au contact direct des apprenants et des équipes éducatives.</p>
-    <p class="reveal">De ses premières années d'enseignant jusqu'à ses responsabilités actuelles de Directeur de l'Institut, il veille à placer la rigueur intellectuelle, la transmission des connaissances et le développement humain au cœur du projet de l'établissement.</p>
+    <div class="profile reveal" style="margin-top:32px">
+      <div class="img-slot" data-img-slot><img src="di.png" alt="M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
+      <div>
+        <h3>M. Ousseynou KHOUMA</h3><div class="role">Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</div>
+        <p>Passionné par la langue arabe, la civilisation arabo-islamique et l'art d'enseigner, M. Ousseynou KHOUMA met aujourd'hui son expérience et sa vision au service de l'Institut, dont il assure la direction.</p>
+        <p>Son parcours s'appuie sur une alliance solide entre rigueur académique et pratique du terrain. Au fil des années, il a façonné sa démarche pédagogique au sein de divers établissements et structures de formation, guidé par un engagement constant : transmettre le savoir avec excellence et accompagner l'épanouissement des apprenants.</p>
+      </div>
+    </div>
+
+    <div class="dir-grid">
+      <article class="panel reveal" id="parcours-academique">
+        <span class="kicker">Parcours</span>
+        <h3>Un parcours académique d'excellence</h3>
+        <p>Une spécialisation poussée dans les études arabo-islamiques, menée principalement à la FLSH de l'Université Cheikh Anta Diop (UCAD) de Dakar, avec une ouverture internationale.</p>
+        <ul class="timeline">
+          <li><span class="a-year">2026</span><span><strong>Doctorat</strong> (UCAD)</span></li>
+          <li><span class="a-year">2020 / 2021</span><span><strong>4ᵉ année de doctorat ARCIV</strong>, spécialité Études arabo-islamiques (UCAD)</span></li>
+          <li><span class="a-year">2014</span><span><strong>Master 2</strong>, spécialité Civilisation arabo-islamique (Département d'Arabe, FLSH, UCAD)</span></li>
+          <li><span class="a-year">2012</span><span><strong>Master 1</strong>, spécialité Civilisation arabo-islamique (Département d'Arabe, FLSH, UCAD)</span></li>
+          <li><span class="a-year">2011</span><span><strong>Licence</strong> (Département d'Arabe, FLSH, UCAD)</span></li>
+          <li><span class="a-year">2010</span><span><strong>Brevet d'Arabe Littéral</strong> (Université Sorbonne Paris III, France)</span></li>
+          <li><span class="a-year">2008 – 2009</span><span><strong>DUEL I et DUEL II</strong> (Département d'Arabe, FLSH, UCAD)</span></li>
+        </ul>
+      </article>
+
+      <article class="panel reveal" id="vocation-enseignement">
+        <span class="kicker">Vocation</span>
+        <h3>Une vocation dédiée à l'enseignement et au partage</h3>
+        <p>Spécialisé dans l'enseignement de l'arabe moderne et la formation pédagogique, M. Ousseynou KHOUMA a forgé son expérience au contact direct des apprenants et des équipes éducatives.</p>
+        <p>De ses premières années d'enseignant jusqu'à ses responsabilités actuelles de Directeur de l'Institut, il veille à placer la rigueur intellectuelle, la transmission des connaissances et le développement humain au cœur du projet de l'établissement.</p>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -406,6 +428,31 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
       <div><h4>Ressources</h4><a href="bibliotheque.html">Bibliothèque numérique</a><a href="galerie.html">Galerie</a><a href="tarifs.html">Tarifs</a><a href="inscriptions.html">Inscriptions 2026–2027</a><a href="centre.html">Le Centre</a></div>
       <div><h4>Contact</h4><a href="tel:+221774036424">77 403 64 24</a><a href="tel:+221775722937">77 572 29 37</a><a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener">Écrire sur WhatsApp</a><a href="contact.html">Formulaire de contact</a></div>
     </div>
+
+    <div class="social">
+      <span class="social-title">Suivez-nous</span>
+
+      <a href="https://www.facebook.com/VOTRE_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.52c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.39C19.61 23.03 24 18.06 24 12.07z"/></svg>
+      </a>
+
+      <a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm4.51 11.94c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
+      </a>
+
+      <a href="https://www.youtube.com/@VOTRE_CHAINE" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/VOTRE_COMPTE" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+
+      <a href="https://www.tiktok.com/@VOTRE_COMPTE" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 6.8a4.8 4.8 0 0 1-3.8-4.3V2h-3.4v13.7a2.9 2.9 0 1 1-2-2.7V9.5a6.3 6.3 0 1 0 5.4 6.2V9.1a8.2 8.2 0 0 0 4.8 1.5V7.2a4.8 4.8 0 0 1-1-.4z"/></svg>
+      </a>
+    </div>
+
     <div class="footer-bottom"><span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span><span>Partenaire officiel : Institut Al-Azhar</span></div>
   </div>
 </footer>
