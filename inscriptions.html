@@ -37,6 +37,7 @@ section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
 .visually-hidden{position:absolute;left:-9999px}.visually-hidden:focus{position:fixed;left:12px;top:12px;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:var(--r);font:600 .95rem var(--sans);border:2px solid transparent;cursor:pointer}
 .btn-bx{background:var(--bx);color:#fff}.btn-bx:hover{background:var(--bx-d)}
+.btn-bx:disabled{opacity:.6;cursor:not-allowed}
 .btn-white{background:#fff;color:var(--bx-d)}.btn-white:hover{background:var(--g1)}
 .btn-block{width:100%}
 /* en-tête */
@@ -98,6 +99,8 @@ textarea.field{min-height:110px;resize:vertical}
 .field.invalid + .err{display:block}
 .form-success{display:none;background:var(--g1);border:1px solid var(--br-l);border-left:4px solid var(--bx);border-radius:var(--r);padding:16px 18px;margin-bottom:22px;font-weight:600;color:var(--bx-d)}
 .form-success.show{display:block}
+.form-error{background:#fdecee;border:1px solid #B00020;border-left:4px solid #B00020;border-radius:var(--r);padding:14px 16px;margin-top:18px;color:#8a0019;font-weight:600}
+.form-error[hidden]{display:none}
 .form-note{font-size:.82rem;color:#6b6e73;margin:16px 0 0}
 /* pied de page */
 .site-footer{background:var(--bx-d);color:#fff;padding:60px 0 24px;border-top:4px solid var(--br-l)}
@@ -181,8 +184,8 @@ textarea.field{min-height:110px;resize:vertical}
       <div class="form-success" id="insc-success" role="status">Merci ! Votre demande d'inscription a bien été enregistrée. Notre équipe vous contactera très prochainement.</div>
       <form data-form="inscription" id="insc-form" novalidate>
         <div class="form-grid">
-          <div class="form-group"><label for="nom-enfant">Nom de l'enfant</label><input class="field" type="text" id="nom-enfant" name="nom_enfant" required><span class="err">Champ obligatoire.</span></div>
-          <div class="form-group"><label for="prenom-enfant">Prénom de l'enfant</label><input class="field" type="text" id="prenom-enfant" name="prenom_enfant" required><span class="err">Champ obligatoire.</span></div>
+          <div class="form-group"><label for="nom-enfant">Nom de l'enfant</label><input class="field" type="text" id="nom-enfant" name="nom_enfant" required maxlength="80"><span class="err">Champ obligatoire.</span></div>
+          <div class="form-group"><label for="prenom-enfant">Prénom de l'enfant</label><input class="field" type="text" id="prenom-enfant" name="prenom_enfant" required maxlength="80"><span class="err">Champ obligatoire.</span></div>
           <div class="form-group"><label for="naissance">Date de naissance</label><input class="field" type="date" id="naissance" name="date_naissance" required><span class="err">Champ obligatoire.</span></div>
           <div class="form-group"><label for="niveau">Niveau souhaité</label>
             <select class="field" id="niveau" name="niveau" required>
@@ -191,13 +194,15 @@ textarea.field{min-height:110px;resize:vertical}
               <option>CE2</option><option>CM1</option><option>CM2</option><option>Collège</option>
               <option>Lycée</option><option>Terminale</option>
             </select><span class="err">Choisissez un niveau.</span></div>
-          <div class="form-group"><label for="parent">Nom du parent / tuteur</label><input class="field" type="text" id="parent" name="nom_parent" required><span class="err">Champ obligatoire.</span></div>
-          <div class="form-group"><label for="tel">Téléphone</label><input class="field" type="tel" id="tel" name="telephone" required><span class="err">Champ obligatoire.</span></div>
-          <div class="form-group full"><label for="adresse">Adresse</label><input class="field" type="text" id="adresse" name="adresse" required><span class="err">Champ obligatoire.</span></div>
-          <div class="form-group full"><label for="message">Message (facultatif)</label><textarea class="field" id="message" name="message"></textarea></div>
+          <div class="form-group"><label for="parent">Nom du parent / tuteur</label><input class="field" type="text" id="parent" name="nom_parent" required maxlength="120"><span class="err">Champ obligatoire.</span></div>
+          <div class="form-group"><label for="tel">Téléphone</label><input class="field" type="tel" id="tel" name="telephone" required maxlength="20"><span class="err">Champ obligatoire.</span></div>
+          <div class="form-group full"><label for="adresse">Adresse</label><input class="field" type="text" id="adresse" name="adresse" required maxlength="200"><span class="err">Champ obligatoire.</span></div>
+          <div class="form-group full"><label for="message">Message (facultatif)</label><textarea class="field" id="message" name="message" maxlength="1000"></textarea></div>
         </div>
-        <button class="btn btn-bx btn-block" type="submit" style="margin-top:22px">Envoyer ma demande d'inscription</button>
-        <p class="form-note">Ce formulaire enregistre votre demande. Une connexion à une base de données (Supabase / Firebase / API REST) pourra être ajoutée ultérieurement sans changer ce formulaire — voir /src/services/README.md.</p>
+        <div class="visually-hidden" aria-hidden="true"><label for="site_web">Ne pas remplir</label><input type="text" id="site_web" name="site_web" tabindex="-1" autocomplete="off"></div>
+        <div class="form-error" id="insc-error" role="alert" hidden></div>
+        <button class="btn btn-bx btn-block" type="submit" id="insc-btn" style="margin-top:22px">Envoyer ma demande d'inscription</button>
+        <p class="form-note">Vos informations sont transmises de façon sécurisée et utilisées uniquement pour traiter votre demande.</p>
       </form>
     </div>
   </div>
@@ -250,19 +255,64 @@ document.getElementById('y').textContent=new Date().getFullYear();
   tick();var id=setInterval(tick,1000);
 })();
 
-/* Formulaire : validation + message de confirmation */
+/* ===== Formulaire connecté à Supabase (via la fonction sécurisée soumettre_inscription) ===== */
 (function(){
-  var f=document.getElementById('insc-form'),ok=document.getElementById('insc-success');
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var bad=0;
-    f.querySelectorAll('[required]').forEach(function(el){
-      var miss=!el.value.trim();el.classList.toggle('invalid',miss);if(miss)bad++;
-    });
-    if(bad){f.querySelector('.invalid').focus();ok.classList.remove('show');return}
-    ok.classList.add('show');f.reset();ok.scrollIntoView();
-  });
+  /* >>> À REMPLIR (valeurs publiques : Supabase > Project Settings > API) <<< */
+  var SUPABASE_URL='https://VOTRE-PROJET.supabase.co';
+  var SUPABASE_PUBLISHABLE_KEY='VOTRE_CLE_PUBLISHABLE_OU_ANON';
+  /* Ne JAMAIS mettre ici la clé secret / service_role. */
+
+  var f=document.getElementById('insc-form'),ok=document.getElementById('insc-success'),bad=document.getElementById('insc-error'),btn=document.getElementById('insc-btn');
+  var TXT=btn.textContent,busy=false,NAME=/^[\p{L}\p{M}' .-]{2,80}$/u;
+  function showErr(m){ok.classList.remove('show');bad.textContent=m;bad.hidden=false;bad.scrollIntoView({block:'center'})}
+  function val(n){return f.elements[n].value.replace(/\s+/g,' ').trim()}
+  function check(n,test,msg){var el=f.elements[n];el.classList.remove('invalid');if(!test(val(n))){el.classList.add('invalid');el.parentNode.querySelector('.err').textContent=msg;return 1}return 0}
+  function validate(){
+    var bads=0;
+    bads+=check('nom_enfant',function(x){return NAME.test(x)},'Nom invalide (lettres, 2 caractères minimum).');
+    bads+=check('prenom_enfant',function(x){return NAME.test(x)},'Prénom invalide (lettres, 2 caractères minimum).');
+    bads+=check('date_naissance',function(x){
+      var d=new Date(x+'T00:00:00Z'),n=new Date();
+      return /^\d{4}-\d{2}-\d{2}$/.test(x)&&!isNaN(d)&&d.toISOString().slice(0,10)===x&&d<n&&d>new Date(Date.UTC(n.getUTCFullYear()-30,n.getUTCMonth(),n.getUTCDate()))
+    },'Date de naissance invalide.');
+    bads+=check('niveau',function(x){return x!==''},'Choisissez un niveau.');
+    bads+=check('nom_parent',function(x){return x.length>=2},'Champ obligatoire.');
+    bads+=check('telephone',function(x){var d=x.replace(/\D/g,'').length;return /^\+?[0-9 ().-]{8,20}$/.test(x)&&d>=8&&d<=15},'Numéro de téléphone invalide.');
+    bads+=check('adresse',function(x){return x.length>=5},'Adresse trop courte.');
+    return bads===0;
+  }
   f.addEventListener('input',function(e){e.target.classList.remove('invalid')});
+  f.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(busy)return;
+    ok.classList.remove('show');bad.hidden=true;
+    if(!validate()){f.querySelector('.invalid').focus();return}
+    if(/VOTRE/.test(SUPABASE_URL)||/VOTRE/.test(SUPABASE_PUBLISHABLE_KEY)){showErr("Le service d'inscription n'est pas encore configuré. Merci de nous contacter par téléphone.");return}
+    busy=true;btn.disabled=true;btn.textContent='Envoi en cours…';
+    var ctl=new AbortController(),timer=setTimeout(function(){ctl.abort()},20000);
+    try{
+      var res=await fetch(SUPABASE_URL+'/rest/v1/rpc/soumettre_inscription',{
+        method:'POST',signal:ctl.signal,
+        headers:{'Content-Type':'application/json','apikey':SUPABASE_PUBLISHABLE_KEY},
+        body:JSON.stringify({
+          p_nom_enfant:val('nom_enfant'),p_prenom_enfant:val('prenom_enfant'),p_date_naissance:f.elements.date_naissance.value,
+          p_niveau:f.elements.niveau.value,p_nom_parent:val('nom_parent'),p_telephone:val('telephone'),p_adresse:val('adresse'),
+          p_message:f.elements.message.value.trim()||null,p_site_web:f.elements.site_web.value
+        })
+      });
+      var data=await res.json().catch(function(){return null});
+      if(res.ok&&typeof data==='string'&&/^INS-/.test(data)){
+        ok.textContent='Merci ! Votre demande a bien été enregistrée sous le numéro '+data+'. Notre équipe vous contactera très prochainement.';
+        ok.classList.add('show');f.reset();ok.scrollIntoView({block:'center'});
+      }else if(data&&data.message==='trop_de_demandes'){
+        showErr('Trop de demandes en ce moment. Réessayez dans une minute.');
+      }else{
+        showErr("L'enregistrement a échoué. Vos informations sont conservées, veuillez réessayer ou nous appeler.");
+      }
+    }catch(err){
+      showErr(err.name==='AbortError'?'Le serveur met trop de temps à répondre. Vos informations sont conservées, réessayez.':'Connexion impossible. Vérifiez votre réseau : vos informations sont conservées, réessayez.');
+    }finally{clearTimeout(timer);busy=false;btn.disabled=false;btn.textContent=TXT}
+  });
 })();
 </script>
 </body>
