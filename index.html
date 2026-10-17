@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor</title>
 <meta name="description" content="Institut Al Maarifa Thierno Djibril Ousmane Ba, école franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.">
-<meta name="theme-color" content="#800020">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://www.institut-almaarifa.sn/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor">
@@ -46,9 +46,9 @@ section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
 /* en-tête */
 .site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
 .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
-.brand{display:flex;align-items:center;gap:14px;flex:0 0 auto;min-width:0}
-.brand img{width:64px;height:64px;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--g2);border-radius:12px}
-.brand-text{display:flex;flex-direction:column;line-height:1.25}
+.brand{display:flex;align-items:center;gap:14px;flex:0 1 auto;min-width:0}
+.brand img{width:64px;height:64px;flex:0 0 auto;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--g2);border-radius:12px}
+.brand-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
 .brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
 .brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
 .brand-text em{font-style:normal;font-size:.68rem;color:var(--br);font-weight:600;letter-spacing:.06em}
@@ -57,7 +57,7 @@ section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
 .main-nav a:hover{color:var(--bx);background:var(--g1)}
 .main-nav a.active{color:var(--bx);font-weight:600}
 .main-nav a.active::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
-.burger{display:none;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger{display:none;flex:0 0 auto;margin-left:auto;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
 .burger span{width:20px;height:2px;background:var(--bx-d);transition:transform .2s,opacity .2s}
 .mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;background:#fff;border-top:1px solid var(--g2);max-height:calc(100vh - var(--hh));overflow-y:auto}
 .mobile-nav a{padding:13px 8px;font-weight:500;border-bottom:1px solid var(--g1)}
@@ -67,9 +67,9 @@ body.nav-open .mobile-nav{display:flex}
 body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 body.nav-open .burger span:nth-child(2){opacity:0}
 body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1240px){.main-nav{display:none}.burger{display:flex}}
-@media(max-width:520px){:root{--hh:72px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.9rem}.brand-text span{font-size:.62rem}.brand-text em{display:none}}
-@media(max-width:360px){.brand-text span{white-space:normal}}
+@media(max-width:1400px){.main-nav{display:none}.burger{display:flex}}
+@media(max-width:520px){:root{--hh:72px}.nav-row{gap:12px;padding:0 14px}.brand{gap:10px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{font-size:.62rem;white-space:normal}.brand-text em{display:none}}
+@media(max-width:360px){.brand img{width:44px;height:44px}.brand-text strong{font-size:.78rem}}
 /* hero */
 .hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(480px,78vh,720px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:0;overflow:hidden}
@@ -182,6 +182,9 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .js-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .js-ready .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js-ready .reveal{opacity:1;transform:none}}
+/* sécurité : garantit l'affichage du bouton menu même si s.css le surcharge */
+@media(max-width:1400px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
+@media(min-width:1401px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","founder":{"@type":"Person","name":"Thierno Malick BA"},"address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
@@ -428,7 +431,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
     <div class="social">
       <span class="social-title">Suivez-nous</span>
 
-      <a href="https://www.facebook.com/https://www.facebook.com/profile.php?id=61593730307571" target="_blank" rel="noopener" aria-label="Facebook">
+      <a href="https://www.facebook.com/profile.php?id=61593730307571" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.52c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.39C19.61 23.03 24 18.06 24 12.07z"/></svg>
       </a>
 
@@ -465,7 +468,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
   b.addEventListener('click',function(){set(!body.classList.contains('nav-open'))});
   document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
-  window.addEventListener('resize',function(){if(innerWidth>1240)set(false)});
+  window.addEventListener('resize',function(){if(innerWidth>1400)set(false)});
 })();
 (function(){
   document.documentElement.classList.add('js-ready');
