@@ -175,6 +175,465 @@ a.card:hover{border-color:var(--bx)}
 @media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
 </style>
 <link rel="stylesheet" href="premium.css">
+
+<!-- ================= Sélecteur de langue FR ↔ AR (intégré) ================= -->
+<script>
+/*!
+ * Institut Al Maarifa — sélecteur de langue FR ↔ AR
+ * Pour ajouter des traductions : AlMaarifaI18n.add({ "Texte français": "النص العربي" })
+ * Pour lister ce qui n'est pas encore traduit (en arabe) : AlMaarifaI18n.missing()
+ */
+(function () {
+  'use strict';
+
+  var KEY = 'am_lang';
+  var root = document.documentElement;
+  var lang = 'fr';
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+
+  var FONT_URL = 'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap';
+  function loadFont() {
+    if (document.getElementById('am-ar-font')) return;
+    var l = document.createElement('link');
+    l.id = 'am-ar-font'; l.rel = 'stylesheet'; l.href = FONT_URL;
+    document.head.appendChild(l);
+  }
+
+  /* ------------------------------------------------------------------ CSS */
+  var CSS = `
+html.i18n-pending body{visibility:hidden}
+
+/* ---- bouton ---- */
+.lang-switch{display:inline-flex;align-items:center;gap:2px;flex:none;padding:3px;direction:ltr;background:#F1F2F4;border:1px solid #D9DADD;border-radius:999px}
+.lang-btn{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 13px;border:0;border-radius:999px;background:transparent;color:#333;font:600 .82rem/1 "Inter","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.lang-btn[data-lang=ar]{font-family:"Cairo","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif;font-size:.92rem;letter-spacing:0}
+.lang-btn:hover{color:#800020;background:rgba(128,0,32,.07)}
+.lang-btn[aria-pressed=true]{background:#800020;color:#fff;box-shadow:0 2px 6px rgba(92,16,37,.3)}
+.lang-btn:focus-visible{outline:3px solid #A67C52;outline-offset:2px}
+.lang-flag{font-size:1.1rem;line-height:1}
+.lang-sep{width:1px;height:18px;background:#A67C52;opacity:.5}
+.lang-switch--float{position:fixed;top:12px;right:12px;z-index:90;box-shadow:0 4px 14px rgba(51,51,51,.15)}
+
+/* place dans l'en-tête */
+@media(min-width:1241px) and (max-width:1499px){html .header-cta{display:none}}
+@media(max-width:1240px){
+  .lang-switch{margin-left:auto}
+  html .burger{margin-left:10px}
+  html[dir=rtl] .lang-switch{margin-left:0;margin-right:auto}
+  html[dir=rtl] .burger{margin-left:0;margin-right:10px}
+}
+/* mobile : bouton compact = une seule pastille qui propose l'autre langue */
+@media(max-width:600px){
+  .lang-switch .lang-sep,.lang-switch .lang-btn[aria-pressed=true]{display:none}
+  .lang-btn{padding:0 12px}
+}
+@media(max-width:520px){.lang-flag{display:none}}
+@media(max-width:420px){
+  .nav-row{padding:0 12px;gap:8px}
+  .brand{gap:8px}
+  .brand img{width:40px;height:40px}
+  .brand-text strong{font-size:.74rem}
+  .brand-text span{font-size:.55rem}
+}
+
+/* ---- arabe / RTL ---- */
+html.is-ar{--serif:"Amiri","Noto Naskh Arabic",Georgia,serif;--sans:"Cairo","Noto Sans Arabic","Segoe UI",Tahoma,sans-serif}
+html.is-ar body{line-height:1.9}
+html.is-ar *{letter-spacing:0!important;text-transform:none!important}
+html.is-ar h1,html.is-ar h2,html.is-ar h3{line-height:1.45}
+html.is-ar .img-slot.is-empty::after{content:"الصورة قريباً"}
+html[dir=rtl] .main-nav{margin-left:0;margin-right:auto}
+html[dir=rtl] .submenu{left:auto;right:0}
+html[dir=rtl] .mobile-nav a.active{border-left:0;border-right:3px solid #800020;padding-left:8px;padding-right:12px}
+html[dir=rtl] .mobile-group a{padding-left:8px;padding-right:20px}
+html[dir=rtl] .mobile-group a.active{padding-left:8px;padding-right:17px}
+html[dir=rtl] .wa-float{right:auto;left:20px}
+@media(max-width:480px){html[dir=rtl] .wa-float{right:auto;left:14px}}
+`;
+  var st = document.createElement('style');
+  st.id = 'am-i18n-css';
+  st.textContent = CSS;
+  document.head.appendChild(st);
+
+  /* État initial en arabe : on cache la page le temps de la traduction (évite le flash français) */
+  if (saved === 'ar') {
+    root.lang = 'ar'; root.dir = 'rtl';
+    root.classList.add('i18n-pending', 'is-ar');
+    loadFont();
+    setTimeout(function () { root.classList.remove('i18n-pending'); }, 3000);
+  }
+
+  /* ----------------------------------------------------------- Dictionnaire */
+  var D = Object.create(null);
+  var missing = new Set();
+
+  function norm(s) {
+    return s.replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, ' ').trim();
+  }
+  function addDict(o) {
+    for (var k in o) { D[norm(k).toLowerCase()] = o[k]; }
+  }
+
+  addDict({
+    /* --- méta / titre --- */
+    "Le Centre — Infrastructures | Institut Al Maarifa": "المركز — البنية التحتية | معهد المعارف",
+    "Institut Al Maarifa": "معهد المعارف",
+    "Le Centre de l'Institut Al Maarifa Thierno Djibril Ousmane Ba : découvrez le cadre de vie et les infrastructures de nos élèves à Bambilor - Darou Salam.": "مركز معهد المعارف تييرنو جبريل عثمان با: اكتشفوا الإطار المعيشي والبنية التحتية لتلاميذنا في بمبيلور - دار السلام.",
+
+    /* --- accessibilité / en-tête --- */
+    "Aller au contenu": "انتقل إلى المحتوى",
+    "École franco-arabe · Partenaire de l'Institut Al-Azhar": "مدرسة فرنسية-عربية · شريكة معهد الأزهر",
+    "Institut Al Maarifa — accueil": "معهد المعارف — الرئيسية",
+    "Logo Institut Al Maarifa": "شعار معهد المعارف",
+    "INSTITUT AL MAARIFA": "معهد المعارف",
+    "THIERNO DJIBRIL OUSMANE BA": "تييرنو جبريل عثمان با",
+    "Thierno Djibril Ousmane Ba": "تييرنو جبريل عثمان با",
+    "Navigation principale": "التنقل الرئيسي",
+    "Navigation mobile": "التنقل عبر الجوال",
+    "Ouvrir le menu": "فتح القائمة",
+    "Fermer le menu": "إغلاق القائمة",
+
+    /* --- menus --- */
+    "Accueil": "الرئيسية",
+    "Notre établissement": "مؤسستنا",
+    "L'Institut": "المعهد",
+    "Le Centre": "المركز",
+    "Nos enseignements": "برامجنا التعليمية",
+    "Programmes": "البرامج",
+    "Bibliothèque": "المكتبة",
+    "Vie scolaire": "الحياة المدرسية",
+    "Activités": "الأنشطة",
+    "Galerie": "المعرض",
+    "Actualités": "المستجدات",
+    "Inscriptions": "التسجيلات",
+    "Inscription": "التسجيل",
+    "Tarifs": "الرسوم",
+    "Contact": "اتصل بنا",
+    "Inscrire mon enfant": "تسجيل طفلي",
+
+    /* --- hero --- */
+    "NOS INFRASTRUCTURES": "بنيتنا التحتية",
+    "Bâtiment de l'Institut Al Maarifa": "مبنى معهد المعارف",
+    "Des infrastructures pensées pour l'apprentissage": "بنية تحتية مصمَّمة من أجل التعلّم",
+    "Propreté, sécurité, discipline et confort : découvrez le cadre de vie de nos élèves, pensé pour favoriser leur apprentissage et leur épanouissement.": "النظافة والأمن والانضباط والراحة: اكتشفوا الإطار المعيشي لتلاميذنا، المصمَّم لتعزيز تعلّمهم وازدهارهم.",
+    "DÉCOUVRIR NOTRE ÉCOLE": "اكتشفوا مدرستنا",
+    "CONTACTER L'ADMINISTRATION": "تواصلوا مع الإدارة",
+    "Défiler": "مرِّر",
+    "Faire défiler vers le contenu": "التمرير نحو المحتوى",
+
+    /* --- introduction --- */
+    "Un cadre favorable à la réussite scolaire": "إطار مُواتٍ للنجاح الدراسي",
+    "L'Institut Al Maarifa Thierno Djibril Ousmane Ba accorde une attention particulière au cadre dans lequel les élèves apprennent et évoluent. Notre ambition est de proposer un environnement propice à la concentration, à la discipline et à l'épanouissement scolaire.": "يولي معهد المعارف تييرنو جبريل عثمان با اهتماماً خاصاً بالإطار الذي يتعلّم فيه التلاميذ وينمون. وطموحنا هو توفير بيئة تساعد على التركيز والانضباط والازدهار الدراسي.",
+
+    /* --- infrastructures --- */
+    "Infrastructures": "البنية التحتية",
+    "Découvrez notre établissement": "اكتشفوا مؤسستنا",
+    "Bâtiment principal": "المبنى الرئيسي",
+    "Le bâtiment qui accueille les élèves de l'Institut à Bambilor – Darou Salam.": "المبنى الذي يستقبل تلاميذ المعهد في بمبيلور – دار السلام.",
+    "Bâtiment principal de l'Institut Al Maarifa": "المبنى الرئيسي لمعهد المعارف",
+    "Espaces intérieurs": "الفضاءات الداخلية",
+    "Les espaces intérieurs où les élèves se déplacent et se retrouvent au quotidien.": "الفضاءات الداخلية التي يتنقل فيها التلاميذ ويلتقون فيها كل يوم.",
+    "Espaces intérieurs de l'Institut Al Maarifa": "الفضاءات الداخلية لمعهد المعارف",
+    "Salles de classe": "قاعات الدراسة",
+    "Les salles où se déroulent les enseignements en français et en arabe.": "القاعات التي تُقدَّم فيها الدروس بالفرنسية والعربية.",
+    "Salles de classe de l'Institut Al Maarifa": "قاعات الدراسة بمعهد المعارف",
+    "Vie des élèves": "حياة التلاميذ",
+    "Un aperçu de la vie quotidienne des élèves au sein de l'établissement.": "لمحة عن الحياة اليومية للتلاميذ داخل المؤسسة.",
+    "Vie des élèves de l'Institut Al Maarifa": "حياة تلاميذ معهد المعارف",
+    "Un environnement adapté pour apprendre, grandir et réussir.": "بيئة مناسبة للتعلّم والنموّ والنجاح.",
+
+    /* --- engagements --- */
+    "Nos engagements": "التزاماتنا",
+    "Ce qui guide notre quotidien": "ما يوجّه عملنا اليومي",
+    "Propreté": "النظافة",
+    "Nous accordons de l'importance à l'entretien et à la propreté des lieux où les élèves étudient.": "نُولي أهمية لصيانة ونظافة الأماكن التي يدرس فيها التلاميذ.",
+    "Sécurité": "الأمن",
+    "Le bien-être et la protection des élèves guident l'organisation de la vie de l'établissement.": "رفاهية التلاميذ وحمايتهم هما ما يوجّه تنظيم الحياة في المؤسسة.",
+    "Discipline": "الانضباط",
+    "Le respect des règles et le sens des responsabilités font partie de l'éducation que nous transmettons.": "احترام القواعد وروح المسؤولية جزء من التربية التي نغرسها.",
+    "Confort": "الراحة",
+    "Nous voulons un cadre propice à la concentration et à l'apprentissage au quotidien.": "نريد إطاراً يساعد على التركيز والتعلّم كل يوم.",
+
+    /* --- appel à l'action --- */
+    "PRÉPAREZ L'AVENIR DE VOTRE ENFANT": "أعدّوا مستقبل طفلكم",
+    "Découvrez l'Institut Al Maarifa Thierno Djibril Ousmane Ba et contactez notre administration pour obtenir des informations sur les inscriptions.": "اكتشفوا معهد المعارف تييرنو جبريل عثمان با وتواصلوا مع إدارتنا للحصول على معلومات حول التسجيلات.",
+    "DÉCOUVRIR LES INSCRIPTIONS": "اكتشفوا التسجيلات",
+    "NOUS CONTACTER": "تواصلوا معنا",
+
+    /* --- pied de page --- */
+    "École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.": "مدرسة فرنسية-عربية شريكة لمعهد الأزهر. تعليم راقٍ يجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "« Une vision, un engagement, un avenir meilleur. »": "« رؤية، والتزام، ومستقبل أفضل. »",
+    "Bambilor – Darou Salam, Sénégal": "بمبيلور – دار السلام، السنغال",
+    "Navigation": "التنقل",
+    "Le Fondateur": "المؤسس",
+    "Ressources": "الموارد",
+    "Bibliothèque numérique": "المكتبة الرقمية",
+    "Écrire sur WhatsApp": "راسلونا عبر واتساب",
+    "Contacter sur WhatsApp": "تواصلوا عبر واتساب",
+    "Formulaire de contact": "نموذج الاتصال",
+    "Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.": "معهد المعارف تييرنو جبريل عثمان با. جميع الحقوق محفوظة.",
+    "Partenaire officiel : Institut Al-Azhar": "الشريك الرسمي: معهد الأزهر",
+
+    /* --- génériques (formulaires, boutons, messages) — à vérifier selon vos pages --- */
+    "Nom": "الاسم",
+    "Prénom": "الاسم الأول",
+    "Nom complet": "الاسم الكامل",
+    "Votre nom": "اسمكم",
+    "Téléphone": "الهاتف",
+    "Email": "البريد الإلكتروني",
+    "E-mail": "البريد الإلكتروني",
+    "Message": "الرسالة",
+    "Votre message": "رسالتكم",
+    "Objet": "الموضوع",
+    "Adresse": "العنوان",
+    "Horaires": "أوقات العمل",
+    "Envoyer": "إرسال",
+    "Envoyer le message": "إرسال الرسالة",
+    "Lire la suite": "اقرأ المزيد",
+    "En savoir plus": "اعرف المزيد",
+    "Voir plus": "عرض المزيد",
+    "Voir tout": "عرض الكل",
+    "Retour": "رجوع",
+    "Fermer": "إغلاق",
+    "Télécharger": "تحميل",
+    "Rechercher": "بحث",
+    "Chargement…": "جارٍ التحميل…",
+    "Merci ! Votre message a bien été envoyé.": "شكراً! تم إرسال رسالتكم بنجاح.",
+    "Ce champ est obligatoire": "هذا الحقل مطلوب"
+  });
+  if (window.AM_I18N_EXTRA) addDict(window.AM_I18N_EXTRA);
+
+  /* règles pour les textes à valeurs variables */
+  var RULES = [
+    [/^Inscriptions (\d{4})\s*[–-]\s*(\d{4})$/i, function (m) { return 'التسجيلات ' + m[1] + '–' + m[2]; }],
+    [/^Année (?:scolaire )?(\d{4})\s*[–-]\s*(\d{4})$/i, function (m) { return 'السنة الدراسية ' + m[1] + '–' + m[2]; }]
+  ];
+
+  function lookup(s) {
+    var n = norm(s);
+    if (!n || !/[A-Za-z\u00C0-\u00FF]/.test(n)) return null;
+    var v = D[n.toLowerCase()];
+    if (v) return v;
+    for (var i = 0; i < RULES.length; i++) {
+      var m = n.match(RULES[i][0]);
+      if (m) return RULES[i][1](m);
+    }
+    if (lang === 'ar' && /[A-Za-z\u00C0-\u00FF]{2}/.test(n)) missing.add(n);
+    return null;
+  }
+
+  /* --------------------------------------------------------- Traduction DOM */
+  var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TEXTAREA: 1, CODE: 1, PRE: 1 };
+  var ATTRS = ['alt', 'title', 'placeholder', 'aria-label'];
+  var ATTR_SEL = '[alt],[title],[placeholder],[aria-label],input[type=submit],input[type=button]';
+  var tNodes = new Map();   // nœud texte -> {o: original, tr: traduit}
+  var aRecs = new Map();    // élément -> {attr: {o, tr}}
+
+  function okNode(n) {
+    var p = n.parentNode;
+    if (!p || SKIP[p.nodeName]) return false;
+    return !(p.closest && p.closest('[data-no-i18n],[translate="no"]'));
+  }
+
+  function trText(n) {
+    var raw = n.nodeValue, rec = tNodes.get(n);
+    if (rec && raw === rec.tr) return;
+    var m = raw.match(/^(\s*)([\s\S]*?)(\s*)$/);
+    if (!m[2]) return;
+    var t = lookup(m[2]);
+    if (!t) return;
+    var out = m[1] + t + m[3];
+    tNodes.set(n, { o: raw, tr: out });
+    n.nodeValue = out;
+  }
+
+  function trAttrs(el) {
+    if (el.nodeType !== 1 || (el.closest && el.closest('[data-no-i18n],[translate="no"]'))) return;
+    var list = ATTRS.slice();
+    if (el.nodeName === 'INPUT' && /^(submit|button)$/i.test(el.type)) list.push('value');
+    list.forEach(function (a) {
+      if (!el.hasAttribute(a)) return;
+      var cur = el.getAttribute(a);
+      var all = aRecs.get(el) || {};
+      if (all[a] && cur === all[a].tr) return;
+      var t = lookup(cur);
+      if (!t) return;
+      all[a] = { o: cur, tr: t };
+      aRecs.set(el, all);
+      el.setAttribute(a, t);
+    });
+  }
+
+  function walk(r) {
+    if (r.nodeType === 3) { if (okNode(r)) trText(r); return; }
+    if (r.nodeType !== 1 || SKIP[r.nodeName]) return;
+    var w = document.createTreeWalker(r, NodeFilter.SHOW_TEXT, null), n, list = [];
+    while ((n = w.nextNode())) list.push(n);
+    list.forEach(function (x) { if (okNode(x)) trText(x); });
+    trAttrs(r);
+    r.querySelectorAll(ATTR_SEL).forEach(trAttrs);
+  }
+
+  function restore() {
+    tNodes.forEach(function (rec, n) { if (n.nodeValue === rec.tr) n.nodeValue = rec.o; });
+    tNodes.clear();
+    aRecs.forEach(function (all, el) {
+      for (var a in all) { if (el.getAttribute(a) === all[a].tr) el.setAttribute(a, all[a].o); }
+    });
+    aRecs.clear();
+  }
+
+  /* titre + méta */
+  var META = ['meta[name="description"]', 'meta[property="og:title"]', 'meta[property="og:description"]', 'meta[property="og:locale"]'];
+  var head0 = null;
+  function trTitle(s) {
+    var whole = lookup(s);
+    if (whole) return whole;
+    var parts = s.split(/\s*\|\s*/);
+    if (parts.length > 1) return parts.map(function (p) { return lookup(p) || p; }).join(' | ');
+    return null;
+  }
+  function headToAr() {
+    if (!head0) {
+      head0 = { title: document.title, m: [] };
+      META.forEach(function (s) { var e = document.querySelector(s); if (e) head0.m.push([e, e.getAttribute('content')]); });
+    }
+    document.title = trTitle(head0.title) || head0.title;
+    head0.m.forEach(function (p) {
+      var e = p[0];
+      e.setAttribute('content', e.getAttribute('property') === 'og:locale' ? 'ar_AR' : (lookup(p[1]) || p[1]));
+    });
+  }
+  function headToFr() {
+    if (!head0) return;
+    document.title = head0.title;
+    head0.m.forEach(function (p) { p[0].setAttribute('content', p[1]); });
+  }
+
+  /* liens WhatsApp : message pré-rempli dans la langue choisie */
+  var WA_AR = 'السلام عليكم، أرغب في الحصول على معلومات حول معهد المعارف.';
+  function waLinks(toAr) {
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+      if (!a._amHref) a._amHref = a.getAttribute('href');
+      var h = a._amHref;
+      a.setAttribute('href', toAr ? h.replace(/([?&]text=)[^&#]*/, '$1' + encodeURIComponent(WA_AR)) : h);
+    });
+  }
+
+  /* ----------------------------------------------- Conservation de la position */
+  function anchor() {
+    var h = document.querySelector('.site-header');
+    var y = (h ? h.getBoundingClientRect().bottom : 0) + 24;
+    var el = document.elementFromPoint(Math.round(window.innerWidth / 2), Math.round(y));
+    if (!el || el === document.body || el === root) return null;
+    return { el: el, y: el.getBoundingClientRect().top };
+  }
+  function restoreAnchor(a) {
+    if (!a || !a.el.isConnected) return;
+    var d = a.el.getBoundingClientRect().top - a.y;
+    if (Math.abs(d) > 1) window.scrollBy({ top: d, left: 0, behavior: 'instant' });
+  }
+
+  /* ------------------------------------------------------------------ Bouton */
+  function build() {
+    if (document.querySelector('.lang-switch')) return;
+    var box = document.createElement('div');
+    box.className = 'lang-switch';
+    box.setAttribute('role', 'group');
+    box.setAttribute('aria-label', 'Langue / اللغة');
+    box.setAttribute('translate', 'no');
+    box.setAttribute('data-no-i18n', '');
+    box.innerHTML =
+      '<button type="button" class="lang-btn" data-lang="fr" lang="fr" aria-label="Français">' +
+        '<span class="lang-flag" aria-hidden="true">\uD83C\uDDEB\uD83C\uDDF7</span><span class="lang-name">FR</span></button>' +
+      '<span class="lang-sep" aria-hidden="true"></span>' +
+      '<button type="button" class="lang-btn" data-lang="ar" lang="ar" aria-label="العربية">' +
+        '<span class="lang-flag" aria-hidden="true">\uD83C\uDDF8\uD83C\uDDE6</span><span class="lang-name">العربية</span></button>';
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('.lang-btn');
+      if (b) setLang(b.getAttribute('data-lang'));
+    });
+    var row = document.querySelector('.nav-row');
+    if (row) {
+      row.insertBefore(box, row.querySelector('.burger') || null);
+    } else {
+      box.className += ' lang-switch--float';
+      document.body.appendChild(box);
+    }
+  }
+
+  function syncUI() {
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+  }
+
+  /* ------------------------------------------------------------ Changement */
+  function setLang(l, initial) {
+    if (l !== 'ar') l = 'fr';
+    if (!initial && l === lang) return;
+    var a = initial ? null : anchor();
+    lang = l;
+    root.lang = l;
+    root.dir = l === 'ar' ? 'rtl' : 'ltr';
+    root.classList.toggle('is-ar', l === 'ar');
+    if (l === 'ar') {
+      loadFont();
+      walk(document.body);
+      headToAr();
+      waLinks(true);
+    } else {
+      restore();
+      headToFr();
+      waLinks(false);
+    }
+    syncUI();
+    if (!initial) { try { localStorage.setItem(KEY, l); } catch (e) {} }
+    root.classList.remove('i18n-pending');
+    if (a) {
+      requestAnimationFrame(function () { restoreAnchor(a); });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { restoreAnchor(a); });
+    }
+    document.dispatchEvent(new CustomEvent('amlanguagechange', { detail: { lang: l } }));
+  }
+
+  /* contenus ajoutés après coup (data.js, main.js, messages de formulaire…) */
+  function onMut(recs) {
+    if (lang !== 'ar') return;
+    recs.forEach(function (r) {
+      if (r.type === 'attributes') { trAttrs(r.target); return; }
+      r.addedNodes.forEach(function (n) { walk(n); });
+    });
+  }
+
+  function init() {
+    build();
+    new MutationObserver(onMut).observe(document.body, {
+      childList: true, subtree: true,
+      attributes: true, attributeFilter: ATTRS.concat('value')
+    });
+    setLang(saved === 'ar' ? 'ar' : 'fr', true);
+    if (saved === 'ar' && location.hash) {
+      try {
+        var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (t) t.scrollIntoView();
+      } catch (e) {}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+  window.AlMaarifaI18n = {
+    set: function (l) { setLang(l); },
+    get: function () { return lang; },
+    add: function (o) { addDict(o); if (lang === 'ar') walk(document.body); },
+    missing: function () { return Array.from(missing); }
+  };
+})();
+</script>
+<!-- ================= Fin du sélecteur de langue ================= -->
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
 </script>
