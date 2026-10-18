@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<script>try{if(localStorage.getItem("lang")==="ar"){document.documentElement.lang="ar";document.documentElement.dir="rtl"}}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>L'Institut — Institut Al Maarifa Thierno Djibril Ousmane Ba</title>
 <meta name="description" content="Découvrez l'Institut Al Maarifa Thierno Djibril Ousmane Ba : notre histoire, notre mission, notre pédagogie et notre partenariat avec l'Institut Al-Azhar, à Bambilor - Darou Salam.">
@@ -174,6 +175,16 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .timeline-item::before{content:"";position:absolute;left:-36px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bx);border:3px solid #fff;box-shadow:0 0 0 2px var(--bx)}
 .timeline-item .date{display:block;font-weight:700;color:var(--br);font-size:.88rem;margin-bottom:4px}
 .timeline-item h3{margin-bottom:.3em}
+
+/* ---- version arabe (RTL) propre à cette page ---- */
+html[dir=rtl] .timeline{border-left:0;border-right:2px solid var(--g2)}
+html[dir=rtl] .timeline-item::before{left:auto;right:-36px}
+html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px solid var(--br-l);padding-left:0;padding-right:16px}
+html[dir=rtl] .page-banner .eyebrow{font-style:normal}
+html[dir=rtl] .parrain-frame,html[dir=rtl] .page-banner p{margin-left:auto;margin-right:auto}
+@media(min-width:1241px){.site-header .lang-switch{margin-inline-start:0}}
+@media(max-width:1240px){.site-header .lang-switch{margin-inline-start:auto}}
+@media(max-width:520px){.nav-row{gap:10px;padding:0 14px}.brand{flex:0 1 auto;gap:10px}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{white-space:normal}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
@@ -374,6 +385,420 @@ document.getElementById('y').textContent=new Date().getFullYear();
     items.forEach(function(el){o.observe(el)});
   }else{items.forEach(function(el){el.classList.add('in');count(el)})}
 })();
+</script>
+<!-- Traductions arabes propres à cette page (le dictionnaire commun est dans le moteur ci-dessous) -->
+<script>
+window.AL_I18N_EXTRA = {
+  "Faire connaissance avec l'Institut": "تعرّف على <strong>المعهد</strong>",
+  "Notre histoire, notre mission": "قصتنا ورسالتنا",
+  "Une école franco-arabe à Bambilor - Darou Salam, portée par*": "مدرسة فرنكو-عربية في بامبيلور - دارو سلام، تقوم على التميّز الأكاديمي والوفاء للقيم الإسلامية، بالشراكة مع معهد الأزهر.",
+  "Qui sommes-nous": "من نحن",
+  "Une école pensée pour donner à chaque enfant les moyens de réussir": "مدرسة صُمّمت لتمنح كل طفل وسائل النجاح",
+  "L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né*": "وُلد معهد المعارف ثيرنو جبريل عثمان با من إرادة تقديم بديل تربوي متميّز في بامبيلور - دارو سلام: تعليم عام عالي الجودة، وإتقان حقيقي للغة العربية، وتربية إسلامية أصيلة تُقدَّم بأسلوب تربوي.",
+  "Nous accueillons les élèves du préscolaire à la terminale*": "نستقبل التلاميذ من التحضيري إلى السنة النهائية في إطار منظَّم، حيث لا تُعدّ الانضباط والنظافة والأمن خيارات بل أسسًا. ويستفيد كل مستوى من تأطير مصمَّم لتنشئة الطفل دون أن يغيب عن أنظارنا.",
+  "Voir nos programmes": "عرض برامجنا",
+  "Élèves de l'Institut Al Maarifa en classe": "تلاميذ معهد المعارف في القسم",
+  "Parrain de l'Institut": "عرّاب المعهد",
+  "Thierno Djibril Ousmane Bâ": "ثيرنو جبريل عثمان با",
+  "Thierno Djibril Ousmane Bâ, parrain de l'Institut Al Maarifa": "ثيرنو جبريل عثمان با، عرّاب معهد المعارف",
+  "Également connu sous le nom de Thierno Djiby": "المعروف أيضًا باسم ثيرنو جيبي",
+  "Une empreinte spirituelle qui continue d'éclairer et d'inspirer l'Institut.": "أثر روحي لا يزال ينير المعهد ويلهمه.",
+  "Thierno Djibril Ousmane Bâ, également connu sous le nom de Thierno Djiby, était*": "كان ثيرنو جبريل عثمان با، المعروف أيضًا باسم ثيرنو جيبي، عالمًا جليلًا ومرشدًا روحيًا وشخصية بارزة للإسلام في السنغال.",
+  "Homme de foi et de savoir*": "رجل إيمان وعلم، عُرف بتقواه، وترك أثرًا لا يُمحى في التاريخ الديني والاجتماعي لبلدية بامبيلور، في مقاطعة روفيسك.",
+  "Concilier excellence académique et éducation religieuse": "التوفيق بين التميّز الأكاديمي والتربية الدينية",
+  "Notre mission est simple à énoncer*": "رسالتنا بسيطة في صياغتها، صارمة في تحقيقها: تكوين تلاميذ متمكّنين في المواد العامة، قادرين على قراءة العربية وكتابتها وفهمها بسهولة، ومتجذّرين في قيم إسلامية سيحملونها طيلة حياتهم.",
+  "Cette mission se construit jour après jour*": "تُبنى هذه الرسالة يومًا بعد يوم، داخل القسم وخارجه، من خلال تأطير تربوي صارم ومرافقة إنسانية تهتم بكل تلميذ.",
+  "Enseignant accompagnant un élève à l'Institut Al Maarifa": "أستاذ يرافق تلميذًا في معهد المعارف",
+  "Ce qui guide chaque journée à l'Institut": "ما يوجّه كل يوم في المعهد",
+  "Excellence": "التميّز",
+  "Un enseignement exigeant qui prépare*": "تعليم صارم يهيّئ التلاميذ للنجاح في التعليم العالي وفي الحياة.",
+  "Discipline": "الانضباط",
+  "Un cadre structuré, respectueux et sécurisant pour chaque élève.": "إطار منظَّم ومحترِم ومطمئن لكل تلميذ.",
+  "Valeurs islamiques": "القيم الإسلامية",
+  "Une éducation religieuse authentique*": "تربية دينية أصيلة تُقدَّم بأسلوب تربوي ولطف.",
+  "Modernité": "الحداثة",
+  "Des méthodes actuelles, une bibliothèque numérique*": "أساليب حديثة ومكتبة رقمية ومتابعة تربوية عصرية.",
+  "Notre partenariat": "شراكتنا",
+  "Un partenariat officiel avec l'Institut Al-Azhar": "شراكة رسمية مع معهد الأزهر",
+  "L'Institut Al Maarifa Thierno Djibril Ousmane Ba est fier*": "يفخر معهد المعارف ثيرنو جبريل عثمان با بكونه شريكًا رسميًا لمعهد الأزهر، المرجع التاريخي للتعليم الإسلامي. وتضمن هذه الشراكة صرامة برنامجنا للتربية الإسلامية واللغة العربية وأصالته.",
+  "Il permet également à nos élèves*": "كما تتيح لتلاميذنا الاستفادة من مسار معترف به، يفتح آفاقًا للدراسات العليا داخل السنغال وخارجها.",
+  "Programme reconnu": "برنامج معترف به",
+  "Encadrement qualifié": "تأطير مؤهَّل",
+  "Perspectives internationales": "آفاق دولية",
+  "Partenariat avec l'Institut Al-Azhar": "شراكة مع معهد الأزهر",
+  "Notre parcours": "مسارنا",
+  "Les grandes étapes de l'Institut": "المحطات الكبرى للمعهد",
+  "Fondation": "التأسيس",
+  "Ouverture de l'Institut à Bambilor - Darou Salam": "افتتاح المعهد في بامبيلور - دارو سلام",
+  "Naissance du projet éducatif*": "ولادة المشروع التربوي، مع أول دخول مدرسي استقبل أوائل تلاميذ التحضيري والابتدائي.",
+  "Développement": "التطوّر",
+  "Extension des niveaux et partenariat avec Al-Azhar": "توسيع المستويات والشراكة مع الأزهر",
+  "Ouverture progressive des classes jusqu'au collège*": "فتح الأقسام تدريجيًا حتى الإعدادي، وتوقيع الشراكة الرسمية مع معهد الأزهر.",
+  "Aujourd'hui": "اليوم",
+  "Un institut complet, du préscolaire à la terminale": "معهد متكامل من التحضيري إلى السنة النهائية",
+  "L'Institut couvre désormais*": "يغطي المعهد اليوم المسار الدراسي كاملًا، مع مكتبة رقمية ومتابعة تربوية مطوَّرة.",
+  "Une nouvelle rentrée scolaire": "دخول مدرسي جديد",
+  "Les inscriptions pour l'année 2026-2027*": "التسجيلات للسنة الدراسية 2026-2027 مفتوحة، والأماكن محدودة في كل مستوى.",
+  "Envie de rejoindre l'Institut Al Maarifa ?": "هل ترغبون في الانضمام إلى معهد المعارف؟",
+  "Les inscriptions 2026–2027 sont ouvertes. Places limitées*": "التسجيلات 2026–2027 مفتوحة. الأماكن محدودة في كل مستوى — اتصلوا بنا اليوم.",
+  "Commencer l'inscription": "ابدأ التسجيل",
+  "Nous contacter": "اتصل بنا",
+  "L'Institut — Institut Al Maarifa Thierno Djibril Ousmane Ba": "المعهد — معهد المعارف ثيرنو جبريل عثمان با"
+};
+</script>
+<script>
+/* Institut Al Maarifa — changement de langue Français / العربية
+   ------------------------------------------------------------------
+   Installation : <script src="lang.js" defer><\/script> avant </body> (sur CHAQUE page, y compris l'admin).
+   Dictionnaire central : l'objet D ci-dessous.  "texte français": "texte arabe"
+     - clé finissant par *  → correspond au début du texte (longs paragraphes)
+     - {Y} dans une valeur   → année courante
+   Dictionnaire d'une page : définir avant lang.js   window.AL_I18N_EXTRA = { "…": "…" };
+   Ne pas traduire un élément (noms, matricules…) : lui ajouter l'attribut  data-no-translate  (ou translate="no").
+   API : AlMaarifaLang.t("texte")  → texte traduit selon la langue courante (messages dynamiques)
+         AlMaarifaLang.set("ar"|"fr"), .lang(), .add({...}), .missing()  → liste des textes français non traduits
+   Événement : document.addEventListener("almaarifa:lang", e => e.detail.lang) pour re-rendre un contenu dynamique. */
+(function () {
+  var D = {
+    /* navigation */
+    "INSTITUT AL MAARIFA": "معهد المعارف",
+    "THIERNO DJIBRIL OUSMANE BA": "ثيرنو جبريل عثمان با",
+    "ÉCOLE FRANCO-ARABE": "مدرسة فرنكو-عربية",
+    "Accueil": "الرئيسية", "L'Institut": "المعهد", "Centre": "المركز", "Programmes": "البرامج",
+    "Activités": "الأنشطة", "Actualités": "الأخبار", "Bibliothèque": "المكتبة", "Galerie": "المعرض",
+    "Tarifs": "الرسوم", "Inscriptions": "التسجيلات", "Contact": "اتصل بنا",
+    "Aller au contenu": "انتقل إلى المحتوى",
+    /* hero */
+    "INSCRIPTIONS OUVERTES — 2026 / 2027": "التسجيلات مفتوحة — 2026 / 2027",
+    "PARTENAIRE OFFICIEL : INSTITUT AL-AZHAR": "الشريك الرسمي: معهد الأزهر",
+    "École franco-arabe Institut Al Maarifa Thierno Djibril Ousmane Ba": "مدرسة فرنكو-عربية <small>معهد المعارف ثيرنو جبريل عثمان با</small>",
+    "Une éducation de qualité, entre savoirs modernes et valeurs islamiques.": "تعليم متميّز يجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "DÉCOUVRIR L'INSTITUT": "اكتشف المعهد", "INSCRIRE MON ENFANT": "سجّل طفلك", "Inscrire mon enfant": "سجّل طفلي",
+    "En savoir plus": "اعرف المزيد", "Voir les programmes": "عرض البرامج", "Découvrir l'Institut": "اكتشف المعهد",
+    /* présentation */
+    "Un cadre d'apprentissage exigeant, bienveillant et fidèle à nos valeurs": "بيئة تعليمية صارمة ومحتضِنة ووفيّة لقيمنا",
+    "Implanté à Bambilor*": "يقع <strong>معهد المعارف ثيرنو جبريل عثمان با</strong> في <strong>بامبيلور</strong>، وهو إطار تعليمي حديث ومحتضِن، مكرَّس للازدهار الفكري والأخلاقي للشباب.",
+    "Nous accueillons les enfants*": "نستقبل الأطفال منذ <strong>مرحلة التحضيري</strong> ونرافقهم خطوة بخطوة حتى <strong>السنة النهائية</strong>، ونعدّهم لمتطلبات الامتحانات والتعليم العالي، في إطار <strong>شراكة مميّزة مع معهد الأزهر</strong>.",
+    "Programme éducatif": "البرنامج التعليمي",
+    "Un enseignement islamique et une formation académique moderne": "تعليم إسلامي وتكوين أكاديمي حديث",
+    "Des connaissances solides*": "معارف راسخة مع البقاء متجذّرين في القيم الإسلامية. <strong>المواد المدرَّسة:</strong> الدراسات الإسلامية، اللغة العربية، الرياضيات، العلوم، اللغات الأجنبية (الفرنسية والإنجليزية)، العلوم الاجتماعية.",
+    "Un enseignement général de qualité": "تعليم عام عالي الجودة",
+    "Conforme aux standards*": "مطابق للمعايير الأكاديمية لضمان إتقان المواد الأساسية.",
+    "La langue arabe approfondie": "اللغة العربية المتعمّقة",
+    "Une ouverture culturelle*": "انفتاح ثقافي وإتقان لغوي حقيقي، من التحضيري إلى السنة النهائية.",
+    "Une éducation islamique solide": "تربية إسلامية راسخة",
+    "Ancrée dans la transmission*": "قائمة على نقل قيم الاحترام والأخلاق والمسؤولية.",
+    "Notre cadre": "إطارنا", "Un environnement structuré et sécurisé": "بيئة منظَّمة وآمنة",
+    "La réussite scolaire exige*": "يتطلب النجاح الدراسي إطارًا يساعد على التركيز. ويقوم يومنا على ثلاث ركائز.",
+    "Discipline et rigueur": "الانضباط والصرامة",
+    "Un cadre exigeant qui*": "إطار صارم ينمّي حبّ الجهد والمنهجية لدى كل تلميذ.",
+    "Propreté": "النظافة",
+    "Des lieux d'apprentissage*": "أماكن تعلّم نظيفة بلا عيب، لصحة الجميع وراحتهم.",
+    "Sécurité renforcée": "أمن مُعزَّز",
+    "Une totale sérénité*": "طمأنينة تامة للتلاميذ وأسرهم كل يوم.",
+    "Notre engagement :*": "<strong>التزامنا:</strong> أن نوفّر لكل طفل، دون تمييز، المهارات والمرجعيات والفرص اللازمة لإنجاح مساره الدراسي وأن يصبح مواطنًا متكاملًا.",
+    /* fondateur */
+    "Le Fondateur": "المؤسس", "Portrait du Fondateur": "بورتريه المؤسس",
+    "Thierno Malick BA — Fondateur*": "ثيرنو مالك با — مؤسس معهد المعارف ثيرنو جبريل عثمان با",
+    "Thierno Elhadji Malick Ba": "ثيرنو الحاج مالك با",
+    "Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "مؤسس معهد المعارف ثيرنو جبريل عثمان با",
+    "La vision et l'ambition de Thierno Elhadji Malick Ba": "رؤية ثيرنو الحاج مالك با وطموحه",
+    "Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba, à*": "مؤسس <strong>معهد المعارف ثيرنو جبريل عثمان با</strong> في بامبيلور، يضع <strong>ثيرنو الحاج مالك با</strong> التعليم في صميم التنمية البشرية والتقدّم الاجتماعي. وينطلق نهجه من قناعة راسخة: أن يقدّم لكل طفل تكوينًا يجمع بين النجاح الدراسي والقيم الأخلاقية والازدهار الروحي.",
+    "Une éducation entre tradition et modernité": "تعليم يجمع بين الأصالة والحداثة",
+    "Sa vision consiste*": "تقوم رؤيته على التوفيق بين <strong>المعارف الأكاديمية الحديثة</strong> و<strong>التعليم الديني والأخلاقي</strong>. وبعيدًا عن اكتساب المعارف، يولي اهتمامًا خاصًا لبناء الشخصية والإحساس بالمسؤولية والتمسّك بالقيم الإسلامية.",
+    "Bâtir les fondations d'un avenir meilleur": "بناء أسس مستقبل أفضل",
+    "À travers son engagement*": "من خلال التزامه، يطمح إلى تكوين أجيال متعلّمة ومسؤولة وقادرة على مواجهة تحديات العالم المعاصر. ويستند هذا الطموح إلى ثلاث ركائز أساسية:",
+    "L'excellence académique,*": "<strong>التميّز الأكاديمي،</strong> لمنح التلاميذ المعارف والمهارات اللازمة لنجاحهم.",
+    "L'éducation morale et spirituelle,*": "<strong>التربية الأخلاقية والروحية،</strong> لغرس الانضباط والاحترام والنزاهة والإيمان.",
+    "La préparation à l'avenir,*": "<strong>الإعداد للمستقبل،</strong> لمرافقة كل متعلّم في بناء مساره الشخصي والدراسي والمهني.",
+    "Aujourd'hui, l'Institut accueille*": "يستقبل المعهد اليوم التلاميذ من التحضيري إلى السنة النهائية، ويواصل رسالته التعليمية بالجمع بين الصرامة الدراسية والازدهار الشخصي ونقل القيم الإسلامية.",
+    "« Former des esprits éclairés*": "«تكوين عقول مستنيرة وشخصيات صلبة ومواطنين مسؤولين لبناء مجتمع الغد.»",
+    /* mission */
+    "Notre projet éducatif": "مشروعنا التربوي", "Mission, vision et valeurs": "الرسالة والرؤية والقيم",
+    "Ce qui guide chaque jour*": "ما يوجّه كل يوم عمل الأساتذة والإدارة والتلاميذ.",
+    "Notre mission": "رسالتنا",
+    "Offrir à chaque enfant, du préscolaire*": "أن نقدّم لكل طفل، من التحضيري إلى السنة النهائية، تكوينًا يجمع بين النجاح الدراسي وإتقان الفرنسية والعربية وتربية إسلامية متينة.",
+    "Notre vision": "رؤيتنا",
+    "Former des générations instruites*": "تكوين أجيال متعلّمة ومسؤولة ومتجذّرة في قيمها، قادرة على مواجهة تحديات العالم المعاصر وخدمة مجتمعها.",
+    "Nos valeurs": "قيمنا",
+    "Rigueur et goût de l'effort": "<strong>الصرامة</strong> وحب الجهد",
+    "Respect de soi et des autres": "<strong>احترام</strong> الذات والآخرين",
+    "Foi et intégrité": "<strong>الإيمان</strong> والنزاهة",
+    "Excellence académique": "<strong>التميّز</strong> الأكاديمي",
+    /* partenariat */
+    "Partenariat": "الشراكة", "Un partenariat avec l'Institut Al-Azhar": "شراكة مع معهد الأزهر",
+    "L'Institut Al Maarifa est une école*": "معهد المعارف مدرسة فرنكو-عربية <strong>شريكة لمعهد الأزهر</strong>، المؤسسة المرجعية عالميًا في تعليم اللغة العربية والعلوم الإسلامية.",
+    "Ce partenariat inscrit*": "تضع هذه الشراكة تعليمنا ضمن تقليد أكاديمي معترف به، وتعزّز مكانة العربية والتربية الإسلامية في مسار كل تلميذ.",
+    "Ce que cela représente pour votre enfant": "ماذا يعني ذلك لطفلك",
+    "Un enseignement de l'arabe et de l'éducation islamique structuré et exigeant": "تعليم منظَّم وصارم للعربية والتربية الإسلامية",
+    "Un parcours cohérent, du préscolaire à la terminale": "مسار متناسق من التحضيري إلى السنة النهائية",
+    "Une double compétence : français et arabe": "كفاءة مزدوجة: الفرنسية والعربية",
+    "Un ancrage solide dans les valeurs islamiques": "تجذّر قوي في القيم الإسلامية",
+    /* directeur */
+    "Le Directeur": "المدير", "Portrait du Directeur": "بورتريه المدير",
+    "M. Ousseynou KHOUMA — Directeur*": "السيد أوسينو خوما — مدير معهد المعارف ثيرنو جبريل عثمان با",
+    "Portrait": "البورتريه", "Parcours académique": "المسار الأكاديمي", "Vocation & enseignement": "الرسالة والتعليم",
+    "M. Ousseynou KHOUMA": "السيد أوسينو خوما",
+    "Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "مدير معهد المعارف ثيرنو جبريل عثمان با",
+    "Passionné par la langue arabe*": "شغوف باللغة العربية والحضارة العربية الإسلامية وفن التدريس، يضع السيد أوسينو خوما اليوم خبرته ورؤيته في خدمة المعهد الذي يتولى إدارته.",
+    "Son parcours s'appuie*": "يقوم مساره على تحالف متين بين الصرامة الأكاديمية والممارسة الميدانية. وعلى مرّ السنين صقل نهجه التربوي في مؤسسات وهياكل تكوين متنوعة، مدفوعًا بالتزام دائم: نقل المعرفة بتميّز ومرافقة ازدهار المتعلّمين.",
+    "Parcours": "المسار", "Un parcours académique d'excellence": "مسار أكاديمي متميّز",
+    "Une spécialisation poussée*": "تخصّص معمّق في الدراسات العربية الإسلامية، أُنجز أساسًا بكلية الآداب والعلوم الإنسانية بجامعة الشيخ أنتا ديوب بداكار (UCAD)، مع انفتاح دولي.",
+    "Doctorat (UCAD)": "<strong>دكتوراه</strong> (UCAD)",
+    "4ᵉ année de doctorat ARCIV*": "<strong>السنة الرابعة من دكتوراه ARCIV</strong>، تخصص الدراسات العربية الإسلامية (UCAD)",
+    "Master 2, spécialité*": "<strong>ماستر 2</strong>، تخصص الحضارة العربية الإسلامية (قسم العربية، كلية الآداب، UCAD)",
+    "Master 1, spécialité*": "<strong>ماستر 1</strong>، تخصص الحضارة العربية الإسلامية (قسم العربية، كلية الآداب، UCAD)",
+    "Licence (Département*": "<strong>الإجازة</strong> (قسم العربية، كلية الآداب، UCAD)",
+    "Brevet d'Arabe Littéral*": "<strong>شهادة العربية الفصحى</strong> (جامعة السوربون باريس 3، فرنسا)",
+    "DUEL I et DUEL II*": "<strong>DUEL I وDUEL II</strong> (قسم العربية، كلية الآداب، UCAD)",
+    "Vocation": "الرسالة", "Une vocation dédiée à l'enseignement et au partage": "رسالة مكرّسة للتعليم والعطاء",
+    "Spécialisé dans l'enseignement*": "متخصّص في تدريس العربية الحديثة والتكوين التربوي، اكتسب السيد أوسينو خوما خبرته بالاحتكاك المباشر بالمتعلّمين والفرق التربوية.",
+    "De ses premières années*": "منذ سنواته الأولى أستاذًا وحتى مسؤولياته الحالية مديرًا للمعهد، يحرص على جعل الصرامة الفكرية ونقل المعرفة والتنمية الإنسانية في صميم مشروع المؤسسة.",
+    /* chiffres + CTA */
+    "Niveaux, du préscolaire à la terminale": "مستويات، من التحضيري إلى السنة النهائية",
+    "Langues d'enseignement : français & arabe": "لغتا التدريس: الفرنسية والعربية",
+    "Partenariat avec l'Institut Al-Azhar": "شراكة مع معهد الأزهر",
+    "Rentrée scolaire 2026 – 2027": "الموسم الدراسي 2026 – 2027",
+    "PRÉPAREZ L'AVENIR DE VOTRE ENFANT": "أعدّوا مستقبل طفلكم",
+    "Rejoignez l'Institut*": "انضمّوا إلى معهد المعارف ثيرنو جبريل عثمان با لتعليم يجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "DÉCOUVRIR LES INSCRIPTIONS": "اكتشف التسجيلات",
+    /* pied de page */
+    "Institut Al MaarifaThierno*": "معهد المعارف<br>ثيرنو جبريل عثمان با",
+    "École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation*": "مدرسة فرنكو-عربية شريكة لمعهد الأزهر. تعليم متميّز يجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "Bambilor – Darou Salam, Sénégal": "بامبيلور – دارو سلام، السنغال",
+    "Navigation": "التنقّل", "Ressources": "الموارد",
+    "Bibliothèque numérique": "المكتبة الرقمية", "Inscriptions 2026–2027": "التسجيلات 2026–2027", "Le Centre": "المركز",
+    "Écrire sur WhatsApp": "راسلونا على واتساب", "Formulaire de contact": "نموذج الاتصال",
+    "Suivez-nous": "تابعونا",
+    "Partenaire officiel : Institut Al-Azhar": "الشريك الرسمي: معهد الأزهر",
+    /* attributs : alt, aria-label, title */
+    "Institut Al Maarifa — accueil": "معهد المعارف — الرئيسية",
+    "Logo Institut Al Maarifa": "شعار معهد المعارف",
+    "Bâtiment de l'Institut Al Maarifa": "مبنى معهد المعارف",
+    "Vie scolaire à l'Institut Al Maarifa": "الحياة المدرسية في معهد المعارف",
+    "M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "السيد ثيرنو مالك با — مؤسس معهد المعارف ثيرنو جبريل عثمان با",
+    "M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "السيد أوسينو خوما — مدير معهد المعارف ثيرنو جبريل عثمان با",
+    "Navigation principale": "التنقّل الرئيسي", "Navigation mobile": "التنقّل على الهاتف",
+    "Ouvrir le menu": "فتح القائمة", "Fermer le menu": "إغلاق القائمة",
+    "Sous-navigation Le Directeur": "التنقّل الفرعي — المدير",
+    "Contacter sur WhatsApp": "تواصل معنا عبر واتساب",
+    "Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor": "معهد المعارف ثيرنو جبريل عثمان با — مدرسة فرنكو-عربية في بامبيلور",
+    "Photo à venir": "الصورة قريبًا",
+    /* formulaires et messages courants (pages contact, inscriptions, admin…) */
+    "Nom": "الاسم", "Prénom": "الاسم الشخصي", "Nom complet": "الاسم الكامل", "Email": "البريد الإلكتروني", "E-mail": "البريد الإلكتروني",
+    "Téléphone": "الهاتف", "Message": "الرسالة", "Objet": "الموضوع", "Envoyer": "إرسال", "Envoyer le message": "إرسال الرسالة",
+    "Retour": "رجوع", "Rechercher": "بحث", "Chargement…": "جارٍ التحميل…", "Chargement...": "جارٍ التحميل…",
+    "Ce champ est obligatoire.": "هذا الحقل مطلوب.",
+    "Message envoyé avec succès.": "تم إرسال الرسالة بنجاح.",
+    "Une erreur est survenue. Veuillez réessayer.": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    "Se connecter": "تسجيل الدخول", "Se déconnecter": "تسجيل الخروج",
+    "© {Y} Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.": "&copy; {Y} معهد المعارف ثيرنو جبريل عثمان با. جميع الحقوق محفوظة."
+  };
+
+  var STORE = "lang", ATTRS = ["alt", "aria-label", "title", "placeholder"];
+  var INLINE = { STRONG: 1, EM: 1, SMALL: 1, B: 1, I: 1, BR: 1, SPAN: 1 };
+  var SKIP = "svg,script,style,noscript,textarea,[data-no-translate],[translate=no],.notranslate,#langSwitch";
+  var exact = {}, pref = [], lang = "fr", busy = false;
+  var texts = new Map(), attrs = new Map();   // élément -> {fr, ar}
+
+  function n(s) { return s.replace(/’/g, "'").replace(/\s+/g, " ").trim(); }
+  function register(dict) {
+    Object.keys(dict).forEach(function (k) {
+      var kk = n(k);
+      if (kk.slice(-1) === "*") pref.push([kk.slice(0, -1), dict[k]]); else exact[kk] = dict[k];
+    });
+    pref.sort(function (a, b) { return b[0].length - a[0].length; });
+  }
+  register(D);
+  if (window.AL_I18N_EXTRA) register(window.AL_I18N_EXTRA);
+  function find(t) {
+    t = t.replace(/^© \d{4} /, "© {Y} ");
+    if (Object.prototype.hasOwnProperty.call(exact, t)) return exact[t];
+    for (var i = 0; i < pref.length; i++) if (t.indexOf(pref[i][0]) === 0) return pref[i][1];
+    return null;
+  }
+  function out(v) { return v.replace("{Y}", new Date().getFullYear()); }
+  function isLeaf(el) {
+    for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (!INLINE[c.tagName]) return false;
+    return true;
+  }
+
+  /* ---------- styles : bouton + rendu RTL ---------- */
+  var css = document.createElement("style");
+  css.textContent =
+    ".lang-switch{display:inline-flex;flex:0 0 auto;margin-inline-start:auto;padding:3px;gap:2px;background:#fff;border:1px solid var(--g2,#D9DADD);border-radius:100px;box-shadow:0 1px 3px rgba(51,51,51,.08)}" +
+    ".lang-switch button{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:6px 14px;border:0;border-radius:100px;background:transparent;color:var(--ink,#333);font:600 .85rem var(--sans,Arial,sans-serif);line-height:1;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}" +
+    ".lang-switch button:hover{background:var(--g1,#F1F2F4);color:var(--bx,#800020)}" +
+    ".lang-switch button[aria-pressed=true]{background:var(--bx,#800020);color:#fff;cursor:default}" +
+    ".lang-switch .fl{font-size:1.05rem;line-height:1}" +
+    "@media(min-width:1401px){.lang-switch{margin-inline-start:0}}" +
+    "@media(max-width:1400px){.site-header .burger{margin-left:0!important;margin-inline-start:0!important}}" +
+    "@media(max-width:520px){.lang-switch button{min-height:36px;padding:6px 9px;font-size:.78rem;gap:4px}}" +
+    "@media(max-width:380px){.lang-switch .fl{display:none}}" +
+    /* arabe / RTL */
+    "html[dir=rtl]{--sans:'Cairo','Noto Naskh Arabic',Tahoma,Arial,sans-serif;--serif:'Noto Naskh Arabic','Cairo',Georgia,serif}" +
+    "html[dir=rtl] *{letter-spacing:0!important}" +
+    "html[dir=rtl] body{font-size:1.1rem;line-height:1.9;overflow-wrap:break-word}" +
+    "html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] h4{line-height:1.5}" +
+    "html[dir=rtl] .hero h1{max-width:22ch}" +
+    "html[dir=rtl] .list li{padding:12px 20px 12px 0}" +
+    "html[dir=rtl] .list li::before{left:auto;right:0}" +
+    "html[dir=rtl] .timeline{padding-left:0;padding-right:28px}" +
+    "html[dir=rtl] .timeline::before{left:auto;right:5px}" +
+    "html[dir=rtl] .timeline li::before{left:auto;right:-28px}" +
+    "html[dir=rtl] .mobile-nav a.active{border-left:0;border-right:3px solid var(--bx);padding-left:8px;padding-right:12px}" +
+    "html[dir=rtl] .founder-section blockquote{border-left:0;border-right:4px solid var(--br-l);padding-left:0;padding-right:18px}" +
+    "html[dir=rtl] .founder-section ul{padding-left:0;padding-right:20px}" +
+    "html[dir=rtl] .founder-section li{list-style-position:inside}" +
+    "html[dir=rtl] .social-title{margin-right:0;margin-left:6px}" +
+    "html[dir=rtl] .site-footer a[href^='tel:']{direction:ltr;text-align:right}" +
+    "html[dir=rtl] .wa-float{right:auto;left:20px}" +
+    "@media(max-width:480px){html[dir=rtl] .wa-float{left:14px}}" +
+    "html[dir=rtl] input,html[dir=rtl] textarea,html[dir=rtl] select{text-align:right}" +
+    "html[dir=rtl] input[type=email],html[dir=rtl] input[type=tel],html[dir=rtl] input[type=url]{direction:ltr;text-align:right}" +
+    "html[lang=ar] .img-slot.is-empty::after{content:'الصورة قريبًا'}";
+  document.head.appendChild(css);
+
+  /* ---------- traduction du DOM ---------- */
+  function doAttrs(el) {
+    var list = ATTRS;
+    if (el.tagName === "INPUT" && /^(submit|button|reset)$/.test(el.type)) list = ATTRS.concat("value");
+    list.forEach(function (a) {
+      var v = el.getAttribute(a);
+      if (!v) return;
+      var rec = attrs.get(el) || {};
+      if (rec[a] && v === rec[a].ar) return;
+      var ar = find(n(v));
+      if (!ar) return;
+      rec[a] = { fr: v, ar: out(ar) };
+      attrs.set(el, rec);
+      el.setAttribute(a, rec[a].ar);
+    });
+  }
+  function scan(root) {
+    var els = [].slice.call(root.querySelectorAll("*"));
+    if (root.nodeType === 1) els.unshift(root);
+    els.forEach(function (el) {
+      if (!el.isConnected || el.closest(SKIP)) return;
+      var rec = texts.get(el);
+      if (!(rec && el.innerHTML === rec.ar) && isLeaf(el)) {
+        var t = n(el.textContent);
+        var ar = t && t.length <= 900 ? find(t) : null;
+        if (ar) {
+          var fr = el.innerHTML;
+          el.innerHTML = out(ar);
+          texts.set(el, { fr: fr, ar: el.innerHTML });
+        }
+      }
+      doAttrs(el);
+    });
+  }
+  function restore() {
+    texts.forEach(function (rec, el) { if (el.isConnected && el.innerHTML === rec.ar) el.innerHTML = rec.fr; });
+    attrs.forEach(function (rec, el) {
+      Object.keys(rec).forEach(function (a) { if (el.getAttribute(a) === rec[a].ar) el.setAttribute(a, rec[a].fr); });
+    });
+    texts.clear(); attrs.clear();
+  }
+
+  /* contenus ajoutés dynamiquement (messages de formulaire, listes chargées en JS…) */
+  var mo = new MutationObserver(function (muts) {
+    if (lang !== "ar" || busy) return;
+    mo.disconnect();
+    muts.forEach(function (m) {
+      if (m.type === "attributes") { if (m.target.isConnected && !m.target.closest(SKIP)) doAttrs(m.target); }
+      else m.addedNodes.forEach(function (nd) {
+        var el = nd.nodeType === 1 ? nd : nd.parentElement;
+        if (el && el.isConnected) scan(el);
+      });
+    });
+    watch();
+  });
+  function watch() { mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ATTRS }); }
+
+  /* ---------- changement de langue ---------- */
+  var TITLE_FR = document.title, sw, btns;
+  function anchor() {
+    var h = document.querySelector(".site-header");
+    var el = document.elementFromPoint(innerWidth / 2, (h ? h.getBoundingClientRect().bottom : 0) + 8);
+    return el && el !== document.documentElement && el !== document.body ? { el: el, top: el.getBoundingClientRect().top } : null;
+  }
+  function keep(a) {
+    if (!a || !a.el.isConnected) return;
+    var d = a.el.getBoundingClientRect().top - a.top;
+    if (Math.abs(d) < 1) return;
+    var root = document.documentElement, old = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollBy(0, d);
+    root.style.scrollBehavior = old;
+  }
+  function setLang(l, silent) {
+    l = l === "ar" ? "ar" : "fr";
+    var a = silent ? null : anchor(), h = document.documentElement;
+    busy = true; mo.disconnect();
+    if (l === "ar") {
+      if (!document.getElementById("al-font")) {
+        var k = document.createElement("link");
+        k.id = "al-font"; k.rel = "stylesheet";
+        k.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@600;700&display=swap";
+        document.head.appendChild(k);
+      }
+      lang = "ar"; h.lang = "ar"; h.dir = "rtl";
+      scan(document.body);
+      var t = find(n(TITLE_FR)); document.title = t ? out(t) : TITLE_FR;
+    } else {
+      restore();
+      lang = "fr"; h.lang = "fr"; h.dir = "ltr"; document.title = TITLE_FR;
+    }
+    busy = false; watch();
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+    try { localStorage.setItem(STORE, l); } catch (e) {}
+    keep(a);
+    if (a && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (lang === l) keep(a); });
+    document.dispatchEvent(new CustomEvent("almaarifa:lang", { detail: { lang: l } }));
+  }
+
+  /* ---------- bouton 🇫🇷 FR | 🇸🇦 العربية ---------- */
+  sw = document.createElement("div");
+  sw.id = "langSwitch"; sw.className = "lang-switch"; sw.setAttribute("role", "group"); sw.setAttribute("aria-label", "Langue / اللغة");
+  sw.innerHTML =
+    '<button type="button" data-lang="fr" lang="fr" aria-pressed="true"><span class="fl" aria-hidden="true">🇫🇷</span>FR</button>' +
+    '<button type="button" data-lang="ar" lang="ar" aria-pressed="false"><span class="fl" aria-hidden="true">🇸🇦</span>العربية</button>';
+  var burger = document.getElementById("burgerBtn");
+  if (burger && burger.parentNode) burger.parentNode.insertBefore(sw, burger); else document.body.insertBefore(sw, document.body.firstChild);
+  btns = [].slice.call(sw.querySelectorAll("button"));
+  btns.forEach(function (b) { b.addEventListener("click", function () { if (lang !== b.getAttribute("data-lang")) setLang(b.getAttribute("data-lang")); }); });
+  window.addEventListener("storage", function (e) { if (e.key === STORE && e.newValue && e.newValue !== lang) setLang(e.newValue, true); });
+
+  /* ---------- API publique ---------- */
+  window.AlMaarifaLang = {
+    lang: function () { return lang; },
+    set: function (l) { setLang(l); },
+    add: function (d) { register(d); if (lang === "ar") scan(document.body); },
+    t: function (s) { var r = lang === "ar" ? find(n(s)) : null; return r ? out(r) : s; },
+    missing: function () {          // textes français non traduits sur la page courante (à lancer en console, langue = FR)
+      var res = [];
+      document.querySelectorAll("body *").forEach(function (el) {
+        if (el.closest(SKIP) || !isLeaf(el)) return;
+        var t = n(el.textContent);
+        if (!/[A-Za-zÀ-ÿ]{3,}/.test(t) || find(t) || res.indexOf(t) >= 0) return;
+        for (var p = el.parentElement; p && p !== document.body; p = p.parentElement) if (isLeaf(p) && find(n(p.textContent))) return;
+        if ([].some.call(el.querySelectorAll("*"), function (c) { return find(n(c.textContent)); })) return;
+        res.push(t);
+      });
+      return res;
+    }
+  };
+
+  /* langue initiale : ?lang=ar|fr, sinon dernier choix mémorisé */
+  var init = "fr";
+  try {
+    var q = new URLSearchParams(location.search).get("lang");
+    init = q === "ar" || q === "fr" ? q : (localStorage.getItem(STORE) || "fr");
+  } catch (e) {}
+  if (init === "ar") setLang("ar", true);
+})();
+
 </script>
 </body>
 </html>
