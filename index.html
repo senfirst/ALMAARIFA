@@ -26,7 +26,7 @@
 --serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:84px;
 --sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px);scrollbar-gutter:stable}
 body{margin:0;font:400 1.0625rem/1.7 var(--sans);color:var(--ink);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{margin:0;padding:0;list-style:none}
 h1,h2,h3{font-family:var(--serif);color:var(--bx-d);line-height:1.2;margin:0 0 .6em;font-weight:700}
@@ -36,7 +36,12 @@ p{margin:0 0 1em;max-width:66ch}
 section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
 .alt{background:var(--g1)}
 :focus-visible{outline:3px solid var(--br-l);outline-offset:3px}
-.visually-hidden{position:absolute;left:-9999px}.visually-hidden:focus{position:fixed;left:12px;top:12px;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.visually-hidden:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;margin:0;overflow:visible;clip:auto;clip-path:none;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
+/* pendant le changement de langue : pas de défilement animé, pas d'ancrage auto, pas de transitions
+   (les animations Ken Burns / reflet ne sont volontairement pas touchées) */
+html.lang-switching{scroll-behavior:auto!important;overflow-anchor:none}
+html.lang-switching *,html.lang-switching *::before,html.lang-switching *::after{transition:none!important}
 /* boutons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:var(--r);font:600 .95rem var(--sans);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
 .btn:hover{transform:translateY(-2px)}
@@ -721,7 +726,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
     "@media(max-width:520px){.lang-switch button{min-height:36px;padding:6px 9px;font-size:.78rem;gap:4px}}" +
     "@media(max-width:380px){.lang-switch .fl{display:none}}" +
     /* arabe / RTL */
-    "html[dir=rtl]{--sans:'Cairo','Noto Naskh Arabic',Tahoma,Arial,sans-serif;--serif:'Noto Naskh Arabic','Cairo',Georgia,serif}" +
+    "html[dir=rtl]{--sans:'Noto Sans Arabic',Tahoma,Arial,sans-serif;--serif:'Noto Naskh Arabic','Noto Sans Arabic',Georgia,serif}" +
     "html[dir=rtl] *{letter-spacing:0!important}" +
     "html[dir=rtl] body{font-size:1.1rem;line-height:1.9;overflow-wrap:break-word}" +
     "html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] h4{line-height:1.5}" +
@@ -802,32 +807,66 @@ document.getElementById('y').textContent=new Date().getFullYear();
   function watch() { mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ATTRS }); }
 
   /* ---------- changement de langue ---------- */
-  var TITLE_FR = document.title, sw, btns;
-  function anchor() {
-    var h = document.querySelector(".site-header");
-    var el = document.elementFromPoint(innerWidth / 2, (h ? h.getBoundingClientRect().bottom : 0) + 8);
-    return el && el !== document.documentElement && el !== document.body ? { el: el, top: el.getBoundingClientRect().top } : null;
-  }
-  function keep(a) {
-    if (!a || !a.el.isConnected) return;
-    var d = a.el.getBoundingClientRect().top - a.top;
-    if (Math.abs(d) < 1) return;
-    var root = document.documentElement, old = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto";
-    window.scrollBy(0, d);
-    root.style.scrollBehavior = old;
-  }
-  function setLang(l, silent) {
-    l = l === "ar" ? "ar" : "fr";
-    var a = silent ? null : anchor(), h = document.documentElement;
-    busy = true; mo.disconnect();
-    if (l === "ar") {
-      if (!document.getElementById("al-font")) {
-        var k = document.createElement("link");
-        k.id = "al-font"; k.rel = "stylesheet";
-        k.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@600;700&display=swap";
+  var TITLE_FR = document.title, sw, btns, token = 0, target = "fr", fontsPromise = null;
+  var AR_CSS = "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap";
+
+  /* Charge la police arabe UNE fois ; résolu quand elle est prête (ou après 2,5 s max) */
+  function loadArabicFonts() {
+    if (fontsPromise) return fontsPromise;
+    fontsPromise = new Promise(function (resolve) {
+      var done = false;
+      function finish() { if (!done) { done = true; resolve(); } }
+      setTimeout(finish, 2500);
+      var k = document.getElementById("al-font");
+      if (!k) {
+        k = document.createElement("link");
+        k.id = "al-font"; k.rel = "stylesheet"; k.href = AR_CSS;
         document.head.appendChild(k);
       }
+      function loadFaces() {
+        if (!document.fonts || !document.fonts.load) return finish();
+        Promise.all([
+          document.fonts.load("400 1em 'Noto Sans Arabic'", "العربية"),
+          document.fonts.load("700 1em 'Noto Sans Arabic'", "العربية"),
+          document.fonts.load("700 1em 'Noto Naskh Arabic'", "العربية")
+        ]).then(finish, finish);
+      }
+      if (k.sheet) loadFaces();
+      else { k.addEventListener("load", loadFaces); k.addEventListener("error", finish); }
+    });
+    return fontsPromise;
+  }
+
+  /* Ancre = section (jamais transformée) au bas de l'en-tête + fraction parcourue */
+  function anchor() {
+    if (window.scrollY < 2) return null;               // en haut de page : on y reste
+    var h = document.querySelector(".site-header");
+    var y = (h ? h.getBoundingClientRect().bottom : 0) + 1;
+    var list = document.querySelectorAll("main > section, .site-footer");
+    for (var i = 0; i < list.length; i++) {
+      var r = list[i].getBoundingClientRect();
+      if (r.top <= y && r.bottom > y) return { el: list[i], f: (y - r.top) / Math.max(r.height, 1), y: y };
+    }
+    return null;
+  }
+  function keep(a) {
+    var se = document.scrollingElement || document.documentElement;
+    if (se.scrollLeft) se.scrollLeft = 0;              // jamais de décalage horizontal
+    if (!a || !a.el.isConnected) return;
+    var r = a.el.getBoundingClientRect();
+    var d = r.top - (a.y - a.f * r.height);
+    if (Math.abs(d) >= 1) window.scrollBy(0, d);
+  }
+  function markBtns(l) {
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+  }
+
+  /* Application synchrone : dir + textes dans la même tâche = un seul recalcul de mise en page */
+  function apply(l, silent) {
+    var h = document.documentElement, a = silent ? null : anchor();
+    h.classList.add("lang-switching");
+    busy = true; mo.disconnect();
+    if (l === "ar") {
       lang = "ar"; h.lang = "ar"; h.dir = "rtl";
       scan(document.body);
       var t = find(n(TITLE_FR)); document.title = t ? out(t) : TITLE_FR;
@@ -836,11 +875,27 @@ document.getElementById('y').textContent=new Date().getFullYear();
       lang = "fr"; h.lang = "fr"; h.dir = "ltr"; document.title = TITLE_FR;
     }
     busy = false; watch();
-    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+    markBtns(l);
     try { localStorage.setItem(STORE, l); } catch (e) {}
     keep(a);
-    if (a && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (lang === l) keep(a); });
+    requestAnimationFrame(function () {
+      keep(a);
+      requestAnimationFrame(function () { h.classList.remove("lang-switching"); });
+    });
     document.dispatchEvent(new CustomEvent("almaarifa:lang", { detail: { lang: l } }));
+  }
+
+  function setLang(l, silent) {
+    l = l === "ar" ? "ar" : "fr";
+    target = l;
+    var my = ++token;                                   // annule toute bascule en attente
+    markBtns(l);
+    if (l === "ar") {
+      if (silent) { loadArabicFonts(); apply(l, true); return; }   // chargement de la page
+      loadArabicFonts().then(function () { if (my === token) apply(l, false); });
+      return;
+    }
+    apply(l, silent);
   }
 
   /* ---------- bouton 🇫🇷 FR | 🇸🇦 العربية ---------- */
@@ -852,7 +907,9 @@ document.getElementById('y').textContent=new Date().getFullYear();
   var burger = document.getElementById("burgerBtn");
   if (burger && burger.parentNode) burger.parentNode.insertBefore(sw, burger); else document.body.insertBefore(sw, document.body.firstChild);
   btns = [].slice.call(sw.querySelectorAll("button"));
-  btns.forEach(function (b) { b.addEventListener("click", function () { if (lang !== b.getAttribute("data-lang")) setLang(b.getAttribute("data-lang")); }); });
+  btns.forEach(function (b) { b.addEventListener("click", function () { var l = b.getAttribute("data-lang"); if (target !== l) setLang(l); }); });
+  ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { sw.addEventListener(ev, loadArabicFonts, { once: true, passive: true }); });
+  window.addEventListener("load", function () { setTimeout(loadArabicFonts, 2000); });  // optionnel : supprimez cette ligne pour ne charger la police qu'au survol/clic
   window.addEventListener("storage", function (e) { if (e.key === STORE && e.newValue && e.newValue !== lang) setLang(e.newValue, true); });
 
   /* ---------- API publique ---------- */
@@ -881,7 +938,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
     var q = new URLSearchParams(location.search).get("lang");
     init = q === "ar" || q === "fr" ? q : (localStorage.getItem(STORE) || "fr");
   } catch (e) {}
-  if (init === "ar") setLang("ar", true);
+  if (init === "ar") { target = "ar"; setLang("ar", true); }
 })();
 
 </script>
