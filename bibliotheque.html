@@ -48,12 +48,12 @@ section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
 .brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
 .brand-text em{font-style:normal;font-size:.68rem;color:var(--br);font-weight:600;letter-spacing:.06em}
 .main-nav{display:flex;align-items:center;gap:2px}
-.main-nav a{position:relative;padding:9px 11px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap}
+.main-nav a{position:relative;padding:9px 9px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap}
 .main-nav a:hover{color:var(--bx);background:var(--g1)}
 .main-nav a.active{color:var(--bx);font-weight:600}
-.main-nav a.active::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
-.burger{display:none;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
-.burger span{width:20px;height:2px;background:var(--bx-d)}
+.main-nav a.active::after{content:"";position:absolute;left:9px;right:9px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
+.burger{display:none;flex:0 0 auto;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center;padding:0}
+.burger span{display:block;width:20px;height:2px;background:var(--bx-d)}
 .mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;background:#fff;border-top:1px solid var(--g2);max-height:calc(100vh - var(--hh));overflow-y:auto}
 .mobile-nav a{padding:13px 8px;font-weight:500;border-bottom:1px solid var(--g1)}
 .mobile-nav a.active{color:var(--bx);font-weight:700;border-left:3px solid var(--bx);padding-left:12px}
@@ -63,6 +63,7 @@ body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 body.nav-open .burger span:nth-child(2){opacity:0}
 body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:1240px){.main-nav{display:none}.burger{display:flex}}
+@media(min-width:1241px){.mobile-nav{display:none!important}}
 @media(max-width:520px){:root{--hh:72px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.9rem}.brand-text span{font-size:.62rem}.brand-text em{display:none}}
 @media(max-width:360px){.brand-text span{white-space:normal}}
 /* hero (image fixe) */
@@ -115,7 +116,7 @@ a.card:hover{border-color:var(--bx)}
 .book-card .lang{margin:0;font-size:.88rem;color:var(--br)}
 .book-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px}
 .book-actions .btn{min-height:42px;padding:8px 16px;font-size:.86rem}
-.btn-dl{background:var(--bx);color:#fff}.btn-dl:hover{background:var(--bx-l)}
+.btn-dl{background:var(--bx);color:#fff}.btn-dl:hover{background:var(--bx-d)}
 /* détail */
 .detail .media{border-radius:var(--r);overflow:hidden;background:var(--g1);border:1px solid var(--g2);margin-bottom:24px}
 .detail .media img{width:100%;max-height:480px;object-fit:cover}
@@ -141,6 +142,17 @@ a.card:hover{border-color:var(--bx)}
 @media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
 </style>
 <link rel="stylesheet" href="premium.css">
+<style>
+/* Garde-fou : ces règles passent APRÈS premium.css pour garantir l'affichage du bouton menu */
+@media(max-width:1240px){
+  .site-header .main-nav{display:none!important}
+  .site-header .nav-row > .burger{display:flex!important;visibility:visible!important;opacity:1!important;position:static!important}
+}
+@media(min-width:1241px){
+  .site-header .nav-row > .burger{display:none!important}
+  .site-header .mobile-nav{display:none!important}
+}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/"}
 </script>
@@ -162,22 +174,24 @@ a.card:hover{border-color:var(--bx)}
       <a href="programmes.html" data-nav-link>Nos enseignements</a>
       <a href="activites.html" data-nav-link>Vie scolaire</a>
       <a href="actualites.html" data-nav-link>Actualités</a>
+      <a href="bibliotheque.html" data-nav-link class="active" aria-current="page">Bibliothèque</a>
       <a href="galerie.html" data-nav-link>Galerie</a>
       <a href="contact.html" data-nav-link>Contact</a>
     </nav>
+    <!-- CORRECTION : le bouton menu est maintenant dans la barre d'en-tête (visible), et non plus dans le menu caché -->
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn"><span></span><span></span><span></span></button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
-      <a href="index.html" data-nav-link>Accueil</a>
-      <a href="institut.html" data-nav-link>Notre établissement</a>
-      <a href="programmes.html" data-nav-link>Nos enseignements</a>
-      <a href="activites.html" data-nav-link>Vie scolaire</a>
-      <a href="actualites.html" data-nav-link>Actualités</a>
-      <a href="galerie.html" data-nav-link>Galerie</a>
-      <a href="contact.html" data-nav-link>Contact</a>
+    <a href="index.html" data-nav-link>Accueil</a>
+    <a href="institut.html" data-nav-link>Notre établissement</a>
+    <a href="programmes.html" data-nav-link>Nos enseignements</a>
+    <a href="activites.html" data-nav-link>Vie scolaire</a>
+    <a href="actualites.html" data-nav-link>Actualités</a>
+    <a href="bibliotheque.html" data-nav-link class="active" aria-current="page">Bibliothèque</a>
+    <a href="galerie.html" data-nav-link>Galerie</a>
+    <a href="contact.html" data-nav-link>Contact</a>
     <a class="btn btn-bx" href="inscriptions.html">Préinscrire un élève</a>
-     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn"><span></span><span></span><span></span></button>
   </nav>
- 
 </header>
 <main id="main">
 
@@ -252,16 +266,18 @@ a.card:hover{border-color:var(--bx)}
 <script src="assets/js/main.js"></script>
 
 <script>
-/* Menu burger — autonome et défensif (anti-doublon avec main.js) */
+/* Menu burger — autonome. On remplace le bouton par un clone pour supprimer
+   tout écouteur déjà posé par main.js (sinon le menu s'ouvrirait puis se refermerait aussitôt). */
 (function(){
-  var b=document.getElementById('burgerBtn'),body=document.body;
-  if(!b||b.dataset.amBound==='1')return;
-  b.dataset.amBound='1';
-  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')}
+  var old=document.getElementById('burgerBtn'),body=document.body;
+  if(!old)return;
+  var b=old.cloneNode(true);
+  old.parentNode.replaceChild(b,old);
+  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')}
   b.addEventListener('click',function(e){e.stopPropagation();set(!body.classList.contains('nav-open'))});
   document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
-  window.addEventListener('resize',function(){if(innerWidth>1240)set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&body.classList.contains('nav-open')){set(false);b.focus()}});
+  window.addEventListener('resize',function(){if(window.innerWidth>1240)set(false)});
 })();
 </script>
 
@@ -296,7 +312,7 @@ a.card:hover{border-color:var(--bx)}
   }
   btns.forEach(function(b){b.addEventListener('click',function(){
     active=b.getAttribute('data-filter');
-    btns.forEach(function(x){var on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});
+    btns.forEach(function(x){var on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on?'true':'false')});
     render();
   })});
   search.addEventListener('input',render);
