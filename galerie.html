@@ -319,7 +319,7 @@ var galleryPhotos=[
  {image:"public/images/galerie/autres-01.jpg",placeholder:true,title:"Autres moments de la vie scolaire",category:"autres",description:"D'autres instants de la vie de l'Institut."}
 ];
 var galleryVideos=[
- {type:"placeholder",src:"public/videos/institut-01.mp4",title:"Présentation de l'Institut",category:"presentation"},
+ {type:"local",src:"vive.mp4",title:"Présentation de l'Institut",category:"presentation"},
  {type:"placeholder",src:"public/videos/visite-01.mp4",title:"Visite de l'établissement",category:"presentation"},
  {type:"placeholder",src:"public/videos/vie-scolaire-01.mp4",title:"Vie des élèves",category:"vie-scolaire"},
  {type:"placeholder",src:"public/videos/cours-01.mp4",title:"Aperçu d'un cours",category:"cours"},
@@ -373,9 +373,10 @@ var galleryHighlights=[
     var out='';
     galleryVideos.forEach(function(v,i){
       if(vf!=='all'&&v.category!==vf)return;
-      var m=v.type==='placeholder'
-        ?'<div class="vid ph"><div class="play">▶</div><span class="vid-note">Vidéo à venir</span></div>'
-        :'<button type="button" class="vid" data-video="'+i+'" aria-label="Lire la vidéo : '+esc(v.title)+'"><span class="play">▶</span></button>';
+      var m;
+      if(v.type==='placeholder')m='<div class="vid ph"><div class="play">▶</div><span class="vid-note">Vidéo à venir</span></div>';
+      else if(v.type==='local')m='<div class="vid"><video controls playsinline preload="metadata" src="'+esc(v.src)+'" aria-label="'+esc(v.title)+'">Votre navigateur ne peut pas lire cette vidéo.</video></div>';
+      else m='<button type="button" class="vid" data-video="'+i+'" aria-label="Lire la vidéo : '+esc(v.title)+'"><span class="play">▶</span></button>';
       out+='<article class="card">'+m+'<div class="body"><span class="tag">'+esc(lab(v.category,VL))+'</span><h3>'+esc(v.title)+'</h3></div></article>';
     });
     vGrid.innerHTML=out||'<p class="status">Aucune vidéo dans cette catégorie pour le moment.</p>';
