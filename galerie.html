@@ -105,6 +105,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .tag{background:var(--g1);color:var(--bx);font-weight:700;font-size:.78rem;padding:3px 12px;border-radius:100px;border:1px solid var(--g2)}
 .status{grid-column:1/-1;text-align:center;padding:32px 16px;font-weight:600;max-width:none;margin:0}
 .ph-note{margin:16px 0 0;font-size:.88rem;font-style:italic;color:var(--br);max-width:none}
+.small{font-size:.85rem}
 .card .more-btn{position:absolute;right:10px;bottom:10px;z-index:2;padding:7px 14px;border:0;border-radius:100px;background:var(--bx);color:#fff;font:600 .78rem var(--sans);cursor:pointer}
 .card .more-btn:hover{background:var(--bx-l)}
 .photo-card{cursor:pointer}
@@ -125,6 +126,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .tour{display:grid;grid-template-columns:1.1fr 1fr;border-radius:18px;overflow:hidden;background:var(--bx);color:#fff}
 .tour-text{padding:48px 44px}.tour-text h2{color:#fff}.tour-text p{color:rgba(255,255,255,.88);margin:0}.tour-text .kicker{color:var(--gold)}
 .tour-media{min-height:260px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#5e1729,#5e1729 12px,#4d1222 12px,#4d1222 24px)}
+.tour-media video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
 @media(max-width:820px){.tour{grid-template-columns:1fr}.tour-text{padding:32px 22px}.tour-media{min-height:200px}}
 .alt{background:var(--g1)}
 /* visionneuse */
@@ -233,8 +235,8 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 <section class="alt" id="visite-virtuelle">
   <div class="container">
     <div class="tour">
-      <div class="tour-text"><span class="kicker">Visite virtuelle</span><h2>Découvrez notre établissement</h2><p>Une présentation vidéo de nos locaux, de nos salles de classe et de notre environnement scolaire sera prochainement disponible.</p></div>
-      <div class="tour-media" aria-hidden="true"><div class="play" style="width:74px;height:74px;background:rgba(255,255,255,.14);color:rgba(255,255,255,.7)">▶</div></div>
+      <div class="tour-text"><span class="kicker">Visite virtuelle</span><h2>Découvrez notre établissement</h2><p>Découvrez en vidéo nos locaux, nos salles de classe et notre environnement scolaire.</p></div>
+      <div class="tour-media"><video controls playsinline preload="metadata" src="inst.mp4" aria-label="Visite de l'établissement">Votre navigateur ne peut pas lire cette vidéo.</video></div>
     </div>
   </div>
 </section>
@@ -320,7 +322,7 @@ var galleryPhotos=[
 ];
 var galleryVideos=[
  {type:"local",src:"vive.mp4",title:"Présentation de l'Institut",category:"presentation"},
- {type:"placeholder",src:"public/videos/visite-01.mp4",title:"Visite de l'établissement",category:"presentation"},
+ {type:"local",src:"inst.mp4",title:"Visite de l'établissement",category:"presentation"},
  {type:"placeholder",src:"public/videos/vie-scolaire-01.mp4",title:"Vie des élèves",category:"vie-scolaire"},
  {type:"placeholder",src:"public/videos/cours-01.mp4",title:"Aperçu d'un cours",category:"cours"},
  {type:"placeholder",src:"public/videos/activite-01.mp4",title:"Activités pédagogiques",category:"activites"},
@@ -395,10 +397,16 @@ var galleryHighlights=[
   }
 
   /* visionneuse */
-2  var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-image'),lbCap=document.getElementById('lb-caption'),lastFocus=null;
+  var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-image'),lbCap=document.getElementById('lb-caption'),lastFocus=null;
   function show(){
     var p=galleryPhotos[lbi];
-    lbImg.innerHTML=p.placeholder?'<div class="lb-ph">Emplacement photo — ajouter une image</div>':'<img src="'+esc(p.image)+'" alt="'+esc(p.title)+'">';
+    if(p.placeholder){
+      lbImg.innerHTML='<div class="lb-ph">Emplacement photo — ajouter une image</div>';
+    }else{
+      lbImg.innerHTML='<img src="'+esc(p.image)+'" alt="'+esc(p.title)+'">';
+      var im=lbImg.querySelector('img');
+      im.onerror=function(){lbImg.innerHTML='<div class="lb-ph">Image introuvable — vérifier le fichier</div>'};
+    }
     lbCap.textContent=p.title+' — '+lab(p.category,PL);
   }
   function openLb(i){lastFocus=document.activeElement;lbi=i;show();lb.classList.add('open');document.body.classList.add('lb-open');document.getElementById('lb-close').focus()}
