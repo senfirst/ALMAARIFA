@@ -24,7 +24,7 @@
 <style>
 /* Institut Al Maarifa — refonte visuelle (bordeaux / gris / marron) */
 :root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
---serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:84px;
+--serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:96px;
 --sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px);scrollbar-gutter:stable}
@@ -52,8 +52,9 @@ html.lang-switching *,html.lang-switching *::before,html.lang-switching *::after
 /* en-tête */
 .site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
 .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
-.brand{display:flex;align-items:center;gap:14px;flex:0 1 auto;min-width:0}
-.brand img{width:64px;height:64px;flex:0 0 auto;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--g2);border-radius:12px}
+.brand{display:flex;align-items:center;gap:18px;flex:0 1 auto;min-width:0}
+/* logo libre : aucun cadre, aucun fond, aucune bordure, proportions d'origine */
+.brand img{height:76px;width:auto;max-width:none;flex:0 0 auto;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
 .brand-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
 .brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
 .brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
@@ -74,8 +75,8 @@ body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 body.nav-open .burger span:nth-child(2){opacity:0}
 body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:1400px){.main-nav{display:none}.burger{display:flex}}
-@media(max-width:520px){:root{--hh:72px}.nav-row{gap:12px;padding:0 14px}.brand{gap:10px}.brand img{width:52px;height:52px}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{font-size:.62rem;white-space:normal}.brand-text em{display:none}}
-@media(max-width:360px){.brand img{width:44px;height:44px}.brand-text strong{font-size:.78rem}}
+@media(max-width:520px){:root{--hh:80px}.nav-row{gap:12px;padding:0 14px}.brand{gap:10px}.brand img{height:58px;width:auto}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{font-size:.62rem;white-space:normal}.brand-text em{display:none}}
+@media(max-width:360px){.brand img{height:50px;width:auto}.brand-text strong{font-size:.78rem}}
 /* hero */
 .hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(480px,78vh,720px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:0;overflow:hidden}
@@ -165,8 +166,9 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
 .site-footer p{color:#F1F2F4;font-size:.92rem}
 .site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
-.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-brand img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:12px;padding:3px}
+.footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+/* logo libre dans le pied de page : sans cadre ni fond */
+.footer-brand img{height:80px;width:auto;max-width:none;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
 .footer-brand strong{font:700 1.1rem var(--serif)}
 .footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s}
@@ -198,6 +200,8 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 /* sécurité : garantit l'affichage du bouton menu même si s.css le surcharge */
 @media(max-width:1400px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
 @media(min-width:1401px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
+/* sécurité : le logo reste libre (sans cadre ni fond) même si s.css le surcharge */
+.site-header .brand img,.site-footer .footer-brand img{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;width:auto!important;object-fit:contain!important}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","founder":{"@type":"Person","name":"Thierno Malick BA"},"address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/","sameAs":["https://www.facebook.com/profile.php?id=61593730307571","https://www.tiktok.com/@almaarifa123"]}
@@ -447,7 +451,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" width="64" height="64" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
+        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
