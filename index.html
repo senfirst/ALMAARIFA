@@ -22,7 +22,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="s.css">
 <style>
-/* Institut Al Maarifa — refonte visuelle (bordeaux / gris / marron) */
 :root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
 --serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:96px;
 --sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
@@ -39,7 +38,6 @@ section{padding:80px 0}@media(max-width:720px){section{padding:52px 0}}
 :focus-visible{outline:3px solid var(--br-l);outline-offset:3px}
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .visually-hidden:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;margin:0;overflow:visible;clip:auto;clip-path:none;z-index:999;background:#fff;padding:10px 16px;border-radius:8px}
-/* pendant le changement de langue : pas de défilement animé, pas d'ancrage auto, pas de transitions */
 html.lang-switching{scroll-behavior:auto!important;overflow-anchor:none}
 html.lang-switching *,html.lang-switching *::before,html.lang-switching *::after{transition:none!important}
 /* boutons */
@@ -53,7 +51,6 @@ html.lang-switching *,html.lang-switching *::before,html.lang-switching *::after
 .site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
 .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
 .brand{display:flex;align-items:center;gap:18px;flex:0 1 auto;min-width:0}
-/* logo libre : aucun cadre, aucun fond, aucune bordure, proportions d'origine */
 .brand img{height:76px;width:auto;max-width:none;flex:0 0 auto;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
 .brand-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
 .brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
@@ -92,41 +89,30 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .hero .badge,.hero .partner,.hero h1,.slogan,.hero-actions{animation:fade .8s ease both}
 .hero h1{animation-delay:.12s}.slogan{animation-delay:.22s}.hero-actions{animation-delay:.32s}
 @keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-/* hero : animation de l'image / vidéo de fond */
-.hero-bg img,.hero-bg video{
-  transform-origin:60% 40%;
-  will-change:transform;
-  animation:kenburns 24s ease-in-out infinite alternate;
-}
-@keyframes kenburns{
-  0%  {transform:scale(1)    translate(0,0)}
-  50% {transform:scale(1.10) translate(-1.5%,-1%)}
-  100%{transform:scale(1.18) translate(-3%,-2%)}
-}
-/* reflet lumineux qui traverse l'image */
-.hero-bg::before{
-  content:"";position:absolute;inset:-20% -50%;z-index:1;pointer-events:none;
-  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.10) 50%,transparent 60%);
-  transform:translateX(-60%);
-  animation:sheen 9s ease-in-out infinite;
-}
-@keyframes sheen{
-  0%,15%{transform:translateX(-60%)}
-  60%,100%{transform:translateX(60%)}
-}
+.hero-bg img,.hero-bg video{transform-origin:60% 40%;will-change:transform;animation:kenburns 24s ease-in-out infinite alternate}
+@keyframes kenburns{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.10) translate(-1.5%,-1%)}100%{transform:scale(1.18) translate(-3%,-2%)}}
+.hero-bg::before{content:"";position:absolute;inset:-20% -50%;z-index:1;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.10) 50%,transparent 60%);transform:translateX(-60%);animation:sheen 9s ease-in-out infinite}
+@keyframes sheen{0%,15%{transform:translateX(-60%)}60%,100%{transform:translateX(60%)}}
 /* titres de section */
 .kicker{display:block;color:var(--br);font-weight:600;font-size:.88rem;margin-bottom:6px}
 .section-head{max-width:760px;margin-bottom:40px}
 .section-head h2::after,.bio-banner h2::after{content:"";display:block;width:56px;height:3px;background:var(--br-l);margin-top:14px;border-radius:3px}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+.section-head.center h2::after{margin-left:auto;margin-right:auto}
+.section-head.center p{margin-left:auto;margin-right:auto}
 .bio-banner{text-align:center}.bio-banner h2::after{margin-left:auto;margin-right:auto}
 .bio-banner .function{font-weight:600;margin:0 auto}
 /* grilles et cartes */
 .grid{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.grid-2{grid-template-columns:1fr 1fr}@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.grid-4{grid-template-columns:repeat(4,1fr);margin-top:40px}
+@media(max-width:1000px){.grid-4{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid-4{grid-template-columns:1fr}}
 .card{background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;align-items:flex-start;transition:box-shadow .25s,transform .25s}
 .card:hover{box-shadow:var(--sh);transform:translateY(-3px)}
 .card .ico{width:44px;height:44px;border-radius:10px;background:var(--g1);color:var(--bx);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .card p{flex:1}.card .btn{margin-top:6px;min-height:44px;padding:9px 20px}
+.alt .card{background:#fff}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 @media(max-width:860px){.split{grid-template-columns:1fr;gap:32px}}
 .img-slot{position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;background:var(--g1);border:1px solid var(--g2)}
@@ -134,12 +120,20 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .img-slot.is-empty::after{content:"Photo à venir";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--br)}
 .list li{padding:12px 0 12px 20px;border-bottom:1px solid var(--g2);position:relative}
 .list li::before{content:"";position:absolute;left:0;top:1.35em;width:8px;height:8px;border-radius:50%;background:var(--bx)}
+.value-item{display:flex;gap:16px;align-items:flex-start}
+.value-icon{flex:0 0 auto;width:48px;height:48px;border-radius:12px;background:#fff;color:var(--bx);display:flex;align-items:center;justify-content:center;border:1px solid var(--g2)}
+.value-item h3{margin-bottom:.3em}.value-item p{font-size:.95rem}
+.chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.chip{padding:7px 14px;border-radius:100px;background:var(--g1);border:1px solid var(--g2);color:var(--bx-d);font-weight:600;font-size:.84rem}
 /* portraits */
 .profile{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:32px;box-shadow:var(--sh)}
 @media(max-width:640px){.profile{grid-template-columns:1fr;justify-items:center;text-align:center}}
 .profile .img-slot{width:220px;aspect-ratio:1/1;border:2px solid var(--br-l)}
 .profile h3{font-size:1.5rem;margin-bottom:.2em}.role{font-weight:600;color:var(--br);margin-bottom:12px}
-/* bloc fondateur (styles manquants ajoutés) */
+.parrain-frame{max-width:320px;margin:0 auto;padding:10px;background:#fff;border:2px solid var(--br-l);border-radius:var(--r);box-shadow:var(--sh)}
+.parrain-frame .img-slot{aspect-ratio:4/5;border:0;border-radius:8px}
+.parrain-alt{display:block;font-weight:600;color:var(--br);margin-bottom:14px}
+.parrain-quote{font:italic 400 1.1rem/1.6 var(--serif);color:var(--bx-d);border-left:3px solid var(--br-l);padding-left:16px;margin:0 0 20px}
 .founder-section h4{font-size:1.1rem;margin:1.4em 0 .5em}
 .founder-section ul{margin:0 0 1em;padding-left:20px;list-style:disc}
 .founder-section li{padding:4px 0;margin-bottom:6px}
@@ -149,39 +143,12 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .subnav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
 .subnav a{padding:8px 16px;border:1px solid var(--g2);border-radius:100px;background:#fff;font-size:.85rem;font-weight:600}
 .subnav a:hover{border-color:var(--bx);color:var(--bx)}
-.academic-list li{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid var(--g2)}
-.academic-list li:last-child{border:0}
+.subnav.center{justify-content:center;margin:24px 0 0}
 .a-year{flex:0 0 112px;font:700 .95rem var(--serif);color:var(--bx)}
-@media(max-width:560px){.academic-list li{flex-direction:column;gap:2px}}
 .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:32px 28px;box-shadow:var(--sh)}
 .stat-strip .n{font:700 2.1rem var(--serif);color:var(--bx)}.stat-strip .l{font-size:.88rem}
 @media(max-width:720px){.stat-strip{grid-template-columns:1fr 1fr}}
-/* inscriptions */
-.cta{background:var(--bx);color:#fff;text-align:center}
-.cta h2{color:#fff}.cta h2::after{margin:14px auto 0;background:var(--br-l)}.cta p{color:#fff;margin:0 auto 26px}
-/* pied de page */
-.site-footer{background:var(--bx-d);color:#fff;padding:60px 0 24px;border-top:4px solid var(--br-l)}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
-@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
-.site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
-.site-footer p{color:#F1F2F4;font-size:.92rem}
-.site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
-.footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-/* logo libre dans le pied de page : sans cadre ni fond */
-.footer-brand img{height:80px;width:auto;max-width:none;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
-.footer-brand strong{font:700 1.1rem var(--serif)}
-.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
-.wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s}
-.wa-float:hover{transform:scale(1.06)}
-@media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
-/* réseaux sociaux */
-.social{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2)}
-.social-title{font:700 1.05rem var(--serif);color:#E8D2B4;margin-right:6px}
-.site-footer .social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:12px;background:rgba(255,255,255,.12);color:#fff;transition:background .2s,transform .2s}
-.site-footer .social a:hover{background:var(--br-l);color:#fff;text-decoration:none;transform:translateY(-3px)}
-.site-footer .social a svg{width:22px;height:22px}
 /* directeur */
-.subnav.center{justify-content:center;margin:24px 0 0}
 .dir-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;margin-top:28px;align-items:start}
 @media(max-width:900px){.dir-grid{grid-template-columns:1fr}}
 .panel{background:#fff;border:1px solid var(--g2);border-radius:var(--r);padding:32px;box-shadow:var(--sh)}
@@ -193,14 +160,45 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .timeline li:last-child{padding-bottom:0}
 .timeline li::before{content:"";position:absolute;left:-28px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--bx)}
 .timeline .a-year{display:block;margin-bottom:2px}
+/* parcours de l'institut */
+.steps{border-left:2px solid var(--g2);padding-left:28px;max-width:760px}
+.step-item{position:relative;padding-bottom:32px}.step-item:last-child{padding-bottom:0}
+.step-item::before{content:"";position:absolute;left:-36px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bx);border:3px solid #fff;box-shadow:0 0 0 2px var(--bx)}
+.step-item .date{display:block;font-weight:700;color:var(--br);font-size:.88rem;margin-bottom:4px}
+.step-item h3{margin-bottom:.3em}
+/* inscriptions */
+.cta{background:var(--bx);color:#fff;text-align:center}
+.cta h2{color:#fff}.cta h2::after{content:"";display:block;width:56px;height:3px;margin:14px auto 0;background:var(--br-l);border-radius:3px}.cta p{color:#fff;margin:0 auto 26px}
+/* pied de page */
+.site-footer{background:var(--bx-d);color:#fff;padding:60px 0 24px;border-top:4px solid var(--br-l)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+@media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
+.site-footer p{color:#F1F2F4;font-size:.92rem}
+.site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
+.footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.footer-brand img{height:80px;width:auto;max-width:none;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
+.footer-brand strong{font:700 1.1rem var(--serif)}
+.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s}
+.wa-float:hover{transform:scale(1.06)}
+@media(max-width:480px){.wa-float{width:50px;height:50px;right:14px;bottom:14px}}
+.social{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2)}
+.social-title{font:700 1.05rem var(--serif);color:#E8D2B4;margin-right:6px}
+.site-footer .social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:12px;background:rgba(255,255,255,.12);color:#fff;transition:background .2s,transform .2s}
+.site-footer .social a:hover{background:var(--br-l);color:#fff;text-decoration:none;transform:translateY(-3px)}
+.site-footer .social a svg{width:22px;height:22px}
 /* apparition */
 .js-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .js-ready .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js-ready .reveal{opacity:1;transform:none}}
-/* sécurité : garantit l'affichage du bouton menu même si s.css le surcharge */
+/* arabe (RTL) : éléments propres aux sections de l'Institut */
+html[dir=rtl] .steps{border-left:0;border-right:2px solid var(--g2);padding-left:0;padding-right:28px}
+html[dir=rtl] .step-item::before{left:auto;right:-36px}
+html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px solid var(--br-l);padding-left:0;padding-right:16px}
+/* sécurité */
 @media(max-width:1400px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
 @media(min-width:1401px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
-/* sécurité : le logo reste libre (sans cadre ni fond) même si s.css le surcharge */
 .site-header .brand img,.site-footer .footer-brand img{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;width:auto!important;object-fit:contain!important}
 </style>
 <script type="application/ld+json">
@@ -217,7 +215,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
       <a href="index.html" data-nav-link class="active" aria-current="page">Accueil</a>
-      <a href="institut.html" data-nav-link>L'Institut</a>
+      <a href="#institut" data-nav-link>L'Institut</a>
       <a href="centre.html" data-nav-link>Centre</a>
       <a href="programmes.html" data-nav-link>Programmes</a>
       <a href="activites.html" data-nav-link>Activités</a>
@@ -232,7 +230,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
     <a href="index.html" data-nav-link class="active" aria-current="page">Accueil</a>
-    <a href="institut.html" data-nav-link>L'Institut</a>
+    <a href="#institut" data-nav-link>L'Institut</a>
     <a href="centre.html" data-nav-link>Centre</a>
     <a href="programmes.html" data-nav-link>Programmes</a>
     <a href="activites.html" data-nav-link>Activités</a>
@@ -247,6 +245,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 </header>
 <main id="main">
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg" data-img-slot>
     <video autoplay muted loop playsinline preload="metadata" poster="bati.jpeg" aria-label="Bâtiment de l'Institut Al Maarifa" onerror="this.remove()">
@@ -259,26 +258,49 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
     <h1>École franco-arabe <small>Institut Al Maarifa Thierno Djibril Ousmane Ba</small></h1>
     <p class="slogan">Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
     <div class="hero-actions">
-      <a class="btn btn-bx" style="border-color:#fff" href="institut.html">DÉCOUVRIR L'INSTITUT</a>
+      <a class="btn btn-bx" style="border-color:#fff" href="#institut">DÉCOUVRIR L'INSTITUT</a>
       <a class="btn btn-white" href="inscriptions.html">INSCRIRE MON ENFANT</a>
     </div>
   </div>
 </section>
 
-<section>
+<!-- 1. L'INSTITUT -->
+<section id="institut">
   <div class="container split">
     <div class="reveal">
-      <span class="kicker">L'Institut</span>
-      <h2>Un cadre d'apprentissage exigeant, bienveillant et fidèle à nos valeurs</h2>
-      <p>Implanté à <strong>Bambilor</strong>, l'Institut Al Maarifa Thierno Djibril Ousmane Ba s'impose comme un cadre d'apprentissage moderne et bienveillant, dédié à l'épanouissement intellectuel et moral de la jeunesse.</p>
-      <p>Nous accueillons les enfants dès le <strong>préscolaire</strong> et les accompagnons pas à pas jusqu'à la <strong>terminale</strong>, en les préparant aux exigences des examens et du monde supérieur, dans le cadre d'un <strong>partenariat privilégié avec l'Institut Al-Azhar</strong>.</p>
-      <a class="btn btn-line" href="institut.html">En savoir plus</a>
+      <span class="kicker">Qui sommes-nous</span>
+      <h2>Une école pensée pour donner à chaque enfant les moyens de réussir</h2>
+      <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né de la volonté de proposer, à <strong>Bambilor - Darou Salam</strong>, une alternative éducative exigeante : un enseignement général de qualité, une maîtrise réelle de la langue arabe, et une éducation islamique authentique transmise avec pédagogie.</p>
+      <p>Nous accueillons les élèves du <strong>préscolaire à la terminale</strong> dans un cadre structuré, où la discipline, la propreté et la sécurité ne sont pas des options mais des fondations.</p>
+      <a class="btn btn-line" href="#programme">Voir nos programmes</a>
     </div>
-    <div class="reveal"><div class="img-slot" data-img-slot><img src="bati.jpeg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div></div>
+    <div class="reveal"><div class="img-slot" data-img-slot><img src="e.jpeg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div></div>
   </div>
 </section>
 
-<section class="alt">
+<!-- 2. MISSION, VISION, VALEURS -->
+<section class="alt" id="mission">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="kicker">Notre projet éducatif</span>
+      <h2>Mission, vision et valeurs</h2>
+      <p>Concilier excellence académique et éducation religieuse : ce qui guide chaque jour le travail des enseignants, de l'administration et des élèves.</p>
+    </div>
+    <div class="grid grid-2 reveal">
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Notre mission</h3><p>Offrir à chaque enfant, du préscolaire à la terminale, une formation qui associe réussite scolaire, maîtrise du français et de l'arabe, et solide éducation islamique.</p></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Notre vision</h3><p>Former des générations instruites, responsables et enracinées dans leurs valeurs, capables de relever les défis du monde contemporain et de servir leur communauté.</p></article>
+    </div>
+    <div class="grid grid-4">
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24" aria-hidden="true"><path d="M12 2l2.6 5.9L21 8.6l-4.7 4.1 1.4 6.4L12 15.9 6.3 19.1l1.4-6.4L3 8.6l6.4-.7L12 2z"/></svg></div><div><h3>Excellence</h3><p>Un enseignement exigeant qui prépare les élèves à réussir dans le supérieur comme dans la vie.</p></div></div>
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><div><h3>Discipline</h3><p>Un cadre structuré, respectueux et sécurisant pour chaque élève.</p></div></div>
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24" aria-hidden="true"><path d="M12 3v18M6 8c0 4 3 5 6 5s6-1 6-5"/></svg></div><div><h3>Valeurs islamiques</h3><p>Une éducation religieuse authentique, transmise avec pédagogie et douceur.</p></div></div>
+      <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24" aria-hidden="true"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><div><h3>Modernité</h3><p>Des méthodes actuelles, une bibliothèque numérique et un suivi pédagogique moderne.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROGRAMME -->
+<section id="programme">
   <div class="container">
     <div class="section-head reveal">
       <span class="kicker">Programme éducatif</span>
@@ -293,7 +315,8 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   </div>
 </section>
 
-<section>
+<!-- 4. CADRE -->
+<section class="alt" id="cadre">
   <div class="container">
     <div class="section-head reveal">
       <span class="kicker">Notre cadre</span>
@@ -309,56 +332,15 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   </div>
 </section>
 
-<section class="alt" id="fondateur">
-  <div class="container">
-    <div class="bio-banner reveal"><span class="kicker">Le Fondateur</span><h2>À propos du fondateur</h2><p class="function">Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</p></div>
-    <div class="profile reveal" style="margin-top:32px">
-      <div class="img-slot" data-img-slot><img src="tm.jpg" alt="M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
-      <div class="founder-section">
-        <h3>Thierno Elhadji Malick Ba</h3>
-        <div class="role">Fondateur de l’Institut Al Maarifa Thierno Djibril Ousmane Ba</div>
-
-        <p>Derrière l’Institut Al Maarifa se trouve une ambition : offrir aux enfants une éducation qui leur permette non seulement de réussir leurs études, mais aussi de grandir avec de bonnes valeurs.</p>
-        <p>Convaincu que l’éducation ne se limite pas aux salles de classe et aux manuels scolaires, Thierno Elhadji Malick Ba a voulu mettre en place un cadre où le savoir, la discipline, le respect et l’éducation islamique occupent une place importante.</p>
-        <p>C’est dans cet esprit qu’il a fondé l’Institut Al Maarifa, avec la volonté d’accompagner chaque enfant dans son parcours scolaire et personnel, du préscolaire jusqu’à la terminale.</p>
-        <p>Pour lui, chaque enfant mérite une chance de réussir, de développer ses capacités et de construire son avenir.</p>
-
-        <blockquote><strong>Sa conviction :</strong> « L’éducation ne consiste pas seulement à apprendre à un enfant, mais aussi à l’aider à devenir une personne responsable, instruite et respectueuse des valeurs humaines. »</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="mission">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="kicker">Notre projet éducatif</span>
-      <h2>Mission, vision et valeurs</h2>
-      <p>Ce qui guide chaque jour le travail des enseignants, de l'administration et des élèves.</p>
-    </div>
-    <div class="grid reveal">
-      <article class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Notre mission</h3><p>Offrir à chaque enfant, du préscolaire à la terminale, une formation qui associe réussite scolaire, maîtrise du français et de l'arabe, et solide éducation islamique.</p></article>
-      <article class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Notre vision</h3><p>Former des générations instruites, responsables et enracinées dans leurs valeurs, capables de relever les défis du monde contemporain et de servir leur communauté.</p></article>
-      <article class="card"><div class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><h3>Nos valeurs</h3>
-        <ul class="list" style="width:100%">
-          <li><strong>Rigueur</strong> et goût de l'effort</li>
-          <li><strong>Respect</strong> de soi et des autres</li>
-          <li><strong>Foi</strong> et intégrité</li>
-          <li><strong>Excellence</strong> académique</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="partenariat">
+<!-- 5. PARTENARIAT AL-AZHAR -->
+<section id="partenariat">
   <div class="container split">
     <div class="reveal">
-      <span class="kicker">Partenariat</span>
-      <h2>Un partenariat avec l'Institut Al-Azhar</h2>
-      <p>L'Institut Al Maarifa est une école franco-arabe <strong>partenaire de l'Institut Al-Azhar</strong>, institution de référence dans l'enseignement de la langue arabe et des sciences islamiques dans le monde.</p>
-      <p>Ce partenariat inscrit notre enseignement dans une tradition académique reconnue et renforce la place de l'arabe et de l'éducation islamique dans le parcours de chaque élève.</p>
-      <a class="btn btn-line" href="institut.html">Découvrir l'Institut</a>
+      <span class="kicker">Notre partenariat</span>
+      <h2>Un partenariat officiel avec l'Institut Al-Azhar</h2>
+      <p>L'Institut Al Maarifa Thierno Djibril Ousmane Ba est fier d'être partenaire officiel de l'Institut Al-Azhar, référence historique de l'enseignement islamique. Ce partenariat garantit la rigueur et l'authenticité de notre programme d'éducation islamique et de langue arabe.</p>
+      <p>Il permet également à nos élèves de bénéficier d'un cursus reconnu, pensé pour ouvrir des perspectives d'études supérieures, au Sénégal comme à l'international.</p>
+      <div class="chip-row"><span class="chip">Programme reconnu</span><span class="chip">Encadrement qualifié</span><span class="chip">Perspectives internationales</span></div>
     </div>
     <div class="reveal">
       <article class="panel">
@@ -374,13 +356,48 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   </div>
 </section>
 
-<section id="biographie-directeur">
+<!-- 6. PARRAIN -->
+<section class="alt" id="parrain">
+  <div class="container">
+    <div class="section-head center reveal"><span class="kicker">Parrain de l'Institut</span><h2>Thierno Djibril Ousmane Bâ</h2></div>
+    <div class="split">
+      <div class="reveal"><div class="parrain-frame"><div class="img-slot" data-img-slot><img src="th.jpg" alt="Thierno Djibril Ousmane Bâ, parrain de l'Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div></div></div>
+      <div class="reveal">
+        <span class="parrain-alt">Également connu sous le nom de Thierno Djiby</span>
+        <p class="parrain-quote">Une empreinte spirituelle qui continue d'éclairer et d'inspirer l'Institut.</p>
+        <p>Thierno Djibril Ousmane Bâ, également connu sous le nom de Thierno Djiby, était un grand érudit, guide spirituel et figure emblématique de l'islam au Sénégal.</p>
+        <p>Homme de foi et de savoir, reconnu pour sa piété, il a laissé une empreinte indélébile dans l'histoire religieuse et sociale de la commune de Bambilor, dans le département de Rufisque.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FONDATEUR -->
+<section id="fondateur">
+  <div class="container">
+    <div class="bio-banner reveal"><span class="kicker">Le Fondateur</span><h2>À propos du fondateur</h2><p class="function">Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</p></div>
+    <div class="profile reveal" style="margin-top:32px">
+      <div class="img-slot" data-img-slot><img src="tm.jpg" alt="M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
+      <div class="founder-section">
+        <h3>Thierno Elhadji Malick Ba</h3>
+        <div class="role">Fondateur de l’Institut Al Maarifa Thierno Djibril Ousmane Ba</div>
+        <p>Derrière l’Institut Al Maarifa se trouve une ambition : offrir aux enfants une éducation qui leur permette non seulement de réussir leurs études, mais aussi de grandir avec de bonnes valeurs.</p>
+        <p>Convaincu que l’éducation ne se limite pas aux salles de classe et aux manuels scolaires, Thierno Elhadji Malick Ba a voulu mettre en place un cadre où le savoir, la discipline, le respect et l’éducation islamique occupent une place importante.</p>
+        <p>C’est dans cet esprit qu’il a fondé l’Institut Al Maarifa, avec la volonté d’accompagner chaque enfant dans son parcours scolaire et personnel, du préscolaire jusqu’à la terminale.</p>
+        <p>Pour lui, chaque enfant mérite une chance de réussir, de développer ses capacités et de construire son avenir.</p>
+        <blockquote><strong>Sa conviction :</strong> « L’éducation ne consiste pas seulement à apprendre à un enfant, mais aussi à l’aider à devenir une personne responsable, instruite et respectueuse des valeurs humaines. »</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. DIRECTEUR -->
+<section class="alt" id="biographie-directeur">
   <div class="container">
     <div class="bio-banner reveal"><span class="kicker">Le Directeur</span><h2>Portrait du Directeur</h2><p class="function">M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba</p></div>
     <nav class="subnav center" aria-label="Sous-navigation Le Directeur">
       <a href="#biographie-directeur">Portrait</a><a href="#parcours-academique">Parcours académique</a><a href="#vocation-enseignement">Vocation &amp; enseignement</a>
     </nav>
-
     <div class="profile reveal" style="margin-top:32px">
       <div class="img-slot" data-img-slot><img src="di.png" alt="M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div>
       <div>
@@ -389,7 +406,6 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
         <p>Son parcours s'appuie sur une alliance solide entre rigueur académique et pratique du terrain. Au fil des années, il a façonné sa démarche pédagogique au sein de divers établissements et structures de formation, guidé par un engagement constant : transmettre le savoir avec excellence et accompagner l'épanouissement des apprenants.</p>
       </div>
     </div>
-
     <div class="dir-grid">
       <article class="panel reveal" id="parcours-academique">
         <span class="kicker">Parcours</span>
@@ -405,7 +421,6 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
           <li><span class="a-year">2008 – 2009</span><span><strong>DUEL I et DUEL II</strong> (Département d'Arabe, FLSH, UCAD)</span></li>
         </ul>
       </article>
-
       <article class="panel reveal" id="vocation-enseignement">
         <span class="kicker">Vocation</span>
         <h3>Une vocation dédiée à l'enseignement et au partage</h3>
@@ -416,6 +431,20 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   </div>
 </section>
 
+<!-- 9. PARCOURS DE L'INSTITUT -->
+<section id="parcours">
+  <div class="container">
+    <div class="section-head reveal"><span class="kicker">Notre parcours</span><h2>Les grandes étapes de l'Institut</h2></div>
+    <div class="steps reveal">
+      <div class="step-item"><span class="date">Fondation</span><h3>Ouverture de l'Institut à Bambilor - Darou Salam</h3><p>Naissance du projet éducatif, avec une première rentrée accueillant les premiers élèves du préscolaire et du primaire.</p></div>
+      <div class="step-item"><span class="date">Développement</span><h3>Extension des niveaux et partenariat avec Al-Azhar</h3><p>Ouverture progressive des classes jusqu'au collège, et signature du partenariat officiel avec l'Institut Al-Azhar.</p></div>
+      <div class="step-item"><span class="date">Aujourd'hui</span><h3>Un institut complet, du préscolaire à la terminale</h3><p>L'Institut couvre désormais l'ensemble du parcours scolaire, avec une bibliothèque numérique et un suivi pédagogique modernisé.</p></div>
+      <div class="step-item"><span class="date">2026 – 2027</span><h3>Une nouvelle rentrée scolaire</h3><p>Les inscriptions pour l'année 2026-2027 sont ouvertes, avec des places limitées par niveau.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES -->
 <section class="alt">
   <div class="container">
     <div class="stat-strip reveal">
@@ -427,6 +456,7 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
   </div>
 </section>
 
+<!-- INSCRIPTIONS -->
 <section class="cta">
   <div class="container reveal">
     <h2>PRÉPAREZ L'AVENIR DE VOTRE ENFANT</h2>
@@ -444,37 +474,22 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
-      <div><h4>Navigation</h4><a href="index.html">Accueil</a><a href="institut.html">L'Institut</a><a href="index.html#fondateur">Le Fondateur</a><a href="programmes.html">Programmes</a><a href="actualites.html">Actualités</a><a href="contact.html">Contact</a></div>
+      <div><h4>Navigation</h4><a href="index.html">Accueil</a><a href="#institut">L'Institut</a><a href="#fondateur">Le Fondateur</a><a href="programmes.html">Programmes</a><a href="actualites.html">Actualités</a><a href="contact.html">Contact</a></div>
       <div><h4>Ressources</h4><a href="bibliotheque.html">Bibliothèque numérique</a><a href="galerie.html">Galerie</a><a href="tarifs.html">Tarifs</a><a href="inscriptions.html">Inscriptions 2026–2027</a><a href="centre.html">Le Centre</a></div>
       <div><h4>Contact</h4><a href="tel:+221774036424">77 403 64 24</a><a href="tel:+221775722937">77 572 29 37</a><a data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener noreferrer">Écrire sur WhatsApp</a><a href="contact.html">Formulaire de contact</a></div>
     </div>
-
     <div class="social">
       <span class="social-title">Suivez-nous</span>
-
       <a href="https://www.facebook.com/profile.php?id=61593730307571" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.52c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.39C19.61 23.03 24 18.06 24 12.07z"/></svg>
       </a>
-
-      <!-- Le lien de la chaîne WhatsApp n'accepte pas le paramètre ?text= (supprimé) -->
       <a href="https://whatsapp.com/channel/0029VbDbLTfGE56s2ceks209" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm4.51 11.94c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
       </a>
-
-      <!-- À DÉCOMMENTER quand vous aurez les vrais liens (les anciens étaient des liens factices) :
-      <a href="https://www.youtube.com/@VOTRE_CHAINE" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/VOTRE_COMPTE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      -->
-
       <a href="https://www.tiktok.com/@almaarifa123" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 6.8a4.8 4.8 0 0 1-3.8-4.3V2h-3.4v13.7a2.9 2.9 0 1 1-2-2.7V9.5a6.3 6.3 0 1 0 5.4 6.2V9.1a8.2 8.2 0 0 0 4.8 1.5V7.2a4.8 4.8 0 0 1-1-.4z"/></svg>
       </a>
     </div>
-
     <div class="footer-bottom"><span>&copy; <span id="y"></span> Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.</span><span>Partenaire officiel : Institut Al-Azhar</span></div>
   </div>
 </footer>
@@ -495,7 +510,6 @@ document.getElementById('y').textContent=new Date().getFullYear();
 })();
 (function(){
   document.documentElement.classList.add('js-ready');
-  /* vidéo du hero : respecte « réduire les animations » */
   try{
     var v=document.querySelector('.hero-bg video');
     if(v&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}
@@ -513,402 +527,56 @@ document.getElementById('y').textContent=new Date().getFullYear();
   }else{items.forEach(function(el){el.classList.add('in');count(el)})}
 })();
 </script>
-<!-- Changement de langue FR / العربية -->
+
+<!-- Traductions arabes des sections ajoutées (venant de la page L'Institut) -->
 <script>
-/* Institut Al Maarifa — changement de langue Français / العربية
-   Dictionnaire central : l'objet D ci-dessous.  "texte français": "texte arabe"
-     - clé finissant par *  → correspond au début du texte (longs paragraphes)
-     - {Y} dans une valeur   → année courante
-   Dictionnaire d'une page : définir avant ce script   window.AL_I18N_EXTRA = { "…": "…" };
-   Ne pas traduire un élément : lui ajouter l'attribut  data-no-translate  (ou translate="no").
-   API : AlMaarifaLang.t("texte"), .set("ar"|"fr"), .lang(), .add({...}), .missing()
-   Événement : document.addEventListener("almaarifa:lang", e => e.detail.lang) */
-(function () {
-  var D = {
-    /* navigation */
-    "INSTITUT AL MAARIFA": "معهد المعارف",
-    "THIERNO DJIBRIL OUSMANE BA": "ثيرنو جبريل عثمان با",
-    "ÉCOLE FRANCO-ARABE": "مدرسة فرنكو-عربية",
-    "Accueil": "الرئيسية", "L'Institut": "المعهد", "Centre": "المركز", "Programmes": "البرامج",
-    "Activités": "الأنشطة", "Actualités": "الأخبار", "Bibliothèque": "المكتبة", "Galerie": "المعرض",
-    "Tarifs": "الرسوم", "Inscriptions": "التسجيلات", "Contact": "اتصل بنا",
-    "Aller au contenu": "انتقل إلى المحتوى",
-    /* hero */
-    "INSCRIPTIONS OUVERTES — 2026 / 2027": "التسجيلات مفتوحة — 2026 / 2027",
-    "PARTENAIRE OFFICIEL : INSTITUT AL-AZHAR": "الشريك الرسمي: معهد الأزهر",
-    "École franco-arabe Institut Al Maarifa Thierno Djibril Ousmane Ba": "مدرسة فرنكو-عربية <small>معهد المعارف ثيرنو جبريل عثمان با</small>",
-    "Une éducation de qualité, entre savoirs modernes et valeurs islamiques.": "تعليم متميّز يجمع بين المعارف الحديثة والقيم الإسلامية.",
-    "DÉCOUVRIR L'INSTITUT": "اكتشف المعهد", "INSCRIRE MON ENFANT": "سجّل طفلك", "Inscrire mon enfant": "سجّل طفلي",
-    "En savoir plus": "اعرف المزيد", "Voir les programmes": "عرض البرامج", "Découvrir l'Institut": "اكتشف المعهد",
-    /* présentation */
-    "Un cadre d'apprentissage exigeant, bienveillant et fidèle à nos valeurs": "بيئة تعليمية صارمة ومحتضِنة ووفيّة لقيمنا",
-    "Implanté à Bambilor*": "يقع <strong>معهد المعارف ثيرنو جبريل عثمان با</strong> في <strong>بامبيلور</strong>، وهو إطار تعليمي حديث ومحتضِن، مكرَّس للازدهار الفكري والأخلاقي للشباب.",
-    "Nous accueillons les enfants*": "نستقبل الأطفال منذ <strong>مرحلة التحضيري</strong> ونرافقهم خطوة بخطوة حتى <strong>السنة النهائية</strong>، ونعدّهم لمتطلبات الامتحانات والتعليم العالي، في إطار <strong>شراكة مميّزة مع معهد الأزهر</strong>.",
-    "Programme éducatif": "البرنامج التعليمي",
-    "Un enseignement islamique et une formation académique moderne": "تعليم إسلامي وتكوين أكاديمي حديث",
-    "Des connaissances solides*": "معارف راسخة مع البقاء متجذّرين في القيم الإسلامية. <strong>المواد المدرَّسة:</strong> الدراسات الإسلامية، اللغة العربية، الرياضيات، العلوم، اللغات الأجنبية (الفرنسية والإنجليزية)، العلوم الاجتماعية.",
-    "Un enseignement général de qualité": "تعليم عام عالي الجودة",
-    "Conforme aux standards*": "مطابق للمعايير الأكاديمية لضمان إتقان المواد الأساسية.",
-    "La langue arabe approfondie": "اللغة العربية المتعمّقة",
-    "Une ouverture culturelle*": "انفتاح ثقافي وإتقان لغوي حقيقي، من التحضيري إلى السنة النهائية.",
-    "Une éducation islamique solide": "تربية إسلامية راسخة",
-    "Ancrée dans la transmission*": "قائمة على نقل قيم الاحترام والأخلاق والمسؤولية.",
-    "Notre cadre": "إطارنا", "Un environnement structuré et sécurisé": "بيئة منظَّمة وآمنة",
-    "La réussite scolaire exige*": "يتطلب النجاح الدراسي إطارًا يساعد على التركيز. ويقوم يومنا على ثلاث ركائز.",
-    "Discipline et rigueur": "الانضباط والصرامة",
-    "Un cadre exigeant qui*": "إطار صارم ينمّي حبّ الجهد والمنهجية لدى كل تلميذ.",
-    "Propreté": "النظافة",
-    "Des lieux d'apprentissage*": "أماكن تعلّم نظيفة بلا عيب، لصحة الجميع وراحتهم.",
-    "Sécurité renforcée": "أمن مُعزَّز",
-    "Une totale sérénité*": "طمأنينة تامة للتلاميذ وأسرهم كل يوم.",
-    "Notre engagement :*": "<strong>التزامنا:</strong> أن نوفّر لكل طفل، دون تمييز، المهارات والمرجعيات والفرص اللازمة لإنجاح مساره الدراسي وأن يصبح مواطنًا متكاملًا.",
-    /* fondateur */
-    "Le Fondateur": "المؤسس", "À propos du fondateur": "حول المؤسس",
-    "Thierno Malick BA — Fondateur*": "ثيرنو مالك با — مؤسس معهد المعارف ثيرنو جبريل عثمان با",
-    "Thierno Elhadji Malick Ba": "ثيرنو الحاج مالك با",
-    "Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "مؤسس معهد المعارف ثيرنو جبريل عثمان با",
-    "Derrière l'Institut Al Maarifa*": "يقف خلف معهد المعارف طموح: أن نقدّم للأطفال تعليمًا لا يمكّنهم من النجاح في دراستهم فحسب، بل ينشؤون فيه أيضًا على القيم الحسنة.",
-    "Convaincu que l'éducation*": "مقتنعًا بأن التعليم لا يقتصر على الفصول الدراسية والكتب المدرسية، أراد ثيرنو الحاج مالك با إنشاء إطار تحتل فيه المعرفة والانضباط والاحترام والتربية الإسلامية مكانة مهمة.",
-    "C'est dans cet esprit*": "بهذه الروح أسّس معهد المعارف، برغبة في مرافقة كل طفل في مساره الدراسي والشخصي، من التحضيري حتى السنة النهائية.",
-    "Pour lui, chaque enfant*": "يرى أن كل طفل يستحق فرصة للنجاح وتنمية قدراته وبناء مستقبله.",
-    "Sa conviction :*": "<strong>قناعته:</strong> «التعليم لا يقتصر على تعليم الطفل، بل يشمل مساعدته على أن يصبح شخصًا مسؤولًا ومتعلّمًا ومحترمًا للقيم الإنسانية.»",
-    /* mission */
-    "Notre projet éducatif": "مشروعنا التربوي", "Mission, vision et valeurs": "الرسالة والرؤية والقيم",
-    "Ce qui guide chaque jour*": "ما يوجّه كل يوم عمل الأساتذة والإدارة والتلاميذ.",
-    "Notre mission": "رسالتنا",
-    "Offrir à chaque enfant, du préscolaire*": "أن نقدّم لكل طفل، من التحضيري إلى السنة النهائية، تكوينًا يجمع بين النجاح الدراسي وإتقان الفرنسية والعربية وتربية إسلامية متينة.",
-    "Notre vision": "رؤيتنا",
-    "Former des générations instruites*": "تكوين أجيال متعلّمة ومسؤولة ومتجذّرة في قيمها، قادرة على مواجهة تحديات العالم المعاصر وخدمة مجتمعها.",
-    "Nos valeurs": "قيمنا",
-    "Rigueur et goût de l'effort": "<strong>الصرامة</strong> وحب الجهد",
-    "Respect de soi et des autres": "<strong>احترام</strong> الذات والآخرين",
-    "Foi et intégrité": "<strong>الإيمان</strong> والنزاهة",
-    "Excellence académique": "<strong>التميّز</strong> الأكاديمي",
-    /* partenariat */
-    "Partenariat": "الشراكة", "Un partenariat avec l'Institut Al-Azhar": "شراكة مع معهد الأزهر",
-    "L'Institut Al Maarifa est une école*": "معهد المعارف مدرسة فرنكو-عربية <strong>شريكة لمعهد الأزهر</strong>، المؤسسة المرجعية عالميًا في تعليم اللغة العربية والعلوم الإسلامية.",
-    "Ce partenariat inscrit*": "تضع هذه الشراكة تعليمنا ضمن تقليد أكاديمي معترف به، وتعزّز مكانة العربية والتربية الإسلامية في مسار كل تلميذ.",
-    "Ce que cela représente pour votre enfant": "ماذا يعني ذلك لطفلك",
-    "Un enseignement de l'arabe et de l'éducation islamique structuré et exigeant": "تعليم منظَّم وصارم للعربية والتربية الإسلامية",
-    "Un parcours cohérent, du préscolaire à la terminale": "مسار متناسق من التحضيري إلى السنة النهائية",
-    "Une double compétence : français et arabe": "كفاءة مزدوجة: الفرنسية والعربية",
-    "Un ancrage solide dans les valeurs islamiques": "تجذّر قوي في القيم الإسلامية",
-    /* directeur */
-    "Le Directeur": "المدير", "Portrait du Directeur": "بورتريه المدير",
-    "M. Ousseynou KHOUMA — Directeur*": "السيد أوسينو خوما — مدير معهد المعارف ثيرنو جبريل عثمان با",
-    "Portrait": "البورتريه", "Parcours académique": "المسار الأكاديمي", "Vocation & enseignement": "الرسالة والتعليم",
-    "M. Ousseynou KHOUMA": "السيد أوسينو خوما",
-    "Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "مدير معهد المعارف ثيرنو جبريل عثمان با",
-    "Passionné par la langue arabe*": "شغوف باللغة العربية والحضارة العربية الإسلامية وفن التدريس، يضع السيد أوسينو خوما اليوم خبرته ورؤيته في خدمة المعهد الذي يتولى إدارته.",
-    "Son parcours s'appuie*": "يقوم مساره على تحالف متين بين الصرامة الأكاديمية والممارسة الميدانية. وعلى مرّ السنين صقل نهجه التربوي في مؤسسات وهياكل تكوين متنوعة، مدفوعًا بالتزام دائم: نقل المعرفة بتميّز ومرافقة ازدهار المتعلّمين.",
-    "Parcours": "المسار", "Un parcours académique d'excellence": "مسار أكاديمي متميّز",
-    "Une spécialisation poussée*": "تخصّص معمّق في الدراسات العربية الإسلامية، أُنجز أساسًا بكلية الآداب والعلوم الإنسانية بجامعة الشيخ أنتا ديوب بداكار (UCAD)، مع انفتاح دولي.",
-    "Doctorat (UCAD)": "<strong>دكتوراه</strong> (UCAD)",
-    "4ᵉ année de doctorat ARCIV*": "<strong>السنة الرابعة من دكتوراه ARCIV</strong>، تخصص الدراسات العربية الإسلامية (UCAD)",
-    "Master 2, spécialité*": "<strong>ماستر 2</strong>، تخصص الحضارة العربية الإسلامية (قسم العربية، كلية الآداب، UCAD)",
-    "Master 1, spécialité*": "<strong>ماستر 1</strong>، تخصص الحضارة العربية الإسلامية (قسم العربية، كلية الآداب، UCAD)",
-    "Licence (Département*": "<strong>الإجازة</strong> (قسم العربية، كلية الآداب، UCAD)",
-    "Brevet d'Arabe Littéral*": "<strong>شهادة العربية الفصحى</strong> (جامعة السوربون باريس 3، فرنسا)",
-    "DUEL I et DUEL II*": "<strong>DUEL I وDUEL II</strong> (قسم العربية، كلية الآداب، UCAD)",
-    "Vocation": "الرسالة", "Une vocation dédiée à l'enseignement et au partage": "رسالة مكرّسة للتعليم والعطاء",
-    "Spécialisé dans l'enseignement*": "متخصّص في تدريس العربية الحديثة والتكوين التربوي، اكتسب السيد أوسينو خوما خبرته بالاحتكاك المباشر بالمتعلّمين والفرق التربوية.",
-    "De ses premières années*": "منذ سنواته الأولى أستاذًا وحتى مسؤولياته الحالية مديرًا للمعهد، يحرص على جعل الصرامة الفكرية ونقل المعرفة والتنمية الإنسانية في صميم مشروع المؤسسة.",
-    /* chiffres + CTA */
-    "Niveaux, du préscolaire à la terminale": "مستويات، من التحضيري إلى السنة النهائية",
-    "Langues d'enseignement : français & arabe": "لغتا التدريس: الفرنسية والعربية",
-    "Partenariat avec l'Institut Al-Azhar": "شراكة مع معهد الأزهر",
-    "Rentrée scolaire 2026 – 2027": "الموسم الدراسي 2026 – 2027",
-    "PRÉPAREZ L'AVENIR DE VOTRE ENFANT": "أعدّوا مستقبل طفلكم",
-    "Rejoignez l'Institut*": "انضمّوا إلى معهد المعارف ثيرنو جبريل عثمان با لتعليم يجمع بين المعارف الحديثة والقيم الإسلامية.",
-    "DÉCOUVRIR LES INSCRIPTIONS": "اكتشف التسجيلات",
-    /* pied de page */
-    "Institut Al MaarifaThierno*": "معهد المعارف<br>ثيرنو جبريل عثمان با",
-    "École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation*": "مدرسة فرنكو-عربية شريكة لمعهد الأزهر. تعليم متميّز يجمع بين المعارف الحديثة والقيم الإسلامية.",
-    "Bambilor – Darou Salam, Sénégal": "بامبيلور – دارو سلام، السنغال",
-    "Navigation": "التنقّل", "Ressources": "الموارد",
-    "Bibliothèque numérique": "المكتبة الرقمية", "Inscriptions 2026–2027": "التسجيلات 2026–2027", "Le Centre": "المركز",
-    "Écrire sur WhatsApp": "راسلونا على واتساب", "Formulaire de contact": "نموذج الاتصال",
-    "Suivez-nous": "تابعونا",
-    "Partenaire officiel : Institut Al-Azhar": "الشريك الرسمي: معهد الأزهر",
-    /* attributs : alt, aria-label, title */
-    "Institut Al Maarifa — accueil": "معهد المعارف — الرئيسية",
-    "Logo Institut Al Maarifa": "شعار معهد المعارف",
-    "Bâtiment de l'Institut Al Maarifa": "مبنى معهد المعارف",
-    "Vie scolaire à l'Institut Al Maarifa": "الحياة المدرسية في معهد المعارف",
-    "M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "السيد ثيرنو مالك با — مؤسس معهد المعارف ثيرنو جبريل عثمان با",
-    "M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "السيد أوسينو خوما — مدير معهد المعارف ثيرنو جبريل عثمان با",
-    "Navigation principale": "التنقّل الرئيسي", "Navigation mobile": "التنقّل على الهاتف",
-    "Ouvrir le menu": "فتح القائمة", "Fermer le menu": "إغلاق القائمة",
-    "Sous-navigation Le Directeur": "التنقّل الفرعي — المدير",
-    "Contacter sur WhatsApp": "تواصل معنا عبر واتساب",
-    "Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor": "معهد المعارف ثيرنو جبريل عثمان با — مدرسة فرنكو-عربية في بامبيلور",
-    "Photo à venir": "الصورة قريبًا",
-    /* formulaires et messages courants */
-    "Nom": "الاسم", "Prénom": "الاسم الشخصي", "Nom complet": "الاسم الكامل", "Email": "البريد الإلكتروني", "E-mail": "البريد الإلكتروني",
-    "Téléphone": "الهاتف", "Message": "الرسالة", "Objet": "الموضوع", "Envoyer": "إرسال", "Envoyer le message": "إرسال الرسالة",
-    "Retour": "رجوع", "Rechercher": "بحث", "Chargement…": "جارٍ التحميل…", "Chargement...": "جارٍ التحميل…",
-    "Ce champ est obligatoire.": "هذا الحقل مطلوب.",
-    "Message envoyé avec succès.": "تم إرسال الرسالة بنجاح.",
-    "Une erreur est survenue. Veuillez réessayer.": "حدث خطأ. يرجى المحاولة مرة أخرى.",
-    "Se connecter": "تسجيل الدخول", "Se déconnecter": "تسجيل الخروج",
-    "© {Y} Institut Al Maarifa Thierno Djibril Ousmane Ba. Tous droits réservés.": "&copy; {Y} معهد المعارف ثيرنو جبريل عثمان با. جميع الحقوق محفوظة."
-  };
-
-  var STORE = "lang", ATTRS = ["alt", "aria-label", "title", "placeholder"];
-  var INLINE = { STRONG: 1, EM: 1, SMALL: 1, B: 1, I: 1, BR: 1, SPAN: 1 };
-  var SKIP = "svg,script,style,noscript,textarea,[data-no-translate],[translate=no],.notranslate,#langSwitch";
-  var exact = {}, pref = [], lang = "fr", busy = false;
-  var texts = new Map(), attrs = new Map();   // élément -> {fr, ar}
-
-  function n(s) { return s.replace(/’/g, "'").replace(/\s+/g, " ").trim(); }
-  function register(dict) {
-    Object.keys(dict).forEach(function (k) {
-      var kk = n(k);
-      if (kk.slice(-1) === "*") pref.push([kk.slice(0, -1), dict[k]]); else exact[kk] = dict[k];
-    });
-    pref.sort(function (a, b) { return b[0].length - a[0].length; });
-  }
-  register(D);
-  if (window.AL_I18N_EXTRA) register(window.AL_I18N_EXTRA);
-  function find(t) {
-    t = t.replace(/^© \d{4} /, "© {Y} ");
-    if (Object.prototype.hasOwnProperty.call(exact, t)) return exact[t];
-    for (var i = 0; i < pref.length; i++) if (t.indexOf(pref[i][0]) === 0) return pref[i][1];
-    return null;
-  }
-  function out(v) { return v.replace("{Y}", new Date().getFullYear()); }
-  function isLeaf(el) {
-    for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (!INLINE[c.tagName]) return false;
-    return true;
-  }
-
-  /* ---------- styles : bouton + rendu RTL ---------- */
-  var css = document.createElement("style");
-  css.textContent =
-    ".lang-switch{display:inline-flex;flex:0 0 auto;margin-inline-start:auto;padding:3px;gap:2px;background:#fff;border:1px solid var(--g2,#D9DADD);border-radius:100px;box-shadow:0 1px 3px rgba(51,51,51,.08)}" +
-    ".lang-switch button{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:6px 14px;border:0;border-radius:100px;background:transparent;color:var(--ink,#333);font:600 .85rem var(--sans,Arial,sans-serif);line-height:1;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}" +
-    ".lang-switch button:hover{background:var(--g1,#F1F2F4);color:var(--bx,#800020)}" +
-    ".lang-switch button[aria-pressed=true]{background:var(--bx,#800020);color:#fff;cursor:default}" +
-    ".lang-switch .fl{font-size:1.05rem;line-height:1}" +
-    "@media(min-width:1401px){.lang-switch{margin-inline-start:0}}" +
-    "@media(max-width:1400px){.site-header .burger{margin-left:0!important;margin-inline-start:0!important}}" +
-    "@media(max-width:520px){.lang-switch button{min-height:36px;padding:6px 9px;font-size:.78rem;gap:4px}}" +
-    "@media(max-width:380px){.lang-switch .fl{display:none}}" +
-    /* arabe / RTL */
-    "html[dir=rtl]{--sans:'Noto Sans Arabic',Tahoma,Arial,sans-serif;--serif:'Noto Naskh Arabic','Noto Sans Arabic',Georgia,serif}" +
-    "html[dir=rtl] *{letter-spacing:0!important}" +
-    "html[dir=rtl] body{font-size:1.1rem;line-height:1.9;overflow-wrap:break-word}" +
-    "html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] h4{line-height:1.5}" +
-    "html[dir=rtl] .hero h1{max-width:22ch}" +
-    "html[dir=rtl] .list li{padding:12px 20px 12px 0}" +
-    "html[dir=rtl] .list li::before{left:auto;right:0}" +
-    "html[dir=rtl] .timeline{padding-left:0;padding-right:28px}" +
-    "html[dir=rtl] .timeline::before{left:auto;right:5px}" +
-    "html[dir=rtl] .timeline li::before{left:auto;right:-28px}" +
-    "html[dir=rtl] .mobile-nav a.active{border-left:0;border-right:3px solid var(--bx);padding-left:8px;padding-right:12px}" +
-    "html[dir=rtl] .founder-section blockquote{border-left:0;border-right:4px solid var(--br-l);padding-left:0;padding-right:18px}" +
-    "html[dir=rtl] .founder-section ul{padding-left:0;padding-right:20px}" +
-    "html[dir=rtl] .founder-section li{list-style-position:inside}" +
-    "html[dir=rtl] .social-title{margin-right:0;margin-left:6px}" +
-    "html[dir=rtl] .site-footer a[href^='tel:']{direction:ltr;text-align:right}" +
-    "html[dir=rtl] .wa-float{right:auto;left:20px}" +
-    "@media(max-width:480px){html[dir=rtl] .wa-float{left:14px}}" +
-    "html[dir=rtl] input,html[dir=rtl] textarea,html[dir=rtl] select{text-align:right}" +
-    "html[dir=rtl] input[type=email],html[dir=rtl] input[type=tel],html[dir=rtl] input[type=url]{direction:ltr;text-align:right}" +
-    "html[lang=ar] .img-slot.is-empty::after{content:'الصورة قريبًا'}";
-  document.head.appendChild(css);
-
-  /* ---------- traduction du DOM ---------- */
-  function doAttrs(el) {
-    var list = ATTRS;
-    if (el.tagName === "INPUT" && /^(submit|button|reset)$/.test(el.type)) list = ATTRS.concat("value");
-    list.forEach(function (a) {
-      var v = el.getAttribute(a);
-      if (!v) return;
-      var rec = attrs.get(el) || {};
-      if (rec[a] && v === rec[a].ar) return;
-      var ar = find(n(v));
-      if (!ar) return;
-      rec[a] = { fr: v, ar: out(ar) };
-      attrs.set(el, rec);
-      el.setAttribute(a, rec[a].ar);
-    });
-  }
-  function scan(root) {
-    var els = [].slice.call(root.querySelectorAll("*"));
-    if (root.nodeType === 1) els.unshift(root);
-    els.forEach(function (el) {
-      if (!el.isConnected || el.closest(SKIP)) return;
-      var rec = texts.get(el);
-      if (!(rec && el.innerHTML === rec.ar) && isLeaf(el)) {
-        var t = n(el.textContent);
-        var ar = t && t.length <= 900 ? find(t) : null;
-        if (ar) {
-          var fr = el.innerHTML;
-          el.innerHTML = out(ar);
-          texts.set(el, { fr: fr, ar: el.innerHTML });
-        }
-      }
-      doAttrs(el);
-    });
-  }
-  function restore() {
-    texts.forEach(function (rec, el) { if (el.isConnected && el.innerHTML === rec.ar) el.innerHTML = rec.fr; });
-    attrs.forEach(function (rec, el) {
-      Object.keys(rec).forEach(function (a) { if (el.getAttribute(a) === rec[a].ar) el.setAttribute(a, rec[a].fr); });
-    });
-    texts.clear(); attrs.clear();
-  }
-
-  /* contenus ajoutés dynamiquement */
-  var mo = new MutationObserver(function (muts) {
-    if (lang !== "ar" || busy) return;
-    mo.disconnect();
-    muts.forEach(function (m) {
-      if (m.type === "attributes") { if (m.target.isConnected && !m.target.closest(SKIP)) doAttrs(m.target); }
-      else m.addedNodes.forEach(function (nd) {
-        var el = nd.nodeType === 1 ? nd : nd.parentElement;
-        if (el && el.isConnected) scan(el);
-      });
-    });
-    watch();
-  });
-  function watch() { mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ATTRS }); }
-
-  /* ---------- changement de langue ---------- */
-  var TITLE_FR = document.title, sw, btns, token = 0, target = "fr", fontsPromise = null;
-  var AR_CSS = "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap";
-
-  /* Charge la police arabe UNE fois ; résolu quand elle est prête (ou après 2,5 s max) */
-  function loadArabicFonts() {
-    if (fontsPromise) return fontsPromise;
-    fontsPromise = new Promise(function (resolve) {
-      var done = false;
-      function finish() { if (!done) { done = true; resolve(); } }
-      setTimeout(finish, 2500);
-      var k = document.getElementById("al-font");
-      if (!k) {
-        k = document.createElement("link");
-        k.id = "al-font"; k.rel = "stylesheet"; k.href = AR_CSS;
-        document.head.appendChild(k);
-      }
-      function loadFaces() {
-        if (!document.fonts || !document.fonts.load) return finish();
-        Promise.all([
-          document.fonts.load("400 1em 'Noto Sans Arabic'", "العربية"),
-          document.fonts.load("700 1em 'Noto Sans Arabic'", "العربية"),
-          document.fonts.load("700 1em 'Noto Naskh Arabic'", "العربية")
-        ]).then(finish, finish);
-      }
-      if (k.sheet) loadFaces();
-      else { k.addEventListener("load", loadFaces); k.addEventListener("error", finish); }
-    });
-    return fontsPromise;
-  }
-
-  /* Ancre = section au bas de l'en-tête + fraction parcourue */
-  function anchor() {
-    if (window.scrollY < 2) return null;
-    var h = document.querySelector(".site-header");
-    var y = (h ? h.getBoundingClientRect().bottom : 0) + 1;
-    var list = document.querySelectorAll("main > section, .site-footer");
-    for (var i = 0; i < list.length; i++) {
-      var r = list[i].getBoundingClientRect();
-      if (r.top <= y && r.bottom > y) return { el: list[i], f: (y - r.top) / Math.max(r.height, 1), y: y };
-    }
-    return null;
-  }
-  function keep(a) {
-    var se = document.scrollingElement || document.documentElement;
-    if (se.scrollLeft) se.scrollLeft = 0;
-    if (!a || !a.el.isConnected) return;
-    var r = a.el.getBoundingClientRect();
-    var d = r.top - (a.y - a.f * r.height);
-    if (Math.abs(d) >= 1) window.scrollBy(0, d);
-  }
-  function markBtns(l) {
-    btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
-  }
-
-  /* Application synchrone : dir + textes dans la même tâche */
-  function apply(l, silent) {
-    var h = document.documentElement, a = silent ? null : anchor();
-    h.classList.add("lang-switching");
-    busy = true; mo.disconnect();
-    if (l === "ar") {
-      lang = "ar"; h.lang = "ar"; h.dir = "rtl";
-      scan(document.body);
-      var t = find(n(TITLE_FR)); document.title = t ? out(t) : TITLE_FR;
-    } else {
-      restore();
-      lang = "fr"; h.lang = "fr"; h.dir = "ltr"; document.title = TITLE_FR;
-    }
-    busy = false; watch();
-    markBtns(l);
-    try { localStorage.setItem(STORE, l); } catch (e) {}
-    keep(a);
-    requestAnimationFrame(function () {
-      keep(a);
-      requestAnimationFrame(function () { h.classList.remove("lang-switching"); });
-    });
-    document.dispatchEvent(new CustomEvent("almaarifa:lang", { detail: { lang: l } }));
-  }
-
-  function setLang(l, silent) {
-    l = l === "ar" ? "ar" : "fr";
-    target = l;
-    var my = ++token;
-    markBtns(l);
-    if (l === "ar") {
-      if (silent) { loadArabicFonts(); apply(l, true); return; }
-      loadArabicFonts().then(function () { if (my === token) apply(l, false); });
-      return;
-    }
-    apply(l, silent);
-  }
-
-  /* ---------- bouton 🇫🇷 FR | 🇸🇦 العربية ---------- */
-  sw = document.createElement("div");
-  sw.id = "langSwitch"; sw.className = "lang-switch"; sw.setAttribute("role", "group"); sw.setAttribute("aria-label", "Langue / اللغة");
-  sw.innerHTML =
-    '<button type="button" data-lang="fr" lang="fr" aria-pressed="true"><span class="fl" aria-hidden="true">🇫🇷</span>FR</button>' +
-    '<button type="button" data-lang="ar" lang="ar" aria-pressed="false"><span class="fl" aria-hidden="true">🇸🇦</span>العربية</button>';
-  var burger = document.getElementById("burgerBtn");
-  if (burger && burger.parentNode) burger.parentNode.insertBefore(sw, burger); else document.body.insertBefore(sw, document.body.firstChild);
-  btns = [].slice.call(sw.querySelectorAll("button"));
-  btns.forEach(function (b) { b.addEventListener("click", function () { var l = b.getAttribute("data-lang"); if (target !== l) setLang(l); }); });
-  ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { sw.addEventListener(ev, loadArabicFonts, { once: true, passive: true }); });
-  window.addEventListener("load", function () { setTimeout(loadArabicFonts, 2000); });
-  window.addEventListener("storage", function (e) { if (e.key === STORE && e.newValue && e.newValue !== lang) setLang(e.newValue, true); });
-
-  /* ---------- API publique ---------- */
-  window.AlMaarifaLang = {
-    lang: function () { return lang; },
-    set: function (l) { setLang(l); },
-    add: function (d) { register(d); if (lang === "ar") scan(document.body); },
-    t: function (s) { var r = lang === "ar" ? find(n(s)) : null; return r ? out(r) : s; },
-    missing: function () {
-      var res = [];
-      document.querySelectorAll("body *").forEach(function (el) {
-        if (el.closest(SKIP) || !isLeaf(el)) return;
-        var t = n(el.textContent);
-        if (!/[A-Za-zÀ-ÿ]{3,}/.test(t) || find(t) || res.indexOf(t) >= 0) return;
-        for (var p = el.parentElement; p && p !== document.body; p = p.parentElement) if (isLeaf(p) && find(n(p.textContent))) return;
-        if ([].some.call(el.querySelectorAll("*"), function (c) { return find(n(c.textContent)); })) return;
-        res.push(t);
-      });
-      return res;
-    }
-  };
-
-  /* langue initiale : ?lang=ar|fr, sinon dernier choix mémorisé */
-  var init = "fr";
-  try {
-    var q = new URLSearchParams(location.search).get("lang");
-    init = q === "ar" || q === "fr" ? q : (localStorage.getItem(STORE) || "fr");
-  } catch (e) {}
-  if (init === "ar") { target = "ar"; setLang("ar", true); }
-})();
+window.AL_I18N_EXTRA = {
+  "Qui sommes-nous": "من نحن",
+  "Une école pensée pour donner à chaque enfant les moyens de réussir": "مدرسة صُمّمت لتمنح كل طفل وسائل النجاح",
+  "L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né*": "وُلد معهد المعارف ثيرنو جبريل عثمان با من إرادة تقديم بديل تربوي متميّز في <strong>بامبيلور - دارو سلام</strong>: تعليم عام عالي الجودة، وإتقان حقيقي للغة العربية، وتربية إسلامية أصيلة تُقدَّم بأسلوب تربوي.",
+  "Nous accueillons les élèves du préscolaire*": "نستقبل التلاميذ من <strong>التحضيري إلى السنة النهائية</strong> في إطار منظَّم، حيث لا تُعدّ الانضباط والنظافة والأمن خيارات بل أسسًا.",
+  "Voir nos programmes": "عرض برامجنا",
+  "Élèves de l'Institut Al Maarifa en classe": "تلاميذ معهد المعارف في القسم",
+  "Concilier excellence académique et éducation religieuse*": "التوفيق بين التميّز الأكاديمي والتربية الدينية: ما يوجّه كل يوم عمل الأساتذة والإدارة والتلاميذ.",
+  "Excellence": "التميّز",
+  "Un enseignement exigeant qui prépare*": "تعليم صارم يهيّئ التلاميذ للنجاح في التعليم العالي وفي الحياة.",
+  "Discipline": "الانضباط",
+  "Un cadre structuré, respectueux et sécurisant pour chaque élève.": "إطار منظَّم ومحترِم ومطمئن لكل تلميذ.",
+  "Valeurs islamiques": "القيم الإسلامية",
+  "Une éducation religieuse authentique*": "تربية دينية أصيلة تُقدَّم بأسلوب تربوي ولطف.",
+  "Modernité": "الحداثة",
+  "Des méthodes actuelles, une bibliothèque numérique*": "أساليب حديثة ومكتبة رقمية ومتابعة تربوية عصرية.",
+  "Notre partenariat": "شراكتنا",
+  "Un partenariat officiel avec l'Institut Al-Azhar": "شراكة رسمية مع معهد الأزهر",
+  "L'Institut Al Maarifa Thierno Djibril Ousmane Ba est fier*": "يفخر معهد المعارف ثيرنو جبريل عثمان با بكونه شريكًا رسميًا لمعهد الأزهر، المرجع التاريخي للتعليم الإسلامي. وتضمن هذه الشراكة صرامة برنامجنا للتربية الإسلامية واللغة العربية وأصالته.",
+  "Il permet également à nos élèves*": "كما تتيح لتلاميذنا الاستفادة من مسار معترف به، يفتح آفاقًا للدراسات العليا داخل السنغال وخارجها.",
+  "Programme reconnu": "برنامج معترف به",
+  "Encadrement qualifié": "تأطير مؤهَّل",
+  "Perspectives internationales": "آفاق دولية",
+  "Parrain de l'Institut": "عرّاب المعهد",
+  "Thierno Djibril Ousmane Bâ": "ثيرنو جبريل عثمان با",
+  "Thierno Djibril Ousmane Bâ, parrain de l'Institut Al Maarifa": "ثيرنو جبريل عثمان با، عرّاب معهد المعارف",
+  "Également connu sous le nom de Thierno Djiby": "المعروف أيضًا باسم ثيرنو جيبي",
+  "Une empreinte spirituelle qui continue d'éclairer et d'inspirer l'Institut.": "أثر روحي لا يزال ينير المعهد ويلهمه.",
+  "Thierno Djibril Ousmane Bâ, également connu sous le nom de Thierno Djiby, était*": "كان ثيرنو جبريل عثمان با، المعروف أيضًا باسم ثيرنو جيبي، عالمًا جليلًا ومرشدًا روحيًا وشخصية بارزة للإسلام في السنغال.",
+  "Homme de foi et de savoir*": "رجل إيمان وعلم، عُرف بتقواه، وترك أثرًا لا يُمحى في التاريخ الديني والاجتماعي لبلدية بامبيلور، في مقاطعة روفيسك.",
+  "Notre parcours": "مسارنا",
+  "Les grandes étapes de l'Institut": "المحطات الكبرى للمعهد",
+  "Fondation": "التأسيس",
+  "Ouverture de l'Institut à Bambilor - Darou Salam": "افتتاح المعهد في بامبيلور - دارو سلام",
+  "Naissance du projet éducatif*": "ولادة المشروع التربوي، مع أول دخول مدرسي استقبل أوائل تلاميذ التحضيري والابتدائي.",
+  "Développement": "التطوّر",
+  "Extension des niveaux et partenariat avec Al-Azhar": "توسيع المستويات والشراكة مع الأزهر",
+  "Ouverture progressive des classes jusqu'au collège*": "فتح الأقسام تدريجيًا حتى الإعدادي، وتوقيع الشراكة الرسمية مع معهد الأزهر.",
+  "Aujourd'hui": "اليوم",
+  "Un institut complet, du préscolaire à la terminale": "معهد متكامل من التحضيري إلى السنة النهائية",
+  "L'Institut couvre désormais*": "يغطي المعهد اليوم المسار الدراسي كاملًا، مع مكتبة رقمية ومتابعة تربوية مطوَّرة.",
+  "Une nouvelle rentrée scolaire": "دخول مدرسي جديد",
+  "Les inscriptions pour l'année 2026-2027*": "التسجيلات للسنة الدراسية 2026-2027 مفتوحة، والأماكن محدودة في كل مستوى."
+};
 </script>
+
+<!-- Moteur FR / العربية : coller le contenu de l'ancien <script> « Changement de langue » dans le fichier lang.js -->
+<script src="lang.js" defer></script>
 </body>
 </html>
