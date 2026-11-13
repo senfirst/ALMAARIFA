@@ -296,14 +296,15 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 
 <script>
 /* Données de la galerie — à modifier par l'administrateur.
-   Photo réelle : déposer le fichier dans public/images/galerie/, puis passer "placeholder" à false.
-   Vidéo : type "local" (src "public/videos/xxx.mp4") ou "youtube" (src = identifiant seul) ; sinon "placeholder". */
+   Photo réelle : déposer le fichier, puis passer "placeholder" à false.
+   Si le fichier est introuvable, l'emplacement « Photo à venir » s'affiche automatiquement.
+   Vidéo : type "local" (src "xxx.mp4") ou "youtube" (src = identifiant seul) ; sinon "placeholder". */
 var galleryPhotos=[
- {image:"bati.jpeg",placeholder:true,title:"Le bâtiment principal",category:"batiment",description:"Vue d'ensemble du bâtiment de l'Institut."},
- {image:"li.jpg",placeholder:true,title:"Vue extérieure de l'Institut",category:"batiment",description:"Façade et abords de l'établissement."},
- {image:"bati.jpeg,placeholder:true,tittle:"Cour de l'établissement",category:"batiment",description:"Espace extérieur partagé par les élèves."},
- {image:"mar.jpeg",placeholder:true,title:"Salle de classe",category:"classes",description:"Un espace d'apprentissage équipé."},
- {image:"maarifa.jpeg",placeholder:true,title:"Espace d'apprentissage",category:"classes",description:"Salle dédiée aux enseignements généraux."},
+ {image:"bati.jpeg",placeholder:false,title:"Le bâtiment principal",category:"batiment",description:"Vue d'ensemble du bâtiment de l'Institut."},
+ {image:"li.jpg",placeholder:false,title:"Vue extérieure de l'Institut",category:"batiment",description:"Façade et abords de l'établissement."},
+ {image:"bati.jpeg",placeholder:false,title:"Cour de l'établissement",category:"batiment",description:"Espace extérieur partagé par les élèves."},
+ {image:"mar.jpeg",placeholder:false,title:"Salle de classe",category:"classes",description:"Un espace d'apprentissage équipé."},
+ {image:"maarifa.jpeg",placeholder:false,title:"Espace d'apprentissage",category:"classes",description:"Salle dédiée aux enseignements généraux."},
  {image:"public/images/galerie/classe-03.jpg",placeholder:true,title:"Salle de mémorisation du Coran",category:"classes",description:"Espace réservé à l'enseignement coranique."},
  {image:"public/images/galerie/eleves-01.jpg",placeholder:true,title:"Nos élèves en classe",category:"eleves",description:"Les élèves pendant une séance de cours."},
  {image:"public/images/galerie/eleves-02.jpg",placeholder:true,title:"Moment de récréation",category:"eleves",description:"Un instant de détente entre les cours."},
