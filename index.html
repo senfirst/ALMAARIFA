@@ -19,11 +19,11 @@
 <link rel="apple-touch-icon" href="public/icons/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="s.css">
 <style>
 :root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
---serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:124px;
+--serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:144px;
 --sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px);scrollbar-gutter:stable}
@@ -49,18 +49,18 @@ html.lang-switching *,html.lang-switching *::before,html.lang-switching *::after
 .btn-white{background:#fff;color:var(--bx-d)}.btn-white:hover{background:var(--g1)}
 /* en-tête */
 .site-header{position:sticky;top:0;z-index:60;background:var(--w);box-shadow:0 2px 10px rgba(51,51,51,.08);border-bottom:1px solid var(--g2)}
-.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1360px;margin:0 auto;padding:0 24px;height:var(--hh)}
-.brand{display:flex;align-items:center;gap:18px;flex:0 1 auto;min-width:0}
-.brand img{height:100px;width:auto;max-width:none;flex:0 0 auto;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1480px;margin:0 auto;padding:0 24px;height:var(--hh)}
+.brand{display:flex;align-items:center;gap:20px;flex:0 1 auto;min-width:0}
+.brand img{height:120px;width:auto;max-width:none;flex:0 0 auto;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
 .brand-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
-.brand-text strong{font:700 1.05rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
-.brand-text span{font-size:.74rem;color:var(--ink);font-weight:600;white-space:nowrap}
-.brand-text em{font-style:normal;font-size:.68rem;color:var(--br);font-weight:600;letter-spacing:.06em}
+.brand-text strong{font:700 1.1rem var(--serif);color:var(--bx-d);letter-spacing:.02em;white-space:nowrap}
+.brand-text span{font-size:.76rem;color:var(--ink);font-weight:600;white-space:nowrap}
+.brand-text em{font-style:normal;font-size:.7rem;color:var(--br);font-weight:600;letter-spacing:.06em}
 .main-nav{display:flex;align-items:center;gap:2px}
-.main-nav a{position:relative;padding:9px 11px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap;transition:color .2s,background .2s}
+.main-nav a{position:relative;padding:9px 10px;font-size:.88rem;font-weight:500;color:var(--ink);border-radius:8px;white-space:nowrap;transition:color .2s,background .2s}
 .main-nav a:hover{color:var(--bx);background:var(--g1)}
 .main-nav a.active{color:var(--bx);font-weight:600}
-.main-nav a.active::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
+.main-nav a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;border-radius:2px;background:var(--bx)}
 .burger{display:none;flex:0 0 auto;margin-left:auto;width:46px;height:46px;border:1px solid var(--g2);border-radius:var(--r);background:#fff;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
 .burger span{width:20px;height:2px;background:var(--bx-d);transition:transform .2s,opacity .2s}
 .mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;background:#fff;border-top:1px solid var(--g2);max-height:calc(100vh - var(--hh));overflow-y:auto}
@@ -71,9 +71,10 @@ body.nav-open .mobile-nav{display:flex}
 body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 body.nav-open .burger span:nth-child(2){opacity:0}
 body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1400px){.main-nav{display:none}.burger{display:flex}}
-@media(max-width:520px){:root{--hh:96px}.nav-row{gap:12px;padding:0 14px}.brand{gap:10px}.brand img{height:74px;width:auto}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{font-size:.62rem;white-space:normal}.brand-text em{display:none}}
-@media(max-width:360px){.brand img{height:62px;width:auto}.brand-text strong{font-size:.78rem}}
+@media(max-width:1500px){.main-nav{display:none}.burger{display:flex}}
+@media(max-width:900px){:root{--hh:120px}.brand img{height:96px;width:auto}}
+@media(max-width:520px){:root{--hh:104px}.nav-row{gap:10px;padding:0 14px}.brand{gap:10px}.brand img{height:84px;width:auto}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{font-size:.62rem;white-space:normal}.brand-text em{display:none}}
+@media(max-width:360px){.brand img{height:72px;width:auto}.brand-text strong{font-size:.78rem}}
 /* hero */
 .hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(480px,78vh,720px);padding:0;background:var(--bx-d);color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:0;overflow:hidden}
@@ -176,8 +177,8 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .site-footer h4{font:700 1.05rem var(--serif);color:#E8D2B4;margin:0 0 14px}
 .site-footer p{color:#F1F2F4;font-size:.92rem}
 .site-footer a{display:block;padding:6px 0;font-size:.92rem;color:#F1F2F4}.site-footer a:hover{color:#E8D2B4;text-decoration:underline}
-.footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-.footer-brand img{height:110px;width:auto;max-width:none;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
+.footer-brand{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+.footer-brand img{height:130px;width:auto;max-width:none;object-fit:contain;padding:0;background:none;border:0;border-radius:0;box-shadow:none}
 .footer-brand strong{font:700 1.1rem var(--serif)}
 .footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#E4E5E8}
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s}
@@ -197,9 +198,40 @@ html[dir=rtl] .steps{border-left:0;border-right:2px solid var(--g2);padding-left
 html[dir=rtl] .step-item::before{left:auto;right:-36px}
 html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px solid var(--br-l);padding-left:0;padding-right:16px}
 /* sécurité */
-@media(max-width:1400px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
-@media(min-width:1401px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
+@media(max-width:1500px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
+@media(min-width:1501px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
 .site-header .brand img,.site-footer .footer-brand img{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;width:auto!important;object-fit:contain!important}
+</style>
+<style id="al-lang-css">
+/* Boutons Français / العربية + règles RTL (copie de sécurité : lang.js ne la réinjecte pas) */
+.lang-switch{display:inline-flex;flex:0 0 auto;border:2px solid #800020;border-radius:100px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(128,0,32,.18)}
+.lang-btn{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:#800020;font:700 .9rem/1 "Inter","Helvetica Neue",Arial,sans-serif;padding:11px 16px;min-height:44px;cursor:pointer;transition:background .2s,color .2s}
+.lang-btn[lang=ar]{font-family:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;font-size:1.05rem}
+.lang-btn:hover{background:#F1F2F4}
+.lang-btn[aria-pressed=true]{background:#800020;color:#fff;cursor:default}
+.lang-btn:focus-visible{outline:3px solid #A67C52;outline-offset:-3px}
+.lang-switch--float{position:fixed;top:10px;right:10px;z-index:90}
+@media(max-width:1500px){.site-header .lang-switch{margin-inline-start:auto}.site-header .burger{margin-left:0;margin-right:0}}
+@media(max-width:520px){.lang-btn{padding:9px 14px;min-height:42px}.lang-btn[aria-pressed=true]{display:none}.lang-switch{box-shadow:none}}
+html[lang=ar]{--serif:"Cairo","Amiri","Noto Naskh Arabic",Georgia,serif;--sans:"Cairo","Inter",Tahoma,Arial,sans-serif}
+html[lang=ar] body{line-height:1.85}
+html[lang=ar] *{letter-spacing:0!important}
+html[lang=ar] blockquote,html[lang=ar] .parrain-quote{font-style:normal}
+html[lang=ar] .img-slot.is-empty::after{content:"الصورة قريبًا"}
+html[dir=rtl] .site-header .burger{margin-left:0}
+html[dir=rtl] .timeline{padding-left:0;padding-right:28px}
+html[dir=rtl] .timeline::before{left:auto;right:5px}
+html[dir=rtl] .timeline li::before{left:auto;right:-28px}
+html[dir=rtl] .list li{padding:12px 20px 12px 0}
+html[dir=rtl] .list li::before{left:auto;right:0}
+html[dir=rtl] .founder-section ul{padding-left:0;padding-right:20px}
+html[dir=rtl] .founder-section blockquote{border-left:0;border-right:4px solid #A67C52;padding:4px 18px 4px 0}
+@media(max-width:640px){html[dir=rtl] .founder-section blockquote{border-right:0;border-top:3px solid #A67C52;padding:14px 0 0}html[dir=rtl] .founder-section ul{text-align:right}}
+html[dir=rtl] .mobile-nav a.active{border-left:0;border-right:3px solid #800020;padding-left:8px;padding-right:12px}
+html[dir=rtl] .wa-float{right:auto;left:20px}
+@media(max-width:480px){html[dir=rtl] .wa-float{left:14px}}
+html[dir=rtl] .social-title{margin-right:0;margin-left:6px}
+html[dir=rtl] .lang-switch--float{right:auto;left:10px}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","founder":{"@type":"Person","name":"Thierno Malick BA"},"address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://www.institut-almaarifa.sn/","sameAs":["https://www.facebook.com/profile.php?id=61593730307571","https://www.tiktok.com/@almaarifa123"]}
@@ -226,6 +258,10 @@ html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px so
       <a href="inscriptions.html" data-nav-link>Inscriptions</a>
       <a href="contact.html" data-nav-link>Contact</a>
     </nav>
+    <div class="lang-switch" role="group" aria-label="Langue / اللغة">
+      <button type="button" class="lang-btn" data-set-lang="fr" lang="fr" aria-pressed="true">Français</button>
+      <button type="button" class="lang-btn" data-set-lang="ar" lang="ar" aria-pressed="false">العربية</button>
+    </div>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav" id="burgerBtn"><span></span><span></span><span></span></button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
@@ -502,11 +538,11 @@ html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px so
 document.getElementById('y').textContent=new Date().getFullYear();
 (function(){
   var b=document.getElementById('burgerBtn'),body=document.body;
-  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')}
+  function set(o){body.classList.toggle('nav-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');if(window.AL_LANG)AL_LANG.translate(b)}
   b.addEventListener('click',function(){set(!body.classList.contains('nav-open'))});
   document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
-  window.addEventListener('resize',function(){if(innerWidth>1400)set(false)});
+  window.addEventListener('resize',function(){if(innerWidth>1500)set(false)});
 })();
 (function(){
   document.documentElement.classList.add('js-ready');
@@ -528,7 +564,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
 })();
 </script>
 
-<!-- Traductions arabes des sections ajoutées (venant de la page L'Institut) -->
+<!-- Traductions arabes complémentaires (sections de la page L'Institut) — lues par lang.js -->
 <script>
 window.AL_I18N_EXTRA = {
   "Qui sommes-nous": "من نحن",
@@ -576,7 +612,513 @@ window.AL_I18N_EXTRA = {
 };
 </script>
 
-<!-- Moteur FR / العربية : le script de changement de langue se trouve dans lang.js -->
-<script src="lang.js" defer></script>
+<!-- Moteur bilingue FR / العربية -->
+<script>
+/*!
+ * Institut Al Maarifa — moteur bilingue Français / العربية
+ * - Bascule FR <-> AR sur toute la page (textes, menus, boutons, attributs alt/aria-label/title, <title>, meta)
+ * - Applique automatiquement dir="rtl" / lang="ar" en arabe
+ * - Mémorise le choix (localStorage, clé "lang") entre les pages
+ * - Ajoute automatiquement les boutons « Français » / « العربية » si la page n'en contient pas
+ * - Extensible : window.AL_I18N = { "Texte français": "النص العربي", "Début de phrase*": "…" }
+ *   (une clé finissant par * correspond au début d'un texte ; la valeur peut contenir du HTML)
+ *   ou AL_LANG.add({...}) depuis n'importe quelle page.
+ */
+(function () {
+  'use strict';
+
+  var KEY = 'lang';
+  var root = document.documentElement;
+  var lang = 'fr';
+  var inited = false;
+  var recs = [];
+  var mo = null;
+  var AR_WA = 'السلام عليكم، أودّ الحصول على معلومات حول معهد المعارف.';
+
+  /* ------------------------------------------------------------------ */
+  /*  Dictionnaire de base (menus, boutons, pied de page, page d'accueil) */
+  /* ------------------------------------------------------------------ */
+  var BASE = {
+    /* Communs / navigation */
+    "Aller au contenu": "انتقل إلى المحتوى",
+    "Institut Al Maarifa — accueil": "معهد المعارف — الرئيسية",
+    "Logo Institut Al Maarifa": "شعار معهد المعارف",
+    "INSTITUT AL MAARIFA": "معهد المعارف",
+    "THIERNO DJIBRIL OUSMANE BA": "ثيرنو جبريل عثمان با",
+    "ÉCOLE FRANCO-ARABE": "مدرسة فرنسية عربية",
+    "Navigation principale": "التنقل الرئيسي",
+    "Navigation mobile": "التنقل على الجوال",
+    "Ouvrir le menu": "فتح القائمة",
+    "Fermer le menu": "إغلاق القائمة",
+    "Accueil": "الرئيسية",
+    "L'Institut": "المعهد",
+    "Centre": "المركز",
+    "Programmes": "البرامج",
+    "Activités": "الأنشطة",
+    "Actualités": "الأخبار",
+    "Bibliothèque": "المكتبة",
+    "Galerie": "المعرض",
+    "Tarifs": "الرسوم الدراسية",
+    "Inscriptions": "التسجيلات",
+    "Contact": "اتصل بنا",
+    "Inscrire mon enfant": "سجّل طفلك",
+
+    /* Mots courants (autres pages) */
+    "Envoyer": "إرسال",
+    "Téléphone": "الهاتف",
+    "Adresse": "العنوان",
+    "Nom": "الاسم",
+    "Nom complet": "الاسم الكامل",
+    "Email": "البريد الإلكتروني",
+    "Message": "الرسالة",
+    "Lire la suite": "اقرأ المزيد",
+    "En savoir plus": "اعرف المزيد",
+    "Voir plus": "عرض المزيد",
+    "Retour": "رجوع",
+    "Précédent": "السابق",
+    "Suivant": "التالي",
+    "Télécharger": "تحميل",
+    "Rechercher": "بحث",
+    "Tous": "الكل",
+
+    /* Méta */
+    "Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor": "معهد المعارف ثيرنو جبريل عثمان با — مدرسة فرنسية عربية في بامبيلور",
+    "Institut Al Maarifa Thierno Djibril Ousmane Ba, école franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.": "معهد المعارف ثيرنو جبريل عثمان با، مدرسة فرنسية عربية في بامبيلور - دارو سلام، شريكة لمعهد الأزهر. التسجيلات مفتوحة 2026-2027.",
+    "École franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.": "مدرسة فرنسية عربية في بامبيلور - دارو سلام، شريكة لمعهد الأزهر. التسجيلات مفتوحة 2026-2027.",
+
+    /* Hero */
+    "Bâtiment de l'Institut Al Maarifa": "مبنى معهد المعارف",
+    "INSCRIPTIONS OUVERTES — 2026 / 2027": "التسجيلات مفتوحة — 2026 / 2027",
+    "PARTENAIRE OFFICIEL : INSTITUT AL-AZHAR": "الشريك الرسمي: معهد الأزهر",
+    "École franco-arabe": "مدرسة فرنسية عربية",
+    "Institut Al Maarifa Thierno Djibril Ousmane Ba": "معهد المعارف ثيرنو جبريل عثمان با",
+    "Une éducation de qualité, entre savoirs modernes et valeurs islamiques.": "تعليم عالي الجودة، يجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "DÉCOUVRIR L'INSTITUT": "اكتشف المعهد",
+
+    /* Mission, vision, valeurs */
+    "Notre projet éducatif": "مشروعنا التربوي",
+    "Mission, vision et valeurs": "الرسالة والرؤية والقيم",
+    "Notre mission": "رسالتنا",
+    "Offrir à chaque enfant, du préscolaire*": "منح كل طفل، من التحضيري إلى السنة النهائية، تكوينًا يجمع بين النجاح الدراسي وإتقان الفرنسية والعربية وتربية إسلامية متينة.",
+    "Notre vision": "رؤيتنا",
+    "Former des générations instruites*": "تكوين أجيال متعلّمة ومسؤولة متجذّرة في قيمها، قادرة على مواجهة تحديات العالم المعاصر وخدمة مجتمعها.",
+
+    /* Programme */
+    "Programme éducatif": "البرنامج التربوي",
+    "Un enseignement islamique et une formation académique moderne": "تعليم إسلامي وتكوين أكاديمي حديث",
+    "Des connaissances solides, tout en restant*": "معارف راسخة مع البقاء متجذّرين في القيم الإسلامية. <strong>المواد المدرَّسة:</strong> الدراسات الإسلامية، اللغة العربية، الرياضيات، العلوم، اللغات الأجنبية (الفرنسية والإنجليزية)، العلوم الاجتماعية.",
+    "Un enseignement général de qualité": "تعليم عام عالي الجودة",
+    "Conforme aux standards académiques*": "مطابق للمعايير الأكاديمية لضمان إتقان المواد الأساسية.",
+    "Voir les programmes": "عرض البرامج",
+    "La langue arabe approfondie": "اللغة العربية المعمّقة",
+    "Une ouverture culturelle et une véritable*": "انفتاح ثقافي وإتقان لغوي حقيقي، من التحضيري إلى السنة النهائية.",
+    "Une éducation islamique solide": "تربية إسلامية متينة",
+    "Ancrée dans la transmission*": "قائمة على نقل قيم الاحترام والأخلاق والمسؤولية.",
+
+    /* Cadre */
+    "Notre cadre": "إطارنا",
+    "Un environnement structuré et sécurisé": "بيئة منظَّمة وآمنة",
+    "La réussite scolaire exige un cadre propice*": "يتطلب النجاح الدراسي إطارًا يساعد على التركيز. وتقوم حياتنا اليومية على ثلاث ركائز.",
+    "Discipline et rigueur": "الانضباط والصرامة",
+    "Un cadre exigeant qui développe*": "إطار صارم ينمّي لدى كل تلميذ حب الجهد والمنهجية.",
+    "Propreté": "النظافة",
+    "Des lieux d'apprentissage irréprochables*": "أماكن تعلّم نظيفة بلا عيب، لصحة الجميع ورفاهيتهم.",
+    "Sécurité renforcée": "أمن مشدّد",
+    "Une totale sérénité offerte*": "طمأنينة تامة للتلاميذ ولأسرهم كل يوم.",
+    "Notre engagement :*": "<strong>التزامنا:</strong> أن نمنح كل طفل، دون تمييز، المهارات والمرجعيات والفرص اللازمة لإنجاح مساره الدراسي وأن يصبح مواطنًا مكتمل الشخصية.",
+
+    /* Partenariat */
+    "Ce que cela représente pour votre enfant": "ماذا يعني ذلك لطفلك",
+    "Un enseignement de l'arabe et de l'éducation islamique structuré et exigeant": "تعليم منظَّم وصارم للغة العربية والتربية الإسلامية",
+    "Un parcours cohérent, du préscolaire à la terminale": "مسار متناسق من التحضيري إلى السنة النهائية",
+    "Une double compétence : français et arabe": "كفاءة مزدوجة: الفرنسية والعربية",
+    "Un ancrage solide dans les valeurs islamiques": "جذور راسخة في القيم الإسلامية",
+
+    /* Fondateur */
+    "Le Fondateur": "المؤسس",
+    "À propos du fondateur": "عن المؤسس",
+    "Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "ثيرنو مالك با — مؤسس معهد المعارف ثيرنو جبريل عثمان با",
+    "M. Thierno Malick BA — Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "السيد ثيرنو مالك با — مؤسس معهد المعارف ثيرنو جبريل عثمان با",
+    "Thierno Elhadji Malick Ba": "ثيرنو الحاج مالك با",
+    "Fondateur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "مؤسس معهد المعارف ثيرنو جبريل عثمان با",
+    "Derrière l'Institut Al Maarifa se trouve*": "وراء معهد المعارف طموح: أن نمنح الأطفال تربية تمكّنهم لا من النجاح في دراستهم فحسب، بل من النشأة على قيم حسنة أيضًا.",
+    "Convaincu que l'éducation ne se limite pas*": "إيمانًا منه بأن التربية لا تقتصر على قاعات الدرس والكتب المدرسية، أراد ثيرنو الحاج مالك با أن يُرسي إطارًا تحتل فيه المعرفة والانضباط والاحترام والتربية الإسلامية مكانة مهمة.",
+    "C'est dans cet esprit qu'il a fondé*": "وبهذه الروح أسّس معهد المعارف، رغبةً في مرافقة كل طفل في مساره الدراسي والشخصي، من التحضيري إلى السنة النهائية.",
+    "Pour lui, chaque enfant mérite*": "يرى أن كل طفل يستحق فرصة للنجاح وتنمية قدراته وبناء مستقبله.",
+    "Sa conviction :*": "<strong>قناعته:</strong> « التربية لا تقتصر على تعليم الطفل، بل تشمل مساعدته على أن يصبح شخصًا مسؤولًا ومتعلّمًا يحترم القيم الإنسانية. »",
+
+    /* Directeur */
+    "Le Directeur": "المدير",
+    "Portrait du Directeur": "بورتريه المدير",
+    "M. Ousseynou KHOUMA — Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "السيد أوسينو خوما — مدير معهد المعارف ثيرنو جبريل عثمان با",
+    "Sous-navigation Le Directeur": "التنقل الفرعي — المدير",
+    "Portrait": "بورتريه",
+    "Parcours académique": "المسار الأكاديمي",
+    "Vocation & enseignement": "الرسالة والتدريس",
+    "M. Ousseynou KHOUMA": "السيد أوسينو خوما",
+    "Directeur de l'Institut Al Maarifa Thierno Djibril Ousmane Ba": "مدير معهد المعارف ثيرنو جبريل عثمان با",
+    "Passionné par la langue arabe*": "شغوف باللغة العربية والحضارة العربية الإسلامية وفن التدريس، يضع السيد أوسينو خوما اليوم خبرته ورؤيته في خدمة المعهد الذي يتولى إدارته.",
+    "Son parcours s'appuie sur une alliance*": "يقوم مساره على اتحاد متين بين الصرامة الأكاديمية والممارسة الميدانية. وعلى مر السنين، صقل منهجه التربوي في مؤسسات وهياكل تكوين متعددة، مدفوعًا بالتزام دائم: نقل المعرفة بتميّز ومرافقة تفتّح المتعلمين.",
+    "Parcours": "المسار",
+    "Un parcours académique d'excellence": "مسار أكاديمي متميّز",
+    "Une spécialisation poussée*": "تخصص معمّق في الدراسات العربية الإسلامية، أُنجز أساسًا في كلية الآداب والعلوم الإنسانية بجامعة الشيخ أنتا ديوب بداكار، مع انفتاح دولي.",
+    "Doctorat (UCAD)": "<strong>الدكتوراه</strong> (جامعة الشيخ أنتا ديوب)",
+    "4ᵉ année de doctorat ARCIV, spécialité Études arabo-islamiques (UCAD)": "<strong>السنة الرابعة من الدكتوراه ARCIV</strong>، تخصص الدراسات العربية الإسلامية (UCAD)",
+    "Master 2, spécialité Civilisation arabo-islamique (Département d'Arabe, FLSH, UCAD)": "<strong>الماستر 2</strong>، تخصص الحضارة العربية الإسلامية (قسم اللغة العربية، كلية الآداب والعلوم الإنسانية، UCAD)",
+    "Master 1, spécialité Civilisation arabo-islamique (Département d'Arabe, FLSH, UCAD)": "<strong>الماستر 1</strong>، تخصص الحضارة العربية الإسلامية (قسم اللغة العربية، كلية الآداب والعلوم الإنسانية، UCAD)",
+    "Licence (Département d'Arabe, FLSH, UCAD)": "<strong>الإجازة</strong> (قسم اللغة العربية، كلية الآداب والعلوم الإنسانية، UCAD)",
+    "Brevet d'Arabe Littéral (Université Sorbonne Paris III, France)": "<strong>شهادة العربية الفصحى</strong> (جامعة السوربون باريس 3، فرنسا)",
+    "DUEL I et DUEL II (Département d'Arabe, FLSH, UCAD)": "<strong>DUEL I و DUEL II</strong> (قسم اللغة العربية، كلية الآداب والعلوم الإنسانية، UCAD)",
+    "Vocation": "الرسالة",
+    "Une vocation dédiée à l'enseignement et au partage": "رسالة مكرّسة للتعليم والتشارك",
+    "Spécialisé dans l'enseignement de l'arabe moderne*": "متخصص في تدريس العربية المعاصرة والتكوين التربوي، اكتسب السيد أوسينو خوما خبرته بالاحتكاك المباشر مع المتعلمين والفرق التربوية.",
+    "De ses premières années d'enseignant*": "منذ سنواته الأولى في التدريس وحتى مسؤولياته الحالية مديرًا للمعهد، يحرص على جعل الصرامة الفكرية ونقل المعارف والتنمية الإنسانية في صميم مشروع المؤسسة.",
+
+    /* Chiffres */
+    "Niveaux, du préscolaire à la terminale": "مستويات، من التحضيري إلى السنة النهائية",
+    "Langues d'enseignement : français & arabe": "لغتا التدريس: الفرنسية والعربية",
+    "Partenariat avec l'Institut Al-Azhar": "شراكة مع معهد الأزهر",
+    "Rentrée scolaire 2026 – 2027": "الدخول المدرسي 2026 – 2027",
+
+    /* Appel à l'action */
+    "PRÉPAREZ L'AVENIR DE VOTRE ENFANT": "أعدّوا مستقبل طفلكم",
+    "Rejoignez l'Institut Al Maarifa Thierno Djibril Ousmane Ba pour*": "انضمّوا إلى معهد المعارف ثيرنو جبريل عثمان با لتربية تجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "DÉCOUVRIR LES INSCRIPTIONS": "اكتشف التسجيلات",
+
+    /* Pied de page */
+    "École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation*": "مدرسة فرنسية عربية شريكة لمعهد الأزهر. تعليم عالي الجودة يجمع بين المعارف الحديثة والقيم الإسلامية.",
+    "Bambilor – Darou Salam, Sénégal": "بامبيلور – دارو سلام، السنغال",
+    "Navigation": "التنقل",
+    "Ressources": "مصادر",
+    "Bibliothèque numérique": "المكتبة الرقمية",
+    "Inscriptions 2026–2027": "التسجيلات 2026–2027",
+    "Le Centre": "المركز",
+    "Écrire sur WhatsApp": "راسلنا عبر واتساب",
+    "Formulaire de contact": "نموذج الاتصال",
+    "Suivez-nous": "تابعونا",
+    "Contacter sur WhatsApp": "تواصل عبر واتساب",
+    "©*": "© {year} معهد المعارف ثيرنو جبريل عثمان با. جميع الحقوق محفوظة.",
+    "Partenaire officiel : Institut Al-Azhar": "الشريك الرسمي: معهد الأزهر"
+  };
+
+  /* ------------------------------------------------------------------ */
+  /*  Index de recherche                                                  */
+  /* ------------------------------------------------------------------ */
+  var exact = {};
+  var prefixes = [];
+
+  function norm(s) {
+    return String(s).replace(/[\u2018\u2019]/g, "'").replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+  }
+
+  function build() {
+    exact = {};
+    prefixes = [];
+    [BASE, window.AL_I18N || {}, window.AL_I18N_EXTRA || {}].forEach(function (d) {
+      for (var k in d) {
+        if (!Object.prototype.hasOwnProperty.call(d, k)) continue;
+        if (k.charAt(k.length - 1) === '*') prefixes.push({ p: norm(k.slice(0, -1)), v: d[k] });
+        else exact[norm(k)] = d[k];
+      }
+    });
+    prefixes.sort(function (a, b) { return b.p.length - a.p.length; });
+  }
+
+  function find(text) {
+    var n = norm(text), v = null;
+    if (!n) return null;
+    if (Object.prototype.hasOwnProperty.call(exact, n)) v = exact[n];
+    else {
+      for (var i = 0; i < prefixes.length; i++) {
+        if (n.indexOf(prefixes[i].p) === 0) { v = prefixes[i].v; break; }
+      }
+    }
+    if (v == null) return null;
+    return String(v).replace('{year}', new Date().getFullYear());
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Traduction du DOM                                                   */
+  /* ------------------------------------------------------------------ */
+  var SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, SVG: 1, TEXTAREA: 1, CODE: 1, PRE: 1, TEMPLATE: 1, IFRAME: 1 };
+  var BLOCKSEL = 'p,div,ul,ol,li,section,article,aside,nav,header,footer,main,h1,h2,h3,h4,h5,h6,blockquote,table,form,figure';
+  var ATTRS = ['alt', 'title', 'aria-label', 'placeholder'];
+
+  function skip(el) {
+    return SKIP[el.tagName.toUpperCase()] || el.hasAttribute('data-no-i18n') || (el.classList && el.classList.contains('lang-switch'));
+  }
+
+  function textOf(el) {
+    if (el.getElementsByTagName('br').length) {
+      var c = el.cloneNode(true);
+      var brs = c.querySelectorAll('br');
+      for (var i = 0; i < brs.length; i++) brs[i].replaceWith(' ');
+      return c.textContent;
+    }
+    return el.textContent;
+  }
+
+  function translateAttrs(el) {
+    ATTRS.forEach(function (a) {
+      if (!el.hasAttribute(a)) return;
+      var cur = el.getAttribute(a);
+      var store = el.__al || (el.__al = {});
+      if (store[a] && store[a].tr === cur) return;
+      var t = find(cur);
+      if (!t || t === cur) return;
+      store[a] = { orig: cur, tr: t };
+      el.setAttribute(a, t);
+      recs.push(function () {
+        var r = el.__al && el.__al[a];
+        if (r) {
+          if (el.getAttribute(a) === r.tr) el.setAttribute(a, r.orig);
+          delete el.__al[a];
+        }
+      });
+    });
+  }
+
+  function translateText(n) {
+    var t = n.data;
+    if (!/\S/.test(t)) return;
+    var v = find(t);
+    if (!v || v.indexOf('<') >= 0) return;
+    var m = t.match(/^(\s*)[\s\S]*?(\s*)$/);
+    var o = t;
+    n.data = (m ? m[1] : '') + v + (m ? m[2] : '');
+    recs.push(function () { n.data = o; });
+  }
+
+  function translateEl(el) {
+    if (!el || el.nodeType !== 1 || skip(el)) return;
+    translateAttrs(el);
+    if (!el.querySelector(BLOCKSEL)) {
+      var tx = textOf(el);
+      if (tx && tx.length < 2500) {
+        var v = find(tx);
+        if (v) {
+          var o = el.innerHTML;
+          el.innerHTML = v;
+          recs.push(function () { el.innerHTML = o; });
+          return;
+        }
+      }
+    }
+    var n = el.firstChild;
+    while (n) {
+      var next = n.nextSibling;
+      if (n.nodeType === 3) translateText(n);
+      else if (n.nodeType === 1) translateEl(n);
+      n = next;
+    }
+  }
+
+  function restoreAll() {
+    while (recs.length) { try { recs.pop()(); } catch (e) {} }
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Éléments annexes : <title>, meta, liens WhatsApp, police arabe      */
+  /* ------------------------------------------------------------------ */
+  function headMeta() {
+    var t = document.querySelector('title');
+    if (t) {
+      if (t.__o === undefined) t.__o = t.textContent;
+      var tv = lang === 'ar' ? find(t.__o) : null;
+      document.title = tv || t.__o;
+    }
+    var metas = document.querySelectorAll('meta[name="description"],meta[property="og:title"],meta[property="og:description"]');
+    for (var i = 0; i < metas.length; i++) {
+      var m = metas[i];
+      if (m.__o === undefined) m.__o = m.getAttribute('content') || '';
+      var v = lang === 'ar' ? find(m.__o) : null;
+      m.setAttribute('content', v || m.__o);
+    }
+  }
+
+  function waLinks() {
+    var links = document.querySelectorAll('a[data-wa-link]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i], h = a.getAttribute('href') || '';
+      if (a.__href === undefined) a.__href = h;
+      if (lang === 'ar' && /[?&]text=/.test(a.__href)) {
+        a.setAttribute('href', a.__href.replace(/([?&]text=)[^&]*/, '$1' + encodeURIComponent(AR_WA)));
+      } else {
+        a.setAttribute('href', a.__href);
+      }
+    }
+  }
+
+  function ensureFont() {
+    if (document.getElementById('al-font-ar')) return;
+    var l = document.createElement('link');
+    l.id = 'al-font-ar';
+    l.rel = 'stylesheet';
+    l.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap';
+    document.head.appendChild(l);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Boutons de langue                                                   */
+  /* ------------------------------------------------------------------ */
+  var CSS = `
+.lang-switch{display:inline-flex;flex:0 0 auto;border:2px solid #800020;border-radius:100px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(128,0,32,.18)}
+.lang-btn{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:#800020;font:700 .9rem/1 "Inter","Helvetica Neue",Arial,sans-serif;padding:11px 16px;min-height:44px;cursor:pointer;transition:background .2s,color .2s}
+.lang-btn[lang=ar]{font-family:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;font-size:1.05rem}
+.lang-btn:hover{background:#F1F2F4}
+.lang-btn[aria-pressed=true]{background:#800020;color:#fff;cursor:default}
+.lang-btn:focus-visible{outline:3px solid #A67C52;outline-offset:-3px}
+.lang-switch--float{position:fixed;top:10px;right:10px;z-index:90}
+@media(max-width:1500px){.site-header .lang-switch{margin-inline-start:auto}.site-header .burger{margin-left:0;margin-right:0}}
+@media(max-width:520px){.lang-btn{padding:9px 14px;min-height:42px}.lang-btn[aria-pressed=true]{display:none}.lang-switch{box-shadow:none}}
+html[lang=ar]{--serif:"Cairo","Amiri","Noto Naskh Arabic",Georgia,serif;--sans:"Cairo","Inter",Tahoma,Arial,sans-serif}
+html[lang=ar] body{line-height:1.85}
+html[lang=ar] *{letter-spacing:0!important}
+html[lang=ar] blockquote,html[lang=ar] .parrain-quote{font-style:normal}
+html[lang=ar] .img-slot.is-empty::after{content:"الصورة قريبًا"}
+html[dir=rtl] .site-header .burger{margin-left:0}
+html[dir=rtl] .timeline{padding-left:0;padding-right:28px}
+html[dir=rtl] .timeline::before{left:auto;right:5px}
+html[dir=rtl] .timeline li::before{left:auto;right:-28px}
+html[dir=rtl] .list li{padding:12px 20px 12px 0}
+html[dir=rtl] .list li::before{left:auto;right:0}
+html[dir=rtl] .founder-section ul{padding-left:0;padding-right:20px}
+html[dir=rtl] .founder-section blockquote{border-left:0;border-right:4px solid #A67C52;padding:4px 18px 4px 0}
+@media(max-width:640px){html[dir=rtl] .founder-section blockquote{border-right:0;border-top:3px solid #A67C52;padding:14px 0 0}html[dir=rtl] .founder-section ul{text-align:right}}
+html[dir=rtl] .mobile-nav a.active{border-left:0;border-right:3px solid #800020;padding-left:8px;padding-right:12px}
+html[dir=rtl] .wa-float{right:auto;left:20px}
+@media(max-width:480px){html[dir=rtl] .wa-float{left:14px}}
+html[dir=rtl] .social-title{margin-right:0;margin-left:6px}
+html[dir=rtl] .lang-switch--float{right:auto;left:10px}
+`;
+
+  function injectCss() {
+    if (document.getElementById('al-lang-css')) return;
+    var s = document.createElement('style');
+    s.id = 'al-lang-css';
+    s.textContent = CSS;
+    document.head.appendChild(s);
+  }
+
+  function injectSwitch() {
+    if (document.querySelector('.lang-switch')) return;
+    var box = document.createElement('div');
+    box.className = 'lang-switch';
+    box.setAttribute('role', 'group');
+    box.setAttribute('aria-label', 'Langue / اللغة');
+    box.innerHTML = '<button type="button" class="lang-btn" data-set-lang="fr" lang="fr">Français</button>' +
+                    '<button type="button" class="lang-btn" data-set-lang="ar" lang="ar">العربية</button>';
+    var row = document.querySelector('.nav-row');
+    if (row) {
+      var burger = row.querySelector('.burger');
+      row.insertBefore(box, burger || null);
+    } else {
+      box.className += ' lang-switch--float';
+      document.body.appendChild(box);
+    }
+  }
+
+  function sync() {
+    var bs = document.querySelectorAll('[data-set-lang]');
+    for (var i = 0; i < bs.length; i++) {
+      var on = bs[i].getAttribute('data-set-lang') === lang;
+      bs[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Changement de langue                                                */
+  /* ------------------------------------------------------------------ */
+  function startObserver() {
+    if (!mo || lang !== 'ar' || !document.body) return;
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function setLang(l) {
+    l = l === 'ar' ? 'ar' : 'fr';
+    root.classList.add('lang-switching');
+    if (mo) mo.disconnect();
+    restoreAll();
+    lang = l;
+    root.setAttribute('lang', l);
+    root.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    if (l === 'ar') {
+      ensureFont();
+      if (document.body) translateEl(document.body);
+    }
+    headMeta();
+    waLinks();
+    sync();
+    try { localStorage.setItem(KEY, l); } catch (e) {}
+    startObserver();
+    try { window.dispatchEvent(new CustomEvent('al:lang', { detail: { lang: l } })); } catch (e) {}
+    requestAnimationFrame(function () { root.classList.remove('lang-switching'); });
+  }
+
+  function init() {
+    if (inited) return;
+    inited = true;
+    build();
+    injectCss();
+    injectSwitch();
+
+    var pending = [], scheduled = false;
+    mo = new MutationObserver(function (ms) {
+      if (lang !== 'ar') return;
+      ms.forEach(function (m) {
+        for (var i = 0; i < m.addedNodes.length; i++) {
+          var n = m.addedNodes[i];
+          if (n.nodeType === 1) pending.push(n);
+          else if (n.nodeType === 3 && n.parentElement) pending.push(n.parentElement);
+        }
+      });
+      if (scheduled || !pending.length) return;
+      scheduled = true;
+      requestAnimationFrame(function () {
+        scheduled = false;
+        mo.disconnect();
+        var list = pending; pending = [];
+        if (lang === 'ar') list.forEach(function (n) { if (document.contains(n)) translateEl(n); });
+        startObserver();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('[data-set-lang]');
+      if (!b) return;
+      e.preventDefault();
+      var l = b.getAttribute('data-set-lang');
+      if (l !== lang) setLang(l);
+    });
+
+    var saved = 'fr';
+    try { saved = localStorage.getItem(KEY) === 'ar' ? 'ar' : 'fr'; } catch (e) {}
+    if (saved === 'ar') setLang('ar');
+    else { sync(); headMeta(); }
+  }
+
+  /* API publique */
+  window.AL_LANG = {
+    get: function () { return lang; },
+    set: setLang,
+    add: function (dict) {
+      window.AL_I18N = window.AL_I18N || {};
+      for (var k in dict) if (Object.prototype.hasOwnProperty.call(dict, k)) window.AL_I18N[k] = dict[k];
+      build();
+      if (lang === 'ar') setLang('ar');
+    },
+    translate: function (node) {
+      if (lang !== 'ar' || !node) return;
+      if (mo) mo.disconnect();
+      translateEl(node);
+      startObserver();
+    }
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+</script>
 </body>
 </html>
