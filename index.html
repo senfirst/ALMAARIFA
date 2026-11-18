@@ -238,29 +238,29 @@ html[dir=rtl] .wa-float{right:auto;left:20px}
 html[dir=rtl] .social-title{margin-right:0;margin-left:6px}
 html[dir=rtl] .lang-switch--float{right:auto;left:10px}
 </style>
+<link rel="stylesheet" href="theme-prestige.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","logo":"https://institutalmaarifa.com/android-chrome-512x512.png","founder":{"@type":"Person","name":"Thierno Malick BA"},"address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://institutalmaarifa.com/","sameAs":["https://www.facebook.com/profile.php?id=61593730307571","https://www.tiktok.com/@almaarifa123"]}
 </script>
 </head>
-<body>
+<body class="home">
 <a href="#main" class="visually-hidden">Aller au contenu</a>
 <header class="site-header">
   <div class="nav-row">
     <a href="index.html" class="brand" aria-label="Institut Al Maarifa — accueil">
-      <img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
+      <img src="logo.png" alt="Logo Institut Al Maarifa" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'">
       <span class="brand-text"><strong>INSTITUT AL MAARIFA</strong><span>THIERNO DJIBRIL OUSMANE BA</span><em>ÉCOLE FRANCO-ARABE</em></span>
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
       <a href="index.html" data-nav-link class="active" aria-current="page">Accueil</a>
-      <a href="#institut" data-nav-link>L'Institut</a>
-      <a href="centre.html" data-nav-link>Centre</a>
-      <a href="programmes.html" data-nav-link>Programmes</a>
-      <a href="activites.html" data-nav-link>Activités</a>
+      <div class="nav-item has-sub"><a href="#institut" data-nav-link aria-haspopup="true">Notre Institut</a><div class="sub" role="menu"><a href="#institut" data-nav-link role="menuitem">L'Institut</a><a href="#mission" data-nav-link role="menuitem">Mission et valeurs</a><a href="#partenariat" data-nav-link role="menuitem">Partenariat Al-Azhar</a><a href="#fondateur" data-nav-link role="menuitem">Le Fondateur</a><a href="#biographie-directeur" data-nav-link role="menuitem">La Direction</a><a href="centre.html" data-nav-link role="menuitem">Le Centre</a></div></div>
+      <div class="nav-item has-sub"><a href="#cycles" data-nav-link aria-haspopup="true">Nos cycles</a><div class="sub" role="menu"><a href="#cycles" data-nav-link role="menuitem">Préscolaire</a><a href="#cycles" data-nav-link role="menuitem">Élémentaire</a><a href="#cycles" data-nav-link role="menuitem">Moyen</a><a href="#cycles" data-nav-link role="menuitem">Secondaire</a></div></div>
+      <div class="nav-item has-sub"><a href="programmes.html" data-nav-link aria-haspopup="true">Enseignement</a><div class="sub" role="menu"><a href="programmes.html" data-nav-link role="menuitem">Programmes</a><a href="#piliers" data-nav-link role="menuitem">Nos piliers éducatifs</a></div></div>
+      <div class="nav-item has-sub"><a href="activites.html" data-nav-link aria-haspopup="true">Vie scolaire</a><div class="sub" role="menu"><a href="activites.html" data-nav-link role="menuitem">Activités</a><a href="#vie" data-nav-link role="menuitem">La vie à l'Institut</a></div></div>
       <a href="actualites.html" data-nav-link>Actualités</a>
-      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
       <a href="galerie.html" data-nav-link>Galerie</a>
-      <a href="tarifs.html" data-nav-link>Tarifs</a>
-      <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+      <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+      <div class="nav-item has-sub"><a href="inscriptions.html" data-nav-link aria-haspopup="true">Admissions</a><div class="sub" role="menu"><a href="inscriptions.html" data-nav-link role="menuitem">Inscriptions</a><a href="tarifs.html" data-nav-link role="menuitem">Tarifs</a></div></div>
       <a href="contact.html" data-nav-link>Contact</a>
     </nav>
     <div class="lang-switch" role="group" aria-label="Langue / اللغة">
@@ -271,17 +271,16 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
     <a href="index.html" data-nav-link class="active" aria-current="page">Accueil</a>
-    <a href="#institut" data-nav-link>L'Institut</a>
-    <a href="centre.html" data-nav-link>Centre</a>
-    <a href="programmes.html" data-nav-link>Programmes</a>
-    <a href="activites.html" data-nav-link>Activités</a>
+    <details class="m-sub"><summary>Notre Institut</summary><a href="#institut" data-nav-link>L'Institut</a><a href="#mission" data-nav-link>Mission et valeurs</a><a href="#partenariat" data-nav-link>Partenariat Al-Azhar</a><a href="#fondateur" data-nav-link>Le Fondateur</a><a href="#biographie-directeur" data-nav-link>La Direction</a><a href="centre.html" data-nav-link>Le Centre</a></details>
+    <details class="m-sub"><summary>Nos cycles</summary><a href="#cycles" data-nav-link>Préscolaire</a><a href="#cycles" data-nav-link>Élémentaire</a><a href="#cycles" data-nav-link>Moyen</a><a href="#cycles" data-nav-link>Secondaire</a></details>
+    <details class="m-sub"><summary>Enseignement</summary><a href="programmes.html" data-nav-link>Programmes</a><a href="#piliers" data-nav-link>Nos piliers éducatifs</a></details>
+    <details class="m-sub"><summary>Vie scolaire</summary><a href="activites.html" data-nav-link>Activités</a><a href="#vie" data-nav-link>La vie à l'Institut</a></details>
     <a href="actualites.html" data-nav-link>Actualités</a>
-    <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
     <a href="galerie.html" data-nav-link>Galerie</a>
-    <a href="tarifs.html" data-nav-link>Tarifs</a>
-    <a href="inscriptions.html" data-nav-link>Inscriptions</a>
+    <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
+    <details class="m-sub"><summary>Admissions</summary><a href="inscriptions.html" data-nav-link>Inscriptions</a><a href="tarifs.html" data-nav-link>Tarifs</a></details>
     <a href="contact.html" data-nav-link>Contact</a>
-    <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
+        <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
   </nav>
 </header>
 <main id="main">
@@ -293,14 +292,15 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
       <source src="maarik.mp4" type="video/mp4" onerror="this.parentNode.remove()">
     </video>
   </div>
-  <div class="container hero-inner">
+  <div class="container hero-inner" data-parallax>
     <div class="badge">INSCRIPTIONS OUVERTES — 2026 / 2027</div>
     <div class="partner">PARTENAIRE OFFICIEL : INSTITUT AL-AZHAR</div>
     <h1>École franco-arabe <small>Institut Al Maarifa Thierno Djibril Ousmane Ba</small></h1>
-    <p class="slogan">Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
+    <p class="slogan">L'excellence au service de la réussite</p>
+    <p class="lead">Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
     <div class="hero-actions">
-      <a class="btn btn-bx" style="border-color:#fff" href="#institut">DÉCOUVRIR L'INSTITUT</a>
-      <a class="btn btn-white" href="inscriptions.html">INSCRIRE MON ENFANT</a>
+      <a class="btn btn-bx" style="border-color:#fff" href="#institut">DÉCOUVRIR NOTRE ÉTABLISSEMENT</a>
+      <a class="btn btn-white" href="inscriptions.html">ADMISSIONS ET INSCRIPTIONS</a>
     </div>
   </div>
 </section>
@@ -337,6 +337,32 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
       <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24" aria-hidden="true"><path d="M12 3v18M6 8c0 4 3 5 6 5s6-1 6-5"/></svg></div><div><h3>Valeurs islamiques</h3><p>Une éducation religieuse authentique, transmise avec pédagogie et douceur.</p></div></div>
       <div class="value-item reveal"><div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24" aria-hidden="true"><path d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg></div><div><h3>Modernité</h3><p>Des méthodes actuelles, une bibliothèque numérique et un suivi pédagogique moderne.</p></div></div>
     </div>
+  </div>
+</section>
+
+<!-- 2b. NOS CYCLES -->
+<section id="cycles">
+  <div class="container">
+    <div class="section-head center reveal"><span class="kicker">Nos cycles scolaires</span><h2>Quatre cycles pour accompagner chaque enfant</h2></div>
+    <div class="grid grid-4 cycles" style="margin-top:0">
+      <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-prescolaire.jpg" alt="Cycle préscolaire — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">01</span><h3>Préscolaire</h3><p>Le premier cycle du parcours, dans un cadre structuré, propre et sécurisé.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
+      <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-elementaire.jpg" alt="Cycle élémentaire — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">02</span><h3>Élémentaire</h3><p>La suite du parcours : enseignement général, français et arabe.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
+      <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-moyen.jpg" alt="Cycle moyen — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">03</span><h3>Moyen</h3><p>Un cycle qui poursuit le parcours : enseignement général, langue arabe et éducation islamique.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
+      <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-secondaire.jpg" alt="Cycle secondaire — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">04</span><h3>Secondaire</h3><p>Le dernier cycle, jusqu'à la terminale, pour préparer la suite des études.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
+      </div>
+  </div>
+</section>
+
+<!-- 2c. NOS PILIERS -->
+<section class="pillars" id="piliers">
+  <div class="container">
+    <div class="section-head center reveal"><span class="kicker">Nos piliers éducatifs</span><h2>Quatre piliers au service de chaque élève</h2></div>
+    <div class="grid grid-4 pillar-grid" style="margin-top:0">
+      <article class="pillar reveal"><span class="pillar-n">I</span><h3>Excellence académique</h3><p>Développer les connaissances, les compétences et la réussite scolaire.</p></article>
+      <article class="pillar reveal"><span class="pillar-n">II</span><h3>Maîtrise de la langue arabe</h3><p>Valoriser l'apprentissage et la maîtrise de la langue arabe.</p></article>
+      <article class="pillar reveal"><span class="pillar-n">III</span><h3>Éducation islamique</h3><p>Promouvoir l'éducation morale, spirituelle et les valeurs islamiques.</p></article>
+      <article class="pillar reveal"><span class="pillar-n">IV</span><h3>Formation humaine</h3><p>Développer la discipline, le respect, la responsabilité et le sens du devoir.</p></article>
+      </div>
   </div>
 </section>
 
@@ -397,8 +423,19 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
   </div>
 </section>
 
+<!-- VIE À L'INSTITUT -->
+<section class="alt" id="vie">
+  <div class="container">
+    <div class="split" style="margin-bottom:40px">
+      <div class="reveal"><span class="kicker">Vie scolaire</span><h2>La vie à l'Institut Al Maarifa</h2></div>
+      <div class="reveal"><p>Activités pédagogiques, culturelles, sportives et éducatives : découvrez notre environnement scolaire en images.</p><a class="btn btn-line" href="galerie.html">Voir la galerie</a> <a class="btn btn-line" href="activites.html">Nos activités</a></div>
+    </div>
+    <div class="mosaic reveal"><figure class="m1"><a href="bati.jpeg" data-lightbox><img src="bati.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m2"><a href="marifa.jpeg" data-lightbox><img src="marifa.jpeg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m3"><a href="vie-1.jpg" data-lightbox><img src="vie-1.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m4"><a href="vie-2.jpg" data-lightbox><img src="vie-2.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m5"><a href="vie-3.jpg" data-lightbox><img src="vie-3.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure></div>
+  </div>
+</section>
+
 <!-- 6. PARRAIN -->
-<section class="alt" id="parrain">
+<section id="parrain">
   <div class="container">
     <div class="section-head center reveal"><span class="kicker">Parrain de l'Institut</span><h2>Thierno Djibril Ousmane Bâ</h2></div>
     <div class="split">
@@ -497,12 +534,26 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
   </div>
 </section>
 
-<!-- INSCRIPTIONS -->
-<section class="cta">
+<!-- ACTUALITÉS -->
+<section class="alt" id="actualites-accueil">
+  <div class="container">
+    <div class="section-head center reveal"><span class="kicker">Actualités et événements</span><h2>Suivez la vie de l'Institut</h2><p>Actualités de l'établissement, visites officielles, événements, activités pédagogiques, cérémonies et partenariats.</p></div>
+    <div class="chip-row reveal" style="justify-content:center;margin-bottom:28px"><span class="chip">Actualités de l'établissement</span><span class="chip">Visites officielles</span><span class="chip">Événements</span><span class="chip">Activités pédagogiques</span><span class="chip">Cérémonies</span><span class="chip">Partenariats</span></div>
+    <p class="reveal" style="text-align:center;margin:0 auto"><a class="btn btn-bx" href="actualites.html">Voir toutes les actualités</a></p>
+  </div>
+</section>
+
+<!-- ADMISSIONS ET INSCRIPTIONS -->
+<section class="cta admission" id="admissions">
   <div class="container reveal">
-    <h2>PRÉPAREZ L'AVENIR DE VOTRE ENFANT</h2>
-    <p>Rejoignez l'Institut Al Maarifa Thierno Djibril Ousmane Ba pour une éducation associant connaissances modernes et valeurs islamiques.</p>
-    <a class="btn btn-white" href="inscriptions.html">DÉCOUVRIR LES INSCRIPTIONS</a>
+    <span class="kicker">Admissions et inscriptions</span>
+    <h2>Offrez à votre enfant un avenir fondé sur le savoir et les valeurs</h2>
+    <p>Les inscriptions 2026-2027 sont ouvertes, avec des places limitées par niveau.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a class="btn btn-white" href="contact.html">Demander des informations</a>
+      <a class="btn btn-wa" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener noreferrer">Nous contacter sur WhatsApp</a>
+    </div>
+    <p style="margin:22px auto 0"><a class="cta-link" href="inscriptions.html">Voir les inscriptions 2026–2027</a></p>
   </div>
 </section>
 
@@ -511,7 +562,7 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><img src="logo.jpeg" alt="Logo Institut Al Maarifa" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
+        <div class="footer-brand"><img src="logo.png" alt="Logo Institut Al Maarifa" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Crect width=%2246%22 height=%2246%22 rx=%2210%22 fill=%22%235C1025%22/%3E%3Ctext x=%2223%22 y=%2229%22 font-size=%2218%22 fill=%22%23A67C52%22 text-anchor=%22middle%22 font-family=%22Georgia%22%3EAM%3C/text%3E%3C/svg%3E'"><strong>Institut Al Maarifa<br>Thierno Djibril Ousmane Ba</strong></div>
         <p>École franco-arabe partenaire de l'Institut Al-Azhar. Une éducation de qualité, entre savoirs modernes et valeurs islamiques.</p>
         <p class="small">Bambilor – Darou Salam, Sénégal</p>
       </div>
@@ -572,6 +623,67 @@ document.getElementById('y').textContent=new Date().getFullYear();
 <!-- Traductions arabes complémentaires (sections de la page L'Institut) — lues par lang.js -->
 <script>
 window.AL_I18N_EXTRA = {
+  "Notre Institut": "معهدنا",
+  "Nos cycles": "أطوارنا الدراسية",
+  "Enseignement": "التعليم",
+  "Vie scolaire": "الحياة المدرسية",
+  "Admissions": "القبول والتسجيل",
+  "Mission et valeurs": "الرسالة والقيم",
+  "Partenariat Al-Azhar": "شراكة الأزهر",
+  "La Direction": "الإدارة",
+  "Élémentaire": "الابتدائي",
+  "Moyen": "المتوسط",
+  "Secondaire": "الثانوي",
+  "Nos piliers éducatifs": "ركائزنا التربوية",
+  "DÉCOUVRIR NOTRE ÉTABLISSEMENT": "اكتشف مؤسستنا",
+  "ADMISSIONS ET INSCRIPTIONS": "القبول والتسجيل",
+  "Nos cycles scolaires": "أطوارنا الدراسية",
+  "Quatre cycles pour accompagner chaque enfant": "أربعة أطوار لمرافقة كل طفل",
+  "Le premier cycle du parcours, dans un cadre structuré, propre et sécurisé.": "الطور الأول من المسار، في إطار منظَّم ونظيف وآمن.",
+  "La suite du parcours : enseignement général, français et arabe.": "مواصلة المسار: التعليم العام والفرنسية والعربية.",
+  "Un cycle qui poursuit le parcours : enseignement général, langue arabe et éducation islamique.": "طور يواصل المسار: التعليم العام واللغة العربية والتربية الإسلامية.",
+  "Le dernier cycle, jusqu'à la terminale, pour préparer la suite des études.": "الطور الأخير حتى السنة النهائية، لإعداد مواصلة الدراسة.",
+  "Objectifs": "الأهداف",
+  "Réussite scolaire et maîtrise des disciplines fondamentales": "النجاح الدراسي وإتقان المواد الأساسية",
+  "Maîtrise du français et de l'arabe": "إتقان الفرنسية والعربية",
+  "Éducation islamique et valeurs": "التربية الإسلامية والقيم",
+  "Quatre piliers au service de chaque élève": "أربع ركائز في خدمة كل تلميذ",
+  "Excellence académique": "التميّز الأكاديمي",
+  "Développer les connaissances, les compétences et la réussite scolaire.": "تنمية المعارف والمهارات والنجاح الدراسي.",
+  "Maîtrise de la langue arabe": "إتقان اللغة العربية",
+  "Valoriser l'apprentissage et la maîtrise de la langue arabe.": "تثمين تعلّم اللغة العربية وإتقانها.",
+  "Éducation islamique": "التربية الإسلامية",
+  "Promouvoir l'éducation morale, spirituelle et les valeurs islamiques.": "تعزيز التربية الأخلاقية والروحية والقيم الإسلامية.",
+  "Formation humaine": "التكوين الإنساني",
+  "Développer la discipline, le respect, la responsabilité et le sens du devoir.": "تنمية الانضباط والاحترام والمسؤولية وحس الواجب.",
+  "La vie à l'Institut": "الحياة في المعهد",
+  "La vie à l'Institut Al Maarifa": "الحياة في معهد المعارف",
+  "Activités pédagogiques, culturelles, sportives et éducatives : découvrez notre environnement scolaire en images.": "أنشطة تربوية وثقافية ورياضية وتعليمية: اكتشفوا بيئتنا المدرسية بالصور.",
+  "Voir la galerie": "عرض المعرض",
+  "Nos activités": "أنشطتنا",
+  "Actualités et événements": "الأخبار والفعاليات",
+  "Suivez la vie de l'Institut": "تابعوا حياة المعهد",
+  "Actualités de l'établissement, visites officielles, événements, activités pédagogiques, cérémonies et partenariats.": "أخبار المؤسسة، الزيارات الرسمية، الفعاليات، الأنشطة التربوية، الاحتفالات والشراكات.",
+  "Actualités de l'établissement": "أخبار المؤسسة",
+  "Visites officielles": "زيارات رسمية",
+  "Événements": "فعاليات",
+  "Activités pédagogiques": "أنشطة تربوية",
+  "Cérémonies": "احتفالات",
+  "Partenariats": "شراكات",
+  "Voir toutes les actualités": "عرض كل الأخبار",
+  "Admissions et inscriptions": "القبول والتسجيل",
+  "Offrez à votre enfant un avenir fondé sur le savoir et les valeurs": "امنحوا طفلكم مستقبلًا قائمًا على المعرفة والقيم",
+  "Les inscriptions 2026-2027 sont ouvertes, avec des places limitées par niveau.": "التسجيلات 2026-2027 مفتوحة، والأماكن محدودة في كل مستوى.",
+  "Demander des informations": "طلب معلومات",
+  "Nous contacter sur WhatsApp": "تواصل معنا عبر واتساب",
+  "Voir les inscriptions 2026–2027": "عرض التسجيلات 2026–2027",
+  "L'excellence au service de la réussite": "التميّز في خدمة النجاح",
+  "Niveaux d'enseignement": "المستويات الدراسية",
+  "Préscolaire": "التحضيري",
+  "Primaire": "الابتدائي",
+  "Collège": "الإعدادي",
+  "Lycée": "الثانوي",
+  "Découvrir": "اكتشف",
   "Qui sommes-nous": "من نحن",
   "Une école pensée pour donner à chaque enfant les moyens de réussir": "مدرسة صُمّمت لتمنح كل طفل وسائل النجاح",
   "L'Institut Al Maarifa Thierno Djibril Ousmane Ba est né*": "وُلد معهد المعارف ثيرنو جبريل عثمان با من إرادة تقديم بديل تربوي متميّز في <strong>بامبيلور - دارو سلام</strong>: تعليم عام عالي الجودة، وإتقان حقيقي للغة العربية، وتربية إسلامية أصيلة تُقدَّم بأسلوب تربوي.",
@@ -1125,5 +1237,6 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
 })();
 
 </script>
+<script src="theme-prestige.js" defer></script>
 </body>
 </html>
