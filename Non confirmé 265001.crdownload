@@ -1,0 +1,342 @@
+/*! ALMAARIFA AI — Assistant intelligent de l'Institut Al Maarifa
+ *  Widget autonome : Shadow DOM (aucun conflit avec s.css, lang.js ou le CSS inline du site).
+ *  Aucune clé API ici : tout passe par le serveur (api/chat.php).
+ */
+(function () {
+  'use strict';
+  if (window.__ALMAARIFA_AI__) return;
+  window.__ALMAARIFA_AI__ = true;
+
+  var CFG = Object.assign({
+    endpoint: '/almaarifa-ai/api/chat.php',
+    contactEndpoint: '/almaarifa-ai/api/contact.php',
+    whatsapp: '221774036424',
+    phone: '+221774036424'
+  }, window.ALMAARIFA_AI_CONFIG || {});
+
+  /* ------------------------------ Textes FR / AR / EN ------------------------------ */
+  var T = {
+    fr: {
+      dir: 'ltr', online: 'Votre assistant intelligent est en ligne', open: 'Ouvrir ALMAARIFA AI', close: 'Fermer',
+      ph: 'Écrivez votre message…', send: 'Envoyer', lang: 'Langue', auto: 'Auto', neu: 'Nouvelle conversation',
+      hello: 'Assalamu alaikum ! Je suis ALMAARIFA AI, l’assistant de l’Institut Al Maarifa. Comment puis-je vous aider ?',
+      sugg: ['Présentez-moi votre établissement.', 'Comment inscrire mon enfant ?', 'Quels sont les niveaux d’enseignement disponibles ?', 'Quels documents faut-il fournir ?', 'Comment contacter l’administration ?', 'Où se trouve l’Institut Al Maarifa ?'],
+      admin: 'Contacter l’administration', back: 'Retour', wa: 'Écrire sur WhatsApp', call: 'Appeler l’école',
+      info: 'Demander un renseignement', msg: 'Laisser un message', cb: 'Demander un rappel',
+      name: 'Votre nom', phoneL: 'Téléphone', msgL: 'Votre message', submit: 'Envoyer la demande',
+      consent: 'Ces informations servent uniquement à vous répondre. Elles ne sont pas conservées sur le site.',
+      sent: 'Merci ! Votre demande a bien été transmise à l’administration.', err: 'Une erreur est survenue. Vérifiez les champs et réessayez, ou utilisez WhatsApp.',
+      chatErr: 'Désolé, je ne parviens pas à répondre pour le moment. Vous pouvez contacter directement l’administration.',
+      wait: 'ALMAARIFA AI écrit…', waText: 'Assalamu alaikum, je souhaite avoir des informations sur l’Institut Al Maarifa.'
+    },
+    ar: {
+      dir: 'rtl', online: 'مساعدك الذكي متصل الآن', open: 'فتح ALMAARIFA AI', close: 'إغلاق',
+      ph: 'اكتب رسالتك…', send: 'إرسال', lang: 'اللغة', auto: 'تلقائي', neu: 'محادثة جديدة',
+      hello: 'السلام عليكم! أنا ALMAARIFA AI، المساعد الذكي لمعهد المعارف. كيف يمكنني مساعدتك؟',
+      sugg: ['عرّفني بمؤسستكم.', 'كيف أسجّل طفلي؟', 'ما هي المستويات الدراسية المتاحة؟', 'ما هي الوثائق المطلوبة؟', 'كيف أتواصل مع الإدارة؟', 'أين يقع معهد المعارف؟'],
+      admin: 'التواصل مع الإدارة', back: 'رجوع', wa: 'راسلنا عبر واتساب', call: 'اتصل بالمدرسة',
+      info: 'طلب معلومات', msg: 'ترك رسالة', cb: 'طلب اتصال',
+      name: 'اسمك', phoneL: 'الهاتف', msgL: 'رسالتك', submit: 'إرسال الطلب',
+      consent: 'تُستعمل هذه المعلومات للرد عليك فقط ولا تُحفظ على الموقع.',
+      sent: 'شكرًا! تم إرسال طلبك إلى الإدارة.', err: 'حدث خطأ. تحقق من الحقول وأعد المحاولة، أو استعمل واتساب.',
+      chatErr: 'عذرًا، لا أستطيع الرد حاليًا. يمكنك التواصل مباشرة مع الإدارة.',
+      wait: 'ALMAARIFA AI يكتب…', waText: 'السلام عليكم، أودّ الحصول على معلومات حول معهد المعارف.'
+    },
+    en: {
+      dir: 'ltr', online: 'Your smart assistant is online', open: 'Open ALMAARIFA AI', close: 'Close',
+      ph: 'Type your message…', send: 'Send', lang: 'Language', auto: 'Auto', neu: 'New conversation',
+      hello: 'Assalamu alaikum! I’m ALMAARIFA AI, the assistant of Institut Al Maarifa. How can I help you?',
+      sugg: ['Tell me about your school.', 'How do I enrol my child?', 'Which grade levels are available?', 'Which documents are required?', 'How can I contact the administration?', 'Where is Institut Al Maarifa located?'],
+      admin: 'Contact the administration', back: 'Back', wa: 'Chat on WhatsApp', call: 'Call the school',
+      info: 'Request information', msg: 'Leave a message', cb: 'Request a call back',
+      name: 'Your name', phoneL: 'Phone', msgL: 'Your message', submit: 'Send request',
+      consent: 'This information is only used to reply to you and is not stored on the website.',
+      sent: 'Thank you! Your request has been sent to the administration.', err: 'Something went wrong. Check the fields and try again, or use WhatsApp.',
+      chatErr: 'Sorry, I can’t answer right now. You can contact the administration directly.',
+      wait: 'ALMAARIFA AI is typing…', waText: 'Assalamu alaikum, I would like information about Institut Al Maarifa.'
+    }
+  };
+
+  /* ------------------------------ État ------------------------------ */
+  var SK = 'amai_chat';
+  var state = { msgs: [], pref: 'auto', busy: false };
+  try { var s = JSON.parse(sessionStorage.getItem(SK) || 'null'); if (s && Array.isArray(s.msgs)) { state.msgs = s.msgs.slice(-30); state.pref = s.pref || 'auto'; } } catch (e) {}
+  function save() { try { sessionStorage.setItem(SK, JSON.stringify({ msgs: state.msgs.slice(-30), pref: state.pref })); } catch (e) {} }
+  function siteLang() { return (document.documentElement.getAttribute('lang') || 'fr').slice(0, 2) === 'ar' ? 'ar' : 'fr'; }
+  function ui() { return T[state.pref === 'auto' ? siteLang() : state.pref]; }
+
+  /* ------------------------------ Structure ------------------------------ */
+  var host = document.createElement('div');
+  host.id = 'almaarifa-ai-host';
+  host.setAttribute('data-no-i18n', '');
+  var root = host.attachShadow({ mode: 'open' });
+
+  var CSS = '\
+:host{all:initial}\
+*{box-sizing:border-box}\
+.w{--bx:#800020;--bxd:#5C1025;--br:#704214;--brl:#A67C52;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;position:fixed;z-index:150;right:20px;bottom:88px;font:400 15px/1.5 Inter,"Helvetica Neue",Cairo,Tahoma,Arial,sans-serif;color:var(--ink)}\
+.w.low{bottom:20px}\
+button{font:inherit;cursor:pointer;color:inherit}\
+.fab{position:relative;width:60px;height:60px;border-radius:50%;border:2px solid var(--brl);background:radial-gradient(circle at 30% 25%,#A3283F,var(--bx) 55%,var(--bxd));color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(92,16,37,.45);transition:transform .2s}\
+.fab:hover{transform:scale(1.06)}\
+.fab svg{width:28px;height:28px}\
+.fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--bx);opacity:0;animation:ring 3.2s ease-out infinite}\
+@keyframes ring{0%{transform:scale(.85);opacity:.55}70%,100%{transform:scale(1.25);opacity:0}}\
+.dot{position:absolute;top:2px;right:2px;width:12px;height:12px;border-radius:50%;background:#3DBE6B;border:2px solid #fff}\
+.panel{position:absolute;right:0;bottom:72px;width:384px;height:min(600px,calc(100dvh - 190px));display:none;flex-direction:column;background:#fff;border:1px solid var(--g2);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px -18px rgba(51,51,51,.45)}\
+.w.open .panel{display:flex;animation:pop .22s ease-out}\
+.w.open .fab::after{animation:none}\
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}\
+.hd{background:linear-gradient(135deg,var(--bx),var(--bxd));color:#fff;padding:14px 14px 14px 18px;display:flex;align-items:center;gap:12px;border-bottom:3px solid var(--brl)}\
+.av{flex:0 0 40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center}\
+.av svg{width:22px;height:22px}\
+.tt{flex:1;min-width:0}\
+.tt b{display:block;font-size:16px;letter-spacing:.02em}\
+.tt span{display:flex;align-items:center;gap:6px;font-size:12px;opacity:.92}\
+.tt i{flex:0 0 8px;height:8px;border-radius:50%;background:#58E08A}\
+.ib{background:transparent;border:0;color:#fff;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}\
+.ib:hover{background:rgba(255,255,255,.16)}\
+.ib svg{width:18px;height:18px}\
+select{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;font:inherit;font-size:12px;height:30px;padding:0 4px}\
+select option{color:#333}\
+.log{flex:1;overflow-y:auto;padding:16px;background:var(--g1);display:flex;flex-direction:column;gap:10px}\
+.m{max-width:86%;padding:10px 13px;border-radius:14px;word-wrap:break-word;overflow-wrap:anywhere;font-size:14.5px}\
+.m p{margin:0 0 6px}.m p:last-child{margin:0}\
+.m ul{margin:4px 0 6px;padding-inline-start:18px}\
+.m a{color:var(--bx);font-weight:600;text-decoration:underline}\
+.bot{align-self:flex-start;background:#fff;border:1px solid var(--g2);border-end-start-radius:4px}\
+.usr{align-self:flex-end;background:var(--bx);color:#fff;border-end-end-radius:4px}\
+.usr a{color:#fff}\
+.chips{display:flex;flex-direction:column;gap:8px;align-items:flex-start}\
+.chip{background:#fff;border:1px solid var(--brl);color:var(--bxd);border-radius:12px;padding:8px 12px;font-size:13.5px;text-align:start;transition:background .15s}\
+.chip:hover{background:#F7EEE6}\
+.act{margin-top:8px;background:var(--br);color:#fff;border:0;border-radius:10px;padding:8px 14px;font-size:13.5px;font-weight:600}\
+.act:hover{background:#5a3410}\
+.typing{align-self:flex-start;color:#6b6b6b;font-size:13px;display:flex;align-items:center;gap:8px}\
+.typing b{display:inline-flex;gap:3px}.typing b i{width:6px;height:6px;border-radius:50%;background:var(--brl);animation:bl 1.2s infinite}\
+.typing b i:nth-child(2){animation-delay:.2s}.typing b i:nth-child(3){animation-delay:.4s}\
+@keyframes bl{0%,60%,100%{opacity:.25}30%{opacity:1}}\
+.ft{background:#fff;border-top:1px solid var(--g2);padding:10px 12px 12px}\
+.tools{display:flex;gap:8px;margin-bottom:8px;align-items:center}\
+.lk{background:transparent;border:1px solid var(--g2);border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:600;color:var(--bxd)}\
+.lk:hover{border-color:var(--bx);color:var(--bx)}\
+.row{display:flex;gap:8px;align-items:flex-end}\
+textarea,input{width:100%;font:inherit;font-size:15px;border:1px solid var(--g2);border-radius:12px;padding:10px 12px;color:var(--ink);background:#fff;resize:none}\
+textarea{max-height:110px}\
+textarea:focus,input:focus{outline:2px solid var(--brl);border-color:var(--brl)}\
+.snd{flex:0 0 44px;height:44px;border-radius:12px;border:0;background:var(--bx);color:#fff;display:flex;align-items:center;justify-content:center}\
+.snd:hover{background:var(--bxd)}.snd:disabled{opacity:.5;cursor:default}\
+.snd svg{width:20px;height:20px}[dir=rtl] .snd svg{transform:scaleX(-1)}\
+.view{position:absolute;inset:0;background:#fff;display:none;flex-direction:column;z-index:2}\
+.view.on{display:flex}\
+.vb{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}\
+.opt{display:block;width:100%;text-align:start;background:#fff;border:1px solid var(--g2);border-radius:12px;padding:12px 14px;font-weight:600;color:var(--bxd);text-decoration:none}\
+.opt:hover{border-color:var(--bx);background:var(--g1)}\
+.opt.wa{background:#25D366;border-color:#25D366;color:#fff}.opt.wa:hover{background:#1DA851}\
+label{display:block;font-size:13px;font-weight:600;margin-bottom:4px}\
+.hint{font-size:12px;color:#6b6b6b}\
+.ok{background:#E8F5EC;border:1px solid #9AD3AE;border-radius:12px;padding:12px;color:#1E5B33}\
+.bad{background:#FBEAEA;border:1px solid #E4A0A0;border-radius:12px;padding:12px;color:#7A1C1C}\
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}\
+button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--brl);outline-offset:2px}\
+@media(max-width:520px){.w{right:14px;bottom:76px}.w.low{bottom:14px}.panel{position:fixed;inset:0;width:100%;height:100dvh;border:0;border-radius:0;padding-bottom:env(safe-area-inset-bottom)}.hd{padding-top:calc(14px + env(safe-area-inset-top))}textarea,input{font-size:16px}.w.open .fab{display:none}}\
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}';
+
+  var ICON_AI = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 3l1.6 4.4L16 9l-4.4 1.6L10 15l-1.6-4.4L4 9l4.4-1.6L10 3z"/><path d="M18 12l.9 2.5L21.5 15l-2.6.9L18 18.5l-.9-2.6L14.5 15l2.6-.5L18 12z" opacity=".9"/><path d="M17 3.5l.5 1.4 1.5.5-1.5.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4z" opacity=".75"/></svg>';
+
+  root.innerHTML = '<style>' + CSS + '</style>\
+<div class="w" id="w">\
+ <section class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="ttl">\
+  <header class="hd">\
+   <div class="av">' + ICON_AI + '</div>\
+   <div class="tt"><b id="ttl">ALMAARIFA AI</b><span><i></i><em id="online" style="font-style:normal"></em></span></div>\
+   <select id="lg" aria-label="Langue"><option value="auto"></option><option value="fr">FR</option><option value="ar">AR</option><option value="en">EN</option></select>\
+   <button class="ib" id="newc" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></button>\
+   <button class="ib" id="cls" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>\
+  </header>\
+  <div class="log" id="log" role="log" aria-live="polite"></div>\
+  <footer class="ft">\
+   <div class="tools"><button class="lk" id="adm" type="button"></button></div>\
+   <div class="row"><textarea id="inp" rows="1" maxlength="1000"></textarea><button class="snd" id="snd" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5v-7l9-1.5-9-1.5v-7l19 8.5z"/></svg></button></div>\
+  </footer>\
+  <div class="view" id="view"></div>\
+ </section>\
+ <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="panel">' + ICON_AI + '<span class="dot"></span></button>\
+</div>';
+
+  var $ = function (id) { return root.getElementById(id); };
+  var W = $('w'), log = $('log'), inp = $('inp'), snd = $('snd'), view = $('view');
+
+  /* ------------------------------ Rendu texte sûr ------------------------------ */
+  function inline(parent, text) {
+    var re = /(\*\*[^*]+\*\*|https?:\/\/[^\s)]+|\b[a-z-]+\.html\b|\+221[\d\s]{9,13}\d|\b7[05-8][\s.]?\d{3}[\s.]?\d{2}[\s.]?\d{2}\b)/g, last = 0, m;
+    while ((m = re.exec(text))) {
+      if (m.index > last) parent.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var t = m[0], el;
+      if (t.indexOf('**') === 0) { el = document.createElement('strong'); el.textContent = t.slice(2, -2); }
+      else if (/^https?:/.test(t)) { el = document.createElement('a'); el.href = t; el.target = '_blank'; el.rel = 'noopener noreferrer'; el.textContent = t; }
+      else if (/\.html$/.test(t)) { el = document.createElement('a'); el.href = '/' + t; el.textContent = t; }
+      else { el = document.createElement('a'); el.href = 'tel:+221' + t.replace(/^\+221/, '').replace(/\D/g, ''); el.textContent = t; }
+      parent.appendChild(el);
+      last = m.index + t.length;
+    }
+    if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+  function render(el, text) {
+    var ul = null;
+    text.split('\n').forEach(function (line) {
+      var li = line.match(/^\s*[-*•]\s+(.*)$/);
+      if (li) { if (!ul) { ul = document.createElement('ul'); el.appendChild(ul); } var i = document.createElement('li'); inline(i, li[1]); ul.appendChild(i); return; }
+      ul = null;
+      if (!line.trim()) return;
+      var p = document.createElement('p'); inline(p, line); el.appendChild(p);
+    });
+  }
+  function bubble(role, text, withAction) {
+    var d = document.createElement('div');
+    d.className = 'm ' + (role === 'user' ? 'usr' : 'bot');
+    d.setAttribute('dir', 'auto');
+    render(d, text);
+    if (withAction) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'act'; b.textContent = ui().admin;
+      b.onclick = function () { showContact(); };
+      d.appendChild(b);
+    }
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+    return d;
+  }
+
+  /* ------------------------------ Interface ------------------------------ */
+  function applyUi() {
+    var u = ui();
+    W.setAttribute('dir', u.dir);
+    $('online').textContent = u.online;
+    $('fab').setAttribute('aria-label', u.open);
+    $('cls').setAttribute('aria-label', u.close);
+    $('newc').setAttribute('aria-label', u.neu); $('newc').title = u.neu;
+    $('lg').setAttribute('aria-label', u.lang); $('lg').options[0].textContent = u.auto; $('lg').value = state.pref;
+    $('adm').textContent = u.admin;
+    inp.placeholder = u.ph; snd.setAttribute('aria-label', u.send);
+    $('panel').setAttribute('aria-label', 'ALMAARIFA AI');
+  }
+  function drawLog() {
+    log.textContent = '';
+    var u = ui();
+    bubble('bot', u.hello);
+    state.msgs.forEach(function (m) { bubble(m.role, m.content.replace('[[CONTACT]]', '').trim(), m.role === 'assistant' && m.content.indexOf('[[CONTACT]]') > -1); });
+    if (!state.msgs.length) drawChips();
+  }
+  function drawChips() {
+    var c = document.createElement('div'); c.className = 'chips'; c.id = 'chips';
+    ui().sugg.forEach(function (q) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = q;
+      b.onclick = function () { send(q); };
+      c.appendChild(b);
+    });
+    log.appendChild(c);
+  }
+
+  function setOpen(o) {
+    W.classList.toggle('open', o);
+    $('fab').setAttribute('aria-expanded', o ? 'true' : 'false');
+    if (o) { setTimeout(function () { inp.focus({ preventScroll: true }); log.scrollTop = log.scrollHeight; }, 60); }
+    else $('fab').focus({ preventScroll: true });
+  }
+
+  /* ------------------------------ Envoi ------------------------------ */
+  function send(text) {
+    text = (text || '').trim();
+    if (!text || state.busy) return;
+    var ch = $('chips'); if (ch) ch.remove();
+    state.msgs.push({ role: 'user', content: text.slice(0, 1000) });
+    bubble('user', text);
+    inp.value = ''; autosize(); save();
+    state.busy = true; snd.disabled = true;
+    var u = ui();
+    var ty = document.createElement('div'); ty.className = 'typing';
+    ty.innerHTML = '<b><i></i><i></i><i></i></b>'; var sp = document.createElement('span'); sp.textContent = u.wait; ty.appendChild(sp);
+    log.appendChild(ty); log.scrollTop = log.scrollHeight;
+
+    var ctrl = new AbortController(), to = setTimeout(function () { ctrl.abort(); }, 35000);
+    fetch(CFG.endpoint, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal, credentials: 'same-origin',
+      body: JSON.stringify({ messages: state.msgs.slice(-14), lang: state.pref === 'auto' ? '' : state.pref, page: location.pathname })
+    }).then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.reply) throw new Error(j.error || r.status); return j; }); })
+      .then(function (j) {
+        ty.remove();
+        state.msgs.push({ role: 'assistant', content: j.reply });
+        bubble('assistant', j.reply.replace('[[CONTACT]]', '').trim(), j.reply.indexOf('[[CONTACT]]') > -1);
+      })
+      .catch(function () {
+        ty.remove(); state.msgs.pop();
+        bubble('assistant', ui().chatErr, true);
+      })
+      .then(function () { clearTimeout(to); state.busy = false; snd.disabled = false; save(); inp.focus({ preventScroll: true }); });
+  }
+  function autosize() { inp.style.height = 'auto'; inp.style.height = Math.min(inp.scrollHeight, 110) + 'px'; }
+
+  /* ------------------------------ Contact administration ------------------------------ */
+  function mk(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
+  function viewHead(title, back) {
+    var h = mk('header', 'hd'); var b = mk('button', 'ib'); b.type = 'button'; b.setAttribute('aria-label', ui().back);
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="' + (ui().dir === 'rtl' ? 'transform:scaleX(-1)' : '') + '"><path d="M15 5l-7 7 7 7"/></svg>';
+    b.onclick = back; h.appendChild(b); h.appendChild(mk('b', '', title)); h.lastChild.style.flex = '1'; return h;
+  }
+  function showContact() {
+    var u = ui(); view.textContent = ''; view.setAttribute('dir', u.dir);
+    view.appendChild(viewHead(u.admin, hideView));
+    var body = mk('div', 'vb');
+    var wa = mk('a', 'opt wa', u.wa); wa.target = '_blank'; wa.rel = 'noopener noreferrer';
+    wa.href = 'https://wa.me/' + CFG.whatsapp + '?text=' + encodeURIComponent(u.waText);
+    var tel = mk('a', 'opt', u.call + ' · 77 403 64 24'); tel.href = 'tel:' + CFG.phone;
+    body.appendChild(wa); body.appendChild(tel);
+    [['info', u.info], ['message', u.msg], ['callback', u.cb]].forEach(function (x) {
+      var b = mk('button', 'opt', x[1]); b.type = 'button'; b.onclick = function () { showForm(x[0], x[1]); }; body.appendChild(b);
+    });
+    view.appendChild(body); view.classList.add('on');
+  }
+  function hideView() { view.classList.remove('on'); inp.focus({ preventScroll: true }); }
+  function showForm(type, title) {
+    var u = ui(); view.textContent = ''; view.appendChild(viewHead(title, showContact));
+    var body = mk('form', 'vb'); body.noValidate = true;
+    function field(id, label, el) { var d = mk('div'); var l = mk('label', '', label); l.htmlFor = id; el.id = id; d.appendChild(l); d.appendChild(el); body.appendChild(d); return el; }
+    var name = field('f_n', u.name, mk('input')); name.maxLength = 80; name.autocomplete = 'name';
+    var ph = field('f_p', u.phoneL, mk('input')); ph.type = 'tel'; ph.maxLength = 30; ph.autocomplete = 'tel'; ph.inputMode = 'tel';
+    var ms = field('f_m', u.msgL, mk('textarea')); ms.rows = 4; ms.maxLength = 1000;
+    var hp = mk('input', 'hp'); hp.tabIndex = -1; hp.setAttribute('aria-hidden', 'true'); hp.autocomplete = 'off'; hp.name = 'website'; body.appendChild(hp);
+    body.appendChild(mk('p', 'hint', u.consent));
+    var status = mk('div'); status.setAttribute('role', 'status'); body.appendChild(status);
+    var sb = mk('button', 'act', u.submit); sb.type = 'submit'; sb.style.margin = '0'; sb.style.padding = '12px'; body.appendChild(sb);
+    body.onsubmit = function (e) {
+      e.preventDefault(); status.className = ''; status.textContent = '';
+      if (!name.value.trim() || ph.value.replace(/\D/g, '').length < 8 || (type !== 'callback' && !ms.value.trim())) { status.className = 'bad'; status.textContent = u.err; return; }
+      sb.disabled = true;
+      fetch(CFG.contactEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin',
+        body: JSON.stringify({ type: type, name: name.value.trim(), phone: ph.value.trim(), message: ms.value.trim(), website: hp.value, lang: state.pref === 'auto' ? siteLang() : state.pref }) })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.ok) throw 0; }); })
+        .then(function () { status.className = 'ok'; status.textContent = u.sent; name.value = ph.value = ms.value = ''; })
+        .catch(function () { status.className = 'bad'; status.textContent = u.err; sb.disabled = false; });
+    };
+    view.appendChild(body); view.classList.add('on'); name.focus({ preventScroll: true });
+  }
+
+  /* ------------------------------ Événements ------------------------------ */
+  $('fab').onclick = function () { setOpen(!W.classList.contains('open')); };
+  $('cls').onclick = function () { setOpen(false); };
+  $('newc').onclick = function () { state.msgs = []; save(); hideView(); drawLog(); };
+  $('adm').onclick = showContact;
+  $('lg').onchange = function () { state.pref = this.value; save(); applyUi(); drawLog(); };
+  snd.onclick = function () { send(inp.value); };
+  inp.addEventListener('input', autosize);
+  inp.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(inp.value); } });
+  root.addEventListener('keydown', function (e) { if (e.key === 'Escape' && W.classList.contains('open')) { if (view.classList.contains('on')) hideView(); else setOpen(false); } });
+
+  /* Position : le bouton WhatsApp du site passe à gauche en mode arabe (RTL) */
+  function place() { W.classList.toggle('low', document.documentElement.getAttribute('dir') === 'rtl'); }
+  window.addEventListener('al:lang', function () { place(); if (state.pref === 'auto') { applyUi(); drawLog(); } });
+  new MutationObserver(function () { place(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+  function mount() { document.body.appendChild(host); place(); applyUi(); drawLog(); }
+  if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
+})();
