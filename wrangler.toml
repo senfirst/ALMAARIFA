@@ -1,0 +1,13 @@
+name = "almaarifa-ai"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+MODEL = "claude-haiku-5-5"
+ADMIN_EMAIL = "contact@institutalmaarifa.com"   # À MODIFIER (e-mail qui reçoit les demandes)
+MAIL_FROM = "Institut Al Maarifa <onboarding@resend.dev>"
+ALLOWED_ORIGINS = "https://institutalmaarifa.com,https://www.institutalmaarifa.com"
+
+# Secrets (jamais dans ce fichier) :
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put RESEND_API_KEY
