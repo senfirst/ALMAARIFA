@@ -342,13 +342,13 @@ html,body{overflow-x:clip!important}
   body{padding-top:calc(var(--hh) + env(safe-area-inset-top,0px))}
 }
 </style>
-   <!-- ===== MOBILE APP-LIKE : à coller juste avant </body> ===== -->
+<!-- ===== MOBILE APP-LIKE (barre du haut uniquement) : à coller juste avant </body> ===== -->
 <style id="mobile-app">
 @media(max-width:900px){
-:root{--hh:56px;--bar:62px;--sab:env(safe-area-inset-bottom,0px);--sat:env(safe-area-inset-top,0px)}
+:root{--hh:56px;--sab:env(safe-area-inset-bottom,0px);--sat:env(safe-area-inset-top,0px)}
 html{scroll-padding-top:calc(var(--hh) + var(--sat) + 8px)}
 html,html body{background:var(--g1)}
-html body{padding-bottom:calc(var(--bar) + var(--sab));overflow-x:hidden;font-size:1rem;line-height:1.65}
+html body{overflow-x:clip;font-size:1rem;line-height:1.65}
 main,section,.container{max-width:100%}
 img,video{max-width:100%;height:auto}
 .hero-bg img,.hero-bg video,.img-slot img,.cycle-img img,.mosaic img{height:100%}
@@ -370,8 +370,8 @@ img,video{max-width:100%;height:auto}
 body.nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 body.nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-/* Menu plein écran */
-.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + var(--sat));bottom:calc(var(--bar) + var(--sab));max-height:none;background:var(--g1);padding:12px 12px 24px;gap:8px;overflow-y:auto;overscroll-behavior:contain;z-index:70;border:0}
+/* Menu plein écran (jusqu'en bas) */
+.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + var(--sat));bottom:0;max-height:none;background:var(--g1);padding:12px 12px calc(24px + var(--sab));gap:8px;overflow-y:auto;overscroll-behavior:contain;z-index:70;border:0}
 .mobile-nav>a,.mobile-nav .m-sub{background:#fff;border-radius:14px;border:0;box-shadow:var(--sh);padding:0;overflow:hidden}
 .mobile-nav>a{padding:14px 16px;min-height:48px;display:flex;align-items:center;border-left:0}
 .mobile-nav>a.active{color:var(--bx);font-weight:700;border-left:4px solid var(--bx);padding-left:12px}
@@ -382,16 +382,8 @@ html[dir=rtl] .mobile-nav .m-sub a{padding:13px 28px 13px 16px}
 html[dir=rtl] .mobile-nav>a.active{border-left:0;border-right:4px solid var(--bx);padding-left:16px;padding-right:12px}
 body.nav-open .wa-float{display:none}
 
-/* Barre du bas */
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;background:#fff;border-top:1px solid var(--g2);padding-bottom:var(--sab);height:calc(var(--bar) + var(--sab));box-shadow:0 -2px 10px rgba(51,51,51,.06)}
-.tabbar a,.tabbar button{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;color:#65676B;font:600 .64rem/1.1 var(--sans);cursor:pointer;padding:6px 2px;position:relative;-webkit-tap-highlight-color:transparent}
-.tabbar svg{width:24px;height:24px}
-.tabbar .on{color:var(--bx)}
-.tabbar .on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--bx)}
-.tabbar span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
 /* WhatsApp flottant */
-.wa-float{bottom:calc(var(--bar) + var(--sab) + 12px);right:14px;width:50px;height:50px}
+.wa-float{bottom:calc(var(--sab) + 16px);right:14px;width:50px;height:50px}
 html[dir=rtl] .wa-float{right:auto;left:14px}
 
 /* Contenus */
@@ -467,28 +459,18 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
 @media(max-width:380px){
 .am-name{display:none}
 .container{padding:0 12px}
-.tabbar a,.tabbar button{font-size:.6rem}
 .stat-strip{grid-template-columns:1fr 1fr}
 }
-@media(min-width:901px){.tabbar,.srch,.ic-btn,.am-name{display:none!important}}
+@media(min-width:901px){.srch,.ic-btn,.am-name{display:none!important}}
 </style>
 
 <script>
 (function(){
-  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Menu":"القائمة","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
-  var I={
-    home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
-    inst:'<path d="M3 9l9-5 9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',
-    news:'<path d="M4 5h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2zM17 9h3v10a2 2 0 0 1-2 2M8 9h5M8 13h5M8 17h5"/>',
-    gal:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-9 9"/>',
-    lib:'<path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/>',
-    menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
-    search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>'
-  };
-  function svg(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+I[k]+'</svg>'}
+  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
+  var searchIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>';
   var burger=document.getElementById('burgerBtn'),row=document.querySelector('.nav-row'),brand=document.querySelector('.brand');
   if(brand){var n=document.createElement('span');n.className='am-name';n.textContent='AL MAARIFA';brand.appendChild(n)}
-  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=svg('search');
+  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=searchIcon;
   if(row&&burger)row.insertBefore(sb,burger);
   var s=document.createElement('div');s.className='srch';s.setAttribute('role','dialog');
   s.innerHTML='<div class="srch-top"><input type="search" placeholder="Rechercher une rubrique" aria-label="Rechercher une rubrique"><button type="button" class="ic-btn" aria-label="Fermer">✕</button></div><ul></ul>';
@@ -506,21 +488,8 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
   function so(o){s.classList.toggle('open',o);if(o){fill('');inp.value='';inp.focus()}}
   sb.onclick=function(){so(true)};s.querySelector('button').onclick=function(){so(false)};
   inp.oninput=function(){fill(inp.value)};ul.onclick=function(){so(false)};
-  var tabs=[['home','Accueil','index.html','index'],['inst','L\'Institut','index.html#institut','institut'],['news','Actualités','actualites.html','actualites'],['gal','Galerie','galerie.html','galerie'],['lib','Bibliothèque','bibliotheque.html','bibliotheque']];
-  var tb=document.createElement('nav');tb.className='tabbar';tb.setAttribute('aria-label','Navigation mobile rapide');
-  var path=(location.pathname.split('/').pop()||'index.html').replace('.html','');
-  tb.innerHTML=tabs.map(function(t){
-    var on=(t[3]==='institut')?(location.hash==='#institut'):(t[3]==='index'?(path==='index'||path==='')&&location.hash!=='#institut':path===t[3]);
-    return '<a href="'+t[2]+'" data-k="'+t[3]+'"'+(on?' class="on" aria-current="page"':'')+'>'+svg(t[0])+'<span>'+t[1]+'</span></a>'}).join('')
-    +'<button type="button" id="tabMenu" aria-label="Menu">'+svg('menu')+'<span>Menu</span></button>';
-  document.body.appendChild(tb);
-  tb.querySelector('#tabMenu').onclick=function(){burger&&burger.click()};
-  tb.addEventListener('click',function(e){var a=e.target.closest('a[data-k]');if(!a)return;
-    if(path==='index'||path===''){tb.querySelectorAll('a').forEach(function(x){x.classList.remove('on')});a.classList.add('on')}});
-  new MutationObserver(function(){tb.querySelector('#tabMenu').classList.toggle('on',document.body.classList.contains('nav-open'))})
-    .observe(document.body,{attributes:true,attributeFilter:['class']});
   if(window.AL_LANG)AL_LANG.translate(document.body);
-  document.documentElement.style.overflowX='hidden';
+  document.documentElement.style.overflowX='clip';
 })();
 </script>
 </head>
