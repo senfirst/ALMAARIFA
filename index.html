@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <script>try{if(localStorage.getItem("lang")==="ar"){document.documentElement.lang="ar";document.documentElement.dir="rtl"}}catch(e){}</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Institut Al Maarifa Thierno Djibril Ousmane Ba — École franco-arabe à Bambilor</title>
 <meta name="description" content="Institut Al Maarifa Thierno Djibril Ousmane Ba, école franco-arabe à Bambilor - Darou Salam, partenaire de l'Institut Al-Azhar. Inscriptions ouvertes 2026-2027.">
 <meta name="theme-color" content="#ffffff">
@@ -25,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="s.css">
+
 <style>
 :root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
 --serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:144px;
@@ -206,8 +207,8 @@ html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px so
 @media(min-width:1501px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
 .site-header .brand img,.site-footer .footer-brand img{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;width:auto!important;object-fit:contain!important}
 </style>
-<style id="theme-prestige">
 
+<style id="theme-prestige">
 /* ===== Phase 2 : inspiration « grande école internationale » ===== */
 :root{--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none' stroke='%23C9A961' stroke-opacity='.32' stroke-width='1'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='5'/%3E%3C/svg%3E")}
 /* navigation à sous-menus */
@@ -270,10 +271,10 @@ html[dir=rtl] .hero::after{-webkit-mask-image:linear-gradient(to left,transparen
 .btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1DA851}
 .cta-link{color:var(--gold-l);text-decoration:underline;text-underline-offset:4px;font-weight:600}
 @media(max-width:520px){.lb .pv{left:8px}.lb .nx{right:8px}}
-
 </style>
+
 <style id="al-lang-css">
-/* Boutons Français / العربية + règles RTL (copie de sécurité : lang.js ne la réinjecte pas) */
+/* Boutons Français / العربية + règles RTL */
 .lang-switch{display:inline-flex;flex:0 0 auto;border:2px solid #800020;border-radius:100px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(128,0,32,.18)}
 .lang-btn{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:#800020;font:700 .9rem/1 "Inter","Helvetica Neue",Arial,sans-serif;padding:11px 16px;min-height:44px;cursor:pointer;transition:background .2s,color .2s}
 .lang-btn[lang=ar]{font-family:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;font-size:1.05rem}
@@ -303,193 +304,7 @@ html[dir=rtl] .wa-float{right:auto;left:20px}
 html[dir=rtl] .social-title{margin-right:0;margin-left:6px}
 html[dir=rtl] .lang-switch--float{right:auto;left:10px}
 </style>
-<style id="theme-prestige">
 
-/* ===== Phase 2 : inspiration « grande école internationale » ===== */
-:root{--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none' stroke='%23C9A961' stroke-opacity='.32' stroke-width='1'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='5'/%3E%3C/svg%3E")}
-/* navigation à sous-menus */
-@media(min-width:1366px){.site-header .main-nav{display:flex!important}.site-header .burger,.site-header .mobile-nav{display:none!important}}
-@media(max-width:1365px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
-@media(min-width:1366px) and (max-width:1599px){.brand-text{display:none}}
-.main-nav .nav-item{position:relative;display:flex;align-items:center}
-.main-nav .has-sub>a::after{content:"";display:inline-block;margin-inline-start:7px;width:6px;height:6px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translateY(-2px);opacity:.7;position:static;background:none;height:6px}
-.main-nav .sub{position:absolute;top:100%;inset-inline-start:0;min-width:250px;padding:10px;background:rgba(251,248,241,.98);border:1px solid rgba(201,169,97,.5);border-top:3px solid var(--br-l);border-radius:0 0 16px 16px;box-shadow:0 24px 50px -22px rgba(7,59,47,.55);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
-.main-nav .nav-item:hover .sub,.main-nav .nav-item:focus-within .sub{opacity:1;visibility:visible;transform:none}
-.main-nav .sub a{display:block;color:var(--ink)!important;padding:11px 16px;border-radius:10px;font-weight:500}
-.main-nav .sub a:hover{background:rgba(15,90,71,.08);color:var(--bx)!important}
-.m-sub summary{padding:13px 8px;font-weight:600;border-bottom:1px solid var(--g1);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.m-sub summary::-webkit-details-marker{display:none}
-.m-sub summary::after{content:"+";color:var(--br);font-size:1.3rem;line-height:1}
-.m-sub[open] summary::after{content:"–"}
-.mobile-nav .m-sub a{padding-inline-start:26px;font-size:.95rem;background:var(--g1)}
-/* hero : motif géométrique discret */
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:var(--pat);opacity:.55;-webkit-mask-image:linear-gradient(to right,transparent 45%,#000);mask-image:linear-gradient(to right,transparent 45%,#000)}
-html[dir=rtl] .hero::after{-webkit-mask-image:linear-gradient(to left,transparent 45%,#000);mask-image:linear-gradient(to left,transparent 45%,#000)}
-.img-slot.is-empty{background:var(--pat),linear-gradient(135deg,#E9F2EE,#F7F0DC)}
-/* cycles */
-.cycles{align-items:stretch}
-.cycle{background:#fff;border:1px solid var(--g2);border-radius:20px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.cycle:hover{transform:translateY(-8px);box-shadow:0 2px 4px rgba(7,59,47,.06),0 32px 56px -26px rgba(7,59,47,.5)}
-.cycle-img{aspect-ratio:4/3;border-radius:0;border:0;box-shadow:none}
-.cycle-body{padding:24px;display:flex;flex-direction:column;flex:1}
-.cycle-body .btn{margin-top:auto;align-self:flex-start}
-.cycle-n{font:700 .85rem var(--serif);color:var(--br-l);letter-spacing:.22em}
-.cycle h3{margin:.3em 0 .4em;font-size:1.35rem}.cycle p{font-size:.95rem}
-.cycle h4{font:700 .78rem var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--br);margin:.6em 0 .2em}
-.cycle .list{margin-bottom:18px}.cycle .list li{padding:7px 0 7px 18px;font-size:.9rem;line-height:1.5}
-.cycle .list li::before{top:1.1em;width:6px;height:6px}
-/* piliers */
-.pillars{background:radial-gradient(120% 120% at 15% 0%,#0F5A47,var(--bx-d) 60%,#04271F);position:relative;color:#fff}
-.pillars::before{content:"";position:absolute;inset:0;background:var(--pat);opacity:.6;pointer-events:none}
-.pillars .container{position:relative}
-.pillars h2,.pillars .kicker{color:#fff}.pillars .kicker{color:var(--gold-l)}
-.pillar{border:1px solid rgba(201,169,97,.4);border-radius:20px;padding:32px 28px;background:rgba(255,255,255,.05);transition:transform .5s var(--ease),border-color .3s,background .3s}
-.pillar:hover{transform:translateY(-6px);border-color:var(--br-l);background:rgba(255,255,255,.09)}
-.pillar-n{display:block;font:700 2.6rem/1 var(--serif);color:var(--br-l);margin-bottom:16px}
-.pillar h3{color:#fff;font-size:1.25rem}.pillar p{color:#E4EEE9;font-size:.97rem;margin:0}
-/* mosaïque + visionneuse */
-.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px;grid-auto-flow:dense}
-.mosaic figure{margin:0;overflow:hidden;border-radius:18px;box-shadow:var(--sh);position:relative}
-.mosaic a,.mosaic img{display:block;width:100%;height:100%;object-fit:cover}
-.mosaic img{transition:transform 1s var(--ease)}.mosaic figure:hover img{transform:scale(1.07)}
-.mosaic figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,59,47,.35));opacity:0;transition:opacity .4s;pointer-events:none}.mosaic figure:hover::after{opacity:1}
-.m1,.m2{grid-column:span 2;grid-row:span 2}.m3{grid-row:span 2}.m4{grid-column:span 2}
-@media(max-width:700px){.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.m1,.m2,.m4{grid-column:span 2}}
-.lb{position:fixed;inset:0;z-index:200;background:rgba(4,39,31,.95);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
-.lb.open{opacity:1;visibility:visible}
-.lb img{max-width:92vw;max-height:86vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-.lb button{position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid rgba(201,169,97,.6);background:rgba(255,255,255,.1);color:#fff;font-size:1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.lb button:hover{background:var(--br-l);color:var(--bx-d)}
-.lb .x{top:18px;right:18px}.lb .pv{left:18px;top:50%;transform:translateY(-50%)}.lb .nx{right:18px;top:50%;transform:translateY(-50%)}
-/* admissions */
-.admission h2{max-width:22ch;margin-inline:auto}.admission .kicker{color:var(--gold-l)}
-.admission{background:var(--pat),radial-gradient(120% 140% at 80% 0%,#8A2A4A,var(--wine) 45%,var(--wine-d))}
-.btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1DA851}
-.cta-link{color:var(--gold-l);text-decoration:underline;text-underline-offset:4px;font-weight:600}
-@media(max-width:520px){.lb .pv{left:8px}.lb .nx{right:8px}}
-</style>
-  <!-- ===== MOBILE APP-LIKE (≤900px) — à coller avant </body> ===== -->
-<style id="mobile-app">
-@media(max-width:900px){
-:root{--hh:56px;--bar:62px;--sab:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:calc(var(--hh) + 8px)}
-body{background:var(--g1);padding-bottom:calc(var(--bar) + var(--sab));overflow-x:hidden}
-main,section{max-width:100%}
-/* barre du haut */
-.site-header{padding-top:env(safe-area-inset-top,0px)}
-.nav-row{height:var(--hh);padding:0 10px;gap:8px}
-.brand img{height:38px!important;width:auto}
-.brand-text{display:none!important}
-.am-name{font:700 1.05rem var(--serif);color:var(--bx);letter-spacing:.03em;white-space:nowrap}
-.brand{gap:8px}
-.lang-switch{margin-inline-start:auto;box-shadow:none}
-.lang-btn{min-height:36px;padding:8px 12px;font-size:.8rem}
-.lang-btn[aria-pressed=true]{display:inline-block!important}
-.ic-btn,.site-header .burger{width:40px;height:40px;border-radius:50%;border:0;background:var(--g1);display:flex;align-items:center;justify-content:center;color:var(--bx-d);cursor:pointer;padding:0;margin:0}
-.ic-btn svg{width:22px;height:22px}
-/* menu plein écran */
-.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + env(safe-area-inset-top,0px));bottom:calc(var(--bar) + var(--sab));max-height:none;background:var(--g1);padding:12px 12px 24px;gap:8px;overflow-y:auto;z-index:70;border:0}
-.mobile-nav>a,.mobile-nav .m-sub{background:#fff;border-radius:14px;border:0;box-shadow:var(--sh);padding:0}
-.mobile-nav>a{padding:14px 16px}
-.mobile-nav .m-sub summary{padding:14px 16px;border:0}
-.mobile-nav .m-sub a{border-radius:0;border-top:1px solid var(--g1);padding:12px 16px 12px 28px;background:#fff}
-.mobile-nav .btn{margin-top:6px}
-html[dir=rtl] .mobile-nav .m-sub a{padding:12px 28px 12px 16px}
-/* barre du bas */
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;background:#fff;border-top:1px solid var(--g2);padding-bottom:var(--sab);height:calc(var(--bar) + var(--sab))}
-.tabbar a,.tabbar button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;color:#65676B;font:600 .66rem/1.1 var(--sans);cursor:pointer;padding:6px 2px;position:relative}
-.tabbar svg{width:24px;height:24px}
-.tabbar .on{color:var(--bx)}
-.tabbar .on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--bx)}
-.tabbar span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.wa-float{bottom:calc(var(--bar) + var(--sab) + 12px)}
-html[dir=rtl] .wa-float{left:14px}
-/* contenus */
-section{padding:36px 0}
-.container{padding:0 14px}
-h1{font-size:clamp(1.55rem,7vw,2.1rem)}h2{font-size:clamp(1.3rem,5.6vw,1.7rem)}
-.hero{min-height:440px}.hero-inner{padding-top:40px;padding-bottom:40px}
-.hero h1{max-width:none}.hero-actions .btn{flex:1 1 100%}
-.card,.panel,.profile,.cycle,.pillar,.stat-strip{border-radius:16px}
-.card,.panel{padding:20px}
-.alt{background:var(--g1)}section:not(.alt):not(.pillars):not(.cta){background:#fff}
-.btn{min-height:48px;width:auto}
-.cycle .btn,.card .btn{width:100%}
-.img-slot img,.cycle-img img{width:100%;height:100%;object-fit:cover}
-p,li,h1,h2,h3{overflow-wrap:anywhere}
-.chip-row{gap:8px}
-.mosaic{grid-auto-rows:130px}
-/* publications (page Actualités) */
-.post{background:#fff;border-radius:16px;box-shadow:var(--sh);overflow:hidden;margin-bottom:14px}
-.post img{width:100%;aspect-ratio:16/10;object-fit:cover}
-.post-body{padding:14px 16px}.post .date{font-size:.8rem;color:var(--br);font-weight:600}
-.post h3{margin:.2em 0 .4em}.post-actions{display:flex;gap:8px;border-top:1px solid var(--g1);padding:8px 12px}
-.post-actions a{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:600;font-size:.85rem;background:var(--g1);color:var(--bx)}
-/* recherche */
-.srch{position:fixed;inset:0;z-index:120;background:#fff;display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
-.srch.open{display:flex}
-.srch-top{display:flex;gap:8px;padding:10px;border-bottom:1px solid var(--g2)}
-.srch input{flex:1;min-height:44px;border:1px solid var(--g2);border-radius:100px;padding:0 16px;font:inherit;background:var(--g1)}
-.srch ul{overflow:auto;padding:6px 12px}.srch li a{display:block;padding:14px 8px;border-bottom:1px solid var(--g1);font-weight:500}
-}
-@media(min-width:901px){.tabbar,.srch,.ic-btn,.am-name{display:none!important}}
-</style>
-<script>
-(function(){
-  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Menu":"القائمة","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
-  var I={
-    home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
-    inst:'<path d="M3 9l9-5 9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',
-    news:'<path d="M4 5h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2zM17 9h3v10a2 2 0 0 1-2 2M8 9h5M8 13h5M8 17h5"/>',
-    gal:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-9 9"/>',
-    lib:'<path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/>',
-    menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
-    search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>'
-  };
-  function svg(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+I[k]+'</svg>'}
-  var burger=document.getElementById('burgerBtn'),row=document.querySelector('.nav-row'),brand=document.querySelector('.brand');
-  /* nom abrégé */
-  if(brand){var n=document.createElement('span');n.className='am-name';n.textContent='AL MAARIFA';brand.appendChild(n)}
-  /* icône de recherche */
-  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=svg('search');
-  if(row&&burger)row.insertBefore(sb,burger);
-  /* panneau de recherche */
-  var s=document.createElement('div');s.className='srch';s.setAttribute('role','dialog');
-  s.innerHTML='<div class="srch-top"><input type="search" placeholder="Rechercher une rubrique" aria-label="Rechercher une rubrique"><button type="button" class="ic-btn" aria-label="Fermer">✕</button></div><ul></ul>';
-  document.body.appendChild(s);
-  var inp=s.querySelector('input'),ul=s.querySelector('ul');
-  function fill(q){
-    q=q.trim().toLowerCase();ul.innerHTML='';var seen={};
-    document.querySelectorAll('.mobile-nav a[href]').forEach(function(a){
-      var t=a.textContent.trim(),h=a.getAttribute('href');
-      if(!t||a.classList.contains('btn')||seen[h+t])return;
-      if(q&&t.toLowerCase().indexOf(q)<0)return;
-      seen[h+t]=1;var li=document.createElement('li');
-      li.innerHTML='<a href="'+h+'"></a>';li.firstChild.textContent=t;ul.appendChild(li)});
-  }
-  function so(o){s.classList.toggle('open',o);if(o){fill('');inp.value='';inp.focus()}}
-  sb.onclick=function(){so(true)};s.querySelector('button').onclick=function(){so(false)};
-  inp.oninput=function(){fill(inp.value)};ul.onclick=function(){so(false)};
-  /* barre du bas */
-  var tabs=[['home','Accueil','index.html','index'],['inst','L\'Institut','index.html#institut','institut'],['news','Actualités','actualites.html','actualites'],['gal','Galerie','galerie.html','galerie'],['lib','Bibliothèque','bibliotheque.html','bibliotheque']];
-  var tb=document.createElement('nav');tb.className='tabbar';tb.setAttribute('aria-label','Navigation mobile rapide');
-  var path=(location.pathname.split('/').pop()||'index.html').replace('.html','');
-  tb.innerHTML=tabs.map(function(t){
-    var on=(t[3]==='institut')?(location.hash==='#institut'):(t[3]==='index'?(path==='index'||path==='')&&location.hash!=='#institut':path===t[3]);
-    return '<a href="'+t[2]+'" data-k="'+t[3]+'"'+(on?' class="on" aria-current="page"':'')+'>'+svg(t[0])+'<span>'+t[1]+'</span></a>'}).join('')
-    +'<button type="button" id="tabMenu" aria-label="Menu">'+svg('menu')+'<span>Menu</span></button>';
-  document.body.appendChild(tb);
-  tb.querySelector('#tabMenu').onclick=function(){burger&&burger.click()};
-  tb.addEventListener('click',function(e){var a=e.target.closest('a[data-k]');if(!a)return;
-    if(path==='index'||path===''){tb.querySelectorAll('a').forEach(function(x){x.classList.remove('on')});a.classList.add('on')}});
-  /* le menu ouvert : l'onglet Menu devient actif */
-  new MutationObserver(function(){tb.querySelector('#tabMenu').classList.toggle('on',document.body.classList.contains('nav-open'))})
-    .observe(document.body,{attributes:true,attributeFilter:['class']});
-  if(window.AL_LANG)AL_LANG.translate(document.body);
-  /* corrige tout débordement horizontal résiduel */
-  document.documentElement.style.overflowX='hidden';
-})();
-</script>
 <style id="fix-mobile">
 /* Variables manquantes (ancien thème vert) */
 :root{--ease:cubic-bezier(.2,.7,.2,1);--wine:#800020;--wine-d:#5C1025;--gold-l:#E8D2B4}
@@ -511,6 +326,7 @@ html,body{background:#fff}
 .img-slot.is-empty{background:var(--pat),linear-gradient(135deg,#F6E9EC,#F7F0DC)}
 .lb{background:rgba(40,6,16,.95)}
 </style>
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","logo":"https://institutalmaarifa.com/android-chrome-512x512.png","founder":{"@type":"Person","name":"Thierno Malick BA"},"address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://institutalmaarifa.com/","sameAs":["https://www.facebook.com/profile.php?id=61593730307571","https://www.tiktok.com/@almaarifa123"]}
 </script>
