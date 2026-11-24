@@ -76,7 +76,6 @@ body.nav-open .mobile-nav{display:flex}
 body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 body.nav-open .burger span:nth-child(2){opacity:0}
 body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1500px){.main-nav{display:none}.burger{display:flex}}
 @media(max-width:900px){:root{--hh:120px}.brand img{height:96px;width:auto}}
 @media(max-width:520px){:root{--hh:104px}.nav-row{gap:10px;padding:0 14px}.brand{gap:10px}.brand img{height:84px;width:auto}.brand-text strong{font-size:.85rem;white-space:normal}.brand-text span{font-size:.62rem;white-space:normal}.brand-text em{display:none}}
 @media(max-width:360px){.brand img{height:72px;width:auto}.brand-text strong{font-size:.78rem}}
@@ -202,12 +201,9 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 html[dir=rtl] .steps{border-left:0;border-right:2px solid var(--g2);padding-left:0;padding-right:28px}
 html[dir=rtl] .step-item::before{left:auto;right:-36px}
 html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px solid var(--br-l);padding-left:0;padding-right:16px}
-/* sécurité */
-@media(max-width:1500px){.site-header .main-nav{display:none!important}.site-header .burger{display:flex!important}}
-@media(min-width:1501px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
+/* images du logo (en-tête et pied de page) */
 .site-header .brand img,.site-footer .footer-brand img{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;width:auto!important;object-fit:contain!important}
 </style>
-
 <style id="theme-prestige">
 /* ===== Phase 2 : inspiration « grande école internationale » ===== */
 :root{--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none' stroke='%23C9A961' stroke-opacity='.32' stroke-width='1'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='5'/%3E%3C/svg%3E")}
@@ -282,7 +278,7 @@ html[dir=rtl] .hero::after{-webkit-mask-image:linear-gradient(to left,transparen
 .lang-btn[aria-pressed=true]{background:#800020;color:#fff;cursor:default}
 .lang-btn:focus-visible{outline:3px solid #A67C52;outline-offset:-3px}
 .lang-switch--float{position:fixed;top:10px;right:10px;z-index:90}
-@media(max-width:1500px){.site-header .lang-switch{margin-inline-start:auto}.site-header .burger{margin-left:0;margin-right:0}}
+@media(max-width:1365px){.site-header .lang-switch{margin-inline-start:auto}.site-header .burger{margin-left:0;margin-right:0}}
 @media(max-width:520px){.lang-btn{padding:9px 14px;min-height:42px}.lang-btn[aria-pressed=true]{display:none}.lang-switch{box-shadow:none}}
 html[lang=ar]{--serif:"Cairo","Amiri","Noto Naskh Arabic",Georgia,serif;--sans:"Cairo","Inter",Tahoma,Arial,sans-serif}
 html[lang=ar] body{line-height:1.85}
@@ -309,10 +305,10 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
 /* Variables manquantes (ancien thème vert) */
 :root{--ease:cubic-bezier(.2,.7,.2,1);--wine:#800020;--wine-d:#5C1025;--gold-l:#E8D2B4}
 
-/* Barres blanches en haut et en bas sur mobile */
+/* Fond du hero : bordeaux si l'image ou la vidéo ne charge pas (texte blanc toujours lisible) */
 html,body{background:#fff}
-.hero{background:#fff;min-height:clamp(480px,78vh,720px);min-height:clamp(480px,78svh,720px)}
-.hero-bg{background:#fff url("bati.jpeg") center/cover no-repeat}
+.hero{background:var(--bx-d);min-height:clamp(480px,78vh,720px);min-height:clamp(480px,78svh,720px)}
+.hero-bg{background:var(--bx-d) url("bati.jpeg") center/cover no-repeat}
 
 /* Respecte la barre du bas des iPhone */
 .site-footer{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
@@ -330,7 +326,8 @@ html,body{background:#fff}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","name":"Institut Al Maarifa Thierno Djibril Ousmane Ba","alternateName":"Institut Al Maarifa","description":"École franco-arabe partenaire de l'Institut Al-Azhar, à Bambilor - Darou Salam, Sénégal.","logo":"https://institutalmaarifa.com/android-chrome-512x512.png","founder":{"@type":"Person","name":"Thierno Malick BA"},"address":{"@type":"PostalAddress","addressLocality":"Bambilor - Darou Salam","addressCountry":"SN"},"telephone":["+221774036424","+221775722937"],"url":"https://institutalmaarifa.com/","sameAs":["https://www.facebook.com/profile.php?id=61593730307571","https://www.tiktok.com/@almaarifa123"]}
 </script>
-  <style id="fix-sticky">
+
+<style id="fix-sticky">
 /* Barre du haut toujours fixe : "clip" bloque le débordement horizontal sans casser le sticky */
 html,body{overflow-x:clip!important}
 .site-header{position:-webkit-sticky!important;position:sticky!important;top:0!important}
@@ -342,156 +339,6 @@ html,body{overflow-x:clip!important}
   body{padding-top:calc(var(--hh) + env(safe-area-inset-top,0px))}
 }
 </style>
-<!-- ===== MOBILE APP-LIKE (barre du haut uniquement) : à coller juste avant </body> ===== -->
-<style id="mobile-app">
-@media(max-width:900px){
-:root{--hh:56px;--sab:env(safe-area-inset-bottom,0px);--sat:env(safe-area-inset-top,0px)}
-html{scroll-padding-top:calc(var(--hh) + var(--sat) + 8px)}
-html,html body{background:var(--g1)}
-html body{overflow-x:clip;font-size:1rem;line-height:1.65}
-main,section,.container{max-width:100%}
-img,video{max-width:100%;height:auto}
-.hero-bg img,.hero-bg video,.img-slot img,.cycle-img img,.mosaic img{height:100%}
-
-/* Barre du haut */
-.site-header{padding-top:var(--sat);z-index:60}
-.nav-row{height:var(--hh);padding:0 10px;gap:8px;max-width:100%}
-.brand{gap:8px;min-width:0;flex:0 1 auto}
-.brand img{height:38px!important;width:auto!important}
-.brand-text{display:none!important}
-.am-name{display:block;font:700 1rem var(--serif);color:var(--bx);letter-spacing:.03em;white-space:nowrap}
-.lang-switch{margin-inline-start:auto;box-shadow:none;border-width:1.5px}
-.lang-btn{min-height:34px;padding:7px 10px;font-size:.74rem}
-.lang-btn[lang=ar]{font-size:.85rem}
-.lang-btn[aria-pressed=true]{display:inline-block!important}
-.ic-btn,.site-header .burger{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:0;background:var(--g1);display:flex;align-items:center;justify-content:center;color:var(--bx-d);cursor:pointer;padding:0;margin:0}
-.site-header .burger{gap:4px;flex-direction:column}
-.ic-btn svg{width:22px;height:22px}
-body.nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-body.nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-/* Menu plein écran (jusqu'en bas) */
-.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + var(--sat));bottom:0;max-height:none;background:var(--g1);padding:12px 12px calc(24px + var(--sab));gap:8px;overflow-y:auto;overscroll-behavior:contain;z-index:70;border:0}
-.mobile-nav>a,.mobile-nav .m-sub{background:#fff;border-radius:14px;border:0;box-shadow:var(--sh);padding:0;overflow:hidden}
-.mobile-nav>a{padding:14px 16px;min-height:48px;display:flex;align-items:center;border-left:0}
-.mobile-nav>a.active{color:var(--bx);font-weight:700;border-left:4px solid var(--bx);padding-left:12px}
-.mobile-nav .m-sub summary{padding:14px 16px;min-height:48px;border:0}
-.mobile-nav .m-sub a{display:block;border:0;border-top:1px solid var(--g1);border-radius:0;padding:13px 16px 13px 28px;background:#fff;font-size:.95rem}
-.mobile-nav .btn{margin-top:6px;border:0;color:#fff;width:100%}
-html[dir=rtl] .mobile-nav .m-sub a{padding:13px 28px 13px 16px}
-html[dir=rtl] .mobile-nav>a.active{border-left:0;border-right:4px solid var(--bx);padding-left:16px;padding-right:12px}
-body.nav-open .wa-float{display:none}
-
-/* WhatsApp flottant */
-.wa-float{bottom:calc(var(--sab) + 16px);right:14px;width:50px;height:50px}
-html[dir=rtl] .wa-float{right:auto;left:14px}
-
-/* Contenus */
-section{padding:32px 0}
-.container{padding:0 14px}
-h1{font-size:clamp(1.5rem,7vw,2rem)}
-h2{font-size:clamp(1.3rem,5.6vw,1.65rem)}
-h3{font-size:1.1rem}
-p{max-width:100%}
-p,li,h1,h2,h3,h4,.btn{overflow-wrap:anywhere}
-.section-head{margin-bottom:24px}
-.alt{background:var(--g1)}
-section:not(.alt):not(.pillars):not(.cta):not(.hero){background:#fff}
-.split{gap:22px}
-
-.hero{min-height:440px;min-height:clamp(440px,70svh,620px)}
-.hero-inner{padding-top:36px;padding-bottom:36px}
-.hero h1{max-width:none}
-.slogan{font-size:1.02rem}
-.hero-actions{gap:10px}
-.hero-actions .btn{flex:1 1 100%}
-.badge{font-size:.72rem;padding:6px 12px}
-.partner{font-size:.82rem}
-
-.card,.panel,.profile,.cycle,.pillar,.stat-strip,.mosaic figure{border-radius:16px}
-.card,.panel{padding:20px}
-.profile{padding:20px;gap:20px}
-.profile .img-slot{width:min(220px,100%)}
-.pillar{padding:22px 20px}
-.cycle-body{padding:18px}
-.cycle:hover,.pillar:hover,.card:hover{transform:none}
-.grid{gap:14px}
-.grid-4{margin-top:24px}
-.btn{min-height:48px;padding:12px 20px}
-.cycle .btn,.card .btn{width:100%;align-self:stretch}
-.chip-row{gap:8px}
-.chip{font-size:.78rem}
-.stat-strip{padding:22px 16px;gap:16px}
-.stat-strip .n{font-size:1.7rem}
-.a-year{flex:0 0 auto}
-.timeline .a-year{font-size:.88rem}
-.steps{padding-left:22px}
-.step-item::before{left:-30px}
-html[dir=rtl] .steps{padding-right:22px;padding-left:0}
-html[dir=rtl] .step-item::before{left:auto;right:-30px}
-.subnav{gap:8px}
-.subnav a{padding:8px 12px;font-size:.8rem}
-.mosaic{grid-auto-rows:130px;gap:10px}
-.cta .hero-actions{justify-content:stretch!important}
-
-.site-footer{padding:40px 0 calc(24px + var(--sab))}
-.footer-brand img{height:84px!important}
-.footer-brand{gap:12px}
-.footer-bottom{flex-direction:column}
-
-/* Publications */
-.post{background:#fff;border-radius:16px;box-shadow:var(--sh);overflow:hidden;margin-bottom:14px}
-.post img{width:100%;aspect-ratio:16/10;object-fit:cover}
-.post-body{padding:14px 16px}
-.post .date{font-size:.8rem;color:var(--br);font-weight:600}
-.post h3{margin:.2em 0 .4em}
-.post-actions{display:flex;gap:8px;border-top:1px solid var(--g1);padding:8px 12px}
-.post-actions a{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:600;font-size:.85rem;background:var(--g1);color:var(--bx)}
-
-/* Recherche */
-.srch{position:fixed;inset:0;z-index:120;background:#fff;display:none;flex-direction:column;padding-top:var(--sat)}
-.srch.open{display:flex}
-.srch-top{display:flex;gap:8px;padding:10px;border-bottom:1px solid var(--g2)}
-.srch input{flex:1;min-width:0;min-height:44px;border:1px solid var(--g2);border-radius:100px;padding:0 16px;font:inherit;font-size:1rem;background:var(--g1)}
-.srch ul{overflow:auto;padding:6px 12px}
-.srch li a{display:block;padding:14px 8px;border-bottom:1px solid var(--g1);font-weight:500}
-}
-@media(max-width:380px){
-.am-name{display:none}
-.container{padding:0 12px}
-.stat-strip{grid-template-columns:1fr 1fr}
-}
-@media(min-width:901px){.srch,.ic-btn,.am-name{display:none!important}}
-</style>
-
-<script>
-(function(){
-  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
-  var searchIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>';
-  var burger=document.getElementById('burgerBtn'),row=document.querySelector('.nav-row'),brand=document.querySelector('.brand');
-  if(brand){var n=document.createElement('span');n.className='am-name';n.textContent='AL MAARIFA';brand.appendChild(n)}
-  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=searchIcon;
-  if(row&&burger)row.insertBefore(sb,burger);
-  var s=document.createElement('div');s.className='srch';s.setAttribute('role','dialog');
-  s.innerHTML='<div class="srch-top"><input type="search" placeholder="Rechercher une rubrique" aria-label="Rechercher une rubrique"><button type="button" class="ic-btn" aria-label="Fermer">✕</button></div><ul></ul>';
-  document.body.appendChild(s);
-  var inp=s.querySelector('input'),ul=s.querySelector('ul');
-  function fill(q){
-    q=q.trim().toLowerCase();ul.innerHTML='';var seen={};
-    document.querySelectorAll('.mobile-nav a[href]').forEach(function(a){
-      var t=a.textContent.trim(),h=a.getAttribute('href');
-      if(!t||a.classList.contains('btn')||seen[h+t])return;
-      if(q&&t.toLowerCase().indexOf(q)<0)return;
-      seen[h+t]=1;var li=document.createElement('li');
-      li.innerHTML='<a href="'+h+'"></a>';li.firstChild.textContent=t;ul.appendChild(li)});
-  }
-  function so(o){s.classList.toggle('open',o);if(o){fill('');inp.value='';inp.focus()}}
-  sb.onclick=function(){so(true)};s.querySelector('button').onclick=function(){so(false)};
-  inp.oninput=function(){fill(inp.value)};ul.onclick=function(){so(false)};
-  if(window.AL_LANG)AL_LANG.translate(document.body);
-  document.documentElement.style.overflowX='clip';
-})();
-</script>
 </head>
 <body class="home">
 <a href="#main" class="visually-hidden">Aller au contenu</a>
@@ -530,7 +377,7 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
     <a href="bibliotheque.html" data-nav-link>Bibliothèque</a>
     <details class="m-sub"><summary>Admissions</summary><a href="inscriptions.html" data-nav-link>Inscriptions</a><a href="tarifs.html" data-nav-link>Tarifs</a></details>
     <a href="contact.html" data-nav-link>Contact</a>
-        <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
+    <a class="btn btn-bx" href="inscriptions.html">Inscrire mon enfant</a>
   </nav>
 </header>
 <main id="main">
@@ -599,7 +446,7 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
       <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-elementaire.jpg" alt="Cycle élémentaire — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">02</span><h3>Élémentaire</h3><p>La suite du parcours : enseignement général, français et arabe.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
       <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-moyen.jpg" alt="Cycle moyen — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">03</span><h3>Moyen</h3><p>Un cycle qui poursuit le parcours : enseignement général, langue arabe et éducation islamique.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
       <article class="cycle reveal"><div class="img-slot cycle-img" data-img-slot><img src="cycle-secondaire.jpg" alt="Cycle secondaire — Institut Al Maarifa" loading="lazy" onerror="this.remove();this.parentNode.classList.add('is-empty')"></div><div class="cycle-body"><span class="cycle-n">04</span><h3>Secondaire</h3><p>Le dernier cycle, jusqu'à la terminale, pour préparer la suite des études.</p><h4>Objectifs</h4><ul class="list"><li>Réussite scolaire et maîtrise des disciplines fondamentales</li><li>Maîtrise du français et de l'arabe</li><li>Éducation islamique et valeurs</li></ul><a class="btn btn-line" href="programmes.html">Découvrir</a></div></article>
-      </div>
+    </div>
   </div>
 </section>
 
@@ -612,7 +459,7 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
       <article class="pillar reveal"><span class="pillar-n">II</span><h3>Maîtrise de la langue arabe</h3><p>Valoriser l'apprentissage et la maîtrise de la langue arabe.</p></article>
       <article class="pillar reveal"><span class="pillar-n">III</span><h3>Éducation islamique</h3><p>Promouvoir l'éducation morale, spirituelle et les valeurs islamiques.</p></article>
       <article class="pillar reveal"><span class="pillar-n">IV</span><h3>Formation humaine</h3><p>Développer la discipline, le respect, la responsabilité et le sens du devoir.</p></article>
-      </div>
+    </div>
   </div>
 </section>
 
@@ -672,7 +519,6 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
     </div>
   </div>
 </section>
-
 <!-- VIE À L'INSTITUT -->
 <section class="alt" id="vie">
   <div class="container">
@@ -680,7 +526,7 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
       <div class="reveal"><span class="kicker">Vie scolaire</span><h2>La vie à l'Institut Al Maarifa</h2></div>
       <div class="reveal"><p>Activités pédagogiques, culturelles, sportives et éducatives : découvrez notre environnement scolaire en images.</p><a class="btn btn-line" href="galerie.html">Voir la galerie</a> <a class="btn btn-line" href="activites.html">Nos activités</a></div>
     </div>
-    <div class="mosaic reveal"><figure class="m1"><a href="bati.jpeg" data-lightbox><img src="bati.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m2"><a href="mari.jpeg" data-lightbox><img src="marifa.jpeg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m3"><a href="vie-1.jpg" data-lightbox><img src="vie-1.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m4"><a href="vie-2.jpg" data-lightbox><img src="vie-2.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m5"><a href="vie-3.jpg" data-lightbox><img src="vie-3.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure></div>
+    <div class="mosaic reveal"><figure class="m1"><a href="bati.jpeg" data-lightbox><img src="bati.jpeg" alt="Bâtiment de l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m2"><a href="marifa.jpeg" data-lightbox><img src="marifa.jpeg" alt="Élèves de l'Institut Al Maarifa en classe" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m3"><a href="vie-1.jpg" data-lightbox><img src="vie-1.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m4"><a href="vie-2.jpg" data-lightbox><img src="vie-2.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure><figure class="m5"><a href="vie-3.jpg" data-lightbox><img src="vie-3.jpg" alt="Vie scolaire à l'Institut Al Maarifa" loading="lazy" onerror="this.closest('figure').remove()"></a></figure></div>
   </div>
 </section>
 
@@ -839,7 +685,6 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
 <a class="wa-float" data-wa-link href="https://wa.me/221774036424?text=Assalamu%20alaikum%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20l%27Institut%20Al%20Maarifa." target="_blank" rel="noopener noreferrer" aria-label="Contacter sur WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm4.51 11.94c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.1 0 1.24.9 2.43 1.02 2.6.12.17 1.77 2.75 4.3 3.85.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29Z"/></svg>
 </a>
-
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 (function(){
@@ -848,7 +693,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
   b.addEventListener('click',function(){set(!body.classList.contains('nav-open'))});
   document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);b.focus()}});
-  window.addEventListener('resize',function(){if(innerWidth>1500)set(false)});
+  window.addEventListener('resize',function(){if(innerWidth>1365)set(false)});
 })();
 (function(){
   document.documentElement.classList.add('js-ready');
@@ -1336,7 +1181,7 @@ window.AL_I18N_EXTRA = {
 .lang-btn[aria-pressed=true]{background:#800020;color:#fff;cursor:default}
 .lang-btn:focus-visible{outline:3px solid #A67C52;outline-offset:-3px}
 .lang-switch--float{position:fixed;top:10px;right:10px;z-index:90}
-@media(max-width:1500px){.site-header .lang-switch{margin-inline-start:auto}.site-header .burger{margin-left:0;margin-right:0}}
+@media(max-width:1365px){.site-header .lang-switch{margin-inline-start:auto}.site-header .burger{margin-left:0;margin-right:0}}
 @media(max-width:520px){.lang-btn{padding:9px 14px;min-height:42px}.lang-btn[aria-pressed=true]{display:none}.lang-switch{box-shadow:none}}
 html[lang=ar]{--serif:"Cairo","Amiri","Noto Naskh Arabic",Georgia,serif;--sans:"Cairo","Inter",Tahoma,Arial,sans-serif}
 html[lang=ar] body{line-height:1.85}
@@ -1485,8 +1330,8 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
-
 </script>
+
 <script>
 /* Parallaxe très discret (désactivé si « réduire les animations ») */
 (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -1506,15 +1351,15 @@ links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefaul
 lb.addEventListener('click',function(e){if(e.target===lb)close()});
 lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(i-1)};lb.querySelector('.nx').onclick=function(){show(i+1)};
 document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)})})();
-
 </script>
-  <!-- ===== MOBILE APP-LIKE : à coller juste avant </body> ===== -->
+
+<!-- ===== MOBILE APP-LIKE (barre du haut uniquement) : seule version conservée ===== -->
 <style id="mobile-app">
 @media(max-width:900px){
-:root{--hh:56px;--bar:62px;--sab:env(safe-area-inset-bottom,0px);--sat:env(safe-area-inset-top,0px)}
+:root{--hh:56px;--sab:env(safe-area-inset-bottom,0px);--sat:env(safe-area-inset-top,0px)}
 html{scroll-padding-top:calc(var(--hh) + var(--sat) + 8px)}
 html,html body{background:var(--g1)}
-html body{padding-bottom:calc(var(--bar) + var(--sab));overflow-x:hidden;font-size:1rem;line-height:1.65}
+html body{overflow-x:clip;font-size:1rem;line-height:1.65}
 main,section,.container{max-width:100%}
 img,video{max-width:100%;height:auto}
 .hero-bg img,.hero-bg video,.img-slot img,.cycle-img img,.mosaic img{height:100%}
@@ -1536,8 +1381,8 @@ img,video{max-width:100%;height:auto}
 body.nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 body.nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-/* Menu plein écran */
-.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + var(--sat));bottom:calc(var(--bar) + var(--sab));max-height:none;background:var(--g1);padding:12px 12px 24px;gap:8px;overflow-y:auto;overscroll-behavior:contain;z-index:70;border:0}
+/* Menu plein écran (jusqu'en bas) */
+.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + var(--sat));bottom:0;max-height:none;background:var(--g1);padding:12px 12px calc(24px + var(--sab));gap:8px;overflow-y:auto;overscroll-behavior:contain;z-index:70;border:0}
 .mobile-nav>a,.mobile-nav .m-sub{background:#fff;border-radius:14px;border:0;box-shadow:var(--sh);padding:0;overflow:hidden}
 .mobile-nav>a{padding:14px 16px;min-height:48px;display:flex;align-items:center;border-left:0}
 .mobile-nav>a.active{color:var(--bx);font-weight:700;border-left:4px solid var(--bx);padding-left:12px}
@@ -1548,16 +1393,8 @@ html[dir=rtl] .mobile-nav .m-sub a{padding:13px 28px 13px 16px}
 html[dir=rtl] .mobile-nav>a.active{border-left:0;border-right:4px solid var(--bx);padding-left:16px;padding-right:12px}
 body.nav-open .wa-float{display:none}
 
-/* Barre du bas */
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;background:#fff;border-top:1px solid var(--g2);padding-bottom:var(--sab);height:calc(var(--bar) + var(--sab));box-shadow:0 -2px 10px rgba(51,51,51,.06)}
-.tabbar a,.tabbar button{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;color:#65676B;font:600 .64rem/1.1 var(--sans);cursor:pointer;padding:6px 2px;position:relative;-webkit-tap-highlight-color:transparent}
-.tabbar svg{width:24px;height:24px}
-.tabbar .on{color:var(--bx)}
-.tabbar .on::before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--bx)}
-.tabbar span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
 /* WhatsApp flottant */
-.wa-float{bottom:calc(var(--bar) + var(--sab) + 12px);right:14px;width:50px;height:50px}
+.wa-float{bottom:calc(var(--sab) + 16px);right:14px;width:50px;height:50px}
 html[dir=rtl] .wa-float{right:auto;left:14px}
 
 /* Contenus */
@@ -1633,28 +1470,18 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
 @media(max-width:380px){
 .am-name{display:none}
 .container{padding:0 12px}
-.tabbar a,.tabbar button{font-size:.6rem}
 .stat-strip{grid-template-columns:1fr 1fr}
 }
-@media(min-width:901px){.tabbar,.srch,.ic-btn,.am-name{display:none!important}}
+@media(min-width:901px){.srch,.ic-btn,.am-name{display:none!important}}
 </style>
 
 <script>
 (function(){
-  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Menu":"القائمة","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
-  var I={
-    home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
-    inst:'<path d="M3 9l9-5 9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',
-    news:'<path d="M4 5h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2zM17 9h3v10a2 2 0 0 1-2 2M8 9h5M8 13h5M8 17h5"/>',
-    gal:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-9 9"/>',
-    lib:'<path d="M4 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/>',
-    menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
-    search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>'
-  };
-  function svg(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+I[k]+'</svg>'}
+  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
+  var searchIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>';
   var burger=document.getElementById('burgerBtn'),row=document.querySelector('.nav-row'),brand=document.querySelector('.brand');
   if(brand){var n=document.createElement('span');n.className='am-name';n.textContent='AL MAARIFA';brand.appendChild(n)}
-  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=svg('search');
+  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=searchIcon;
   if(row&&burger)row.insertBefore(sb,burger);
   var s=document.createElement('div');s.className='srch';s.setAttribute('role','dialog');
   s.innerHTML='<div class="srch-top"><input type="search" placeholder="Rechercher une rubrique" aria-label="Rechercher une rubrique"><button type="button" class="ic-btn" aria-label="Fermer">✕</button></div><ul></ul>';
@@ -1672,21 +1499,8 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
   function so(o){s.classList.toggle('open',o);if(o){fill('');inp.value='';inp.focus()}}
   sb.onclick=function(){so(true)};s.querySelector('button').onclick=function(){so(false)};
   inp.oninput=function(){fill(inp.value)};ul.onclick=function(){so(false)};
-  var tabs=[['home','Accueil','index.html','index'],['inst','L\'Institut','index.html#institut','institut'],['news','Actualités','actualites.html','actualites'],['gal','Galerie','galerie.html','galerie'],['lib','Bibliothèque','bibliotheque.html','bibliotheque']];
-  var tb=document.createElement('nav');tb.className='tabbar';tb.setAttribute('aria-label','Navigation mobile rapide');
-  var path=(location.pathname.split('/').pop()||'index.html').replace('.html','');
-  tb.innerHTML=tabs.map(function(t){
-    var on=(t[3]==='institut')?(location.hash==='#institut'):(t[3]==='index'?(path==='index'||path==='')&&location.hash!=='#institut':path===t[3]);
-    return '<a href="'+t[2]+'" data-k="'+t[3]+'"'+(on?' class="on" aria-current="page"':'')+'>'+svg(t[0])+'<span>'+t[1]+'</span></a>'}).join('')
-    +'<button type="button" id="tabMenu" aria-label="Menu">'+svg('menu')+'<span>Menu</span></button>';
-  document.body.appendChild(tb);
-  tb.querySelector('#tabMenu').onclick=function(){burger&&burger.click()};
-  tb.addEventListener('click',function(e){var a=e.target.closest('a[data-k]');if(!a)return;
-    if(path==='index'||path===''){tb.querySelectorAll('a').forEach(function(x){x.classList.remove('on')});a.classList.add('on')}});
-  new MutationObserver(function(){tb.querySelector('#tabMenu').classList.toggle('on',document.body.classList.contains('nav-open'))})
-    .observe(document.body,{attributes:true,attributeFilter:['class']});
   if(window.AL_LANG)AL_LANG.translate(document.body);
-  document.documentElement.style.overflowX='hidden';
+  document.documentElement.style.overflowX='clip';
 })();
 </script>
 </body>
