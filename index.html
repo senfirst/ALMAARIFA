@@ -1352,7 +1352,6 @@ lb.addEventListener('click',function(e){if(e.target===lb)close()});
 lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(i-1)};lb.querySelector('.nx').onclick=function(){show(i+1)};
 document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)})})();
 </script>
-
 <!-- ===== MOBILE APP-LIKE (barre du haut uniquement) : seule version conservée ===== -->
 <style id="mobile-app">
 @media(max-width:900px){
@@ -1382,13 +1381,16 @@ body.nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 body.nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* Menu plein écran (jusqu'en bas) */
+body.nav-open{overflow:hidden}
 .mobile-nav{position:fixed;left:0;right:0;top:calc(var(--hh) + var(--sat));bottom:0;max-height:none;background:var(--g1);padding:12px 12px calc(24px + var(--sab));gap:8px;overflow-y:auto;overscroll-behavior:contain;z-index:70;border:0}
-.mobile-nav>a,.mobile-nav .m-sub{background:#fff;border-radius:14px;border:0;box-shadow:var(--sh);padding:0;overflow:hidden}
+.mobile-nav>a,.mobile-nav .m-sub{background:#fff;border-radius:14px;border:0;box-shadow:var(--sh);padding:0;overflow:hidden;flex:0 0 auto}
 .mobile-nav>a{padding:14px 16px;min-height:48px;display:flex;align-items:center;border-left:0}
 .mobile-nav>a.active{color:var(--bx);font-weight:700;border-left:4px solid var(--bx);padding-left:12px}
 .mobile-nav .m-sub summary{padding:14px 16px;min-height:48px;border:0}
 .mobile-nav .m-sub a{display:block;border:0;border-top:1px solid var(--g1);border-radius:0;padding:13px 16px 13px 28px;background:#fff;font-size:.95rem}
-.mobile-nav .btn{margin-top:6px;border:0;color:#fff;width:100%}
+/* Correction : le bouton « Inscrire mon enfant » restait blanc sur blanc */
+.mobile-nav>a.btn{background:var(--bx);color:#fff;justify-content:center;box-shadow:none;margin-top:10px;width:100%;border-radius:var(--r)}
+.mobile-nav>a.btn:hover{background:var(--bx-d)}
 html[dir=rtl] .mobile-nav .m-sub a{padding:13px 28px 13px 16px}
 html[dir=rtl] .mobile-nav>a.active{border-left:0;border-right:4px solid var(--bx);padding-left:16px;padding-right:12px}
 body.nav-open .wa-float{display:none}
@@ -1473,6 +1475,50 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
 .stat-strip{grid-template-columns:1fr 1fr}
 }
 @media(min-width:901px){.srch,.ic-btn,.am-name{display:none!important}}
+
+/* Correction : menu horizontal PC trop serré entre 1366 et 1699 px */
+@media(min-width:1366px) and (max-width:1699px){
+.nav-row{gap:10px;padding:0 16px}
+.brand-text{display:none!important}
+.brand img{height:96px}
+.main-nav{gap:0}
+.main-nav a{padding:9px 7px;font-size:.82rem}
+.main-nav .has-sub>a::after{margin-inline-start:5px}
+.lang-btn{padding:9px 12px}
+}
+@media(min-width:1366px){:root{--hh:120px}}
+</style>
+
+<script>
+(function(){
+  if(window.AL_LANG)AL_LANG.add({"AL MAARIFA":"المعارف","Recherche":"بحث","Rechercher une rubrique":"ابحث عن قسم","Fermer":"إغلاق"});
+  var searchIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>';
+  var burger=document.getElementById('burgerBtn'),row=document.querySelector('.nav-row'),brand=document.querySelector('.brand');
+  if(brand){var n=document.createElement('span');n.className='am-name';n.textContent='AL MAARIFA';brand.appendChild(n)}
+  var sb=document.createElement('button');sb.type='button';sb.className='ic-btn';sb.setAttribute('aria-label','Recherche');sb.innerHTML=searchIcon;
+  if(row&&burger)row.insertBefore(sb,burger);
+  var s=document.createElement('div');s.className='srch';s.setAttribute('role','dialog');
+  s.innerHTML='<div class="srch-top"><input type="search" placeholder="Rechercher une rubrique" aria-label="Rechercher une rubrique"><button type="button" class="ic-btn" aria-label="Fermer">✕</button></div><ul></ul>';
+  document.body.appendChild(s);
+  var inp=s.querySelector('input'),ul=s.querySelector('ul');
+  function fill(q){
+    q=q.trim().toLowerCase();ul.innerHTML='';var seen={};
+    document.querySelectorAll('.mobile-nav a[href]').forEach(function(a){
+      var t=a.textContent.trim(),h=a.getAttribute('href');
+      if(!t||a.classList.contains('btn')||seen[h+t])return;
+      if(q&&t.toLowerCase().indexOf(q)<0)return;
+      seen[h+t]=1;var li=document.createElement('li');
+      li.innerHTML='<a href="'+h+'"></a>';li.firstChild.textContent=t;ul.appendChild(li)});
+  }
+  function so(o){s.classList.toggle('open',o);if(o){fill('');inp.value='';inp.focus()}}
+  sb.onclick=function(){so(true)};s.querySelector('button').onclick=function(){so(false)};
+  inp.oninput=function(){fill(inp.value)};ul.onclick=function(){so(false)};
+  if(window.AL_LANG)AL_LANG.translate(document.body);
+  document.documentElement.style.overflowX='clip';
+})();
+</script>
+</body>
+</html>
 </style>
 
 <script>
