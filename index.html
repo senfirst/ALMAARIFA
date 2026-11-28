@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="s.css">
 
 <style>
-:root{--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
+:root{--ease:cubic-bezier(.2,.7,.2,1);--wine:#800020;--wine-d:#5C1025;--gold-l:#E8D2B4;--bx:#800020;--bx-d:#5C1025;--g1:#F1F2F4;--g2:#D9DADD;--ink:#333;--br:#704214;--br-l:#A67C52;--w:#fff;
 --serif:"Playfair Display",Georgia,serif;--sans:"Inter","Helvetica Neue",Arial,sans-serif;--r:10px;--wrap:1200px;--hh:144px;
 --sh:0 1px 3px rgba(51,51,51,.08),0 10px 24px -14px rgba(51,51,51,.25)}
 *,*::before,*::after{box-sizing:border-box}
@@ -204,6 +204,7 @@ html[dir=rtl] .parrain-quote{font-style:normal;border-left:0;border-right:3px so
 /* images du logo (en-tête et pied de page) */
 .site-header .brand img,.site-footer .footer-brand img{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;width:auto!important;object-fit:contain!important}
 </style>
+
 <style id="theme-prestige">
 /* ===== Phase 2 : inspiration « grande école internationale » ===== */
 :root{--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none' stroke='%23C9A961' stroke-opacity='.32' stroke-width='1'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='5'/%3E%3C/svg%3E")}
@@ -302,9 +303,6 @@ html[dir=rtl] .lang-switch--float{right:auto;left:10px}
 </style>
 
 <style id="fix-mobile">
-/* Variables manquantes (ancien thème vert) */
-:root{--ease:cubic-bezier(.2,.7,.2,1);--wine:#800020;--wine-d:#5C1025;--gold-l:#E8D2B4}
-
 /* Fond du hero : bordeaux si l'image ou la vidéo ne charge pas (texte blanc toujours lisible) */
 html,body{background:#fff}
 .hero{background:var(--bx-d);min-height:clamp(480px,78vh,720px);min-height:clamp(480px,78svh,720px)}
@@ -321,6 +319,8 @@ html,body{background:#fff}
 .main-nav .sub a:hover{background:rgba(128,0,32,.08)}
 .img-slot.is-empty{background:var(--pat),linear-gradient(135deg,#F6E9EC,#F7F0DC)}
 .lb{background:rgba(40,6,16,.95)}
+.hero .lead{max-width:52ch;font-size:1.05rem;color:#F1E3D0}
+.mosaic .m5{grid-column:span 2}
 </style>
 
 <script type="application/ld+json">
@@ -339,7 +339,7 @@ html,body{overflow-x:clip!important}
   body{padding-top:calc(var(--hh) + env(safe-area-inset-top,0px))}
 }
 </style>
-</head>
+  </head>
 <body class="home">
 <a href="#main" class="visually-hidden">Aller au contenu</a>
 <header class="site-header">
