@@ -1426,5 +1426,208 @@ html[dir=rtl] .step-item::before{left:auto;right:-30px}
   document.documentElement.style.overflowX='clip';
 })();
 </script>
+  <!-- ===== MENU DE NAVIGATION (hamburger + tiroir) — à coller juste avant </body> ===== -->
+<style id="nav-system">
+/* =====================================================================
+   nav.css — Système de navigation unique · Institut Al Maarifa
+   ≥1366px : menu horizontal à sous-menus (inchangé)
+   ≤1365px : bouton hamburger + tiroir latéral avec voile (téléphones et tablettes)
+   Remplace TOUTES les anciennes règles .burger / .mobile-nav / .m-sub.
+   ===================================================================== */
+:root{--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--nav-top:var(--hh)}
+.site-header{padding-top:var(--sat)}
+
+/* ---- Bouton hamburger : 3 barres -> croix ---- */
+.burger{display:none;flex:0 0 auto;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:44px;height:44px;margin:0;padding:0;border:1px solid var(--g2);border-radius:50%;background:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .25s,border-color .25s}
+.burger span{display:block;flex:none;width:20px;height:2px;border-radius:2px;background:var(--bx-d);transition:transform .3s var(--ease),opacity .2s,background .25s}
+.burger:hover{background:var(--g1)}
+body.nav-open .burger{background:var(--bx);border-color:var(--bx)}
+body.nav-open .burger span{background:#fff}
+body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .burger span:nth-child(2){opacity:0;transform:scaleX(0)}
+body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* bouton rond générique (recherche mobile, fermeture de la recherche) */
+.ic-btn{flex:0 0 auto;width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background:var(--g1);color:var(--bx-d);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.ic-btn svg{width:22px;height:22px}
+
+/* ---- Voile derrière le tiroir ---- */
+.nav-backdrop{position:fixed;inset:0;z-index:55;background:rgba(40,6,16,.55);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
+body.nav-open .nav-backdrop{opacity:1;visibility:visible}
+html.nav-lock,html.nav-lock body{overflow-y:hidden!important}
+body.nav-open .wa-float{display:none}
+
+/* ---- Tiroir ---- */
+.mobile-nav{position:fixed;top:var(--nav-top);bottom:0;inset-inline-end:0;z-index:70;display:flex;flex-direction:column;width:min(88vw,400px);max-height:none;padding:6px 0 calc(24px + var(--sab));background:#fff;border-top:3px solid var(--br-l);box-shadow:-24px 0 48px -24px rgba(40,6,16,.45);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;transform:translateX(100%);visibility:hidden;transition:transform .4s var(--ease),visibility 0s .4s}
+html[dir=rtl] .mobile-nav{transform:translateX(-100%);box-shadow:24px 0 48px -24px rgba(40,6,16,.45)}
+body.nav-open .mobile-nav{transform:none;visibility:visible;transition:transform .4s var(--ease),visibility 0s}
+
+.mobile-nav>*{opacity:0;transform:translateX(18px);transition:opacity .35s ease,transform .45s var(--ease),background .2s,color .2s}
+html[dir=rtl] .mobile-nav>*{transform:translateX(-18px)}
+body.nav-open .mobile-nav>*{opacity:1;transform:none;transition-delay:calc(var(--i,0)*35ms + 120ms),calc(var(--i,0)*35ms + 120ms),0s,0s}
+
+.mobile-nav>a,.mobile-nav .m-sub summary{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 24px;font:600 1.08rem var(--serif);color:var(--bx-d);border-bottom:1px solid var(--g1);cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+.mobile-nav>a:hover,.mobile-nav .m-sub summary:hover{background:var(--g1)}
+.mobile-nav>a.active{color:var(--bx);background:var(--g1);box-shadow:inset 4px 0 0 var(--bx)}
+html[dir=rtl] .mobile-nav>a.active{box-shadow:inset -4px 0 0 var(--bx)}
+.m-sub summary::-webkit-details-marker{display:none}
+.m-sub summary::after{content:"";flex:0 0 auto;width:14px;height:14px;color:var(--br);background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat;transition:transform .3s var(--ease)}
+.m-sub[open] summary{color:var(--bx)}
+.m-sub[open] summary::after{transform:rotate(45deg)}
+.mobile-nav .m-sub a{display:block;padding:13px 24px;padding-inline-start:40px;font:500 .98rem var(--sans);color:var(--ink);background:var(--g1);border-bottom:1px solid #fff;animation:navSub .3s var(--ease) both}
+.mobile-nav .m-sub a:hover{color:var(--bx)}
+@keyframes navSub{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mobile-nav>a.btn{justify-content:center;min-height:52px;margin:22px 24px 0;padding:12px 20px;border:2px solid var(--bx);border-radius:var(--r);background:var(--bx);color:#fff;font:600 .95rem var(--sans);box-shadow:none}
+.mobile-nav>a.btn:hover{background:var(--bx-d)}
+.am-name{display:none}
+
+/* ---- ≥1366px : menu horizontal, le tiroir n'existe pas ---- */
+@media(min-width:1366px){.burger,.mobile-nav,.nav-backdrop{display:none!important}}
+
+/* ---- ≤1365px : tablettes et téléphones ---- */
+@media(max-width:1365px){
+  :root{--hh:76px}
+  .site-header .main-nav{display:none}
+  .burger{display:flex}
+  .nav-row{height:var(--hh);max-width:100%;padding:0 18px;gap:10px}
+  .brand{flex:1 1 auto;min-width:0;gap:12px}
+  .site-header .brand img{height:56px;width:auto}
+  .brand-text{display:flex}
+  .brand-text span,.brand-text em{display:none}
+  .brand-text strong{font-size:1rem}
+  .site-header .lang-switch{margin-inline-start:auto;box-shadow:none;border-width:1.5px}
+  .lang-btn{min-height:38px;padding:8px 14px;font-size:.8rem}
+  .lang-btn[lang=ar]{font-size:.92rem}
+  .lang-btn[aria-pressed=true]{display:inline-block}
+}
+/* ---- ≤640px : téléphones ---- */
+@media(max-width:640px){
+  :root{--hh:64px}
+  .nav-row{padding:0 12px;gap:8px}
+  .site-header .brand img{height:48px}
+  .brand{gap:8px}
+  .brand-text{display:none}
+  .am-name{display:block;font:700 1rem var(--serif);color:var(--bx);letter-spacing:.03em;white-space:nowrap}
+  .lang-btn{min-height:36px;padding:7px 10px;font-size:.74rem}
+  .lang-btn[lang=ar]{font-size:.85rem}
+  .burger{width:42px;height:42px}
+}
+@media(max-width:380px){.am-name{display:none}}
+/* paysage téléphone : lignes plus compactes pour limiter le défilement */
+@media(max-height:480px){.mobile-nav>a,.mobile-nav .m-sub summary{min-height:46px}}
+@media(prefers-reduced-motion:reduce){.mobile-nav>*{transition:none}}
+
+/* ---- Compatibilité : neutralise les anciennes règles encore présentes dans la page ---- */
+.site-header .burger{width:44px;height:44px;border:1px solid var(--g2);border-radius:50%;background:#fff;gap:5px;margin:0}
+body.nav-open .site-header .burger{background:var(--bx);border-color:var(--bx)}
+.site-header .mobile-nav{display:flex;left:auto;right:0;gap:0;border-radius:0;overflow-x:hidden}
+.site-header .mobile-nav>a,.site-header .mobile-nav .m-sub{border-radius:0;box-shadow:none;overflow:visible;background:transparent;border-left:0}
+.site-header .mobile-nav>a{padding:0 24px}
+.site-header .mobile-nav>a.active{box-shadow:inset 4px 0 0 var(--bx);background:var(--g1);padding:0 24px}
+html[dir=rtl] .site-header .mobile-nav>a.active{box-shadow:inset -4px 0 0 var(--bx);border-right:0;padding:0 24px}
+.site-header .mobile-nav .m-sub a{border-top:0;border-radius:0;padding:13px 24px;padding-inline-start:40px}
+html[dir=rtl] .site-header .mobile-nav .m-sub a{padding:13px 24px;padding-inline-start:40px}
+.site-header .mobile-nav>a.btn{width:auto;padding:12px 20px;margin:22px 24px 0;background:var(--bx)}
+@media(max-width:1365px){
+  .site-header .brand img{height:56px!important}
+  .site-header .brand-text{display:flex!important}
+  .site-header .brand-text span,.site-header .brand-text em{display:none}
+}
+@media(max-width:640px){
+  .site-header .brand img{height:48px!important}
+  .site-header .brand-text{display:none!important}
+  .site-header .burger{width:42px;height:42px}
+}
+@media(min-width:1366px){.site-header .burger,.site-header .mobile-nav{display:none!important}}
+html[dir=rtl] .site-header .mobile-nav{left:0;right:auto}
+
+</style>
+<script id="nav-system-js">
+/* nav.js — comportement du menu hamburger (remplace l'ancien script burgerBtn) */
+(function () {
+  'use strict';
+  var root = document.documentElement, body = document.body;
+  var header = document.querySelector('.site-header');
+  var burger = document.getElementById('burgerBtn');
+  var nav = document.getElementById('mobileNav');
+  if (!header || !burger || !nav) return;
+
+  // retire les anciens écouteurs du bouton (ancien script de la page)
+  var fresh = burger.cloneNode(true); burger.parentNode.replaceChild(fresh, burger); burger = fresh;
+
+  var bd = document.getElementById('navBackdrop');
+  if (!bd) {
+    bd = document.createElement('div');
+    bd.id = 'navBackdrop';
+    bd.className = 'nav-backdrop';
+    bd.setAttribute('aria-hidden', 'true');
+    header.insertAdjacentElement('afterend', bd);
+  }
+  var desktop = window.matchMedia('(min-width:1366px)');
+  var open = false;
+
+  [].forEach.call(nav.children, function (el, i) { el.style.setProperty('--i', i); });
+  nav.setAttribute('inert', '');
+
+  function measure() { root.style.setProperty('--nav-top', header.offsetHeight + 'px'); }
+
+  function setOpen(v) {
+    if (v === open || (v && desktop.matches)) return;
+    open = v;
+    if (v) measure();
+    body.classList.toggle('nav-open', v);
+    root.classList.toggle('nav-lock', v);
+    if (v) nav.removeAttribute('inert'); else nav.setAttribute('inert', '');
+    burger.setAttribute('aria-expanded', String(v));
+    burger.setAttribute('aria-label', v ? 'Fermer le menu' : 'Ouvrir le menu');
+    if (window.AL_LANG) AL_LANG.translate(burger);
+  }
+
+  burger.addEventListener('click', function () { setOpen(!open); });
+  bd.addEventListener('click', function () { setOpen(false); });
+
+  // fermeture après choix d'une rubrique
+  nav.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (a) setOpen(false);
+  });
+
+  // clic en dehors du tiroir (hors bouton, langue, recherche)
+  document.addEventListener('click', function (e) {
+    if (!open) return;
+    var t = e.target;
+    if (nav.contains(t) || burger.contains(t)) return;
+    if (t.closest && (t.closest('.lang-switch') || t.closest('.srch'))) return;
+    setOpen(false);
+  });
+
+  // une seule rubrique dépliée à la fois
+  nav.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (!d.open) return;
+    [].forEach.call(nav.querySelectorAll('details[open]'), function (o) { if (o !== d) o.open = false; });
+  }, true);
+
+  document.addEventListener('keydown', function (e) {
+    if (!open) return;
+    if (e.key === 'Escape') { setOpen(false); burger.focus(); return; }
+    if (e.key !== 'Tab') return;
+    var f = [].filter.call(nav.querySelectorAll('summary,a[href]'), function (x) { return x.offsetParent !== null; });
+    if (!f.length) return;
+    var last = f[f.length - 1], ae = document.activeElement;
+    if (e.shiftKey && ae === burger) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && ae === last) { e.preventDefault(); burger.focus(); }
+  });
+
+  function onResize() { if (desktop.matches) setOpen(false); else if (open) measure(); }
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', onResize);
+  window.addEventListener('load', measure);
+  if ('ResizeObserver' in window) new ResizeObserver(function () { if (open) measure(); }).observe(header);
+  measure();
+})();
+
+</script>
+<!-- ===== FIN MENU ===== -->
 </body>
 </html>
